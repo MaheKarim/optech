@@ -1,0 +1,41 @@
+{
+    "about": {
+        "builder": true,
+        "name": "About Us",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "images": {
+                "solar_image": {
+                        "size": "300x300"
+                }
+            }
+        }
+    },
+    "how_to_order": {
+        "builder": true,
+        "name": "How To Order Section",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "button_link": "text",
+            "video_link": "text",
+            "images": {
+                "image": {
+                    "size": "306x309"
+                }
+            }
+        },
+        "element": {
+            "description_text": "text",
+            "modal": false
+        }
+    },
+    "categories": {
+        "builder": true,
+        "name": "Categories Section",
+        "content": {
+            "heading": "text"
+        }
+    }
+}
