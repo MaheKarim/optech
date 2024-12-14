@@ -131,6 +131,7 @@
                                     <div class="current-menu-title"></div>
                                     <div class="mobile-menu-close">&times;</div>
                                 </div>
+
                                 <ul class="site-menu-main">
                                     <li class="nav-item nav-item-has-children">
                                         <a href="#" class="nav-link-item drop-trigger">Home <i class="ri-arrow-down-s-fill"></i></a>
@@ -341,7 +342,6 @@
                                         <a href="contact-us.html" class="nav-link-item">Contact</a>
                                     </li>
                                 </ul>
-
 
                             </nav>
                         </div>
@@ -1180,7 +1180,6 @@
      <script src="{{ asset('frontend/assets/js/slick.js') }}"></script>
      <script src="{{ asset('frontend/assets/js/countdown.js') }}"></script>
      <script src="{{ asset('frontend/assets/js/skillbar.js') }}"></script>
-     <script src="{{ asset('frontend/assets/js/slick-animation.js') }}"></script>
      <script src="{{ asset('frontend/assets/js/slick-animation.min.js') }}"></script>
      <script src="{{ asset('frontend/assets/js/faq.js') }}"></script>
      <script src="{{ asset('frontend/assets/js/isotope.pkgd.min.js') }}"></script>
