@@ -85,43 +85,43 @@
                                         <a href="#" class="nav-link-item drop-trigger">Home <i class="ri-arrow-down-s-fill"></i></a>
                                         <ul class="sub-menu" id="submenu-1">
                                             <li class="sub-menu--item">
-                                                <a href="index.html">
-                                                    <span class="menu-item-text">Main Demo</span>
+                                                <a href="{{ route('home', ['theme' => 'main_demo']) }}">
+                                                    <span class="menu-item-text">{{ __('translate.Main Demo') }}</span>
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="index-02.html">
-                                                    <span class="menu-item-text">IT Solutions</span>
+                                                <a href="{{ route('home', ['theme' => 'it_solutions']) }}">
+                                                    <span class="menu-item-text">{{ __('translate.IT Solutions') }}</span>
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="index-03.html">
-                                                    <span class="menu-item-text">Tech Agency</span>
+                                                <a href="{{ route('home', ['theme' => 'tech_agency']) }}">
+                                                    <span class="menu-item-text">{{ __('translate.Tech Agency')}}</span>
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="index-04.html">
-                                                    <span class="menu-item-text">Startup Home</span>
+                                                <a href="{{ route('home', ['theme' => 'startup_home']) }}">
+                                                    <span class="menu-item-text">{{ __('translate.Startup Home') }}</span>
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="index-05.html">
-                                                    <span class="menu-item-text">IT Consulting</span>
+                                                <a href="{{ route('home', ['theme' => 'it_consulting']) }}">
+                                                    <span class="menu-item-text">{{ __('translate.IT Consulting') }}</span>
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="index-06.html">
-                                                    <span class="menu-item-text">Software Company</span>
+                                                <a href="{{ route('home', ['theme' => 'soft_company']) }}">
+                                                    <span class="menu-item-text">{{ __('translate.Software Company') }}</span>
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="index-07.html">
-                                                    <span class="menu-item-text">Digital Agency</span>
+                                                <a href="{{ route('home', ['theme' => 'digital_agency']) }}">
+                                                    <span class="menu-item-text">{{ __('translate.Digital Agency') }}</span>
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="index-08.html">
-                                                    <span class="menu-item-text">Tech Company</span>
+                                                <a href="{{ route('home', ['theme' => 'tech_company']) }}">
+                                                    <span class="menu-item-text">{{ __('translate.Tech Company') }}</span>
                                                 </a>
                                             </li>
                                         </ul>
