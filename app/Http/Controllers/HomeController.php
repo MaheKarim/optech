@@ -36,34 +36,34 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $theme_setting = GlobalSetting::where('key', 'selected_theme')->first();
+//        dd($theme_setting);
 
-        if($theme_setting->value == 'all_theme'){
+        if($theme_setting->value == 'main_demo'){
             if($request->has('theme')){
                 $theme = $request->theme;
-                if($theme == 'one'){
-                    Session::put('selected_theme', 'theme_one');
-                }elseif($theme == 'two'){
-                    Session::put('selected_theme', 'theme_two');
+                if($theme == 'it_solutions'){
+                    Session::put('selected_theme', 'it_solutions');
+                }elseif($theme == 'tech_agency'){
+                    Session::put('selected_theme', 'tech_agency');
                 }else{
                     if(!Session::has('selected_theme')){
-                        Session::put('selected_theme', 'theme_one');
+                        Session::put('selected_theme', 'main_demo');
                     }
                 }
             }else{
-                Session::put('selected_theme', 'theme_one');
+                Session::put('selected_theme', 'main_demo');
             }
         }else{
-            if($theme_setting->value == 'theme_one'){
-                Session::put('selected_theme', 'theme_one');
-            }elseif($theme_setting->value == 'theme_two'){
-                Session::put('selected_theme', 'theme_two');
+            if($theme_setting->value == 'it_solutions'){
+                Session::put('selected_theme', 'it_solutions');
+            }elseif($theme_setting->value == 'tech_agency'){
+                Session::put('selected_theme', 'tech_agency');
             }
         }
 
         $homepage = Homepage::first();
 
         $featured_services = Listing::with('seller')->where(['status' => 'enable', 'approved_by_admin' => 'approved', 'is_featured' => 'enable'])->latest()->take(10)->get();
-
 
         $job_posts = JobPost::where(['status' => 'enable', 'approved_by_admin' => 'approved'])->latest()->take(10)->get();
 
@@ -89,9 +89,10 @@ class HomeController extends Controller
         $categories = Category::where('status', 'enable')->latest()->get();
 
         $selected_theme = Session::get('selected_theme');
+//        dd($selected_theme);
 
-        if ($selected_theme == 'theme_one'){
-            return view('index', [
+        if ($selected_theme == 'main_demo'){
+            return view('frontend.templates.main_demo', [
                 'seo_setting' => $seo_setting,
                 'homepage' => $homepage,
                 'categories' => $categories,
@@ -103,8 +104,8 @@ class HomeController extends Controller
                 'latest_services' => $latest_services,
                 'home2_filter_service' => $home2_filter_service,
             ]);
-        }elseif($selected_theme == 'theme_two'){
-            return view('index2', [
+        }elseif($selected_theme == 'it_solutions'){
+            return view('frontend.templates.it_solutions', [
                 'seo_setting' => $seo_setting,
                 'homepage' => $homepage,
                 'categories' => $categories,
@@ -117,7 +118,7 @@ class HomeController extends Controller
                 'home2_filter_service' => $home2_filter_service,
             ]);
         }else{
-            return view('index', [
+            return view('frontend.templates.main_demo', [
                 'seo_setting' => $seo_setting,
                 'homepage' => $homepage,
                 'categories' => $categories,

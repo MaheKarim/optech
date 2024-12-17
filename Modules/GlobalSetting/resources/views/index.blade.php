@@ -120,10 +120,14 @@
                                                                                         <div class="crancy__item-form--group  mg-top-form-20">
                                                                                             <label class="crancy__item-label">{{ __('translate.Select Theme') }}</label>
                                                                                             <select class="form-select crancy__item-input" name="selected_theme">
-                                                                                                <option {{ $general_setting->selected_theme == 'all_theme' ? 'selected' : '' }} value="all_theme">{{ __('translate.All Theme') }}</option>
-                                                                                                <option {{ $general_setting->selected_theme == 'theme_one' ? 'selected' : '' }} value="theme_one">{{ __('translate.Theme One') }}</option>
-                                                                                                <option {{ $general_setting->selected_theme == 'theme_two' ? 'selected' : '' }} value="theme_two">{{ __('translate.Theme Two') }}</option>
-
+                                                                                                <option {{ $general_setting->selected_theme == 'main_demo' ? 'selected' : '' }} value="main_demo">{{ __('translate.Main Demo') }}</option>
+                                                                                                <option {{ $general_setting->selected_theme == 'it_solutions' ? 'selected' : '' }} value="it_solutions">{{ __('translate.IT Solutions') }}</option>
+                                                                                                <option {{ $general_setting->selected_theme == 'tech_agency' ? 'selected' : '' }} value="tech_agency">{{ __('translate.Tech Agency') }}</option>
+                                                                                                <option {{ $general_setting->selected_theme == 'startup_home' ? 'selected' : '' }} value="startup_home">{{ __('translate.Startup Home') }}</option>
+                                                                                                <option {{ $general_setting->selected_theme == 'it_consulting' ? 'selected' : '' }} value="it_consulting">{{ __('translate.IT Consulting') }}</option>
+                                                                                                <option {{ $general_setting->selected_theme == 'soft_company' ? 'selected' : '' }} value="soft_company">{{ __('translate.Software Company') }}</option>
+                                                                                                <option {{ $general_setting->selected_theme == 'digital_agency' ? 'selected' : '' }} value="digital_agency">{{ __('translate.Digital Agency') }}</option>
+                                                                                                <option {{ $general_setting->selected_theme == 'tech_company' ? 'selected' : '' }} value="tech_company">{{ __('translate.Tech Company') }}</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -988,7 +992,7 @@
 
 
 
-        
+
 
 
         function reviewImage(event) {

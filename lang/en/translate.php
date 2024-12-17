@@ -1141,7 +1141,15 @@
   'You have already enrolled trail version' => 'You have already enrolled trail version',
   'Enrolled Successfully' => 'Enrolled Successfully',
   'Manage Frontend' => 'Manage Frontend',
-     'Frontend Management' => 'Frontend Management',
-     'Component Management' => 'Component Management',
+  'Frontend Management' => 'Frontend Management',
+  'Component Management' => 'Component Management',
+     'Main Demo' => 'Main Demo',
+     'IT Solutions' => 'IT Solutions',
+     'Tech Agency' => 'Tech Agency',
+     'Startup Home' => 'Startup Home',
+     'IT Consulting' => 'IT Consulting',
+     'Software Company' => 'Software Company',
+     'Digital Agency' => 'Digital Agency',
+     'Tech Company' => 'Tech Company',
 
 );
