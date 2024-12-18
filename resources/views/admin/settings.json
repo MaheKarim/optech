@@ -1,13 +1,18 @@
 {
-    "about": {
+    "main_demo_hero": {
         "builder": true,
-        "name": "About Us",
+        "name": "Main Demo - Hero Section",
         "content": {
             "heading": "text",
             "description": "text",
+            "small_description": "text",
+            "left_button_text": "text",
+            "left_button_url": "url",
+            "right_button_text": "text",
+            "right_button_url": "url",
             "images": {
                 "solar_image": {
-                        "size": "300x300"
+                        "size": "516x578"
                 }
             }
         }

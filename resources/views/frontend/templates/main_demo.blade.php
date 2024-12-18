@@ -140,17 +140,17 @@
                                             </li>
 
                                             <li class="sub-menu--item nav-item-has-children">
-                                                <a href="#" data-menu-get="h3" class="drop-trigger">blog <i
+                                                <a href="#" data-menu-get="h3" class="drop-trigger">{{ __('translate.Blog') }} <i
                                                         class="ri-arrow-down-s-fill"></i></a>
                                                 <ul class="sub-menu shape-none" id="submenu-3">
                                                     <li class="sub-menu--item">
-                                                        <a href="blog.html">
-                                                            <span class="menu-item-text">Blog</span>
+                                                        <a href="{{ route('blogs') }}">
+                                                            <span class="menu-item-text">{{ __('translate.Blog') }}</span>
                                                         </a>
                                                     </li>
                                                     <li class="sub-menu--item">
-                                                        <a href="blog-grid.html">
-                                                            <span class="menu-item-text">Blog grid</span>
+                                                        <a href="{{ route('blogs') }}">
+                                                            <span class="menu-item-text">Blog Grid</span>
                                                         </a>
                                                     </li>
                                                     <li class="sub-menu--item">
@@ -262,7 +262,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item nav-item-has-children">
-                                        <a href="#" class="nav-link-item drop-trigger">Blog <i class="ri-arrow-down-s-fill"></i></a>
+                                        <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Blog') }} <i class="ri-arrow-down-s-fill"></i></a>
                                         <ul class="sub-menu" id="submenu-9">
                                             <li class="sub-menu--item">
                                                 <a href="{{ route('blogs') }}">
@@ -270,13 +270,8 @@
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="blog-grid.html">
+                                                <a href="{{ route('blogs') }}">
                                                     <span class="menu-item-text">Blog grid</span>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item">
-                                                <a href="single-blog.html">
-                                                    <span class="menu-item-text">Blog Details</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -339,6 +334,7 @@
 
     <div class="search-overlay"></div>
     <!-- Secondary Nav End -->
+
     <div class="optech-hero-section bg-cover" style="background-image: url({{ asset('frontend/assets/img/hero/bg1.png') }})">
         <div class="container">
             <div class="row">
