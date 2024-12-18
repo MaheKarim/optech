@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/digital_agency.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/digital_agency.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/soft_company.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/soft_company.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/startup_home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/startup_home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/tech_company.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/tech_company.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +251,8 @@
       <workItem from="1734157109156" duration="9223000" />
       <workItem from="1734179162287" duration="76000" />
       <workItem from="1734410913878" duration="2685000" />
-      <workItem from="1734413990393" duration="15458000" />
+      <workItem from="1734413990393" duration="16100000" />
+      <workItem from="1734498126795" duration="2955000" />
     </task>
     <servers />
   </component>

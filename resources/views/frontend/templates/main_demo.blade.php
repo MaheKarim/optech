@@ -53,7 +53,7 @@
                         fill="white" />
                 </svg>
               </span>
-                            <a href="{{ route('login') }}" class="login-btn">Login</a>
+                            <a href="{{ route('login') }}" class="login-btn">{{ __('translate.Login') }}</a>
                         </div>
                     </div>
                 </div>
