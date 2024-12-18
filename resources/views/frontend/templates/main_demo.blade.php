@@ -7,9 +7,9 @@
                 <div class="optech-header-info-wrap">
                     <div class="optech-header-info ">
                         <ul>
-                            <li><i class="ri-map-pin-2-fill"></i>2774 Oak Drive, Plattsburgh, New York</li>
-                            <li><a href="tel:123"><i class="ri-phone-fill"></i>518-564-3200</a></li>
-                            <li><a href="mailto:name@email.com"><i class="ri-mail-fill"></i>tecbolt@example.com</a></li>
+                            <li><i class="ri-map-pin-2-fill"></i>{{ $footer->address }}</li>
+                            <li><a href="tel:{{ $footer->phone }}"><i class="ri-phone-fill"></i>{{ $footer->phone }}</a></li>
+                            <li><a href="mailto:{{ $footer->email }}"><i class="ri-mail-fill"></i> {{ $footer->email }} </a></li>
                         </ul>
                     </div>
 
@@ -22,10 +22,10 @@
                         fill="white" />
                 </svg>
               </span>
-                            <select class="js-example-basic-single" name="state">
-                                <option value="AL">USD</option>
-                                <option value="WY">EUR</option>
-                                <option value="WY">INR</option>
+                            <select class="js-example-basic-single" name="currency_code">
+                                @foreach ($currency_list as $currency_item)
+                                    <option {{ Session::get('currency_code') == $currency_item->currency_code ? 'selected' : '' }} value="{{ $currency_item->currency_code }}">{{ $currency_item->currency_name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -37,11 +37,10 @@
                         fill="white" />
                 </svg>
               </span>
-                            <select class="js-example-basic-single" name="state">
-                                <option value="AL">ENG</option>
-                                <option value="WY">SPN</option>
-                                <option value="WY">BNG</option>
-                                <option value="WY">RUS</option>
+                            <select class="js-example-basic-single" name="lang_code">
+                                @foreach ($language_list as $language_item)
+                                    <option {{ Session::get('front_lang') == $language_item->lang_code ? 'selected' : '' }} value="{{ $language_item->lang_code }}">{{ $language_item->lang_name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -65,8 +64,8 @@
                     <nav class="navbar site-navbar">
                         <!-- Brand Logo-->
                         <div class="brand-logo">
-                            <a href="index.html">
-                                <img src="assets/images/logo/logo-dark.svg" alt="" class="light-version-logo">
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset($general_setting->logo) }}" alt="logo" class="light-version-logo">
                             </a>
                         </div>
                         <div class="menu-block-wrapper">
@@ -82,7 +81,7 @@
 
                                 <ul class="site-menu-main">
                                     <li class="nav-item nav-item-has-children">
-                                        <a href="#" class="nav-link-item drop-trigger">Home <i class="ri-arrow-down-s-fill"></i></a>
+                                        <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Home') }} <i class="ri-arrow-down-s-fill"></i></a>
                                         <ul class="sub-menu" id="submenu-1">
                                             <li class="sub-menu--item">
                                                 <a href="{{ route('home', ['theme' => 'main_demo']) }}">
@@ -127,11 +126,11 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item nav-item-has-children">
-                                        <a href="#" class="nav-link-item drop-trigger">Pages <i class="ri-arrow-down-s-fill"></i></a>
+                                        <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Pages') }} <i class="ri-arrow-down-s-fill"></i></a>
                                         <ul class="sub-menu" id="submenu-2">
                                             <li class="sub-menu--item">
-                                                <a href="about-us.html">
-                                                    <span class="menu-item-text">About Us</span>
+                                                <a href="{{ route('about-us') }}">
+                                                    <span class="menu-item-text">{{ __('translate.About Us') }}</span>
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
@@ -139,11 +138,7 @@
                                                     <span class="menu-item-text">Pricing</span>
                                                 </a>
                                             </li>
-                                            <li class="sub-menu--item">
-                                                <a href="dashbord.html">
-                                                    <span class="menu-item-text">Dashboard</span>
-                                                </a>
-                                            </li>
+
                                             <li class="sub-menu--item nav-item-has-children">
                                                 <a href="#" data-menu-get="h3" class="drop-trigger">blog <i
                                                         class="ri-arrow-down-s-fill"></i></a>
@@ -160,7 +155,7 @@
                                                     </li>
                                                     <li class="sub-menu--item">
                                                         <a href="single-blog.html">
-                                                            <span class="menu-item-text">blog details</span>
+                                                            <span class="menu-item-text">Blog details</span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -171,12 +166,12 @@
                                                 <ul class="sub-menu shape-none" id="submenu-4">
                                                     <li class="sub-menu--item">
                                                         <a href="service.html">
-                                                            <span class="menu-item-text">service</span>
+                                                            <span class="menu-item-text">Service</span>
                                                         </a>
                                                     </li>
                                                     <li class="sub-menu--item">
                                                         <a href="single-service.html">
-                                                            <span class="menu-item-text">service details</span>
+                                                            <span class="menu-item-text">Service details</span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -187,12 +182,12 @@
                                                 <ul class="sub-menu shape-none" id="submenu-5">
                                                     <li class="sub-menu--item">
                                                         <a href="team.html">
-                                                            <span class="menu-item-text">team</span>
+                                                            <span class="menu-item-text">Team</span>
                                                         </a>
                                                     </li>
                                                     <li class="sub-menu--item">
                                                         <a href="single-team.html">
-                                                            <span class="menu-item-text">team details</span>
+                                                            <span class="menu-item-text">Team details</span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -202,8 +197,8 @@
                                                 </a>
                                                 <ul class="sub-menu shape-none" id="submenu-7">
                                                     <li class="sub-menu--item">
-                                                        <a href="faq.html">
-                                                            <span class="menu-item-text">faq</span>
+                                                        <a href="{{ route('faq') }}">
+                                                            <span class="menu-item-text">{{ __('translate.FAQ') }}</span>
                                                         </a>
                                                     </li>
                                                     <li class="sub-menu--item">
@@ -213,7 +208,7 @@
                                                     </li>
                                                     <li class="sub-menu--item">
                                                         <a href="testimonial.html">
-                                                            <span class="menu-item-text">testimonial</span>
+                                                            <span class="menu-item-text">Testimonial</span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -224,7 +219,7 @@
                                                 <ul class="sub-menu shape-none" id="submenu-8">
                                                     <li class="sub-menu--item">
                                                         <a href="shop.html">
-                                                            <span class="menu-item-text">shop</span>
+                                                            <span class="menu-item-text">Shop</span>
                                                         </a>
                                                     </li>
                                                     <li class="sub-menu--item">
@@ -270,8 +265,8 @@
                                         <a href="#" class="nav-link-item drop-trigger">Blog <i class="ri-arrow-down-s-fill"></i></a>
                                         <ul class="sub-menu" id="submenu-9">
                                             <li class="sub-menu--item">
-                                                <a href="blog.html">
-                                                    <span class="menu-item-text">Blog</span>
+                                                <a href="{{ route('blogs') }}">
+                                                    <span class="menu-item-text">{{ __('translate.Blog') }}</span>
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
@@ -281,13 +276,13 @@
                                             </li>
                                             <li class="sub-menu--item">
                                                 <a href="single-blog.html">
-                                                    <span class="menu-item-text">blog Details</span>
+                                                    <span class="menu-item-text">Blog Details</span>
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="contact-us.html" class="nav-link-item">Contact</a>
+                                        <a class="nav-link-item" href="{{ route('contact-us') }}">{{ __('translate.Contact') }}</a>
                                     </li>
                                 </ul>
 
@@ -313,8 +308,8 @@
                                 </div>
 
 
-                                <a class="optech-default-btn optech-header-btn" href="contact-us.html" data-text="Get in Touch"><span
-                                        class="btn-wraper">Get in Touch</span></a>
+                                <a class="optech-default-btn optech-header-btn" href="{{ route('contact-us') }}" data-text="Get in Touch"><span
+                                        class="btn-wraper">{{ __('translate.Get in Touch') }}</span></a>
                             </div>
                         </div>
                         <!-- mobile menu trigger -->
@@ -1032,30 +1027,29 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-12">
                         <div class="optech-footer-textarea dark-color">
-                            <a href="index.html">
-                                <img src="assets/images/logo/logo-dark.svg" alt="">
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset($general_setting->logo) }}" alt="Image">
                             </a>
-                            <p>Each demo built with Teba will look different. You can customize almost anything in the appearance of
-                                your website with only a few</p>
+                            <p> {{ $footer->about_us }}</p>
                             <div class="optech-social-icon-box style-two">
                                 <ul>
                                     <li>
-                                        <a href="https://www.facebook.com/">
+                                        <a href="{{ $footer->facebook }}" target="_blank">
                                             <i class="ri-facebook-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.linkedin.com/">
+                                        <a href="{{ $footer->linkedin }}" target="_blank">
                                             <i class="ri-linkedin-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://twitter.com/">
+                                        <a href="{{ $footer->twitter }}" target="_blank">
                                             <i class="ri-twitter-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com/">
+                                        <a href="{{ $footer->instagram }}" target="_blank">
                                             <i class="ri-instagram-fill"></i>
                                         </a>
                                     </li>
@@ -1066,14 +1060,14 @@
                     <div class="col-xl-2 offset-xl-1 col-md-4">
                         <div class="optech-footer-menu dark-color">
                             <div class="optech-footer-title dark-color">
-                                <h5>Quick Links</h5>
+                                <h5>{{ __('translate.Quick Links') }}</h5>
                             </div>
                             <ul>
-                                <li><a href="about-us.html">About Us</a></li>
+                                <li><a href="{{ route('about-us') }}">{{ __('translate.About Us') }}</a></li>
                                 <li><a href="team.html">Our Team</a></li>
                                 <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="blog.html">Blogs</a></li>
-                                <li><a href="contact-us.html">Contact Us</a></li>
+                                <li><a href="{{ route('blogs') }}">Blogs</a></li>
+                                <li><a href="{{ route('contact-us') }}">{{ __('translate.Contact Us') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1100,7 +1094,7 @@
                                 <li><a href="">Working Process</a></li>
                                 <li><a href="">Privacy Policy</a></li>
                                 <li><a href="">Terms & Conditions</a></li>
-                                <li><a href="">Faqs</a></li>
+                                <li><a href="{{ route('faq') }}">{{ __('translate.FAQ') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1108,7 +1102,7 @@
             </div>
             <div class="optech-footer-bottom center one">
                 <div class="optech-copywright dark-color">
-                    <p> {{ __('translate.Copyright') }} © {{ now()->year }} {{ $general_setting->app_name }}. {{ __('translate.All rights reserved') }}.</p>
+                    <p> {{ $footer->copyright }} </p>
                 </div>
             </div>
         </div>

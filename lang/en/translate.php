@@ -1151,5 +1151,8 @@
      'Software Company' => 'Software Company',
      'Digital Agency' => 'Digital Agency',
      'Tech Company' => 'Tech Company',
+     'Get in Touch' => 'Get in Touch',
+     'Quick Links' => 'Quick Links',
+
 
 );
