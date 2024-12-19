@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('frontends', function (Blueprint $table) {
-            $table->id();
-            $table->string('data_keys');
-            $table->longText('data_values');
+        Schema::table('frontends', function (Blueprint $table) {
             $table->longText('data_translations')->nullable();
-            $table->timestamps();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('frontends');
+        Schema::table('frontends', function (Blueprint $table) {
+            $table->dropColumn('data_translations');
+        });
     }
 };

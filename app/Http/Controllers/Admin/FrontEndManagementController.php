@@ -63,6 +63,37 @@ class FrontEndManagementController extends Controller
 
         $frontend->data_keys = $dataKeys;
         $frontend->data_values = $data;
+
+        // Handle translations
+        // Get current translations or initialize empty array
+        $translations = $frontend->data_translations ?? [];
+        if (!is_array($translations)) {
+            $translations = [];
+        }
+
+        // Create English translation entry
+        $englishTranslation = [
+            'language_code' => 'en',
+            'values' => $data
+        ];
+
+        // Update or add English translation
+        $translationExists = false;
+        foreach ($translations as $key => $translation) {
+            if ($translation['language'] === 'en') {
+                $translations[$key] = $englishTranslation;
+                $translationExists = true;
+                break;
+            }
+        }
+
+        if (!$translationExists) {
+            $translations[] = $englishTranslation;
+        }
+
+        // Set the entire translations array back to the model
+        $frontend->data_translations = $translations;
+
         $frontend->save();
 
         return back()->with('success', 'Frontend content updated successfully');

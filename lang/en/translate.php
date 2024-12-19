@@ -1153,6 +1153,7 @@
      'Tech Company' => 'Tech Company',
      'Get in Touch' => 'Get in Touch',
      'Quick Links' => 'Quick Links',
+     'Type above and press Enter to search. Press Close to cancel.' =>'Type above and press Enter to search. Press Close to cancel.'
 
 
 );

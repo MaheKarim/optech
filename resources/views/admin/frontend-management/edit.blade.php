@@ -175,7 +175,7 @@
                                                     <button type="submit" class="btn btn-primary">Save</button>
                                                 </div>
                                             @endif
-                                        </div><!-- .row -->
+                                        </div>
                                     </form>
 
                                 </div>

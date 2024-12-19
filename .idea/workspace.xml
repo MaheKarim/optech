@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/FrontEndManagementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FrontEndManagementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_11_25_125500_create_frontends_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_11_25_125500_create_frontends_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/en/translate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/translate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/frontend-management/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/frontend-management/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -212,6 +218,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -229,8 +236,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-PS-243.21565.202" />
-        <option value="bundled-php-predefined-a98d8de5180a-5fbe0c30323e-com.jetbrains.php.sharedIndexes-PS-243.21565.202" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PS-243.22562.164" />
+        <option value="bundled-php-predefined-a98d8de5180a-7980c7aaca61-com.jetbrains.php.sharedIndexes-PS-243.22562.164" />
       </set>
     </attachedChunks>
   </component>
@@ -251,7 +258,10 @@
       <workItem from="1734179162287" duration="76000" />
       <workItem from="1734410913878" duration="2685000" />
       <workItem from="1734413990393" duration="16100000" />
-      <workItem from="1734498126795" duration="16919000" />
+      <workItem from="1734498126795" duration="16968000" />
+      <workItem from="1734585253739" duration="1843000" />
+      <workItem from="1734587178655" duration="7386000" />
+      <workItem from="1734607348582" duration="2134000" />
     </task>
     <servers />
   </component>
