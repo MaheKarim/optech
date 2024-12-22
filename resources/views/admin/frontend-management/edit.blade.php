@@ -13,6 +13,63 @@
 @endphp
 
 @section('body-content')
+    <!-- crancy Dashboard -->
+    <section class="crancy-adashboard crancy-show language_box">
+        <div class="container container__bscreen">
+            <div class="row">
+                <div class="col-12">
+                    <div class="crancy-body">
+                        <!-- Dashboard Inner -->
+                        <div class="crancy-dsinner">
+                            <div class="row">
+                                <div class="col-12 mg-top-30">
+                                    <!-- Product Card -->
+                                    <div class="crancy-product-card translation_main_box">
+
+                                        <div class="crancy-customer-filter">
+                                            <div class="crancy-customer-filter__single crancy-customer-filter__single--csearch">
+                                                <div class="crancy-header__form crancy-header__form--customer">
+                                                    <h4 class="crancy-product-card__title">{{ __('translate.Switch to language translation') }}</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="translation_box">
+                                            <ul >
+                                                @foreach ($language_list as $language)
+                                                    <li><a href="{{ route('admin.front-end.section', ['id'=> $key,'lang_code' => $language->lang_code] ) }}">
+                                                            @if (request()->get('lang_code') == $language->lang_code)
+                                                                <i class="fas fa-eye"></i>
+                                                            @else
+                                                                <i class="fas fa-edit"></i>
+                                                            @endif
+
+                                                            {{ $language->lang_name }}</a></li>
+                                                @endforeach
+                                            </ul>
+
+                                            <div class="alert alert-secondary" role="alert">
+
+                                                @php
+                                                    $edited_language = $language_list->where('lang_code', request()->get('lang_code'))->first();
+                                                @endphp
+
+                                                <p>{{ __('translate.Your editing mode') }} : <b>{{ $edited_language->lang_name }}</b></p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- End Product Card -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Dashboard Inner -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End crancy Dashboard -->
     <section class="crancy-adashboard crancy-show">
         <div class="container container__bscreen">
             <div class="row">
@@ -27,6 +84,7 @@
                                         </div>
                                     </div>
 
+
                                     <form action="{{ route('admin.front-end.store', ['key' => $key, 'id' => $frontend->id ?? null]) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
@@ -34,7 +92,6 @@
 
                                         <div class="row">
                                             @if($imageCount > 0)
-                                                <!-- If images exist, use two columns -->
                                                 <div class="col-md-4 pr-md-4">
                                                     @if($content)
                                                         @foreach($content as $field => $value)

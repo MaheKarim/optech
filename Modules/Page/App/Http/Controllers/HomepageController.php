@@ -335,7 +335,6 @@ class HomepageController extends Controller
 
 
 
-
     public function join_seller(Request $request){
 
         $homepage = Homepage::first();

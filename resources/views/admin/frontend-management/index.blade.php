@@ -22,14 +22,11 @@
                                 <div class="crancy-customer-filter">
                                     <div class="crancy-customer-filter__single crancy-customer-filter__single--csearch d-flex items-center justify-between create_new_btn_box">
                                         <div class="crancy-header__form crancy-header__form--customer create_new_btn_inline_box">
-                                            <h4 class="crancy-product-card__title">Title</h4>
+                                            <h4 class="crancy-product-card__title">{{ __('translate.Title') }}</h4>
                                         </div>
                                     </div>
 
-
-
-{{--                                    @section('content')--}}
-                                        <div class="container">
+                                     <div class="container">
                                             <div class="row">
                                                 @foreach ($sections as $key => $section)
                                                     <div class="col-md-4 mb-4">
@@ -40,15 +37,13 @@
                                                                 <p class="card-text">
                                                                     {{ $section['content']['heading'] ?? 'No heading available.' }}
                                                                 </p>
-                                                                <a href="{{ route('admin.front-end.section', $key) }}" class="btn btn-primary">Manage {{ $section['name'] }}</a>
+                                                                    <a href="{{ route('admin.front-end.section', ['id'=> $key, 'lang_code' => admin_lang()]) }}" class="btn btn-primary">Manage {{ $section['name'] }}</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 @endforeach
                                             </div>
                                         </div>
-{{--                                    @endsection--}}
-
                                 </div>
                             </div>
                         </div>

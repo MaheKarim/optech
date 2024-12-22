@@ -249,7 +249,7 @@ Route::group(['as'=> 'admin.', 'prefix' => 'admin'],function (){
         });
 
         // Frontend Management
-        Route::controller(FrontEndManagementController::class)->name('front-end.')->name('front-end.')->group(function () {
+        Route::controller(FrontEndManagementController::class)->name('front-end.')->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/section/{id}', 'section')->name('section');
             Route::put('store/{key}/{id?}', 'store')->name('store');
