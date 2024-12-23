@@ -1153,7 +1153,11 @@
      'Tech Company' => 'Tech Company',
      'Get in Touch' => 'Get in Touch',
      'Quick Links' => 'Quick Links',
-     'Type above and press Enter to search. Press Close to cancel.' =>'Type above and press Enter to search. Press Close to cancel.'
+     'Type above and press Enter to search. Press Close to cancel.' =>'Type above and press Enter to search. Press Close to cancel.',
+     'Recommended image size' => 'Recommended image size',
+     'Nothing to display' => 'Nothing to display',
+     'No image uploaded' => 'No image uploaded',
+     'Current image' => 'Current image',
 
 
 );

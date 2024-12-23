@@ -57,18 +57,16 @@
                                                 <p>{{ __('translate.Your editing mode') }} : <b>{{ $edited_language->lang_name }}</b></p>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <!-- End Product Card -->
                                 </div>
                             </div>
                         </div>
-                        <!-- End Dashboard Inner -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- End crancy Dashboard -->
     <section class="crancy-adashboard crancy-show">
         <div class="container container__bscreen">
@@ -84,14 +82,14 @@
                                         </div>
                                     </div>
 
-
                                     <form action="{{ route('admin.front-end.store', ['key' => $key, 'id' => $frontend->id ?? null]) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <input type="hidden" name="type" value="{{ $contentType }}">
+                                        <input type="hidden" name="lang_code" value="{{ request()->get('lang_code') }}">
 
                                         <div class="row">
-                                            @if($imageCount > 0)
+                                            @if($lang_code === 'en' && $imageCount > 0)
                                                 <div class="col-md-4 pr-md-4">
                                                     @if($content)
                                                         @foreach($content as $field => $value)
@@ -101,7 +99,7 @@
                                                                         <label for="{{ $imageKey }}">
                                                                             {{ ucfirst($imageKey) }} Image
                                                                             @if(isset($imageDetails['size']))
-                                                                                (Recommended Size: {{ $imageDetails['size'] }})
+                                                                                ({{ __('translate.Recommended image size') }}:  {{ $imageDetails['size'] }})
                                                                             @endif
                                                                         </label>
 
@@ -118,12 +116,12 @@
                                                                                     style="max-width: 250px; max-height: 250px; object-fit: cover;"
                                                                                 >
                                                                                 <div class="text-muted small mt-1">
-                                                                                    Current image: {{ basename($existingImagePath) }}
+                                                                                    {{ __('translate.Current image') }}: {{ basename($existingImagePath) }}
                                                                                 </div>
                                                                             </div>
                                                                         @else
                                                                             <div class="alert alert-warning small">
-                                                                                No image uploaded yet
+                                                                                {{ __('translate.No image uploaded') }}
                                                                             </div>
                                                                         @endif
 
@@ -143,7 +141,7 @@
 
                                                                         @if(isset($imageDetails['size']))
                                                                             <small class="form-text text-muted">
-                                                                                Recommended image size: {{ $imageDetails['size'] }}
+                                                                                {{ __('translate.Recommended image size') }}: {{ $imageDetails['size'] }}
                                                                             </small>
                                                                         @endif
                                                                     </div>
@@ -152,86 +150,49 @@
                                                         @endforeach
                                                     @endif
                                                 </div>
+                                            @endif
 
-                                                <div class="col-md-8 pl-md-4">
-                                                    @if($content)
-                                                        @foreach($content as $field => $value)
-                                                            @if($field !== 'images')
-                                                                @if(is_array($value))
-                                                                    @foreach($value as $subField => $subValue)
-                                                                        <div class="form-group">
-                                                                            <label for="{{ $field }}_{{ $subField }}">
-                                                                                {{ ucfirst($field) }} - {{ ucfirst($subField) }}
-                                                                            </label>
-                                                                            <input
-                                                                                type="text"
-                                                                                id="{{ $field }}_{{ $subField }}"
-                                                                                name="{{ $field }}[{{ $subField }}]"
-                                                                                class="form-control"
-                                                                                value="{{ $dataValues[$field][$subField] ?? (is_scalar($subValue) ? $subValue : json_encode($subValue)) }}"
-                                                                            >
-                                                                        </div>
-                                                                    @endforeach
-                                                                @else
-                                                                    <div class="form-group">
-                                                                        <label for="{{ $field }}">{{ ucfirst($field) }}</label>
-                                                                        <input
-                                                                            type="text"
-                                                                            id="{{ $field }}"
-                                                                            name="{{ $field }}"
-                                                                            class="form-control"
-                                                                            value="{{ $dataValues[$field] ?? $value }}"
-                                                                        >
-                                                                    </div>
-                                                                @endif
-                                                            @endif
-                                                        @endforeach
-                                                    @else
-                                                        <p>No content available to display.</p>
-                                                    @endif
-
-                                                    <button type="submit" class="btn btn-primary">Save</button>
-                                                </div>
-
-                                            @else
-                                                <div class="col-md-8 offset-md-2">
-                                                    @if($content)
-                                                        @foreach($content as $field => $value)
+                                            <div class="{{ $lang_code === 'en' && $imageCount > 0 ? 'col-md-8 pl-md-4 ' : 'col-12 offset-md-2' }}">
+                                                @if($content)
+                                                    @foreach($content as $field => $value)
+                                                        @if($field !== 'images')
                                                             @if(is_array($value))
                                                                 @foreach($value as $subField => $subValue)
-                                                                    <div class="form-group">
-                                                                        <label for="{{ $field }}_{{ $subField }}">
+                                                                    <div class="form-group crancy__item-form--group mg-top-form-20">
+                                                                        <label for="{{ $field }}_{{ $subField }}" class="crancy__item-label">
                                                                             {{ ucfirst($field) }} - {{ ucfirst($subField) }}
                                                                         </label>
                                                                         <input
                                                                             type="text"
                                                                             id="{{ $field }}_{{ $subField }}"
                                                                             name="{{ $field }}[{{ $subField }}]"
-                                                                            class="form-control"
+                                                                            class="crancy__item-input"
                                                                             value="{{ $dataValues[$field][$subField] ?? (is_scalar($subValue) ? $subValue : json_encode($subValue)) }}"
                                                                         >
                                                                     </div>
                                                                 @endforeach
                                                             @else
-                                                                <div class="form-group">
-                                                                    <label for="{{ $field }}">{{ ucfirst($field) }}</label>
-                                                                    <input
-                                                                        type="text"
-                                                                        id="{{ $field }}"
-                                                                        name="{{ $field }}"
-                                                                        class="form-control"
-                                                                        value="{{ $dataValues[$field] ?? $value }}"
-                                                                    >
+                                                                <div class="col-12">
+                                                                    <div class="crancy__item-form--group mg-top-form-20">
+                                                                        <label for="{{ $field }}" class="crancy__item-label">{{ ucfirst($field) }}</label>
+                                                                        <input
+                                                                            type="text"
+                                                                            id="{{ $field }}"
+                                                                            name="{{ $field }}"
+                                                                            class="crancy__item-input"
+                                                                            value="{{ $dataValues[$field] ?? $value }}"
+                                                                        >
+                                                                    </div>
                                                                 </div>
                                                             @endif
-                                                        @endforeach
-                                                    @else
-                                                        <p>No content available to display.</p>
-                                                    @endif
+                                                        @endif
+                                                    @endforeach
+                                                @else
+                                                    <p>{{ __('translate.Nothing to display') }}</p>
+                                                @endif
 
-                                                    <button type="submit" class="btn btn-primary">Save</button>
-                                                </div>
-                                            @endif
+                                                <button type="submit" class="crancy-btn mg-top-25">{{ __('translate.Update') }}</button>
+                                            </div>
                                         </div>
                                     </form>
 
@@ -243,6 +204,8 @@
             </div>
         </div>
     </section>
+
+
     @push('scripts')
         <script>
             function updateFileLabel(input) {
