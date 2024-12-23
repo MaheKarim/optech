@@ -28,6 +28,7 @@
     @yield('front-content')
 
     @include('frontend.script')
+    @stack('js_section')
 
   </body>
   </html>

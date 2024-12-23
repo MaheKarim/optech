@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Session, File;
+use Illuminate\Support\Facades\Session;
+use File;
 use App\Models\User;
 use App\Models\Review;
 use App\Rules\Captcha;
@@ -692,29 +693,27 @@ class HomeController extends Controller
     }
 
 
-    public function language_switcher(Request $request){
-
-
+    public function language_switcher(Request $request)
+    {
         $request_lang = Language::where('lang_code', $request->lang_code)->first();
+        if ($request_lang) {
+            Session::put('front_lang', $request->lang_code);
+            Session::put('front_lang_name', $request_lang->lang_name);
+            Session::put('lang_dir', $request_lang->lang_direction);
 
-        Session::put('front_lang', $request->lang_code);
-        Session::put('front_lang_name', $request_lang->lang_name);
-        Session::put('lang_dir', $request_lang->lang_direction);
+            app()->setLocale($request->lang_code);
 
-        app()->setLocale($request->lang_code);
+            $notify_message = trans('translate.Language switched successfully');
+            if (env('APP_MODE') == 'DEMO') {
+                $notify_message = array('message' => $notify_message, 'alert-type' => 'success', 'demo_mode' => 'Demo mode does not translate all languages');
+            } else {
+                $notify_message = array('message' => $notify_message, 'alert-type' => 'success');
+            }
 
-
-
-        $notify_message= trans('translate.Language switched successful');
-        if(env('APP_MODE') == 'DEMO'){
-            $notify_message=array('message'=>$notify_message,'alert-type'=>'success', 'demo_mode' => 'Demo mode not tranlsate all language');
-        }else{
-            $notify_message=array('message'=>$notify_message,'alert-type'=>'success');
+            return redirect()->back()->with($notify_message);
+        } else {
+            return redirect()->back()->with(['message' => trans('translate.Language not found'), 'alert-type' => 'error']);
         }
-
-
-        return redirect()->back()->with($notify_message);
-
     }
 
 
@@ -739,16 +738,5 @@ class HomeController extends Controller
         $filepath= public_path() . "/uploads/custom-images/".$file;
         return response()->download($filepath);
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }

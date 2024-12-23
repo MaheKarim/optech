@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Frontend;
+use Illuminate\Support\Facades\Session;
 
 function admin_lang(){
     return 'en';
@@ -127,19 +128,99 @@ function getPageSections($arr = false)
 }
 
 
+//function getContent($dataKeys, $singleQuery = false, $limit = null, $orderById = false) {
+//    if ($singleQuery) {
+//        $content = Frontend::where('data_keys', $dataKeys)->orderBy('id', 'desc')->first();
+//    } else {
+//        $article = Frontend::query();
+//        $article->when($limit != null, function ($q) use ($limit) {
+//            return $q->limit($limit);
+//        });
+//        if ($orderById) {
+//            $content = $article->where('data_keys', $dataKeys)->orderBy('id')->get();
+//        } else {
+//            $content = $article->where('data_keys', $dataKeys)->orderBy('id', 'desc')->get();
+//        }
+//    }
+//    return $content;
+//}
+//function getContent($dataKeys, $singleQuery = false, $limit = null, $orderById = false) {
+//    $query = Frontend::query();
+//
+//    if ($singleQuery) {
+//        $content = $query->where('data_keys', $dataKeys)
+//            ->orderBy('id', 'desc')
+//            ->first();
+//    } else {
+//        if ($limit != null) {
+//            $query->limit($limit);
+//        }
+//
+//        if ($orderById) {
+//            $query->orderBy('id');
+//        } else {
+//            $query->orderBy('id', 'desc');
+//        }
+//
+//        $content = $query->where('data_keys', $dataKeys)->get();
+//    }
+//
+//    // Eager load translations to avoid N+1 query problem
+//    if ($content && $singleQuery) {
+//        $content->load('data_translations');
+//    } elseif ($content && !$singleQuery) {
+//        $content->load('data_translations');
+//    }
+//
+//    return $content;
+//}
+
 function getContent($dataKeys, $singleQuery = false, $limit = null, $orderById = false) {
+    $query = Frontend::query();
+
     if ($singleQuery) {
-        $content = Frontend::where('data_keys', $dataKeys)->orderBy('id', 'desc')->first();
+        $content = $query->where('data_keys', $dataKeys)
+            ->orderBy('id', 'desc')
+            ->first();
     } else {
-        $article = Frontend::query();
-        $article->when($limit != null, function ($q) use ($limit) {
-            return $q->limit($limit);
-        });
-        if ($orderById) {
-            $content = $article->where('data_keys', $dataKeys)->orderBy('id')->get();
-        } else {
-            $content = $article->where('data_keys', $dataKeys)->orderBy('id', 'desc')->get();
+        if ($limit != null) {
+            $query->limit($limit);
         }
+
+        if ($orderById) {
+            $query->orderBy('id');
+        } else {
+            $query->orderBy('id', 'desc');
+        }
+
+        $content = $query->where('data_keys', $dataKeys)->get();
     }
+
     return $content;
+}
+
+function getTranslatedValue($content, $key, $lang = 'en') {
+    if (!$content) {
+        return '';
+    }
+
+    // If translations exist and language is not English
+    if ($lang !== 'en') {
+        $translations = json_decode($content->data_translations, true);
+
+        // Loop through the translations to find the matching language code
+        foreach ($translations as $translation) {
+            if (isset($translation['language_code']) && $translation['language_code'] === $lang) {
+                // Return the translated value if it exists
+//                return $translation['values'][$key];
+                return isset($translation['values'][$key]) ? $translation['values'][$key] : '';
+            }
+        }
+
+        // If no translation found for requested language, return empty string
+        return '';
+    }
+
+    // Fallback to English content
+    return isset($content->data_values[$key]) ? $content->data_values[$key] : '';
 }

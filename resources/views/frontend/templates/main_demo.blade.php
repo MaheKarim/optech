@@ -24,12 +24,12 @@
                         fill="white"/>
                 </svg>
               </span>
-                            <select class="js-example-basic-single" name="currency_code">
-                                @foreach ($currency_list as $currency_item)
-                                    <option
-                                        {{ Session::get('currency_code') == $currency_item->currency_code ? 'selected' : '' }} value="{{ $currency_item->currency_code }}">{{ $currency_item->currency_name }}</option>
-                                @endforeach
-                            </select>
+                    <select class="js-example-basic-single" name="currency_code">
+                        @foreach ($currency_list as $currency_item)
+                            <option
+                                {{ Session::get('currency_code') == $currency_item->currency_code ? 'selected' : '' }} value="{{ $currency_item->currency_code }}">{{ $currency_item->currency_name }}</option>
+                        @endforeach
+                    </select>
                         </div>
 
                         <div class="cur_lun_login_item">
@@ -40,15 +40,17 @@
                         fill="white"/>
                 </svg>
               </span>
-                            <select class="js-example-basic-single" name="lang_code">
-                                @foreach ($language_list as $language_item)
-                                    <option
-                                        {{ Session::get('front_lang') == $language_item->lang_code ? 'selected' : '' }} value="{{ $language_item->lang_code }}">{{ $language_item->lang_name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
 
-                        <div class="cur_lun_login_item">
+                    <form action="{{ route('language-switcher') }}" id="language_form">
+                        <select id="language_dropdown" class="js-example-basic-single" name="lang_code">
+                            @foreach ($language_list as $language_item)
+                                <option {{ Session::get('front_lang') == $language_item->lang_code ? 'selected' : '' }} value="{{ $language_item->lang_code }}">{{ $language_item->lang_name }}</option>
+                            @endforeach
+                        </select>
+                    </form>
+
+                    </div>
+                    <div class="cur_lun_login_item">
               <span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -357,8 +359,9 @@
 
     <div class="search-overlay"></div>
     @php
-        $contactUsContent = getContent('main_demo_hero.content', true);
-        $keyFeaturesContent = getContent('key_feature.content', true);
+            $currentLang = session()->get('front_lang');
+            $contactUsContent = getContent('main_demo_hero.content', true);
+            $keyFeaturesContent = getContent('key_feature.content', true);
     @endphp
     <div class="optech-hero-section bg-cover"
          style="background-image: url({{ asset('frontend/assets/img/hero/bg1.png') }})">
@@ -366,7 +369,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="optech-hero-content">
-                        <h5>{{ @$contactUsContent->data_values['heading'] }}</h5>
+{{--                        <h5>{{ @$keyFeaturesContent->data_values['heading'] }}</h5>--}}
+                        <h5>{{ getTranslatedValue($contactUsContent, 'heading', $currentLang) }}</h5>
+
                         <h1>{{ @$contactUsContent->data_values['description'] }}</h1>
                         <p>{{  @$contactUsContent->data_values['small_description'] }}</p>
                         <div class="optech-extra-mt">
@@ -404,7 +409,8 @@
                             <img src="{{ url(@$keyFeaturesContent->data_values['images']['image1']) }}" alt="">
                         </div>
                         <div class="optech-iconbox-data2">
-                            <h5>{{ __(@$keyFeaturesContent->data_values['heading_1']) }}</h5>
+                            <h5>{{ getTranslatedValue($keyFeaturesContent, 'heading_1', $currentLang) }}</h5>
+
                             <p>{{ __(@$keyFeaturesContent->data_values['description_1']) }}</p>
                         </div>
                     </div>
@@ -1149,4 +1155,45 @@
         </div>
     </footer>
 
+    <!-- End Footer -->
 @endsection
+
+@push('js_section')
+
+    <script>
+        (function($) {
+            "use strict";
+            $(document).ready(function () {
+                $("#language_dropdown").on("change", function(){
+                    $("#language_form").submit();
+                });
+            });
+        })(jQuery);
+    </script>
+
+    <script>
+        @if(Session::has('message'))
+        var type="{{Session::get('alert-type','info') }}"
+        switch(type){
+            case 'info':
+                toastr.info("{{ Session::get('message') }}");
+                break;
+            case 'success':
+                toastr.success("{{ Session::get('message') }}");
+                break;
+            case 'warning':
+                toastr.warning("{{ Session::get('message') }}");
+                break;
+            case 'error':
+                toastr.error("{{ Session::get('message') }}");
+                break;
+        }
+        @endif
+
+
+        @if(Session::has('demo_mode'))
+        toastr.warning("{{ __('translate.All Language keywords are not implemented in the demo mode') }}");
+        toastr.info("{{ __('translate.Admin can translate every word from the admin panel') }}");
+        @endif
+    </script>
+@endpush

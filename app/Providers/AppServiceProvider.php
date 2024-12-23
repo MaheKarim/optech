@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Session;
 use View;
 use Cache;
 use Throwable;
@@ -53,6 +54,10 @@ class AppServiceProvider extends ServiceProvider
         date_default_timezone_set($timezone_setting->timezone);
 
         View::composer('*', function($view){
+
+//            if (Session::has('front_lang')) {
+//                app()->setLocale(Session::get('front_lang'));
+//            }
 
             $general_setting = Cache::get('setting');
 
