@@ -112,17 +112,7 @@
 
                                             </div>
 
-                                            <div class="col-md-12">
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Seller') }} * </label>
-                                                    <select class="form-select crancy__item-input " name="seller_id">
-                                                        <option value="">{{ __('translate.Select Seller') }}</option>
-                                                        @foreach ($agents as $agent)
-                                                            <option  {{ $agent->id == $listing->seller_id ? 'selected' : '' }} value="{{ $agent->id }}">{{ $agent->name }} - {{ $agent->email }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
+
 
                                             @endif
 
@@ -208,318 +198,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <!-- Product Card -->
-                                    <div class="crancy-product-card">
-                                        <div class="create_new_btn_inline_box">
-                                            <h4 class="crancy-product-card__title">{{ __('translate.Pricing Package') }}</h4>
-                                        </div>
 
-                                        <div class="row">
-
-                                            <div class="col-md-4">
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Package Name') }} * </label>
-                                                    <input class="crancy__item-input" type="text" name="basic_name" id="basic_name" value="{{ __(('Basic')) }}" readonly>
-                                                </div>
-
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Description') }} *</label>
-                                                    <textarea class="crancy__item-input crancy__item-textarea seo_description_box"  name="basic_description" id="basic_description" placeholder="{{ __('translate.Description Here') }}">{{ $listing_package->basic_description }}</textarea>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Delivery Time') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="basic_delivery_date">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        @for ($i = 1; $i<=5; $i++)
-                                                        <option {{ $listing_package->basic_delivery_date == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }} {{ __('translate.Days') }}</option>
-                                                        @endfor
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Revision') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="basic_revision">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        @for ($i = 1; $i<=5; $i++)
-                                                        <option {{ $listing_package->basic_revision == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
-                                                        @endfor
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Functional Website') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="basic_fn_website">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->basic_fn_website == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->basic_fn_website == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Number of Page') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="basic_page">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        @for ($i = 1; $i<=10; $i++)
-                                                        <option {{ $listing_package->basic_page == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
-                                                        @endfor
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Responsive') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="basic_responsive">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->basic_responsive == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->basic_responsive == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Source Code') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="basic_source_code">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->basic_source_code == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->basic_source_code == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Content Upload') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="basic_content_upload">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->basic_content_upload == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->basic_content_upload == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Speed Optimized') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="basic_speed_optimized">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->basic_speed_optimized == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->basic_speed_optimized == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Price') }} </label>
-                                                    <input class="crancy__item-input" type="text" name="basic_price" value="{{ $listing_package->basic_price }}">
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-md-4">
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Package Name') }} * </label>
-                                                    <input class="crancy__item-input" type="text" name="standard_name" id="standard_name" value="{{ __(('Standard')) }}" readonly>
-                                                </div>
-
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Description') }} *</label>
-                                                    <textarea class="crancy__item-input crancy__item-textarea seo_description_box"  name="standard_description" id="standard_description" placeholder="{{ __('translate.Description Here') }}">{{ $listing_package->standard_description }}</textarea>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Delivery Time') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="standard_delivery_date">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        @for ($i = 1; $i<=5; $i++)
-                                                        <option {{ $listing_package->standard_delivery_date == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }} {{ __('translate.Days') }}</option>
-                                                        @endfor
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Revision') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="standard_revision">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        @for ($i = 1; $i<=5; $i++)
-                                                        <option {{ $listing_package->standard_revision == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
-                                                        @endfor
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Functional Website') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="standard_fn_website">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->standard_fn_website == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->standard_fn_website == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Number of Page') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="standard_page">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        @for ($i = 1; $i<=10; $i++)
-                                                        <option {{ $listing_package->standard_page == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
-                                                        @endfor
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Responsive') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="standard_responsive">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->standard_responsive == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->standard_responsive == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Source Code') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="standard_source_code">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->standard_source_code == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->standard_source_code == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Content Upload') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="standard_content_upload">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->standard_content_upload == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->standard_content_upload == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Speed Optimized') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="standard_speed_optimized">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->standard_speed_optimized == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->standard_speed_optimized == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Price') }} </label>
-                                                    <input class="crancy__item-input" type="text" name="standard_price" value="{{ $listing_package->standard_price }}">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Package Name') }} * </label>
-                                                    <input class="crancy__item-input" type="text" name="premium_name" id="premium_name" value="{{ __(('Premium')) }}" readonly>
-                                                </div>
-
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Description') }} *</label>
-                                                    <textarea class="crancy__item-input crancy__item-textarea seo_description_box"  name="premium_description" id="premium_description" placeholder="{{ __('translate.Description Here') }}">{{ $listing_package->premium_description }}</textarea>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Delivery Time') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="premium_delivery_date">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        @for ($i = 1; $i<=5; $i++)
-                                                        <option {{ $listing_package->premium_delivery_date == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }} {{ __('translate.Days') }}</option>
-                                                        @endfor
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Revision') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="premium_revision">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        @for ($i = 1; $i<=5; $i++)
-                                                        <option {{ $listing_package->premium_revision == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
-                                                        @endfor
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Functional Website') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="premium_fn_website">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->premium_fn_website == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->premium_fn_website == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Number of Page') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="premium_page">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        @for ($i = 1; $i<=10; $i++)
-                                                        <option {{ $listing_package->premium_page == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
-                                                        @endfor
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Responsive') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="premium_responsive">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->premium_responsive == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->premium_responsive == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Source Code') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="premium_source_code">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->premium_source_code == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->premium_source_code == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Content Upload') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="premium_content_upload">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->premium_content_upload == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->premium_content_upload == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">
-                                                        {{ __('translate.Speed Optimized') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="premium_speed_optimized">
-                                                        <option value="">{{ __('translate.Select') }}</option>
-                                                        <option {{ $listing_package->premium_speed_optimized == 'yes' ? 'selected' : '' }} value="yes">{{ __('translate.Yes') }}</option>
-                                                        <option {{ $listing_package->premium_speed_optimized == 'no' ? 'selected' : '' }} value="no">{{ __('translate.No') }}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Price') }} </label>
-                                                    <input class="crancy__item-input" type="text" name="premium_price" value="{{ $listing_package->premium_price }}">
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
                                     <!-- End Product Card -->
                                 </div>
                             </div>
@@ -531,35 +210,23 @@
             </div>
         </div>
     </section>
-    <!-- End crancy Dashboard -->
     @endif
 
     @if (admin_lang() == request()->get('lang_code'))
-    <!-- crancy Dashboard -->
     <section class="crancy-adashboard crancy-show">
         <div class="container container__bscreen">
             <div class="row">
                 <div class="col-12">
                     <div class="crancy-body">
-                        <!-- Dashboard Inner -->
                         <div class="crancy-dsinner">
                             <div class="row">
                                 <div class="col-12">
-                                    <!-- Product Card -->
                                     <div class="crancy-product-card">
                                         <div class="create_new_btn_inline_box">
                                             <h4 class="crancy-product-card__title">{{ __('translate.SEO Information') }}</h4>
                                         </div>
 
                                         <div class="row">
-
-                                            <div class="col-12">
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Tags') }} </label>
-                                                    <input class="crancy__item-input tags" type="text" name="tags" value="{{ html_decode($listing->tags) }}">
-                                                </div>
-                                            </div>
-
                                             <div class="col-12">
                                                 <div class="crancy__item-form--group mg-top-form-20">
                                                     <label class="crancy__item-label">{{ __('translate.SEO title') }} </label>
@@ -589,21 +256,16 @@
                                         @endif
 
                                     </div>
-                                    <!-- End Product Card -->
                                 </div>
                             </div>
                         </div>
-                        <!-- End Dashboard Inner -->
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
-    <!-- End crancy Dashboard -->
     @endif
-
-
     </form>
 
 

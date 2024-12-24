@@ -9,7 +9,6 @@
 @endsection
 
 @section('body-content')
-    <!-- crancy Dashboard -->
     <section class="crancy-adashboard crancy-show">
         <div class="container container__bscreen">
             <div class="row">
@@ -44,13 +43,8 @@
                                         <thead class="crancy-table__head">
                                             <tr>
 
-
                                                 <th class="crancy-table__column-2 crancy-table__h2 sorting" >
                                                     {{ __('translate.Serial') }}
-                                                </th>
-
-                                                <th class="crancy-table__column-2 crancy-table__h2 sorting" >
-                                                    {{ __('translate.Seller') }}
                                                 </th>
 
                                                 <th class="crancy-table__column-2 crancy-table__h2 sorting" >
@@ -61,15 +55,9 @@
                                                     {{ __('translate.Category') }}
                                                 </th>
 
-
-                                                <th class="crancy-table__column-2 crancy-table__h2 sorting" >
-                                                    {{ __('translate.Price') }}
-                                                </th>
-
                                                 <th class="crancy-table__column-2 crancy-table__h2 sorting" >
                                                     {{ __('translate.Visibility') }}
                                                 </th>
-
 
                                                 <th class="crancy-table__column-3 crancy-table__h3 sorting">
                                                     {{ __('translate.Action') }}
@@ -88,36 +76,11 @@
                                                     </td>
 
                                                     <td class="crancy-table__column-2 crancy-table__data-2">
-                                                        <h4 class="crancy-table__product-title"><a href="{{ route('admin.seller-show', $listing->seller_id) }}">{{ html_decode($listing?->seller?->name) }}</a></h4>
-                                                    </td>
-
-                                                    <td class="crancy-table__column-2 crancy-table__data-2">
                                                         <h4 class="crancy-table__product-title"><a target="_blank" href="{{ route('service', $listing->slug) }}">{{ html_decode($listing->translate->title) }}</a></h4>
                                                     </td>
 
-
                                                     <td class="crancy-table__column-2 crancy-table__data-2">
                                                         <h4 class="crancy-table__product-title">{{ html_decode($listing?->category?->translate?->name) }}</h4>
-                                                    </td>
-
-                                                    <td class="crancy-table__column-2 crancy-table__data-2">
-                                                        <h4 class="crancy-table__product-title">
-                                                        @if ($listing->offer_price)
-                                                                {{ currency($listing->offer_price) }}
-                                                            @else
-                                                                {{ currency($listing?->listing_package?->basic_price) }}
-                                                            @endif
-
-                                                        </h4>
-                                                    </td>
-
-
-                                                    <td class="crancy-table__column-2 crancy-table__data-2">
-                                                        @if ($listing->approved_by_admin == 'approved')
-                                                        <span class="badge bg-success">{{ __('translate.Approved') }}</span>
-                                                        @else
-                                                            <span class="badge bg-danger">{{ __('translate.Awaiting') }}</span>
-                                                        @endif
                                                     </td>
 
 
@@ -141,9 +104,6 @@
                                                                 <li>
                                                                     <a onclick="itemDeleteConfrimation({{ $listing->id }})" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exampleModal" class="dropdown-item"><i class="fas fa-trash"></i> {{ __('translate.Delete') }}</a>
                                                                 </li>
-
-
-
 
                                                             </ul>
                                                         </div>

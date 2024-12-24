@@ -490,22 +490,24 @@
                 <h2>{{ getTranslatedValue($serviceContent, 'heading', $currentLang) }}</h2>
             </div>
         </div>
+        @foreach($listings as $listing)
         <div class="optech-4column-slider" data-aos="fade-up" data-aos-duration="800">
-
             <div class="optech-iconbox-wrap">
                 <div class="optech-iconbox-icon">
                     <img src="{{ asset('frontend/assets/img/iconbox/icon4.svg') }}" alt="Icon">
                 </div>
                 <div class="optech-iconbox-data">
-                    <h5>Data Tracking <br> Security</h5>
-                    <p>Developing a comprehensive IT strategy that aligns.</p>
-                    <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
-                        <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                </div>z
+                    <h5> {{ __($listing->translate?->title) }} </h5>
+                    <p>{{ __($listing->translate?->title) }}</p>
+                    <a class="optech-icon-btn" href="{{ route('service', $listing->slug) }}">
+                        <i class="icon-show ri-arrow-right-line"></i>
+                        <span>{{ __('translate.Learn More') }}</span>
+                        <i class="icon-hide ri-arrow-right-line"></i>
+                    </a>
+                </div>
             </div>
-
-
         </div>
+        @endforeach
     </div>
     <!-- End section -->
 

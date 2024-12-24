@@ -50,7 +50,6 @@ class ListingController extends Controller
         return view('listing::featured_listing', compact('listings'));
     }
 
-
     /**
      * Show the form for creating a new resource.
      * @return Renderable
@@ -58,9 +57,8 @@ class ListingController extends Controller
     public function create(Request $request)
     {
         $categories = Category::with('translate')->where('status', 'enable')->get();
-        $agents = User::where(['status' => 'enable' , 'is_banned' => 'no', 'is_seller' => 1])->where('email_verified_at', '!=', null)->orderBy('id','desc')->get();
 
-        return view('listing::create', compact('categories', 'agents'));
+        return view('listing::create', compact('categories', ));
     }
 
     /**
@@ -81,56 +79,13 @@ class ListingController extends Controller
             $listing->thumb_image = $image_name;
         }
 
-        $listing->seller_id = $request->seller_id;
         $listing->category_id = $request->category_id;
         $listing->sub_category_id = $request->sub_category_id;
         $listing->slug = $request->slug;
-        $listing->approved_by_admin = 'approved';
         $listing->status = 'enable';
-        $listing->tags = $request->tags;
         $listing->seo_title = $request->seo_title ? $request->seo_title : $request->title;
         $listing->seo_description = $request->seo_description ? $request->seo_description : $request->title;
         $listing->save();
-
-
-        $package = new ListingPackage();
-        $package->listing_id = $listing->id;
-        $package->basic_name = 'Basic';
-        $package->basic_description = $request->basic_description;
-        $package->basic_price = $request->basic_price;
-        $package->basic_delivery_date = $request->basic_delivery_date;
-        $package->basic_revision = $request->basic_revision;
-        $package->basic_fn_website = $request->basic_fn_website;
-        $package->basic_page = $request->basic_page;
-        $package->basic_responsive = $request->basic_responsive;
-        $package->basic_source_code = $request->basic_source_code;
-        $package->basic_content_upload = $request->basic_content_upload;
-        $package->basic_speed_optimized = $request->basic_speed_optimized;
-
-        $package->standard_name = 'Standard';
-        $package->standard_description = $request->standard_description;
-        $package->standard_price = $request->standard_price;
-        $package->standard_delivery_date = $request->standard_delivery_date;
-        $package->standard_revision = $request->standard_revision;
-        $package->standard_fn_website = $request->standard_fn_website;
-        $package->standard_page = $request->standard_page;
-        $package->standard_responsive = $request->standard_responsive;
-        $package->standard_source_code = $request->standard_source_code;
-        $package->standard_content_upload = $request->standard_content_upload;
-        $package->standard_speed_optimized = $request->standard_speed_optimized;
-
-        $package->premium_name = 'Premium';
-        $package->premium_description = $request->premium_description;
-        $package->premium_price = $request->premium_price;
-        $package->premium_delivery_date = $request->premium_delivery_date;
-        $package->premium_revision = $request->premium_revision;
-        $package->premium_fn_website = $request->premium_fn_website;
-        $package->premium_page = $request->premium_page;
-        $package->premium_responsive = $request->premium_responsive;
-        $package->premium_source_code = $request->premium_source_code;
-        $package->premium_content_upload = $request->premium_content_upload;
-        $package->premium_speed_optimized = $request->premium_speed_optimized;
-        $package->save();
 
 
         $languages = Language::all();
@@ -166,11 +121,8 @@ class ListingController extends Controller
 
         $subcategories = SubCategory::where('category_id', $listing->category_id)->with('translate')->get();
 
-        $agents = User::where(['status' => 'enable' , 'is_banned' => 'no', 'is_seller' => 1])->where('email_verified_at', '!=', null)->orderBy('id','desc')->get();
 
-        $listing_package = ListingPackage::where('listing_id', $id)->first();
-
-        return view('listing::edit', compact('categories', 'agents', 'listing', 'listing_translate', 'listing_package','subcategories'));
+        return view('listing::edit', compact('categories', 'listing', 'listing_translate', 'subcategories'));
     }
 
     /**
@@ -201,51 +153,12 @@ class ListingController extends Controller
                 }
             }
 
-            $listing->seller_id = $request->seller_id;
             $listing->category_id = $request->category_id;
             $listing->sub_category_id = $request->sub_category_id;
             $listing->slug = $request->slug;
-            $listing->tags = $request->tags;
             $listing->seo_title = $request->seo_title ? $request->seo_title : $request->title;
             $listing->seo_description = $request->seo_description ? $request->seo_description : $request->title;
             $listing->save();
-
-            $package = ListingPackage::where('listing_id', $id)->first();
-
-            $package->basic_description = $request->basic_description;
-            $package->basic_price = $request->basic_price;
-            $package->basic_delivery_date = $request->basic_delivery_date;
-            $package->basic_revision = $request->basic_revision;
-            $package->basic_fn_website = $request->basic_fn_website;
-            $package->basic_page = $request->basic_page;
-            $package->basic_responsive = $request->basic_responsive;
-            $package->basic_source_code = $request->basic_source_code;
-            $package->basic_content_upload = $request->basic_content_upload;
-            $package->basic_speed_optimized = $request->basic_speed_optimized;
-
-            $package->standard_description = $request->standard_description;
-            $package->standard_price = $request->standard_price;
-            $package->standard_delivery_date = $request->standard_delivery_date;
-            $package->standard_revision = $request->standard_revision;
-            $package->standard_fn_website = $request->standard_fn_website;
-            $package->standard_page = $request->standard_page;
-            $package->standard_responsive = $request->standard_responsive;
-            $package->standard_source_code = $request->standard_source_code;
-            $package->standard_content_upload = $request->standard_content_upload;
-            $package->standard_speed_optimized = $request->standard_speed_optimized;
-
-            $package->premium_description = $request->premium_description;
-            $package->premium_price = $request->premium_price;
-            $package->premium_delivery_date = $request->premium_delivery_date;
-            $package->premium_revision = $request->premium_revision;
-            $package->premium_fn_website = $request->premium_fn_website;
-            $package->premium_page = $request->premium_page;
-            $package->premium_responsive = $request->premium_responsive;
-            $package->premium_source_code = $request->premium_source_code;
-            $package->premium_content_upload = $request->premium_content_upload;
-            $package->premium_speed_optimized = $request->premium_speed_optimized;
-            $package->save();
-
 
         }
 
@@ -283,8 +196,6 @@ class ListingController extends Controller
         }
 
         ListingTranslation::where('listing_id',$id)->delete();
-        Review::where('listing_id',$id)->delete();
-        ListingPackage::where('listing_id',$id)->delete();
 
         $galleries = ListingGallery::where('listing_id', $id)->get();
         foreach($galleries as $gallery){
@@ -406,45 +317,6 @@ class ListingController extends Controller
         return redirect()->back()->with($notify_message);
     }
 
-
-
-    public function review_list(){
-
-        $reviews = Review::with('buyer', 'seller', 'listing')->latest()->get();
-
-        return view('listing::reviews', ['reviews' => $reviews]);
-    }
-
-    public function review_detail($id){
-
-        $review = Review::with('buyer', 'seller', 'listing')->findOrFail($id);
-
-        return view('listing::review_show', ['review' => $review]);
-    }
-
-    public function review_delete($id){
-
-        $review = Review::findOrFail($id);
-        $review->delete();
-
-
-        $notify_message=  trans('translate.Deleted Successfully');
-        $notify_message=array('message'=>$notify_message,'alert-type'=>'success');
-        return redirect()->route('admin.review-list')->with($notify_message);
-
-    }
-
-    public function review_approval($id){
-
-        $review = Review::findOrFail($id);
-        $review->status = 'enable';
-        $review->save();
-
-        $notify_message=  trans('translate.Review approval successfully');
-        $notify_message=array('message'=>$notify_message,'alert-type'=>'success');
-        return redirect()->back()->with($notify_message);
-    }
-
     public function getSubcategories($categoryId)
     {
         $subcategories = SubCategory::where('category_id', $categoryId)
@@ -453,8 +325,5 @@ class ListingController extends Controller
 
         return response()->json($subcategories);
     }
-
-
-
 
 }

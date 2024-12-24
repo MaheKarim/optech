@@ -168,8 +168,7 @@ class HomeController extends Controller
 
         $homepage = Homepage::first();
 
-        $featured_services = Listing::with('seller')
-            ->where(['status' => 'enable', 'approved_by_admin' => 'approved', 'is_featured' => 'enable'])
+        $listings = Listing::where(['status' => 'enable'])
             ->latest()
             ->take(10)
             ->get();
@@ -193,19 +192,13 @@ class HomeController extends Controller
 
         $testimonials = Testimonial::where('status', 'active')->latest()->get();
 
-        $latest_services = Listing::with('seller')
-            ->where(['status' => 'enable', 'approved_by_admin' => 'approved'])
-            ->latest()
-            ->take(5)
-            ->get();
 
         $seo_setting = SeoSetting::find(1);
 
         $categories = Category::where('status', 'enable')->latest()->take(4)->get();
         $filter_array = $categories->pluck('id')->toArray();
 
-        $home2_filter_service = Listing::with('seller')
-            ->where(['status' => 'enable', 'approved_by_admin' => 'approved'])
+        $home2_filter_service = Listing::where(['status' => 'enable'])
             ->whereIn('category_id', $filter_array)
             ->latest()
             ->take(8)
@@ -218,11 +211,10 @@ class HomeController extends Controller
             'seo_setting',
             'homepage',
             'categories',
-            'featured_services',
+            'listings',
             'job_posts',
             'top_sellers',
             'testimonials',
-            'latest_services',
             'home2_filter_service',
             'all_categories'
         );

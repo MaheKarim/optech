@@ -82,7 +82,7 @@
 
                         <li><a href="{{ route('admin.listings.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.All Services') }}</span></span></a></li>
 
-                        <li><a href="{{ route('admin.awaiting-listings') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Awaiting Service') }}</span></span></a></li>
+
 
                         <li><a href="{{ route('admin.featured-listings') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Featured Service') }}</span></span></a></li>
 

@@ -67,6 +67,20 @@
             "heading": "text"
         }
     },
+    "main_demo_service_highlight": {
+        "builder": true,
+        "name": "Service Highlight Section - (Main Demo)",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "about_1": "text",
+            "percentage_1": "text",
+            "about_2": "text",
+            "percentage_2": "text",
+            "about_3": "text",
+            "percentage_3": "text"
+        }
+    },
     "how_to_order": {
         "builder": true,
         "name": "How To Order Section",
