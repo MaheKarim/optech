@@ -41,19 +41,30 @@
             }
         }
     },
-    "about_us": {
+    "main_demo_about_us": {
         "builder": true,
         "name": "About Us Section - (Main Demo)",
-
         "content": {
             "heading": "text",
+            "sub_heading": "text",
             "description": "text",
+            "button_text": "text",
             "button_link": "text",
             "images": {
-                "image": {
-                    "size": "306x309"
+                "image_1": {
+                    "size": "474x485"
+                },
+                "image_2": {
+                    "size": "303x341"
                 }
             }
+        }
+    },
+    "main_demo_service_section": {
+        "builder": true,
+        "name": "Service Section - (Main Demo)",
+        "content": {
+            "heading": "text"
         }
     },
     "how_to_order": {

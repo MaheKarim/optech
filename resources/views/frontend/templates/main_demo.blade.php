@@ -362,6 +362,8 @@
             $currentLang = session()->get('front_lang');
             $contactUsContent = getContent('main_demo_hero.content', true);
             $keyFeaturesContent = getContent('key_feature.content', true);
+            $aboutUsContent = getContent('main_demo_about_us.content', true);
+            $serviceContent = getContent('main_demo_service_section.content', true);
     @endphp
     <div class="optech-hero-section bg-cover"
          style="background-image: url({{ asset('frontend/assets/img/hero/bg1.png') }})">
@@ -369,21 +371,19 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="optech-hero-content">
-{{--                        <h5>{{ @$keyFeaturesContent->data_values['heading'] }}</h5>--}}
                         <h5>{{ getTranslatedValue($contactUsContent, 'heading', $currentLang) }}</h5>
-
-                        <h1>{{ @$contactUsContent->data_values['description'] }}</h1>
-                        <p>{{  @$contactUsContent->data_values['small_description'] }}</p>
+                        <h1>{{ getTranslatedValue($contactUsContent, 'description', $currentLang) }}</h1>
+                        <p>{{ getTranslatedValue($contactUsContent, 'small_description', $currentLang) }}</p>
                         <div class="optech-extra-mt">
                             <div class="optech-btn-wrap">
                                 <a class="optech-default-btn"
                                    href="{{ url(@$contactUsContent->data_values['left_button_url']) }}"
                                    data-text="Work With Us"><span
-                                        class="btn-wraper">{{ __(@$contactUsContent->data_values['left_button_text']) }}</span></a>
+                                        class="btn-wraper">{{ getTranslatedValue($contactUsContent,'left_button_text', $currentLang) }}</span></a>
                                 <a class="optech-default-btn optech-white-btn"
                                    href="{{ url(@$contactUsContent->data_values['right_button_url']) }}"
                                    data-text="View Services"> <span
-                                        class="btn-wraper">{{ __(@$contactUsContent->data_values['right_button_text']) }}</span>
+                                        class="btn-wraper">{{ getTranslatedValue($contactUsContent,'right_button_text', $currentLang) }}</span>
                                 </a>
                             </div>
                         </div>
@@ -410,8 +410,7 @@
                         </div>
                         <div class="optech-iconbox-data2">
                             <h5>{{ getTranslatedValue($keyFeaturesContent, 'heading_1', $currentLang) }}</h5>
-
-                            <p>{{ __(@$keyFeaturesContent->data_values['description_1']) }}</p>
+                            <p>{{ getTranslatedValue($keyFeaturesContent,'description_1', $currentLang) }}</p>
                         </div>
                     </div>
                 </div>
@@ -421,19 +420,19 @@
                             <img src="{{ url(@$keyFeaturesContent->data_values['images']['image2']) }}" alt="">
                         </div>
                         <div class="optech-iconbox-data2">
-                            <h5>{{ __(@$keyFeaturesContent->data_values['heading_2']) }}</h5>
-                            <p>{{ __(@$keyFeaturesContent->data_values['description_2']) }}</p>
+                            <h5>{{ getTranslatedValue($keyFeaturesContent, 'heading_2', $currentLang) }}</h5>
+                            <p>{{ getTranslatedValue($keyFeaturesContent,'description_2', $currentLang) }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
                     <div class="optech-iconbox-wrap2">
                         <div class="optech-iconbox-icon2">
-                            <img src="{{ url(@$keyFeaturesContent->data_values['images']['image1']) }}" alt="">
+                            <img src="{{ url(@$keyFeaturesContent->data_values['images']['image1']) }}" alt="Icon">
                         </div>
                         <div class="optech-iconbox-data2">
-                            <h5>{{ __(@$keyFeaturesContent->data_values['heading_3']) }}</h5>
-                            <p>{{ __(@$keyFeaturesContent->data_values['description_3']) }}</p>
+                            <h5>{{ getTranslatedValue($keyFeaturesContent, 'heading_3', $currentLang) }}</h5>
+                            <p>{{ getTranslatedValue($keyFeaturesContent,'description_3', $currentLang) }}</p>
                         </div>
                     </div>
                 </div>
@@ -445,37 +444,38 @@
     <div class="container">
         <div class="optech-divider"></div>
     </div>
-    <!-- End -->
 
     <div class="section large-padding-tb overflow-hidden">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="optech-thumb extra-mr">
-                        <img data-aos="fade-up" data-aos-duration="600" src="assets/images/v1/thumb1.png" alt="">
+                        <img data-aos="fade-up" data-aos-duration="600" src="{{ url(@$aboutUsContent->data_values['images']['image_1']) }}" alt="">
                         <div class="optech-thumb-position" data-aos="fade-up" data-aos-duration="800">
-                            <img src="assets/images/v1/thumb2.png" alt="">
+                            <img src="{{ url(@$aboutUsContent->data_values['images']['image_2']) }}" alt="">
                         </div>
                         <div class="optech-shape1">
-                            <img src="assets/images/shape/shape1.svg" alt="">
+                            <img src="{{ asset('frontend/assets/img/shape/shape1.svg') }}" alt="">
                         </div>
                         <div class="optech-shape2">
-                            <img src="assets/images/shape/shape2.svg" alt="">
+                            <img src="{{ asset('frontend/assets/img/shape/shape2.svg') }}" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 d-flex align-items-end">
                     <div class="optech-default-content ml40">
-                        <h2>More than 25+ years we provide IT solutions</h2>
-                        <h5>During this time, we’ve built a reputation for excellent clients satisfaction as evidenced
-                            by our</h5>
-                        <p>Each demo built with Teba will look different. You can customize almost anything in the
-                            appearance of
-                            your website with only a few clicks. Each demo built with Teba will look different.</p>
+                        <h2>{{ getTranslatedValue($aboutUsContent, 'heading', $currentLang) }}</h2>
+                        <h5>
+                            {{ getTranslatedValue($aboutUsContent, 'sub_heading', $currentLang) }}
+                        </h5>
+                        <p>
+                            {{ getTranslatedValue($aboutUsContent, 'description', $currentLang) }}
+                        </p>
                         <div class="optech-extra-mt">
-                            <a class="optech-default-btn" href="about-us.html" data-text="More About Us"><span
-                                    class="btn-wraper">More
-                  About Us</span></a>
+                            <a class="optech-default-btn" href="{{ getTranslatedValue($aboutUsContent, 'button_link', $currentLang) }}" data-text="{{ getTranslatedValue($aboutUsContent, 'button_text', $currentLang) }}"><span
+                                    class="btn-wraper">
+                                   {{ getTranslatedValue($aboutUsContent, 'button_text', $currentLang) }}
+                                </span></a>
                         </div>
                     </div>
                 </div>
@@ -487,76 +487,24 @@
     <div class="sectin bg-light1 optech-section-padding">
         <div class="container">
             <div class="optech-section-title center">
-                <h2>Our awesome services to give you success</h2>
+                <h2>{{ getTranslatedValue($serviceContent, 'heading', $currentLang) }}</h2>
             </div>
         </div>
         <div class="optech-4column-slider" data-aos="fade-up" data-aos-duration="800">
+
             <div class="optech-iconbox-wrap">
                 <div class="optech-iconbox-icon">
-                    <img src="assets/images/iconbox/icon4.svg" alt="">
+                    <img src="{{ asset('frontend/assets/img/iconbox/icon4.svg') }}" alt="Icon">
                 </div>
                 <div class="optech-iconbox-data">
                     <h5>Data Tracking <br> Security</h5>
                     <p>Developing a comprehensive IT strategy that aligns.</p>
                     <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
                         <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                </div>
+                </div>z
             </div>
-            <div class="optech-iconbox-wrap">
-                <div class="optech-iconbox-icon">
-                    <img src="assets/images/iconbox/icon5.svg" alt="">
-                </div>
-                <div class="optech-iconbox-data">
-                    <h5>IT Management <br> Service</h5>
-                    <p>Developing a comprehensive IT strategy that aligns.</p>
-                    <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
-                        <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                </div>
-            </div>
-            <div class="optech-iconbox-wrap">
-                <div class="optech-iconbox-icon">
-                    <img src="assets/images/iconbox/icon6.svg" alt="">
-                </div>
-                <div class="optech-iconbox-data">
-                    <h5>UI/UX & Branding <br> Identity</h5>
-                    <p>Developing a comprehensive IT strategy that aligns.</p>
-                    <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
-                        <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                </div>
-            </div>
-            <div class="optech-iconbox-wrap">
-                <div class="optech-iconbox-icon">
-                    <img src="assets/images/iconbox/icon7.svg" alt="">
-                </div>
-                <div class="optech-iconbox-data">
-                    <h5>Web & Mobile App <br> Development</h5>
-                    <p>Developing a comprehensive IT strategy that aligns.</p>
-                    <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
-                        <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                </div>
-            </div>
-            <div class="optech-iconbox-wrap">
-                <div class="optech-iconbox-icon">
-                    <img src="assets/images/iconbox/icon8.svg" alt="">
-                </div>
-                <div class="optech-iconbox-data">
-                    <h5>Digital Marketing <br> Services</h5>
-                    <p>Developing a comprehensive IT strategy that aligns.</p>
-                    <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
-                        <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                </div>
-            </div>
-            <div class="optech-iconbox-wrap">
-                <div class="optech-iconbox-icon">
-                    <img src="assets/images/iconbox/icon6.svg" alt="">
-                </div>
-                <div class="optech-iconbox-data">
-                    <h5>IT Management <br> Service</h5>
-                    <p>Developing a comprehensive IT strategy that aligns.</p>
-                    <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
-                        <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                </div>
-            </div>
+
+
         </div>
     </div>
     <!-- End section -->
