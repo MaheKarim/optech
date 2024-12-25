@@ -494,7 +494,7 @@
         <div class="optech-4column-slider" data-aos="fade-up" data-aos-duration="800">
             <div class="optech-iconbox-wrap">
                 <div class="optech-iconbox-icon">
-                    <img src="{{ asset('frontend/assets/img/iconbox/icon4.svg') }}" alt="Icon">
+                    <img src="{{ asset($listing->thumb_image) }}" alt="Icon">
                 </div>
                 <div class="optech-iconbox-data">
                     <h5> {{ __($listing->translate?->title) }} </h5>

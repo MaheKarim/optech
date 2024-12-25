@@ -9,64 +9,56 @@
 @endsection
 
 @section('body-content')
-
-<!-- crancy Dashboard -->
-<section class="crancy-adashboard crancy-show">
-    <div class="container container__bscreen">
-        <div class="row">
-            <div class="col-12">
-                <div class="crancy-body">
-                    <!-- Dashboard Inner -->
-                    <div class="crancy-dsinner">
-                        <div class="row">
-                            <div class="col-12 mg-top-30">
-                                <!-- Product Card -->
-                                <div class="crancy-product-card translation_main_box">
-
-                                    <div class="crancy-customer-filter">
-                                        <div class="crancy-customer-filter__single crancy-customer-filter__single--csearch">
-                                            <div class="crancy-header__form crancy-header__form--customer">
-                                                <h4 class="crancy-product-card__title">{{ __('translate.Switch to language translation') }}</h4>
+    <section class="crancy-adashboard crancy-show">
+        <div class="container container__bscreen">
+            <div class="row">
+                <div class="col-12">
+                    <div class="crancy-body">
+                        <div class="crancy-dsinner">
+                            <div class="row">
+                                <div class="col-12 mg-top-30">
+                                    <div class="crancy-product-card translation_main_box">
+                                        <div class="crancy-customer-filter">
+                                            <div class="crancy-customer-filter__single crancy-customer-filter__single--csearch">
+                                                <div class="crancy-header__form crancy-header__form--customer">
+                                                    <h4 class="crancy-product-card__title">{{ __('translate.Switch to language translation') }}</h4>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="translation_box">
-                                        <ul >
-                                            @foreach ($language_list as $language)
-                                            <li><a href="{{ route('admin.listings.edit', ['listing' => $listing->id, 'lang_code' => $language->lang_code] ) }}">
-                                                @if (request()->get('lang_code') == $language->lang_code)
-                                                    <i class="fas fa-eye"></i>
-                                                @else
-                                                    <i class="fas fa-edit"></i>
-                                                @endif
+                                        <div class="translation_box">
+                                            <ul >
+                                                @foreach ($language_list as $language)
+                                                <li><a href="{{ route('admin.listings.edit', ['listing' => $listing->id, 'lang_code' => $language->lang_code] ) }}">
+                                                    @if (request()->get('lang_code') == $language->lang_code)
+                                                        <i class="fas fa-eye"></i>
+                                                    @else
+                                                        <i class="fas fa-edit"></i>
+                                                    @endif
 
-                                                {{ $language->lang_name }}</a></li>
-                                            @endforeach
-                                        </ul>
+                                                    {{ $language->lang_name }}</a></li>
+                                                @endforeach
+                                            </ul>
 
-                                        <div class="alert alert-secondary" role="alert">
+                                            <div class="alert alert-secondary" role="alert">
 
-                                            @php
-                                                $edited_language = $language_list->where('lang_code', request()->get('lang_code'))->first();
-                                            @endphp
+                                                @php
+                                                    $edited_language = $language_list->where('lang_code', request()->get('lang_code'))->first();
+                                                @endphp
 
-                                        <p>{{ __('translate.Your editing mode') }} : <b>{{ $edited_language->lang_name }}</b></p>
+                                            <p>{{ __('translate.Your editing mode') }} : <b>{{ $edited_language->lang_name }}</b></p>
+                                            </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
-                                <!-- End Product Card -->
                             </div>
                         </div>
                     </div>
-                    <!-- End Dashboard Inner -->
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- End crancy Dashboard -->
+    </section>
 
     <form action="{{ route('admin.listings.update', $listing->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -75,282 +67,149 @@
         <input type="hidden" name="lang_code" value="{{ $listing_translate->lang_code }}">
         <input type="hidden" name="translate_id" value="{{ $listing_translate->id }}">
 
-    <!-- crancy Dashboard -->
-    <section class="crancy-adashboard crancy-show">
-        <div class="container container__bscreen">
-            <div class="row">
-                <div class="col-12">
-                    <div class="crancy-body">
-                        <!-- Dashboard Inner -->
-                        <div class="crancy-dsinner">
-                            <div class="row">
-                                <div class="col-12">
-                                    <!-- Product Card -->
-                                    <div class="crancy-product-card">
-                                        <div class="create_new_btn_inline_box">
-                                            <h4 class="crancy-product-card__title">{{ __('translate.Basic Information') }}</h4>
-                                        </div>
+        <section class="crancy-adashboard crancy-show">
+            <div class="container container__bscreen">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="crancy-body">
+                            <div class="crancy-dsinner">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="crancy-product-card">
+                                            <div class="create_new_btn_inline_box">
+                                                <h4 class="crancy-product-card__title">{{ __('translate.Basic Information') }}</h4>
+                                            </div>
 
-                                        <div class="row">
-
-                                            @if (admin_lang() == request()->get('lang_code'))
-                                            <div class="col-12 mg-top-form-20">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="crancy__item-form--group w-100 h-100">
-                                                            <label class="crancy__item-label">{{ __('translate.Thumbnail Image') }} </label>
-                                                            <div class="crancy-product-card__upload crancy-product-card__upload--border">
-                                                                <input type="file" class="btn-check" name="thumb_image" id="input-img1" autocomplete="off" onchange="previewImage(event)">
-                                                                <label class="crancy-image-video-upload__label" for="input-img1">
-                                                                    <img id="view_img" src="{{ asset($listing->thumb_image) }}">
-                                                                    <h4 class="crancy-image-video-upload__title">{{ __('translate.Click here to') }} <span class="crancy-primary-color">{{ __('translate.Choose File') }}</span> {{ __('translate.and upload') }} </h4>
-                                                                </label>
+                                            <div class="row">
+                                                @if (admin_lang() == request()->get('lang_code'))
+                                                <div class="col-12 mg-top-form-20">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="crancy__item-form--group w-100 h-100">
+                                                                <label class="crancy__item-label">{{ __('translate.Thumbnail Image') }} </label>
+                                                                <div class="crancy-product-card__upload crancy-product-card__upload--border">
+                                                                    <input type="file" class="btn-check" name="thumb_image" id="input-img1" autocomplete="off" onchange="previewImage(event)">
+                                                                    <label class="crancy-image-video-upload__label" for="input-img1">
+                                                                        <img id="view_img" src="{{ asset($listing->thumb_image) }}">
+                                                                        <h4 class="crancy-image-video-upload__title">{{ __('translate.Click here to') }} <span class="crancy-primary-color">{{ __('translate.Choose File') }}</span> {{ __('translate.and upload') }} </h4>
+                                                                    </label>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                                @endif
+
+                                                <div class="{{ admin_lang() == request()->get('lang_code') ? 'col-md-6' : 'col-12' }}">
+                                                    <div class="crancy__item-form--group mg-top-form-20">
+                                                        <label class="crancy__item-label">{{ __('translate.Title') }} * </label>
+                                                        <input class="crancy__item-input" type="text" name="title" id="title" value="{{ html_decode($listing_translate->title) }}">
+                                                    </div>
+                                                </div>
+
+
+                                                @if (admin_lang() == request()->get('lang_code'))
+                                                <div class="col-md-6">
+                                                    <div class="crancy__item-form--group mg-top-form-20">
+                                                        <label class="crancy__item-label">{{ __('translate.Slug') }} * </label>
+                                                        <input class="crancy__item-input" type="text" name="slug" id="slug" value="{{ html_decode($listing->slug) }}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="crancy__item-form--group mg-top-form-20">
+                                                        <label class="crancy__item-label">{{ __('translate.Category') }} * </label>
+                                                        <select class="form-select crancy__item-input" name="category_id" id="category-select">
+                                                            <option value="">{{ __('translate.Select Category') }}</option>
+                                                            @foreach ($categories as $category)
+                                                                <option  {{ $category->id == $listing->category_id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->translate->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="crancy__item-form--group mg-top-form-20">
+                                                        <label class="crancy__item-label">{{ __('translate.Subcategory') }} * </label>
+                                                        <select class="form-select crancy__item-input" name="sub_category_id" id="subcategory-select">
+                                                            <option value="">{{ __('translate.Select Subcategory') }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                @endif
+
+                                                <div class="col-12">
+                                                    <div class="crancy__item-form--group mg-top-form-20">
+                                                        <label class="crancy__item-label">{{ __('translate.Description') }} * </label>
+
+                                                        <textarea class="crancy__item-input crancy__item-textarea summernote"  name="description" id="description">{!! html_decode($listing_translate->description) !!}</textarea>
+
                                                     </div>
                                                 </div>
 
                                             </div>
 
-
-
+                                            @if (admin_lang() != request()->get('lang_code'))
+                                            <button class="crancy-btn mg-top-25" type="submit">{{ __('translate.Update Data') }}</button>
                                             @endif
-
-                                            <div class="{{ admin_lang() == request()->get('lang_code') ? 'col-md-6' : 'col-12' }}">
-
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Title') }} * </label>
-                                                    <input class="crancy__item-input" type="text" name="title" id="title" value="{{ html_decode($listing_translate->title) }}">
-                                                </div>
-                                            </div>
-
-
-                                            @if (admin_lang() == request()->get('lang_code'))
-                                            <div class="col-md-6">
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Slug') }} * </label>
-                                                    <input class="crancy__item-input" type="text" name="slug" id="slug" value="{{ html_decode($listing->slug) }}">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Category') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="category_id" id="category-select">
-                                                        <option value="">{{ __('translate.Select Category') }}</option>
-                                                        @foreach ($categories as $category)
-                                                            <option  {{ $category->id == $listing->category_id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->translate->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Subcategory') }} * </label>
-                                                    <select class="form-select crancy__item-input" name="sub_category_id" id="subcategory-select">
-                                                        <option value="">{{ __('translate.Select Subcategory') }}</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            @endif
-
-                                            <div class="col-12">
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.Description') }} * </label>
-
-                                                    <textarea class="crancy__item-input crancy__item-textarea summernote"  name="description" id="description">{!! html_decode($listing_translate->description) !!}</textarea>
-
-                                                </div>
-                                            </div>
 
                                         </div>
-
-                                        @if (admin_lang() != request()->get('lang_code'))
-                                        <button class="crancy-btn mg-top-25" type="submit">{{ __('translate.Update Data') }}</button>
-                                        @endif
-
+                                        <!-- End Product Card -->
                                     </div>
-                                    <!-- End Product Card -->
                                 </div>
                             </div>
+                            <!-- End Dashboard Inner -->
                         </div>
-                        <!-- End Dashboard Inner -->
                     </div>
+
                 </div>
-
             </div>
-        </div>
-    </section>
-    <!-- End crancy Dashboard -->
+        </section>
 
-
-    @if (admin_lang() == request()->get('lang_code'))
-    <!-- crancy Dashboard -->
-    <section class="crancy-adashboard crancy-show">
-        <div class="container container__bscreen">
-            <div class="row">
-                <div class="col-12">
-                    <div class="crancy-body">
-                        <!-- Dashboard Inner -->
-                        <div class="crancy-dsinner">
-                            <div class="row">
-                                <div class="col-12">
-                                    <!-- Product Card -->
-
-                                    <!-- End Product Card -->
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Dashboard Inner -->
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    @endif
-
-    @if (admin_lang() == request()->get('lang_code'))
-    <section class="crancy-adashboard crancy-show">
-        <div class="container container__bscreen">
-            <div class="row">
-                <div class="col-12">
-                    <div class="crancy-body">
-                        <div class="crancy-dsinner">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="crancy-product-card">
-                                        <div class="create_new_btn_inline_box">
-                                            <h4 class="crancy-product-card__title">{{ __('translate.SEO Information') }}</h4>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.SEO title') }} </label>
-                                                    <input class="crancy__item-input" type="text" name="seo_title" id="seo_title" value="{{ html_decode($listing->seo_title) }}">
-                                                </div>
+        @if (admin_lang() == request()->get('lang_code'))
+        <section class="crancy-adashboard crancy-show">
+            <div class="container container__bscreen">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="crancy-body">
+                            <div class="crancy-dsinner">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="crancy-product-card">
+                                            <div class="create_new_btn_inline_box">
+                                                <h4 class="crancy-product-card__title">{{ __('translate.SEO Information') }}</h4>
                                             </div>
 
-                                            <div class="col-12">
-                                                <div class="crancy__item-form--group mg-top-form-20">
-                                                    <label class="crancy__item-label">{{ __('translate.SEO Description') }} </label>
-                                                    <textarea class="crancy__item-input crancy__item-textarea seo_description_box"  name="seo_description" id="seo_description">{{ html_decode($listing->seo_description) }}</textarea>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="crancy__item-form--group mg-top-form-20">
+                                                        <label class="crancy__item-label">{{ __('translate.SEO title') }} </label>
+                                                        <input class="crancy__item-input" type="text" name="seo_title" id="seo_title" value="{{ html_decode($listing->seo_title) }}">
+                                                    </div>
                                                 </div>
+
+                                                <div class="col-12">
+                                                    <div class="crancy__item-form--group mg-top-form-20">
+                                                        <label class="crancy__item-label">{{ __('translate.SEO Description') }} </label>
+                                                        <textarea class="crancy__item-input crancy__item-textarea seo_description_box"  name="seo_description" id="seo_description">{{ html_decode($listing->seo_description) }}</textarea>
+                                                    </div>
+                                                </div>
+
                                             </div>
 
+                                            <button class="crancy-btn mg-top-25" type="submit">{{ __('translate.Update Data') }}</button>
                                         </div>
-
-                                        <button class="crancy-btn mg-top-25" type="submit">{{ __('translate.Update Data') }}</button>
-
-                                        @if ($listing->approved_by_admin == 'pending')
-                                            <button class="crancy-btn mg-top-25 approval_button" type="button" data-bs-toggle="modal" data-bs-target="#approvalModal">{{ __('translate.Make Approval') }}</button>
-                                        @endif
-
-                                        @if ($listing->is_featured == 'disable')
-                                            <button class="crancy-btn mg-top-25 approval_featured" type="button" data-bs-toggle="modal" data-bs-target="#featureModal">{{ __('translate.Make Featured') }}</button>
-                                        @else
-                                            <button class="crancy-btn mg-top-25 delete_danger_btn" type="button" data-bs-toggle="modal" data-bs-target="#removeFeatureModal">{{ __('translate.Remove Featured') }}</button>
-                                        @endif
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </section>
-    @endif
+        </section>
+        @endif
     </form>
-
-
-    <!-- Approved Confirmation Modal -->
-    <div class="modal fade" id="approvalModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ __('translate.Approval Confirmation') }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>{{ __('translate.Are you realy want to approved this item?') }}</p>
-                </div>
-                <div class="modal-footer">
-                    <form action="{{ route('admin.listings-approval', $listing->id) }}" class="delet_modal_form" method="POST">
-                        @csrf
-                        @method('PUT')
-
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translate.Close') }}</button>
-                        <button type="submit" class="btn btn-primary">{{ __('translate.Yes, Approved') }}</button>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Featured Confirmation Modal -->
-    <div class="modal fade" id="featureModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ __('translate.Featured Confirmation') }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>{{ __('translate.Are you realy want to featured this item?') }}</p>
-                </div>
-                <div class="modal-footer">
-                    <form action="{{ route('admin.listings-featured', $listing->id) }}" class="delet_modal_form" method="POST">
-                        @csrf
-                        @method('PUT')
-
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translate.Close') }}</button>
-                        <button type="submit" class="btn btn-primary">{{ __('translate.Yes, Featured') }}</button>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Featured Remove Confirmation Modal -->
-    <div class="modal fade" id="removeFeatureModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ __('translate.Featured Confirmation') }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>{{ __('translate.Are you realy want to removed featured this item?') }}</p>
-                </div>
-                <div class="modal-footer">
-                    <form action="{{ route('admin.listings-featured-removed', $listing->id) }}" class="delet_modal_form" method="POST">
-                        @csrf
-                        @method('PUT')
-
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translate.Close') }}</button>
-                        <button type="submit" class="btn btn-primary">{{ __('translate.Yes, Removed') }}</button>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
 @endsection
 
 
@@ -428,12 +287,9 @@
                 }
             });
         });
-
-
     </script>
 
     <script src="{{ asset('global/tinymce/js/tinymce/tinymce.min.js') }}"></script>
-
 
     <script src="{{ asset('global/tagify/tagify.js') }}"></script>
 
@@ -473,7 +329,6 @@
 
             reader.readAsDataURL(event.target.files[0]);
         };
-
     </script>
 @endpush
 

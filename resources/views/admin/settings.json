@@ -1,5 +1,4 @@
 {
-
     "main_demo_hero": {
     "builder": true,
     "name": "Hero Section - (Main Demo)",
@@ -81,6 +80,8 @@
             "percentage_3": "text"
         }
     },
+
+
     "how_to_order": {
         "builder": true,
         "name": "How To Order Section",

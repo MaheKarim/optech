@@ -55,9 +55,7 @@
                                                     {{ __('translate.Category') }}
                                                 </th>
 
-                                                <th class="crancy-table__column-2 crancy-table__h2 sorting" >
-                                                    {{ __('translate.Visibility') }}
-                                                </th>
+
 
                                                 <th class="crancy-table__column-3 crancy-table__h3 sorting">
                                                     {{ __('translate.Action') }}

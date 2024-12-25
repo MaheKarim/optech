@@ -256,9 +256,9 @@
 
                                                     <td class="crancy-table__column-2 crancy-table__data-2">
                                                         <h4 class="crancy-table__product-title">
-                                                            <a target="_blank" href="{{ route('service', $order?->listing?->slug) }}">
-                                                                {{ html_decode($order?->listing?->title) }}
-                                                            </a>
+{{--                                                            <a target="_blank" href="{{ route('service', $order?->listing?->slug) }}">--}}
+{{--                                                                {{ html_decode($order?->listing?->title) }}--}}
+{{--                                                            </a>--}}
                                                         </h4>
                                                     </td>
 

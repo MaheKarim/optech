@@ -34,105 +34,6 @@ use Modules\GlobalSetting\App\Models\GlobalSetting;
 class HomeController extends Controller
 {
 
-//    public function index(Request $request)
-//    {
-//        $theme_setting = GlobalSetting::where('key', 'selected_theme')->first();
-//        if($theme_setting->value == 'main_demo'){
-//            if($request->has('theme')){
-//                $theme = $request->theme;
-//                if($theme == 'it_solutions'){
-//                    Session::put('selected_theme', 'it_solutions');
-//                }elseif($theme == 'tech_agency'){
-//                    Session::put('selected_theme', 'tech_agency');
-//                }else{
-//                    if(!Session::has('selected_theme')){
-//                        Session::put('selected_theme', 'main_demo');
-//                    }
-//                }
-//            }else{
-//                Session::put('selected_theme', 'main_demo');
-//            }
-//        }else{
-//            if($theme_setting->value == 'it_solutions'){
-//                Session::put('selected_theme', 'it_solutions');
-//            }elseif($theme_setting->value == 'tech_agency'){
-//                Session::put('selected_theme', 'tech_agency');
-//            }
-//        }
-//
-//        $homepage = Homepage::first();
-//
-//        $featured_services = Listing::with('seller')->where(['status' => 'enable', 'approved_by_admin' => 'approved', 'is_featured' => 'enable'])->latest()->take(10)->get();
-//
-//        $job_posts = JobPost::where(['status' => 'enable', 'approved_by_admin' => 'approved'])->latest()->take(10)->get();
-//
-//        $top_sellers = User::where(['status' => 'enable' , 'is_banned' => 'no', 'is_seller' => 1, 'is_top_seller' => 'enable'])->where('email_verified_at', '!=', null)->select('id', 'username', 'name', 'image', 'status', 'is_banned', 'is_seller', 'is_top_seller', 'designation', 'hourly_payment','kyc_status','online_status','online')->orderBy('id','desc')->take(5)->get();
-//
-//        $testimonials = Testimonial::where('status', 'active')->latest()->get();
-//
-//        $latest_testimonials = Testimonial::where('status', 'active')->get();
-//
-//        $latest_services = Listing::with('seller')->where(['status' => 'enable', 'approved_by_admin' => 'approved'])->latest()->take(5)->get();
-//
-//        $seo_setting = SeoSetting::where('id', 1)->first();
-//
-//        $categories = Category::where('status', 'enable')->latest()->take(4)->get();
-//
-//        $filter_array = array();
-//        foreach($categories as $category){
-//            $filter_array[] = $category->id;
-//        }
-//
-//        $home2_filter_service = Listing::with('seller')->where(['status' => 'enable', 'approved_by_admin' => 'approved'])->whereIn('category_id', $filter_array)->latest()->take(8)->get();
-//
-//        $categories = Category::where('status', 'enable')->latest()->get();
-//
-//        $selected_theme = Session::get('selected_theme');
-////        dd($selected_theme);
-//
-//        if ($selected_theme == 'main_demo'){
-//            return view('frontend.templates.main_demo', [
-//                'seo_setting' => $seo_setting,
-//                'homepage' => $homepage,
-//                'categories' => $categories,
-//                'featured_services' => $featured_services,
-//                'job_posts' => $job_posts,
-//                'top_sellers' => $top_sellers,
-//                'testimonials' => $testimonials,
-//                'latest_testimonials' => $latest_testimonials,
-//                'latest_services' => $latest_services,
-//                'home2_filter_service' => $home2_filter_service,
-//            ]);
-//        }elseif($selected_theme == 'it_solutions'){
-//            return view('frontend.templates.it_solutions', [
-//                'seo_setting' => $seo_setting,
-//                'homepage' => $homepage,
-//                'categories' => $categories,
-//                'featured_services' => $featured_services,
-//                'job_posts' => $job_posts,
-//                'top_sellers' => $top_sellers,
-//                'testimonials' => $testimonials,
-//                'latest_testimonials' => $latest_testimonials,
-//                'latest_services' => $latest_services,
-//                'home2_filter_service' => $home2_filter_service,
-//            ]);
-//        }else{
-//            return view('frontend.templates.main_demo', [
-//                'seo_setting' => $seo_setting,
-//                'homepage' => $homepage,
-//                'categories' => $categories,
-//                'featured_services' => $featured_services,
-//                'job_posts' => $job_posts,
-//                'top_sellers' => $top_sellers,
-//                'testimonials' => $testimonials,
-//                'latest_testimonials' => $latest_testimonials,
-//                'latest_services' => $latest_services,
-//                'home2_filter_service' => $home2_filter_service,
-//            ]);
-//        }
-//
-//    }
-
     public function index(Request $request)
     {
         $theme_setting = GlobalSetting::where('key', 'selected_theme')->first();
@@ -204,7 +105,7 @@ class HomeController extends Controller
             ->take(8)
             ->get();
 
-        $all_categories = Category::where('status', 'enable')->latest()->get();
+       // $all_categories = Category::where('status', 'enable')->latest()->get();
 
         // Common data for all views
         $view_data = compact(
@@ -216,7 +117,7 @@ class HomeController extends Controller
             'top_sellers',
             'testimonials',
             'home2_filter_service',
-            'all_categories'
+           // 'all_categories'
         );
 
         // View template mapping
@@ -551,13 +452,9 @@ class HomeController extends Controller
 
     public function services(Request $request)
     {
-        $services = Listing::with('seller')->where(['status' => 'enable', 'approved_by_admin' => 'approved' ]);
+        $services = Listing::with('seller')->where(['status' => 'enable']);
 
-        if($request->is_featured){
-            if($request->is_featured == 'featured'){
-                $services = $services->where('is_featured', 'enable');
-            }
-        }
+
 
 
         $subCategory = collect();
@@ -630,57 +527,15 @@ class HomeController extends Controller
 
     public function service(Request $request, $slug)
     {
-        $service = Listing::with('seller','listing_package')->where(['status' => 'enable', 'approved_by_admin' => 'approved', 'slug' => $slug])->firstOrFail();
+        $service = Listing::where(['status' => 'enable', 'slug' => $slug])->firstOrFail();
+//        dd($service);
 
         $galleries = ListingGallery::where('listing_id', $service->id)->latest()->get();
-
-        $seller = User::where(['status' => 'enable' , 'is_banned' => 'no', 'is_seller' => 1, 'id' => $service->seller_id])->where('email_verified_at', '!=', null)->select('id', 'username', 'name', 'image', 'status', 'is_banned', 'is_seller', 'is_top_seller', 'designation', 'hourly_payment','kyc_status','online_status','online')->orderBy('id','desc')->firstOrFail();
-
-        $total_job_done = JobRequest::where('seller_id', $seller->id)->where('status', 'approved')->count();
-
-        $total_service = Listing::where(['status' => 'enable', 'approved_by_admin' => 'approved', 'seller_id' => $seller->id ])->count();
-
-        $service_package = ListingPackage::where('listing_id', $service->id)->first();
-
-        $review_list = Review::with('buyer')->where('listing_id', $service->id)->where('status', 'enable')->latest()->get();
-
-        $total_ratings = $review_list->count();
-        $avg_ratings = $review_list->avg('rating');
-
-
-        // Initialize an array to hold the counts of each rating
-        $ratingCounts = [];
-        foreach ($review_list as $review) {
-            $rating = $review->rating;
-            if (!isset($ratingCounts[$rating])) {
-                $ratingCounts[$rating] = 0;
-            }
-            $ratingCounts[$rating]++;
-        }
-
-        // Calculate the percentage for each rating (1 to 5)
-        $ratingData = [];
-        for ($i = 1; $i <= 5; $i++) {
-            $count = isset($ratingCounts[$i]) ? $ratingCounts[$i] : 0;
-            $percentage = $total_ratings ? ($count / $total_ratings) * 100 : 0;
-            $ratingData[$i] = [
-                'count' => $count,
-                'percentage' => $percentage
-            ];
-        }
 
 
         return view('service_detail', [
             'service' => $service,
             'galleries' => $galleries,
-            'seller' => $seller,
-            'total_job_done' => $total_job_done,
-            'total_service' => $total_service,
-            'service_package' => $service_package,
-            'review_list' => $review_list,
-            'total_ratings' => $total_ratings,
-            'avg_ratings' => $avg_ratings,
-            'rating_data' => $ratingData,
         ]);
     }
 
