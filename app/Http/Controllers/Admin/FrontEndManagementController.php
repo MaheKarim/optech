@@ -93,8 +93,8 @@ class FrontEndManagementController extends Controller
 
         // Count images
         $imageCount = isset($content['images']) ? count($content['images']) : 0;
-
-        return view('admin.frontend-management.edit', compact('key', 'content', 'dataValues', 'frontend', 'contentType', 'imageCount', 'lang_code'));
+        $pageTitle = $section['name'] ?? trans('Frontend Management');
+        return view('admin.frontend-management.edit', compact('pageTitle','key', 'content', 'dataValues', 'frontend', 'contentType', 'imageCount', 'lang_code'));
     }
 
     public function store(Request $request, $key, $id = null)

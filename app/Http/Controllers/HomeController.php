@@ -454,9 +454,6 @@ class HomeController extends Controller
     {
         $services = Listing::with('seller')->where(['status' => 'enable']);
 
-
-
-
         $subCategory = collect();
 
         if($request->category){
@@ -528,10 +525,8 @@ class HomeController extends Controller
     public function service(Request $request, $slug)
     {
         $service = Listing::where(['status' => 'enable', 'slug' => $slug])->firstOrFail();
-//        dd($service);
 
         $galleries = ListingGallery::where('listing_id', $service->id)->latest()->get();
-
 
         return view('service_detail', [
             'service' => $service,
