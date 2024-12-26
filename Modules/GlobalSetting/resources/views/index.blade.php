@@ -29,8 +29,6 @@
                                                     <path d="M12.8485 4H11.1515C10.2143 4 9.45453 4.71634 9.45453 5.6C9.45453 6.61121 8.37258 7.25411 7.48444 6.77064L7.39423 6.72153C6.58258 6.27971 5.54472 6.54191 5.07612 7.30717L4.22763 8.69281C3.75902 9.45808 4.03711 10.4366 4.84877 10.8785C5.73734 11.3622 5.73733 12.6378 4.84876 13.1215C4.03711 13.5634 3.75902 14.5419 4.22763 15.3072L5.07612 16.6928C5.54472 17.4581 6.58258 17.7203 7.39423 17.2785L7.48444 17.2294C8.37258 16.7459 9.45453 17.3888 9.45453 18.4C9.45453 19.2837 10.2143 20 11.1515 20H12.8485C13.7857 20 14.5455 19.2837 14.5455 18.4C14.5455 17.3888 15.6274 16.7459 16.5156 17.2294L16.6058 17.2785C17.4174 17.7203 18.4553 17.4581 18.9239 16.6928L19.7724 15.3072C20.241 14.5419 19.9629 13.5634 19.1512 13.1215C18.2627 12.6378 18.2627 11.3622 19.1512 10.8785C19.9629 10.4366 20.241 9.45809 19.7724 8.69283L18.9239 7.30719C18.4553 6.54192 17.4174 6.27972 16.6058 6.72154L16.5156 6.77065C15.6274 7.25412 14.5455 6.61122 14.5455 5.6C14.5455 4.71634 13.7857 4 12.8485 4Z"  stroke-width="1.5" stroke-linejoin="round"/>
                                                     <circle cx="12" cy="12" r="3" stroke-width="1.5"/>
                                                     </svg>
-
-
                                                 </span>
                                                 <h4 class="crancy-psidebar__title">{{ __('translate.General Setting') }}</h4>
                                             </a>
@@ -620,7 +618,6 @@
                                                         </div>
                                                     </form>
                                                 </div>
-
                                                 <div class="tab-pane fade" id="id2" role="tabpanel">
                                                     <form action="{{ route('admin.update-logo-favicon') }}" method="POST" enctype="multipart/form-data">
                                                         @csrf
@@ -633,6 +630,7 @@
                                                                             <h3 class="crancy__item-group__title">{{ __('translate.Logo and Favicon') }}</h3>
                                                                             <div class="crancy__item-form--group">
                                                                                 <div class="row">
+
                                                                                     <div class="col-12">
                                                                                         <div class="row">
                                                                                             <div class="col-md-4">
@@ -642,6 +640,23 @@
                                                                                                         <input type="file" class="btn-check" name="logo" id="input-img1" autocomplete="off" onchange="reviewImage(event)">
                                                                                                         <label class="crancy-image-video-upload__label" for="input-img1">
                                                                                                             <img id="view_img" src="{{ asset($general_setting->logo) }}" class="home2_explore_img">
+                                                                                                            <h4 class="crancy-image-video-upload__title">{{ __('translate.Click here to') }} <span class="crancy-primary-color">{{ __('translate.Choose File') }}</span> {{ __('translate.and upload') }} </h4>
+                                                                                                        </label>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-12">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-4">
+                                                                                                <div class="crancy__item-form--group mg-top-20">
+                                                                                                    <label class="crancy__item-label">{{ __('translate.Website White Logo') }}</label>
+                                                                                                    <div class="crancy-product-card__upload crancy-product-card__upload--border">
+                                                                                                        <input type="file" class="btn-check" name="white_logo" id="input-white-img" autocomplete="off" onchange="reviewWhiteImage(event)">
+                                                                                                        <label class="crancy-image-video-upload__label" for="input-white-img">
+                                                                                                            <img id="view_white_img" src="{{ asset($general_setting->white_logo) }}" class="home2_explore_img">
                                                                                                             <h4 class="crancy-image-video-upload__title">{{ __('translate.Click here to') }} <span class="crancy-primary-color">{{ __('translate.Choose File') }}</span> {{ __('translate.and upload') }} </h4>
                                                                                                         </label>
                                                                                                     </div>
@@ -667,10 +682,6 @@
                                                                                         </div>
                                                                                     </div>
 
-
-
-
-
                                                                                     <div class="col-12">
                                                                                         <div class="row">
                                                                                             <div class="col-md-4">
@@ -687,6 +698,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
+
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -990,15 +1002,20 @@
             });
         })(jQuery);
 
-
-
-
-
-
         function reviewImage(event) {
             var reader = new FileReader();
             reader.onload = function(){
                 var output = document.getElementById('view_img');
+                output.src = reader.result;
+            }
+
+            reader.readAsDataURL(event.target.files[0]);
+        };
+
+        function reviewWhiteImage(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('view_white_img');
                 output.src = reader.result;
             }
 
@@ -1014,8 +1031,6 @@
 
             reader.readAsDataURL(event.target.files[0]);
         };
-
-
 
         function reviewImage2(event) {
             var reader = new FileReader();
@@ -1036,8 +1051,6 @@
 
             reader.readAsDataURL(event.target.files[0]);
         };
-
-
 
     </script>
 @endpush

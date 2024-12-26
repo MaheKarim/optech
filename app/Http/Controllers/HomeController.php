@@ -27,7 +27,6 @@ use Modules\Page\App\Models\PrivacyPolicy;
 use Modules\Listing\Entities\ListingGallery;
 use Modules\Page\App\Models\TermAndCondition;
 use Modules\SeoSetting\App\Models\SeoSetting;
-use Modules\Listing\App\Models\ListingPackage;
 use Modules\Testimonial\App\Models\Testimonial;
 use Modules\GlobalSetting\App\Models\GlobalSetting;
 
@@ -452,62 +451,7 @@ class HomeController extends Controller
 
     public function services(Request $request)
     {
-        $services = Listing::with('seller')->where(['status' => 'enable']);
-
-        $subCategory = collect();
-
-        if($request->category){
-            $category = Category::where('slug', $request->category)->first();
-            if($category){
-                $services = $services->where('category_id', $category->id);
-
-                $subCategory = SubCategory::where('category_id', $category->id)->get();
-            }
-        }
-
-        if($request->sub_category){
-            $sub_category = SubCategory::where('slug', $request->sub_category)->first();
-            if($sub_category){
-                $services = $services->where('sub_category_id', $sub_category->id);
-            }
-        }
-
-        if($request->price_filter){
-            if($request->price_filter == 'low_to_high'){
-                $services = $services->whereHas('listing_package', function ($query) use ($request) {
-                    $query->orderBy('basic_price', 'asc');
-                });
-            }elseif($request->price_filter == 'high_to_low'){
-                $services = $services->whereHas('listing_package', function ($query) use ($request) {
-                    $query->orderBy('basic_price', 'desc');
-                });
-            }
-
-        }
-
-        if($request->search){
-            $services = $services->whereHas('front_translate', function ($query) use ($request) {
-                            $query->where('title', 'like', '%' . $request->search . '%')
-                                ->orWhere('description', 'like', '%' . $request->search . '%');
-                        });
-        }
-
-
-        if($request->sort_by){
-            if($request->sort_by == 'a_to_z'){
-                $services = $services->whereHas('front_translate', function ($query) use ($request) {
-                    $query->orderBy('title', 'asc');
-                });
-            }elseif($request->sort_by == 'z_to_a'){
-                $services = $services->whereHas('front_translate', function ($query) use ($request) {
-                    $query->orderBy('title', 'desc');
-                });
-            }
-        }else{
-            $services = $services->latest();
-        }
-
-        $services = $services->paginate(10);
+        $services = Listing::where(['status' => 'enable'])->latest()->take(6)->get();
 
         $seo_setting = SeoSetting::where('id', 10)->first();
 
@@ -517,7 +461,6 @@ class HomeController extends Controller
             'services' => $services,
             'seo_setting' => $seo_setting,
             'categories' => $categories,
-            'sub_categories' => $subCategory,
         ]);
     }
 
@@ -528,9 +471,12 @@ class HomeController extends Controller
 
         $galleries = ListingGallery::where('listing_id', $service->id)->latest()->get();
 
+        $showServices = Listing::where('id', '!=', $service->id)->where('status', 'enable')->latest()->take(5)->get();
+
         return view('service_detail', [
             'service' => $service,
             'galleries' => $galleries,
+            'showServices' => $showServices
         ]);
     }
 

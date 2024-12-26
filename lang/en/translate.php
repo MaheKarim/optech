@@ -1158,6 +1158,7 @@
      'Nothing to display' => 'Nothing to display',
      'No image uploaded' => 'No image uploaded',
      'Current image' => 'Current image',
+     'Website White Logo'=>'Website White Logo',
 
 
 );

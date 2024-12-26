@@ -76,7 +76,7 @@ class GlobalSettingController extends Controller
                 return redirect()->back()->with($notify_message);
             }
         }
-        
+
         GlobalSetting::where('key', 'selected_theme')->update(['value' => $request->selected_theme]);
         GlobalSetting::where('key', 'app_name')->update(['value' => $request->app_name]);
         GlobalSetting::where('key', 'contact_message_mail')->update(['value' => $request->contact_message_mail]);
@@ -97,6 +97,7 @@ class GlobalSettingController extends Controller
     {
 
         $logo_setting = GlobalSetting::where('key', 'logo')->first();
+//        dd($logo_setting);
 
         if($request->logo){
             $old_logo = $logo_setting->value;
@@ -108,6 +109,23 @@ class GlobalSettingController extends Controller
                     ->save(public_path().'/'.$logo_name);
             $logo_setting->value = $logo_name;
             $logo_setting->save();
+            if($old_logo){
+                if(File::exists(public_path().'/'.$old_logo))unlink(public_path().'/'.$old_logo);
+            }
+        }
+
+        $white_logo_setting = GlobalSetting::where('key', 'white_logo')->first();
+
+        if($request->white_logo){
+            $old_logo = $logo_setting->value;
+            $image = $request->white_logo;
+            $ext = $image->getClientOriginalExtension();
+            $logo_name = 'white_logo-'.date('Y-m-d-h-i-s-').rand(999,9999).'.'.$ext;
+            $logo_name = 'uploads/website-images/'.$logo_name;
+            $logo = Image::make($image)
+                ->save(public_path().'/'.$logo_name);
+            $white_logo_setting->value = $logo_name;
+            $white_logo_setting->save();
             if($old_logo){
                 if(File::exists(public_path().'/'.$old_logo))unlink(public_path().'/'.$old_logo);
             }
@@ -210,7 +228,6 @@ class GlobalSettingController extends Controller
 
     }
 
-
     public function database_clear(){
 
         Blog::truncate();
@@ -290,13 +307,11 @@ class GlobalSettingController extends Controller
         return redirect()->back()->with($notify_message);
     }
 
-
     public function cookie_consent(){
 
         return view('globalsetting::cookie_consent');
 
     }
-
 
     public function cookie_consent_update(CookieConsentRequest $request){
 
@@ -311,13 +326,11 @@ class GlobalSettingController extends Controller
 
     }
 
-
     public function error_image(){
 
         return view('globalsetting::error_image');
 
     }
-
 
     public function error_image_update(Request $request){
 
@@ -347,13 +360,11 @@ class GlobalSettingController extends Controller
 
     }
 
-
     public function login_image(){
 
         return view('globalsetting::login_image');
 
     }
-
 
     public function login_image_update(Request $request){
 
@@ -390,7 +401,6 @@ class GlobalSettingController extends Controller
 
     }
 
-
     public function admin_login_image_update(Request $request){
 
         $setting = GlobalSetting::where('key', 'admin_login')->first();
@@ -420,13 +430,11 @@ class GlobalSettingController extends Controller
 
     }
 
-
     public function breadcrumb(){
 
         return view('globalsetting::breadcrumb');
 
     }
-
 
     public function breadcrumb_update(Request $request){
 
@@ -484,13 +492,11 @@ class GlobalSettingController extends Controller
 
     }
 
-
     public function default_avatar(){
 
         return view('globalsetting::default_avatar');
 
     }
-
 
     public function default_avatar_update(Request $request){
 
@@ -527,7 +533,6 @@ class GlobalSettingController extends Controller
 
     }
 
-
     public function maintenance_mode_update(Request $request){
 
         $setting = GlobalSetting::where('key', 'maintenance_image')->first();
@@ -560,7 +565,6 @@ class GlobalSettingController extends Controller
 
     }
 
-
     public function cache_clear(){
 
         Artisan::call('optimize:clear');
@@ -569,7 +573,6 @@ class GlobalSettingController extends Controller
         $notify_message = array('message' => $notify_message, 'alert-type' => 'success');
         return redirect()->back()->with($notify_message);
     }
-
 
     public function set_cache_setting(){
         $setting_data = GlobalSetting::get();

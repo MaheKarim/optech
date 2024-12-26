@@ -80,27 +80,53 @@
             "percentage_3": "text"
         }
     },
-
-
-    "how_to_order": {
+    "main_demo_cta_section": {
         "builder": true,
-        "name": "How To Order Section",
+        "name": "CTA Section - (Main Demo)",
         "content": {
             "heading": "text",
             "description": "text",
             "button_link": "text",
-            "video_link": "text",
-            "images": {
-                "image": {
-                    "size": "306x309"
-                }
-            }
-        },
-        "element": {
-            "description_text": "text",
-            "modal": false
+            "button_text": "text"
+
         }
     },
+    "main_demo_sidebar_cta_section": {
+        "builder": true,
+        "name": "Sidebar CTA Section - (Main Demo)",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "button_link": "text",
+            "button_text": "text"
+        }
+    },
+    "main_demo_process_section": {
+        "builder": true,
+        "name": "Process Section - (Main Demo)",
+        "content": {
+            "heading": "text",
+            "step_1": "text",
+            "step_2": "text",
+            "step_3": "text",
+            "description_1": "text",
+            "description_2": "text",
+            "description_3": "text",
+            "images": {
+                "image_1": {
+                    "size": "250x220"
+                },
+                "image_2": {
+                    "size": "250x220"
+                },
+                "image_3": {
+                    "size": "250x220"
+                }
+            }
+        }
+    },
+
+
     "categories": {
         "builder": true,
         "name": "Categories Section",

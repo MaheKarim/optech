@@ -490,8 +490,9 @@
                 <h2>{{ getTranslatedValue($serviceContent, 'heading', $currentLang) }}</h2>
             </div>
         </div>
-        @foreach($listings as $listing)
         <div class="optech-4column-slider" data-aos="fade-up" data-aos-duration="800">
+            @foreach($listings as $listing)
+
             <div class="optech-iconbox-wrap">
                 <div class="optech-iconbox-icon">
                     <img src="{{ asset($listing->thumb_image) }}" alt="Icon">
@@ -506,8 +507,9 @@
                     </a>
                 </div>
             </div>
-        </div>
+
         @endforeach
+        </div>
     </div>
     <!-- End section -->
 
@@ -1000,22 +1002,8 @@
     </div>
     <!-- End section -->
 
-    <div class="section bg-cover optech-section-padding" style="background-image: url(assets/images/cta/cta-bg2.png)">
-        <div class="container">
-            <div class="optech-cta-wrap">
-                <div class="optech-cta-content center">
-                    <h2>Let’s work together</h2>
-                    <p>Each demo built with Teba will look different. You can customize anything appearance of your
-                        website with
-                        only a few clicks</p>
-                    <div class="optech-extra-mt" data-aos="fade-up" data-aos-duration="800">
-                        <a class="optech-default-btn" href="contact-us.html" data-text="Let’s Start a Project"><span
-                                class="btn-wraper">Let’s Start a Project</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('frontend.templates.layouts.main_demo_cta')
+
     <!-- End section -->
     <!-- Footer  -->
     <footer class="optech-footer-section">

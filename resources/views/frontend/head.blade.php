@@ -16,13 +16,12 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/remixicon.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/aos.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}">
 
     <!-- Code Editor  -->
 
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/app.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}"/>
 
     <link rel="stylesheet" href="{{ asset('global/toastr/toastr.min.css') }}">
 

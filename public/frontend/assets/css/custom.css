@@ -1,0 +1,7 @@
+.section, .bg-cover, .optech-section-padding, .cta-bg3{
+    /*background-image: url('../frontend/assets/img/cta/cta-bg3.png');*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
