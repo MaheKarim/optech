@@ -7,14 +7,12 @@ use App\Models\Admin;
 use App\Models\Order;
 use App\Models\Review;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 use Modules\City\Entities\City;
 use Modules\FAQ\App\Models\Faq;
 use Modules\Blog\App\Models\Blog;
 use App\Http\Controllers\Controller;
 use Cache, Image, File, Str, Artisan;
-use Illuminate\Http\RedirectResponse;
 use Modules\JobPost\Entities\JobPost;
 use Modules\Listing\Entities\Listing;
 use Modules\Category\Entities\Category;
@@ -97,7 +95,7 @@ class GlobalSettingController extends Controller
     {
 
         $logo_setting = GlobalSetting::where('key', 'logo')->first();
-//        dd($logo_setting);
+
 
         if($request->logo){
             $old_logo = $logo_setting->value;
@@ -130,7 +128,7 @@ class GlobalSettingController extends Controller
                 if(File::exists(public_path().'/'.$old_logo))unlink(public_path().'/'.$old_logo);
             }
         }
-
+//        dd($logo_setting, $white_logo_setting);
         $footer_logo_setting = GlobalSetting::where('key', 'footer_logo')->first();
 
         if($request->footer_logo){

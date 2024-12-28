@@ -125,6 +125,28 @@
             }
         }
     },
+    "main_demo_service_success_section": {
+        "builder": true,
+        "name": "Service Success Section - (Main Demo)",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "service_name_1": "text",
+            "service_percentage_1": "number",
+            "service_name_2": "text",
+            "service_percentage_2": "number",
+            "service_name_3": "text",
+            "service_percentage_3": "number",
+            "images": {
+                "image_1": {
+                    "size": "489x499"
+                },
+                "image_2": {
+                    "size": "337x347"
+                }
+            }
+        }
+    },
 
 
     "categories": {

@@ -364,6 +364,7 @@
             $keyFeaturesContent = getContent('key_feature.content', true);
             $aboutUsContent = getContent('main_demo_about_us.content', true);
             $serviceContent = getContent('main_demo_service_section.content', true);
+            $serviceSuccessContent = getContent('main_demo_service_success_section.content', true);
     @endphp
     <div class="optech-hero-section bg-cover"
          style="background-image: url({{ asset('frontend/assets/img/hero/bg1.png') }})">
@@ -518,30 +519,28 @@
             <div class="row">
                 <div class="col-lg-6 order-lg-2">
                     <div class="optech-thumb extra-ml">
-                        <img data-aos="fade-up" data-aos-duration="600" src="assets/images/v1/thumb3.png" alt="">
+                        <img data-aos="fade-up" data-aos-duration="600" src="{{ url(@$serviceSuccessContent->data_values['images']['image_1']) }}" alt="Image">
                         <div class="optech-thumb-position2" data-aos="fade-up" data-aos-duration="800">
-                            <img src="assets/images/v1/thumb4.png" alt="">
+                            <img src="{{ url(@$serviceSuccessContent->data_values['images']['image_2']) }}" alt="Image">
                         </div>
                         <div class="optech-shape3">
-                            <img src="assets/images/shape/shape3.svg" alt="">
+                            <img src="{{ asset('frontend/assets/img/shape/shape3.svg') }}" alt="shape vector">
                         </div>
                         <div class="optech-shape4">
-                            <img src="assets/images/shape/shape4.svg" alt="">
+                            <img src="{{ asset('frontend/assets/img/shape/shape4.svg') }}" alt="shape vector">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 d-flex align-items-end">
                     <div class="optech-default-content mr40">
-                        <h2>Increasing business success with technology</h2>
-                        <p>Each demo built with Teba will look different. You can customize almost anything in the
-                            appearance of
-                            your website with only a few clicks. Each demo built with Teba will look different.</p>
+                        <h2> {{ getTranslatedValue($serviceSuccessContent, 'heading', $currentLang) }} </h2>
+                        <p>{{ getTranslatedValue($serviceSuccessContent, 'description', $currentLang) }}</p>
                         <div class="optech-extra-mt">
                             <section id="first-sec"></section>
                             <div class="optech-progress-item">
-                                <div class="progress-bar" data-percentage="86%">
+                                <div class="progress-bar" data-percentage="{{ getTranslatedValue($serviceSuccessContent, 'service_percentage_1', $currentLang) }}%">
                                     <div class="progress-title-holder">
-                                        <div class="progress-title">IT Solution & Management</div>
+                                        <div class="progress-title">{{ getTranslatedValue($serviceSuccessContent, 'service_name_1', $currentLang) }}</div>
                                         <div class="progress-number-wrapper">
                                             <div class="progress-number-mark">
                                                 <div class="percent"></div>
@@ -554,9 +553,9 @@
                                 </div>
                             </div>
                             <div class="optech-progress-item">
-                                <div class="progress-bar" data-percentage="72%">
+                                <div class="progress-bar" data-percentage="{{ getTranslatedValue($serviceSuccessContent, 'service_percentage_2', $currentLang) }}%">
                                     <div class="progress-title-holder">
-                                        <div class="progress-title">Website & App Development</div>
+                                        <div class="progress-title">{{ getTranslatedValue($serviceSuccessContent, 'service_name_2', $currentLang) }}</div>
                                         <div class="progress-number-wrapper">
                                             <div class="progress-number-mark">
                                                 <div class="percent"></div>
@@ -569,9 +568,9 @@
                                 </div>
                             </div>
                             <div class="optech-progress-item">
-                                <div class="progress-bar" data-percentage="83%">
+                                <div class="progress-bar" data-percentage="{{ getTranslatedValue($serviceSuccessContent, 'service_percentage_1', $currentLang) }}%">
                                     <div class="progress-title-holder">
-                                        <div class="progress-title">SEO & Digital Marketing</div>
+                                        <div class="progress-title">{{ getTranslatedValue($serviceSuccessContent, 'service_name_3', $currentLang) }}</div>
                                         <div class="progress-number-wrapper">
                                             <div class="progress-number-mark">
                                                 <div class="percent"></div>
