@@ -21,5 +21,6 @@
     "LiveChat": true,
     "Refund": true,
     "KYC": true,
-    "Subscription": true
+    "Subscription": true,
+    "Project": true
 }

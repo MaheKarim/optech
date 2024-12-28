@@ -18,6 +18,11 @@ class Blog extends Model
 
     protected $hidden = ['front_translate'];
 
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
     protected $appends = ['title', 'description', 'seo_title', 'seo_description', 'total_comment'];
 
     protected static function newFactory(): BlogFactory{}

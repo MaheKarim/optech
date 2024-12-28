@@ -48,6 +48,7 @@ class TestimonialController extends Controller
             $testimonial->image = $image_name;
         }
 
+        $testimonial->rating = $request->rating;
         $testimonial->status = $request->status ? 'active' : 'inactive';
         $testimonial->save();
 
@@ -108,6 +109,7 @@ class TestimonialController extends Controller
                 };
             }
 
+            $testimonial->rating = $request->rating;
             $testimonial->status = $request->status ? 'active' : 'inactive';
             $testimonial->save();
         }

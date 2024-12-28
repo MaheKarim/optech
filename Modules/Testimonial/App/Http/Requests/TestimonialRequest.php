@@ -15,16 +15,15 @@ class TestimonialRequest extends FormRequest
             'name' => 'required',
             'designation' => 'required',
             'comment' => 'required',
+            'rating' => 'required|numeric|between:0,5',
         ];
 
         if ($this->isMethod('post')) {
-            $rules['image'] ='required';
+            $rules['image'] = 'nullable';
         }
 
         return $rules;
-
     }
-
     /**
      * Determine if the user is authorized to make this request.
      *

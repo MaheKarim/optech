@@ -73,22 +73,7 @@ class HomeController extends Controller
             ->take(10)
             ->get();
 
-        $job_posts = JobPost::where(['status' => 'enable', 'approved_by_admin' => 'approved'])
-            ->latest()
-            ->take(10)
-            ->get();
-
-        $top_sellers = User::where([
-            'status' => 'enable',
-            'is_banned' => 'no',
-            'is_seller' => 1,
-            'is_top_seller' => 'enable'
-        ])
-            ->whereNotNull('email_verified_at')
-            ->select('id', 'username', 'name', 'image', 'designation', 'hourly_payment', 'online_status')
-            ->orderByDesc('id')
-            ->take(5)
-            ->get();
+        $blogPosts = Blog::latest()->take(3)->get();
 
         $testimonials = Testimonial::where('status', 'active')->latest()->get();
 
@@ -104,19 +89,16 @@ class HomeController extends Controller
             ->take(8)
             ->get();
 
-       // $all_categories = Category::where('status', 'enable')->latest()->get();
-
         // Common data for all views
         $view_data = compact(
             'seo_setting',
             'homepage',
             'categories',
             'listings',
-            'job_posts',
-            'top_sellers',
+            'blogPosts',
             'testimonials',
             'home2_filter_service',
-           // 'all_categories'
+            'testimonials'
         );
 
         // View template mapping

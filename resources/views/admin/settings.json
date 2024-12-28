@@ -147,13 +147,20 @@
             }
         }
     },
-
-
-    "categories": {
+    "main_demo_testimonial_section": {
         "builder": true,
-        "name": "Categories Section",
+        "name": "Testimonial Section - (Main Demo)",
         "content": {
             "heading": "text"
+
+        }
+    },
+    "main_demo_blog_section": {
+        "builder": true,
+        "name": "Blog Section - (Main Demo)",
+        "content": {
+            "heading": "text",
+            "button_text": "text"
         }
     }
 }

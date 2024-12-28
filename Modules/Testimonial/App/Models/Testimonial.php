@@ -11,9 +11,6 @@ class Testimonial extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     */
     protected $fillable = [];
 
     protected static function newFactory(): TestimonialFactory{}
@@ -41,5 +38,5 @@ class Testimonial extends Model
     public function getDesignationAttribute(){
         return $this->front_translate?->designation;
     }
-    
+
 }

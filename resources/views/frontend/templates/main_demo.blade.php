@@ -365,6 +365,8 @@
             $aboutUsContent = getContent('main_demo_about_us.content', true);
             $serviceContent = getContent('main_demo_service_section.content', true);
             $serviceSuccessContent = getContent('main_demo_service_success_section.content', true);
+            $testimonialContent = getContent('main_demo_testimonial_section.content', true);
+            $blogContent = getContent('main_demo_blog_section.content', true);
     @endphp
     <div class="optech-hero-section bg-cover"
          style="background-image: url({{ asset('frontend/assets/img/hero/bg1.png') }})">
@@ -445,6 +447,7 @@
     <div class="container">
         <div class="optech-divider"></div>
     </div>
+    <!-- End section -->
 
     <div class="section large-padding-tb overflow-hidden">
         <div class="container">
@@ -827,84 +830,30 @@
     <div class="section optech-section-padding bg-light1">
         <div class="container">
             <div class="optech-section-title center">
-                <h2>Don’t take our word, see what our customers say</h2>
+                <h2>{{ getTranslatedValue($testimonialContent, 'heading', $currentLang) }}</h2>
             </div>
             <div class="optech-2column-slider" data-aos="fade-up" data-aos-duration="600">
-                <div class="optech-t-box">
+                @foreach($testimonials as $testimonial)
+                    <div class="optech-t-box">
                     <div class="optech-t-quote">
-                        <img src="assets/images/v1/quote.svg" alt="">
+                        <img src="{{ asset('frontend/assets/img/v1/quote.svg') }}" alt="Image Section">
                     </div>
                     <div class="optech-t-data">
-                        <p>“ Working with several word press themes and templates the last years, I only can say this is
-                            best in
-                            every level. I use it for my company and the reviews that I have already are all excellent.
-                            Not only the
-                            design but the code quality ”</p>
+                        <p>“ {{ \Illuminate\Support\Str::limit($testimonial->translate?->comment, 250) }} ”</p>
                         <div class="optech-t-rating">
                             <ul>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
+                                @for($i = 0; $i < $testimonial->rating; $i++)
+                                    <li><img src="{{ asset('frontend/assets/img/v1/rating.svg') }}" alt="Rating Star"></li>
+                                @endfor
                             </ul>
                         </div>
                         <div class="optech-t-author">
-                            <h5>Brooklyn Simmons</h5>
-                            <span>Lead Developer</span>
+                            <h5>{{ $testimonial->translate?->name }}</h5>
+                            <span>{{ $testimonial->translate?->designation }}</span>
                         </div>
                     </div>
                 </div>
-                <div class="optech-t-box">
-                    <div class="optech-t-quote">
-                        <img src="assets/images/v1/quote.svg" alt="">
-                    </div>
-                    <div class="optech-t-data">
-                        <p>“ Working with several word press themes and templates the last years, I only can say this is
-                            best in
-                            every level. I use it for my company and the reviews that I have already are all excellent.
-                            Not only the
-                            design but the code quality ”</p>
-                        <div class="optech-t-rating">
-                            <ul>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                            </ul>
-                        </div>
-                        <div class="optech-t-author">
-                            <h5>Alexander Cameron</h5>
-                            <span>Lead Developer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="optech-t-box">
-                    <div class="optech-t-quote">
-                        <img src="assets/images/v1/quote.svg" alt="">
-                    </div>
-                    <div class="optech-t-data">
-                        <p>“ Working with several word press themes and templates the last years, I only can say this is
-                            best in
-                            every level. I use it for my company and the reviews that I have already are all excellent.
-                            Not only the
-                            design but the code quality ”</p>
-                        <div class="optech-t-rating">
-                            <ul>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                            </ul>
-                        </div>
-                        <div class="optech-t-author">
-                            <h5>Brooklyn Simmons</h5>
-                            <span>Lead Developer</span>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -915,87 +864,45 @@
             <div class="optech-section-title">
                 <div class="row">
                     <div class="col-xxl-5 col-lg-7">
-                        <h2>Recent blog & articles about technology</h2>
+                        <h2>{{ getTranslatedValue($blogContent, 'heading', $currentLang) }}</h2>
                     </div>
                     <div class="col-xxl-7 col-lg-5 d-flex align-items-center justify-content-end">
                         <div class="optech-title-btn">
-                            <a class="optech-default-btn" href="blog.html" data-text="View All Posts"><span
-                                    class="btn-wraper">View
-                  All Posts</span></a>
+                            <a class="optech-default-btn" href="{{ route('blogs') }}" data-text="{{ getTranslatedValue($blogContent, 'button_text', $currentLang) }}">
+                                <span class="btn-wraper">
+                                    {{ getTranslatedValue($blogContent, 'button_text', $currentLang) }}
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
+                @foreach($blogPosts as $blog)
                 <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="600">
                     <div class="optech-blog-wrap">
-                        <a href="single-blog.html">
+                        <a href="{{ route('blog', $blog->slug) }}">
                             <div class="optech-blog-thumb">
-                                <img src="assets/images/blog/blog6.png" alt="">
+                                <img src="{{ asset($blog->image) }}" alt="Blog Image">
                             </div>
                         </a>
                         <div class="optech-blog-content reduced-padding">
                             <div class="optech-blog-meta">
                                 <ul>
-                                    <li><a href="single-blog.html">Technology</a></li>
-                                    <li><a href="single-blog.html">26 June 2023</a></li>
+                                    <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->translate->name ?? '' }}</a></li>
+                                    <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->created_at->diffForHumans() }}</a></li>
                                 </ul>
                             </div>
-                            <a href="single-blog.html">
-                                <h4>Planning your online business goals with a specialist</h4>
+                            <a href="{{ route('blog', $blog->slug) }}">
+                                <h4>{{ \Illuminate\Support\Str::limit($blog->translate->title, 25) }}</h4>
                             </a>
-                            <a class="optech-icon-btn" href="single-blog.html"><i
+                            <a class="optech-icon-btn" href="{{ route('blog', $blog->slug) }}"><i
                                     class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
+                                <span>{{ __('Learn More') }}</span> <i class="icon-hide ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="800">
-                    <div class="optech-blog-wrap">
-                        <a href="single-blog.html">
-                            <div class="optech-blog-thumb">
-                                <img src="assets/images/blog/blog7.png" alt="">
-                            </div>
-                        </a>
-                        <div class="optech-blog-content reduced-padding">
-                            <div class="optech-blog-meta">
-                                <ul>
-                                    <li><a href="single-blog.html">Technology</a></li>
-                                    <li><a href="single-blog.html">26 June 2023</a></li>
-                                </ul>
-                            </div>
-                            <a href="single-blog.html">
-                                <h4>Boost your startup business with our digital agency</h4>
-                            </a>
-                            <a class="optech-icon-btn" href="single-blog.html"><i
-                                    class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="optech-blog-wrap">
-                        <a href="single-blog.html">
-                            <div class="optech-blog-thumb">
-                                <img src="assets/images/blog/blog8.png" alt="">
-                            </div>
-                        </a>
-                        <div class="optech-blog-content reduced-padding">
-                            <div class="optech-blog-meta">
-                                <ul>
-                                    <li><a href="single-blog.html">Technology</a></li>
-                                    <li><a href="single-blog.html">26 June 2023</a></li>
-                                </ul>
-                            </div>
-                            <a href="single-blog.html">
-                                <h4>Proactive customer experience in the business</h4>
-                            </a>
-                            <a class="optech-icon-btn" href="single-blog.html"><i
-                                    class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

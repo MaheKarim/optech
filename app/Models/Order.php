@@ -2,14 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use Modules\Listing\Entities\Listing;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
-    use HasFactory;
 
     public function listing(){
         return $this->belongsTo(Listing::class);
