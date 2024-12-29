@@ -26,6 +26,7 @@ class Listing extends Model
     {
         return $this->front_translate->title;
     }
+
     public function getDescriptionAttribute()
     {
         return $this->front_translate->description;

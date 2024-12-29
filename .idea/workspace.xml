@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Modules/Project/resources/views/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Project/resources/views/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Project/resources/views/gallery.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Blog/App/Models/Blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Blog/App/Models/Blog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Listing/App/Models/ListingPackage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Language/App/Http/Controllers/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Language/App/Http/Controllers/LanguageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Listing/Entities/Listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Listing/Entities/Listing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Testimonial/App/Http/Controllers/TestimonialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Testimonial/App/Http/Controllers/TestimonialController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Testimonial/App/Http/Requests/TestimonialRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Testimonial/App/Http/Requests/TestimonialRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Testimonial/App/Models/Testimonial.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Testimonial/App/Models/Testimonial.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Testimonial/Resources/views/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Testimonial/Resources/views/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Testimonial/Resources/views/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Testimonial/Resources/views/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/FrontEndManagementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FrontEndManagementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules_statuses.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules_statuses.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Listing/Entities/ListingGallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Listing/Entities/ListingGallery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Listing/Http/Controllers/ListingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Listing/Http/Controllers/ListingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Listing/Resources/views/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Listing/Resources/views/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Listing/Resources/views/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Listing/Resources/views/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Project/App/Http/Controllers/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Project/App/Http/Controllers/ProjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Project/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Project/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Project/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Project/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_12_28_144236_create_projects_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_12_28_144236_create_projects_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_12_28_144245_create_project_translations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_12_28_144245_create_project_translations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/en/translate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/translate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sidebar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,7 +288,8 @@
       <workItem from="1735189996700" duration="5619000" />
       <workItem from="1735203071287" duration="15164000" />
       <workItem from="1735360163966" duration="12011000" />
-      <workItem from="1735376376394" duration="8787000" />
+      <workItem from="1735376376394" duration="11693000" />
+      <workItem from="1735445914314" duration="15064000" />
     </task>
     <servers />
   </component>

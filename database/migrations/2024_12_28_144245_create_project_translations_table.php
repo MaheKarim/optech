@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('lang_code');
             $table->string('title');
             $table->longText('description');
-            $table->text('address');
+
+            $table->string('client_name');
+
             $table->text('seo_title')->nullable();
             $table->text('seo_description')->nullable();
             $table->timestamps();

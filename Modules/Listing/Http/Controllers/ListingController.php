@@ -2,10 +2,9 @@
 
 namespace Modules\Listing\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Order;
-use App\Models\Review;
 use Auth, Image, File, Str;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Listing\Entities\Listing;
@@ -15,13 +14,10 @@ use Modules\Category\Entities\SubCategory;
 use Modules\Language\App\Models\Language;
 use Illuminate\Contracts\Support\Renderable;
 use Modules\Listing\Entities\ListingGallery;
-
-use Modules\Listing\App\Models\ListingPackage;
-
 use Modules\Listing\Entities\ListingTranslation;
 use Modules\Listing\Http\Requests\ListingRequest;
-use Modules\Subscription\Entities\SubscriptionHistory;
-use Modules\GlobalSetting\App\Models\GlobalSetting;
+use Modules\Project\App\Models\Project;
+use Modules\Project\App\Models\ProjectTranslation;
 
 class ListingController extends Controller
 {
@@ -136,7 +132,7 @@ class ListingController extends Controller
 
         $listing = Listing::findOrFail($id);
 
-        if($request->lang_code == admin_lang()){
+        if($request->lang_code == admin_lang()) {
 
             if($request->thumb_image){
                 $old_image = $listing->thumb_image;
@@ -148,8 +144,8 @@ class ListingController extends Controller
                 $listing->thumb_image = $image_name;
                 $listing->save();
 
-                if($old_image){
-                    if(File::exists(public_path().'/'.$old_image))unlink(public_path().'/'.$old_image);
+                if($old_image) {
+                    if(File::exists(public_path().'/'.$old_image)) unlink(public_path().'/'.$old_image);
                 }
             }
 
@@ -167,8 +163,8 @@ class ListingController extends Controller
         $listing_translate->description = $request->description;
         $listing_translate->save();
 
-        $notify_message= trans('translate.Updated Successfully');
-        $notify_message=array('message'=>$notify_message,'alert-type'=>'success');
+        $notify_message = trans('translate.Updated Successfully');
+        $notify_message = array('message' => $notify_message, 'alert-type' => 'success');
         return redirect()->back()->with($notify_message);
     }
 

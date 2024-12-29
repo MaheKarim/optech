@@ -195,7 +195,6 @@
                                                         <textarea class="crancy__item-input crancy__item-textarea seo_description_box"  name="seo_description" id="seo_description">{{ html_decode($listing->seo_description) }}</textarea>
                                                     </div>
                                                 </div>
-
                                             </div>
 
                                             <button class="crancy-btn mg-top-25" type="submit">{{ __('translate.Update Data') }}</button>

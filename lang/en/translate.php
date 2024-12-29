@@ -1078,13 +1078,11 @@
   'An error occurred while updating status.' => 'An error occurred while updating status. ',
   'Online Status' => 'Online Status',
 
-
-
-
-
+     'Project' => 'Project',
+  'Project Gallery' => 'Project Gallery',
+  'Edit Project'=>'Edit Project',
   'Subscription Plan' => 'Subscription Plan',
   'Plan List' => 'Plan List',
-  'Purchase History' => 'Purchase History',
   'Pending History' => 'Pending History',
   'Subscription Plan List' => 'Subscription Plan List',
   'Create Plan' => 'Create Plan',
@@ -1118,7 +1116,6 @@
   'Minimum 1 USD is required for payment' => 'Minimum 1 USD is required for payment',
   'Seller || Subscription Plan' => 'Seller || Subscription Plan',
   'Expired Date' => 'Expired Date',
-  'Active' => 'Active',
   'Plan Details' => 'Plan Details',
   'You do not have any enrollment' => 'You do not have any enrollment',
   'Enrollment Empty' => 'Enrollment Empty',
@@ -1159,6 +1156,19 @@
      'No image uploaded' => 'No image uploaded',
      'Current image' => 'Current image',
      'Website White Logo'=>'Website White Logo',
+     'Projects' => 'Projects',
+     'All Projects' => 'All Projects',
+     'Manage Project' => 'Manage Project',
+     'Create Project' => 'Create Project',
+     'Client Name' => 'Client Name',
+     'Project Date' => 'Project Date',
+     'Website URL' => 'Website URL',
+     'Facebook URL' => 'Facebook URL',
+     'Twitter URL' => 'Twitter URL',
+  'LinkedIn URL' => 'LinkedIn URL',
+  'Instagram URL' => 'Instagram URL',
+
+
 
 
 );

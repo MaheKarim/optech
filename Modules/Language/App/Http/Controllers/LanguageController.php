@@ -32,6 +32,8 @@ use Modules\Page\App\Http\Controllers\AboutusController;
 use Modules\Page\App\Http\Controllers\PrivacyController;
 use Modules\Category\Http\Controllers\CategoryController;
 use Modules\Page\App\Http\Controllers\HomepageController;
+use Modules\Project\App\Http\Controllers\ProjectController;
+use Modules\Project\App\Models\ProjectTranslation;
 use Modules\Testimonial\App\Models\TestimonialTrasnlation;
 use Modules\Page\App\Http\Controllers\CustomPageController;
 use Modules\Page\App\Http\Controllers\ContactPageController;
@@ -105,6 +107,9 @@ class LanguageController extends Controller
         $listing_lang = new ListingController();
         $listing_lang->setup_language($request->lang_code);
 
+        $project_lang = new ProjectController();
+        $project_lang->setup_language($request->lang_code);
+
         $jobpost_lang = new JobPostController();
         $jobpost_lang->setup_language($request->lang_code);
 
@@ -122,8 +127,6 @@ class LanguageController extends Controller
 
         $page_lang = new CustomPageController();
         $page_lang->setup_language($request->lang_code);
-
-
 
 
         /** generate local language */
@@ -223,6 +226,7 @@ class LanguageController extends Controller
         FooterTranslation::where('lang_code' , $language->lang_code)->delete();
         HomepageTranslation::where('lang_code' , $language->lang_code)->delete();
         CustomPageTranslation::where('lang_code' , $language->lang_code)->delete();
+        ProjectTranslation::where('lang_code' , $language->lang_code)->delete();
 
         $path = base_path().'/lang'.'/'.$language->lang_code;
 
