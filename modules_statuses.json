@@ -22,5 +22,6 @@
     "Refund": true,
     "KYC": true,
     "Subscription": true,
-    "Project": true
+    "Project": true,
+    "Team": true
 }

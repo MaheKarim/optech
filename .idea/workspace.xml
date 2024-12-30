@@ -5,23 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Modules/Project/resources/views/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Project/resources/views/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Project/resources/views/gallery.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Team/resources/views/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Team/resources/views/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/templates/portfolio_detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Language/App/Http/Controllers/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Language/App/Http/Controllers/LanguageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Listing/Entities/Listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Listing/Entities/Listing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Listing/Entities/ListingGallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Listing/Entities/ListingGallery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Listing/Http/Controllers/ListingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Listing/Http/Controllers/ListingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Listing/Resources/views/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Listing/Resources/views/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Listing/Resources/views/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Listing/Resources/views/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Project/App/Http/Controllers/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Project/App/Http/Controllers/ProjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Project/App/Models/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Project/App/Models/Project.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Project/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Project/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Project/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Project/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2024_12_28_144236_create_projects_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_12_28_144236_create_projects_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2024_12_28_144245_create_project_translations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_12_28_144245_create_project_translations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lang/en/translate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/translate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules_statuses.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules_statuses.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/service_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/service_detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,6 +241,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\laragon\www\optech\resources\views" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\optech\Modules\Team\resources\views" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -289,11 +290,23 @@
       <workItem from="1735203071287" duration="15164000" />
       <workItem from="1735360163966" duration="12011000" />
       <workItem from="1735376376394" duration="11693000" />
-      <workItem from="1735445914314" duration="15064000" />
+      <workItem from="1735445914314" duration="21543000" />
+      <workItem from="1735531546516" duration="19706000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Modules/Project/resources/views/edit.blade.php</url>
+          <line>218</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

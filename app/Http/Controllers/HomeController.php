@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use Illuminate\Support\Facades\Session;
 use File;
 use App\Models\User;
@@ -17,7 +18,6 @@ use Modules\Listing\Entities\Listing;
 use Modules\Page\App\Models\Homepage;
 use Modules\Page\App\Models\ContactUs;
 use Modules\Category\Entities\Category;
-use Modules\Category\Entities\SubCategory;
 use Modules\Page\App\Models\CustomPage;
 use Modules\Blog\App\Models\BlogComment;
 use Modules\JobPost\Entities\JobRequest;
@@ -26,6 +26,7 @@ use Modules\Language\App\Models\Language;
 use Modules\Page\App\Models\PrivacyPolicy;
 use Modules\Listing\Entities\ListingGallery;
 use Modules\Page\App\Models\TermAndCondition;
+use Modules\Project\App\Models\Project;
 use Modules\SeoSetting\App\Models\SeoSetting;
 use Modules\Testimonial\App\Models\Testimonial;
 use Modules\GlobalSetting\App\Models\GlobalSetting;
@@ -77,6 +78,7 @@ class HomeController extends Controller
 
         $testimonials = Testimonial::where('status', 'active')->latest()->get();
 
+        $projects = Project::latest()->take(6)->get();
 
         $seo_setting = SeoSetting::find(1);
 
@@ -89,6 +91,8 @@ class HomeController extends Controller
             ->take(8)
             ->get();
 
+        $teams = Team::latest()->take(4)->get();
+
         // Common data for all views
         $view_data = compact(
             'seo_setting',
@@ -98,7 +102,9 @@ class HomeController extends Controller
             'blogPosts',
             'testimonials',
             'home2_filter_service',
-            'testimonials'
+            'testimonials',
+            'projects',
+            'teams'
         );
 
         // View template mapping
@@ -161,7 +167,6 @@ class HomeController extends Controller
         ]);
     }
 
-
     public function blog($slug)
     {
         $blog = Blog::with('author')->where('status', 1)->where('slug', $slug)->firstOrFail();
@@ -174,7 +179,6 @@ class HomeController extends Controller
             'blog_comments' => $blog_comments,
         ]);
     }
-
 
     public function store_blog_comment(Request $request, $id){
         $request->validate([
@@ -201,7 +205,6 @@ class HomeController extends Controller
         return redirect()->back()->with($notify_message);
     }
 
-
     public function contact_us()
     {
         $contact_us = ContactUs::first();
@@ -213,7 +216,6 @@ class HomeController extends Controller
         'seo_setting' => $seo_setting,
         ]);
     }
-
 
     public function faq()
     {
@@ -284,7 +286,6 @@ class HomeController extends Controller
         ]);
     }
 
-
     public function freelancer($username)
     {
         $seller = User::where(['status' => 'enable' , 'is_banned' => 'no', 'is_seller' => 1, 'username' => $username])->where('email_verified_at', '!=', null)->firstOrFail();
@@ -335,7 +336,6 @@ class HomeController extends Controller
         ]);
     }
 
-
     public function buyer(Request $request, $username)
     {
         $buyer = User::where(['status' => 'enable' , 'is_banned' => 'no', 'is_seller' => 0])->where('email_verified_at', '!=', null)->select('id', 'username', 'name', 'image', 'status', 'is_banned', 'is_seller', 'designation', 'gender', 'created_at', 'address', 'about_me', 'language')->where('username' , $username)->orderBy('id','desc')->firstOrFail();
@@ -354,7 +354,6 @@ class HomeController extends Controller
             'job_posts' => $job_posts,
         ]);
     }
-
 
     public function job_posts(Request $request)
     {
@@ -392,7 +391,6 @@ class HomeController extends Controller
         ]);
     }
 
-
     public function job_post(Request $request, $slug)
     {
         $job_post = JobPost::where(['status' => 'enable', 'approved_by_admin' => 'approved'])->where('slug', $slug)->firstOrFail();
@@ -401,7 +399,6 @@ class HomeController extends Controller
 
         return view('job_post_detail', ['job_post' => $job_post, 'total_job_by_author' => $total_job_by_author]);
     }
-
 
     public function privacy_policy()
     {
@@ -412,7 +409,6 @@ class HomeController extends Controller
         return view('privacy_policy', ['privacy_policy' => $privacy_policy, 'seo_setting' => $seo_setting]);
     }
 
-
     public function terms_conditions()
     {
         $terms_conditions = TermAndCondition::first();
@@ -422,14 +418,12 @@ class HomeController extends Controller
         return view('terms_conditions', ['terms_conditions' => $terms_conditions, 'seo_setting' => $seo_setting]);
     }
 
-
     public function custom_page($slug)
     {
         $custom_page = CustomPage::where('slug', $slug)->firstOrFail();
 
         return view('custom_page', ['custom_page' => $custom_page]);
     }
-
 
     public function services(Request $request)
     {
@@ -446,7 +440,6 @@ class HomeController extends Controller
         ]);
     }
 
-
     public function service(Request $request, $slug)
     {
         $service = Listing::where(['status' => 'enable', 'slug' => $slug])->firstOrFail();
@@ -461,7 +454,6 @@ class HomeController extends Controller
             'showServices' => $showServices
         ]);
     }
-
 
     public function language_switcher(Request $request)
     {
@@ -486,7 +478,6 @@ class HomeController extends Controller
         }
     }
 
-
     public function currency_switcher(Request $request){
 
         $request_currency = Currency::where('currency_code', $request->currency_code)->first();
@@ -503,10 +494,18 @@ class HomeController extends Controller
 
     }
 
-
     public function download_submission_file($file){
         $filepath= public_path() . "/uploads/custom-images/".$file;
         return response()->download($filepath);
+    }
+
+    public function portfolioShow($slug)
+    {
+        $project = Project::where('slug', $slug)->firstOrFail();
+        $previousProject = Project::where('id', '<', $project->id)->orderBy('id', 'desc')->first();
+        $nextProject = Project::where('id', '>', $project->id)->orderBy('id', 'asc')->first();
+
+        return view('frontend.templates.portfolio_detail', ['project' => $project, 'previousProject' => $previousProject, 'nextProject' => $nextProject]);
     }
 
 }

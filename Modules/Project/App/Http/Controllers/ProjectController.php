@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Modules\Category\Entities\Category;
 use Modules\Category\Entities\SubCategory;
 use Modules\Language\App\Models\Language;
-use Modules\Listing\Entities\ListingTranslation;
 use Modules\Project\App\Models\Project;
 use Modules\Project\App\Models\ProjectGallery;
 use Modules\Project\App\Models\ProjectTranslation;
@@ -28,7 +27,7 @@ class ProjectController extends Controller
     {
         $categories = Category::with('translate')->where('status', 'enable')->get();
 
-        return view('project::create', compact('categories', ));
+        return view('project::create', compact('categories'));
     }
 
     /**
@@ -36,8 +35,6 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $project = new Project();
 
         if ($request->thumb_image) {

@@ -46,7 +46,7 @@ Route::group(['middleware' => [ 'HtmlSpecialchars', 'MaintenanceMode']], functio
     Route::get('/freelancers', [HomeController::class, 'freelancers'])->name('freelancers');
     Route::get('/freelancer/{username}', [HomeController::class, 'freelancer'])->name('freelancer');
 
-    Route::get('/buyers/{username}', [HomeController::class, 'buyer'])->name('buyers');
+    Route::get('/portfolio/{slug}', [HomeController::class, 'portfolioShow'])->name('portfolio.show');
 
     Route::get('/job-posts', [HomeController::class, 'job_posts'])->name('job-posts');
     Route::get('/job-post/{slug}', [HomeController::class, 'job_post'])->name('job-post');

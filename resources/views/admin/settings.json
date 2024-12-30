@@ -162,5 +162,12 @@
             "heading": "text",
             "button_text": "text"
         }
+    },
+    "expert_feature_section": {
+        "builder": true,
+        "name": "Expert Section - (Main Demo)",
+        "content": {
+            "heading": "text"
+        }
     }
 }

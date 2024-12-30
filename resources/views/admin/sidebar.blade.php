@@ -25,14 +25,44 @@
                 <span class="menu-bar__name">{{ __('translate.Dashboard') }}</span></span></a>
             </li>
 
-            <li class="{{ Route::is('admin.project.index') ? 'active' : '' }}"><a class="collapsed" href="{{ route('admin.project.index') }}"><span class="menu-bar__text">
-                <span class="crancy-menu-icon crancy-svg-icon__v1">
-                    <svg class="crancy-svg-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
-                        <path d="M14 21V17C14 14.7909 12.2091 13 10 13C7.79086 13 6 14.7909 6 17V21M19 9.15033V16.9668C19 19.1943 17.2091 21 15 21H5C2.79086 21 1 19.1943 1 16.9668V9.15033C1 7.93937 1.53964 6.7925 2.46986 6.02652L7.46986 1.90935C8.9423 0.696886 11.0577 0.696883 12.5301 1.90935L17.5301 6.02652C18.4604 6.7925 19 7.93937 19 9.15033Z"  stroke-width="1.5"/>
-                    </svg>
-                </span>
-                <span class="menu-bar__name">{{ __('translate.Projects') }}</span></span></a>
+            <li class="{{ Route::is('admin.project.index') ? 'active' : '' }}">
+                <a class="collapsed" href="{{ route('admin.project.index') }}">
+                    <span class="menu-bar__text">
+                        <span class="crancy-menu-icon crancy-svg-icon__v1">
+                            <!-- Updated SVG Icon -->
+                            <svg class="crancy-svg-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="22"
+                                 viewBox="0 0 24 24" fill="none">
+                                <path d="M3 3H21V5H3V3ZM3 7H21V9H3V7ZM3 11H15V13H3V11ZM3 15H15V17H3V15ZM3 19H21V21H3V19Z"
+                                      fill="currentColor"/>
+                            </svg>
+                        </span>
+                        <span class="menu-bar__name">{{ __('translate.Projects') }}</span>
+                    </span>
+                </a>
             </li>
+
+            <li class="{{ Route::is('admin.team.index') ? 'active' : '' }}">
+                <a class="collapsed" href="{{ route('admin.team.index') }}">
+                    <span class="menu-bar__text">
+                        <span class="crancy-menu-icon crancy-svg-icon__v1">
+                            <!-- Team SVG Icon -->
+                            <svg class="crancy-svg-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="22"
+                                 viewBox="0 0 24 24" fill="none">
+                                <!-- Head and body of first person -->
+                                <circle cx="8" cy="8" r="3" fill="currentColor"/>
+                                <path d="M5 15C5 12.79 6.79 11 9 11H11C13.21 11 15 12.79 15 15V16H5V15Z" fill="currentColor"/>
+
+                                <!-- Head and body of second person -->
+                                <circle cx="16" cy="8" r="3" fill="currentColor"/>
+                                <path d="M14 15C14 12.79 15.79 11 18 11H20C22.21 11 24 12.79 24 15V16H14V15Z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        <span class="menu-bar__name">{{ __('translate.Manage Team') }}</span>
+                    </span>
+                </a>
+            </li>
+
+
 
             <li class="{{ Route::is('admin.orders') || Route::is('admin.order') || Route::is('admin.active-orders') || Route::is('admin.awaiting-orders') || Route::is('admin.reject-orders') || Route::is('admin.cancel-orders') || Route::is('admin.complete-orders') || Route::is('admin.pending-payment-orders') ? 'active' : '' }}"><a href="#!" class="collapsed" data-bs-toggle="collapse" data-bs-target="#menu-item__order"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">

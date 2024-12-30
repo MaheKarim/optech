@@ -367,6 +367,7 @@
             $serviceSuccessContent = getContent('main_demo_service_success_section.content', true);
             $testimonialContent = getContent('main_demo_testimonial_section.content', true);
             $blogContent = getContent('main_demo_blog_section.content', true);
+            $expertTeamContent = getContent('expert_feature_section.content', true);
     @endphp
     <div class="optech-hero-section bg-cover"
          style="background-image: url({{ asset('frontend/assets/img/hero/bg1.png') }})">
@@ -592,93 +593,46 @@
         </div>
     </div>
     <!-- End section -->
-
+    @php
+        // Helper function to determine animation duration
+        function getAnimationDuration($index) {
+            $durations = [500, 700, 900];
+            return $durations[$index % 3];
+        }
+    @endphp
     <div class="section optech-section-padding bg-light1">
         <div class="container">
             <div class="optech-section-title center">
-                <h2>Explore our recent projects</h2>
+                <h2>{{ __('Explore our recent projects') }}</h2>
             </div>
             <div class="row">
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="500">
-                    <div class="optech-portfolio-wrap">
-                        <div class="optech-portfolio-thumb">
-                            <img src="assets/images/p1/p1.png" alt="">
-                            <a class="optech-portfolio-btn" href="single-portfolio.html">
-                                <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                            </a>
-                            <div class="optech-portfolio-data">
-                                <a href="single-portfolio.html">
-                                    <h4>Digital Product Design</h4>
+                @foreach($projects as $index => $project)
+                    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="{{ getAnimationDuration($index) }}">
+                        <div class="optech-portfolio-wrap">
+                            <div class="optech-portfolio-thumb">
+
+                                <img src="{{ asset($project->thumb_image) }}" alt="{{ $project->translate?->title ?? 'Portfolio Image' }}">
+                                <a class="optech-portfolio-btn" href="{{ route('portfolio.show', $project->slug) }}">
+                                    <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
                                 </a>
-                                <p>Design, Graphics</p>
+                                <div class="optech-portfolio-data">
+                                    <a href="{{ route('portfolio.show', $project->slug) }}">
+                                        <h4>{{ $project->translate?->title }}</h4>
+                                    </a>
+                                    <p>
+                                        @if($project->category && $project->category->translate)
+                                            {{ $project->category->translate->title }}
+                                        @elseif($project->category)
+                                            {{ $project->category->title }}
+                                        @endif
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="700">
-                    <div class="optech-portfolio-wrap">
-                        <div class="optech-portfolio-thumb">
-                            <img src="assets/images/p1/p2.png" alt="">
-                            <a class="optech-portfolio-btn" href="single-portfolio.html">
-                                <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                            </a>
-                            <div class="optech-portfolio-data">
-                                <a href="single-portfolio.html">
-                                    <h4>Cyber Security Analysis</h4>
-                                </a>
-                                <p>Security, Technology</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="900">
-                    <div class="optech-portfolio-wrap">
-                        <div class="optech-portfolio-thumb">
-                            <img src="assets/images/p1/p3.png" alt="">
-                            <a class="optech-portfolio-btn" href="single-portfolio.html">
-                                <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                            </a>
-                            <div class="optech-portfolio-data">
-                                <a href="single-portfolio.html">
-                                    <h4>Health App Development</h4>
-                                </a>
-                                <p>Development, Software</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="500">
-                    <div class="optech-portfolio-wrap">
-                        <div class="optech-portfolio-thumb">
-                            <img src="assets/images/p1/p4.png" alt="">
-                            <a class="optech-portfolio-btn" href="single-portfolio.html">
-                                <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                            </a>
-                            <div class="optech-portfolio-data">
-                                <a href="single-portfolio.html">
-                                    <h4>Marketing Agency Website</h4>
-                                </a>
-                                <p>Development, Marketing</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-8" data-aos="fade-up" data-aos-duration="700">
-                    <div class="optech-portfolio-wrap">
-                        <div class="optech-portfolio-thumb">
-                            <img src="assets/images/p1/p5.png" alt="">
-                            <a class="optech-portfolio-btn" href="single-portfolio.html">
-                                <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                            </a>
-                            <div class="optech-portfolio-data">
-                                <a href="single-portfolio.html">
-                                    <h4>Project for Marketing</h4>
-                                </a>
-                                <p>Marketing, Business</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+            </div>
+
                 <div class="optech-center-btn">
                     <a class="optech-default-btn" href="portfolio-01.html" data-text="View Our All Works"><span
                             class="btn-wraper">View Our All Works</span></a>
@@ -686,32 +640,34 @@
             </div>
         </div>
     </div>
+
     <!-- End section -->
 
     <div class="section optech-section-padding2 dark-bg">
         <div class="container">
             <div class="optech-section-title light-color center">
-                <h2>Our expert team is always ready to help you</h2>
+                <h2>{{ getTranslatedValue($expertTeamContent, 'heading', $currentLang) }}</h2>
             </div>
             <div class="row">
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="400">
+                @foreach($teams as $team)
+                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="400">
                     <div class="optech-team-wrap">
                         <div class="optech-team-thumb">
-                            <img src="assets/images/team/team1.png" alt="">
+                            <img src="{{ asset($team->image) }}" alt="">
                             <div class="optech-social-icon-box style-three position">
                                 <ul>
                                     <li>
-                                        <a href="https://www.linkedin.com/">
+                                        <a href="https://www.linkedin.com/" target="_blank">
                                             <i class="ri-linkedin-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://twitter.com/">
+                                        <a href="https://twitter.com/" target="_blank">
                                             <i class="ri-twitter-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com/">
+                                        <a href="https://www.instagram.com/" target="_blank">
                                             <i class="ri-instagram-fill"></i>
                                         </a>
                                     </li>
@@ -720,108 +676,13 @@
                         </div>
                         <div class="optech-team-data">
                             <a href="single-team.html">
-                                <h5>Marvin McKinney</h5>
+                                <h5>{{ $team->name }}</h5>
                             </a>
-                            <p>CEO & Founder</p>
+                            <p>{{ $team->designation }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="600">
-                    <div class="optech-team-wrap">
-                        <div class="optech-team-thumb">
-                            <img src="assets/images/team/team2.png" alt="">
-                            <div class="optech-social-icon-box style-three position">
-                                <ul>
-                                    <li>
-                                        <a href="https://www.linkedin.com/">
-                                            <i class="ri-linkedin-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/">
-                                            <i class="ri-instagram-fill"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="optech-team-data">
-                            <a href="single-team.html">
-                                <h5>Sophia Rodriguez</h5>
-                            </a>
-                            <p>Creative Director</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="800">
-                    <div class="optech-team-wrap">
-                        <div class="optech-team-thumb">
-                            <img src="assets/images/team/team3.png" alt="">
-                            <div class="optech-social-icon-box style-three position">
-                                <ul>
-                                    <li>
-                                        <a href="https://www.linkedin.com/">
-                                            <i class="ri-linkedin-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/">
-                                            <i class="ri-instagram-fill"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="optech-team-data">
-                            <a href="single-team.html">
-                                <h5>Marvin McKinney</h5>
-                            </a>
-                            <p>Lead Developer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="optech-team-wrap">
-                        <div class="optech-team-thumb">
-                            <img src="assets/images/team/team4.png" alt="">
-                            <div class="optech-social-icon-box style-three position">
-                                <ul>
-                                    <li>
-                                        <a href="https://www.linkedin.com/">
-                                            <i class="ri-linkedin-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/">
-                                            <i class="ri-instagram-fill"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="optech-team-data">
-                            <a href="single-team.html">
-                                <h5>Alexander Cameron</h5>
-                            </a>
-                            <p>Product Designer</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

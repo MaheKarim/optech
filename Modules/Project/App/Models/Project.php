@@ -18,6 +18,11 @@ class Project extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
+    public function gallery()
+    {
+        return $this->hasMany(ProjectGallery::class, 'project_id');
+    }
+
     public function translate()
     {
         return $this->belongsTo(ProjectTranslation::class, 'id', 'project_id')->where('lang_code', admin_lang());

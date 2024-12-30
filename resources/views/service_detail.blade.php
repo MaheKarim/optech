@@ -11,8 +11,8 @@
             <h1 class="post__title">{{ __($service->translate->title) }}</h1>
             <nav class="breadcrumbs">
                 <ul>
-                    <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="{{ route('services') }}">Services</a></li>
+                    <li><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
+                    <li><a href="{{ route('services') }}">{{ __('Services') }}</a></li>
                     <li aria-current="page"> {{ __($service->translate->title) }}</li>
                 </ul>
             </nav>
