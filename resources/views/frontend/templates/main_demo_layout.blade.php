@@ -355,8 +355,9 @@
     @yield('content')
 
 <!-- Footer Section Start -->
-    @include('frontend.templates.layouts.main_demo_cta')
-
+    @unless(Route::is('contact-us'))
+        @include('frontend.templates.layouts.main_demo_cta')
+    @endunless
 <footer class="optech-footer-section dark-bg">
     <div class="container">
         <div class="optech-footer-top optech-section-padding">
