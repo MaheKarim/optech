@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 26, 2024 at 01:32 PM
+-- Generation Time: Dec 31, 2024 at 12:01 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -221,7 +221,8 @@ INSERT INTO `blog_comments` (`id`, `blog_id`, `name`, `email`, `phone`, `comment
 (3, 1, 'Jonas Lawrence', 'client@gmail.com', NULL, 'There are many variations of passages of Lorem Ipsum available, but the majoritys have suai alteration in som don&#039;t. Rando words which don&#039;t look even slightly believable.', 1, '2024-07-15 10:00:08', '2024-07-15 10:00:14'),
 (4, 1, 'David Simmonsss', 'david@gmail.com', NULL, 'There are many variations of passages of Lorem Ipsum available, but the majoritys have suai alteration in som don&#039;t. Rando words which don&#039;t look even slightly believable.', 1, '2024-07-15 10:01:30', '2024-07-15 10:02:15'),
 (5, 2, 'David Richard', 'user@gmail.com', NULL, 'There are many variations of passages of Lorem Ipsum available, but the majoritys have suai alteration in som don&#039;t. Rando words which don&#039;t look even slightly believable.', 1, '2024-07-15 10:01:46', '2024-07-15 10:02:16'),
-(6, 2, 'David Warner', 'david@gmail.com', NULL, 'There are many variations of passages of Lorem Ipsum available, but the majoritys have suai alteration in som don&#039;t. Rando words which don&#039;t look even slightly believable.', 1, '2024-07-15 10:02:11', '2024-07-15 10:02:16');
+(6, 2, 'David Warner', 'david@gmail.com', NULL, 'There are many variations of passages of Lorem Ipsum available, but the majoritys have suai alteration in som don&#039;t. Rando words which don&#039;t look even slightly believable.', 1, '2024-07-15 10:02:11', '2024-07-15 10:02:16'),
+(7, 1, 'Mahe Karim', 'rashedadnaan@gmail.com', NULL, 'Framework  For What Should I Use next', 1, '2024-12-31 09:35:43', '2024-12-31 09:35:43');
 
 -- --------------------------------------------------------
 
@@ -462,8 +463,8 @@ CREATE TABLE `contact_us_translations` (
 --
 
 INSERT INTO `contact_us_translations` (`id`, `contact_us_id`, `lang_code`, `address`, `title`, `description`, `contact_description`, `created_at`, `updated_at`) VALUES
-(1, 1, 'en', '4517 Washington Ave. 32 King Street.', 'Get in Touch', 'Award-winning, family owned dealership of new and pre-owned Workzone with several locations across the city.', 'Contrary to popular belief Lorem Ipsum is not simply random text.It has roots in a piece of classical Latin literature', '2024-01-28 09:47:29', '2024-07-12 08:58:17'),
-(28, 1, 'hd', '4517 Washington Ave. 32 King Street, Melbourne Manchester, Road USA', 'Get in Touch', 'Award-winning, family owned dealership of new and pre-owned Aadfirst with several locations across the city.', NULL, '2024-07-10 05:34:58', '2024-07-10 05:34:58');
+(1, 1, 'en', '4517 Washington', 'Get in Touch', 'Award-winning, family owned dealership of new and pre-owned Workzone with several locations across the city.', 'Contrary to popular belief Lorem Ipsum is not simply random text.It has roots in a piece of classical Latin literature', '2024-01-28 09:47:29', '2024-07-12 08:58:17'),
+(28, 1, 'hd', '4517 Washington', 'Get in Touch', 'Award-winning, family owned dealership of new and pre-owned Aadfirst with several locations across the city.', NULL, '2024-07-10 05:34:58', '2024-07-10 05:34:58');
 
 -- --------------------------------------------------------
 
@@ -749,7 +750,13 @@ INSERT INTO `frontends` (`id`, `data_keys`, `data_values`, `created_at`, `update
 (13, 'how_to_order.content', '{\"heading\":\"text\",\"description\":\"text\",\"button_link\":\"text\",\"video_link\":\"text\",\"image\":{},\"images\":{\"image\":\"uploads\\/website-images\\/1735129123_image.JPG\"}}', '2024-12-25 12:18:43', '2024-12-25 12:18:43', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"text\",\"description\":\"text\",\"button_link\":\"text\",\"video_link\":\"text\",\"image\":{}}}]'),
 (14, 'main_demo_cta_section.content', '{\"heading\":\"Let\'s grow together\",\"description\":\"Each CTA built will look different. You can customize anything appearance of your website with only a few clicks\",\"button_link\":\"contact-us\",\"button_text\":\"Let\'s do this!\"}', '2024-12-26 06:49:24', '2024-12-26 09:43:00', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Let\'s grow together\",\"description\":\"Each CTA built will look different. You can customize anything appearance of your website with only a few clicks\",\"button_link\":\"contact-us\",\"button_text\":\"Let\'s do this!\"}}]'),
 (15, 'main_demo_sidebar_cta_section.content', '{\"heading\":\"Don\'t hesitate to contact\",\"description\":\"At our solution , we are committed to exceptional\",\"button_link\":\"contact-us\",\"button_text\":\"Poke us\"}', '2024-12-26 10:49:17', '2024-12-26 10:49:17', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Don\'t hesitate to contact\",\"description\":\"At our solution , we are committed to exceptional\",\"button_link\":\"contact-us\",\"button_text\":\"Poke us\"}}]'),
-(16, 'main_demo_process_section.content', '{\"heading\":\"Our working process on how to grow your agency\",\"step_1\":\"Initiation & Planning\",\"step_2\":\"Execution & Deployment\",\"step_3\":\"Testing & Maintenance\",\"description_1\":\"We are architects innovation trailblazers of technological advancement\",\"description_2\":\"We are architects innovation trailblazers of technological advancement\",\"description_3\":\"We are architects innovation trailblazers of technological advancement\",\"images\":{\"image_1\":\"uploads\\/website-images\\/1735218545_image_1.png\",\"image_2\":\"uploads\\/website-images\\/1735218545_image_2.png\",\"image_3\":\"uploads\\/website-images\\/1735218545_image_3.png\"}}', '2024-12-26 13:09:05', '2024-12-26 13:13:30', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Our working process on how to grow your agency\",\"step_1\":\"Initiation & Planning\",\"step_2\":\"Execution & Deployment\",\"step_3\":\"Testing & Maintenance\",\"description_1\":\"We are architects innovation trailblazers of technological advancement\",\"description_2\":\"We are architects innovation trailblazers of technological advancement\",\"description_3\":\"We are architects innovation trailblazers of technological advancement\"}}]');
+(16, 'main_demo_process_section.content', '{\"heading\":\"Our working process on how to grow your agency\",\"step_1\":\"Initiation & Planning\",\"step_2\":\"Execution & Deployment\",\"step_3\":\"Testing & Maintenance\",\"description_1\":\"We are architects innovation trailblazers of technological advancement\",\"description_2\":\"We are architects innovation trailblazers of technological advancement\",\"description_3\":\"We are architects innovation trailblazers of technological advancement\",\"images\":{\"image_1\":\"uploads\\/website-images\\/1735218545_image_1.png\",\"image_2\":\"uploads\\/website-images\\/1735218545_image_2.png\",\"image_3\":\"uploads\\/website-images\\/1735218545_image_3.png\"}}', '2024-12-26 13:09:05', '2024-12-26 13:13:30', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Our working process on how to grow your agency\",\"step_1\":\"Initiation & Planning\",\"step_2\":\"Execution & Deployment\",\"step_3\":\"Testing & Maintenance\",\"description_1\":\"We are architects innovation trailblazers of technological advancement\",\"description_2\":\"We are architects innovation trailblazers of technological advancement\",\"description_3\":\"We are architects innovation trailblazers of technological advancement\"}}]'),
+(17, 'main_demo_service_success_section.content', '{\"heading\":\"Increasing business success with stack\",\"description\":\"Each demo built  look different. You can customize almost anything in the appearance of your website with only a few clicks. Each demo built with Teba will look different.\",\"service_name_1\":\"SAAS & Micro SAAS\",\"service_percentage_1\":\"80\",\"service_name_2\":\"SEO & Digital Marketing\",\"service_percentage_2\":\"70\",\"service_name_3\":\"AI & AI Agent Dev\",\"service_percentage_3\":\"95\",\"image_1\":{},\"image_2\":{},\"images\":{\"image_1\":\"uploads\\/website-images\\/1735367602_image_1.png\",\"image_2\":\"uploads\\/website-images\\/1735367602_image_2.png\"}}', '2024-12-28 06:22:04', '2024-12-28 06:33:22', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Increasing business success with stack\",\"description\":\"Each demo built  look different. You can customize almost anything in the appearance of your website with only a few clicks. Each demo built with Teba will look different.\",\"service_name_1\":\"SAAS & Micro SAAS\",\"service_percentage_1\":\"80\",\"service_name_2\":\"SEO & Digital Marketing\",\"service_percentage_2\":\"70\",\"service_name_3\":\"AI & AI Agent Dev\",\"service_percentage_3\":\"95\",\"image_1\":{},\"image_2\":{}}}]'),
+(18, 'main_demo_testimonial_section.content', '{\"heading\":\"Don\\u2019t take our word, see what our customers say\"}', '2024-12-28 11:07:59', '2024-12-28 11:07:59', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Don\\u2019t take our word, see what our customers say\"}}]'),
+(19, 'main_demo_blog_section.content', '{\"heading\":\"Recent blog & articles about stack\",\"button_text\":\"View Posts\",\"button_link\":\"blogs\"}', '2024-12-28 11:14:57', '2024-12-28 11:14:57', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Recent blog & articles about stack\",\"button_text\":\"View Posts\",\"button_link\":\"blogs\"}}]'),
+(20, 'expert_feature.content', '{\"heading\":\"Our expert team is always ready horny\",\"images\":{\"image_1\":\"uploads\\/website-images\\/1735541415_image_1.png\",\"image_2\":\"uploads\\/website-images\\/1735541415_image_2.png\",\"image_3\":\"uploads\\/website-images\\/1735541415_image_3.png\",\"image_4\":\"uploads\\/website-images\\/1735541415_image_4.png\"}}', '2024-12-30 06:50:15', '2024-12-30 11:11:06', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Our expert team is always ready horny\"}}]'),
+(21, 'expert_feature_section.content', '{\"heading\":\"Our expert is ready to take you\"}', '2024-12-30 11:12:19', '2024-12-30 11:12:19', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Our expert is ready to take you\"}}]'),
+(22, 'contact_us_section.content', '{\"heading\":\"Let\\u2019s build an awesome app together\",\"description\":\"Each demo built look different. You can customize almost anything in the appearance of your website with only a few clicks.\"}', '2024-12-31 11:21:18', '2024-12-31 11:21:18', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Let\\u2019s build an awesome app together\",\"description\":\"Each demo built look different. You can customize almost anything in the appearance of your website with only a few clicks.\"}}]');
 
 -- --------------------------------------------------------
 
@@ -770,7 +777,7 @@ CREATE TABLE `global_settings` (
 --
 
 INSERT INTO `global_settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
-(1, 'logo', 'uploads/website-images/logo-2024-12-18-12-58-42-1798.png', NULL, '2024-12-18 06:58:42'),
+(1, 'logo', 'uploads/website-images/logo-2024-12-28-11-49-11-8028.png', NULL, '2024-12-28 05:49:11'),
 (2, 'favicon', 'uploads/website-images/favicon-2024-12-18-03-53-38-7740.png', NULL, '2024-12-18 09:53:38'),
 (3, 'app_name', 'Optech', NULL, '2024-12-25 12:18:06'),
 (4, 'contact_message_mail', 'workzone.contact@gmail.com', NULL, '2024-12-25 12:18:06'),
@@ -817,7 +824,7 @@ INSERT INTO `global_settings` (`id`, `key`, `value`, `created_at`, `updated_at`)
 (45, 'commission_per_sale', '1', '2024-09-15 03:54:23', '2024-12-25 12:18:06'),
 (46, 'commission_type', 'commission', '2024-09-15 04:46:44', '2024-12-25 12:18:06'),
 (47, 'commission_per_sale', '1', '2024-09-15 04:46:44', '2024-12-25 12:18:06'),
-(48, 'white_logo', 'uploads/website-images/white_logo-2024-12-26-03-24-37-3447.png', '2024-12-18 08:49:33', '2024-12-26 09:24:37');
+(48, 'white_logo', 'uploads/website-images/white_logo-2024-12-28-11-49-11-3360.png', '2024-12-18 08:49:33', '2024-12-28 05:49:11');
 
 -- --------------------------------------------------------
 
@@ -1329,7 +1336,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (102, '2024_11_25_125500_create_frontends_table', 48),
 (103, '2024_12_19_162802_add_data_translations_column_to_frontends_table', 49),
 (106, '2024_08_25_122955_add_category_id_to_listings_table', 52),
-(107, '2024_01_31_090220_create_listings_table', 53);
+(107, '2024_01_31_090220_create_listings_table', 53),
+(110, '2024_12_28_144301_create_project_galleries_table', 54),
+(111, '2024_12_28_160450_add_rating_column_to_testimonial_table', 54),
+(114, '2024_12_28_144245_create_project_translations_table', 56),
+(115, '2024_12_28_144236_create_projects_table', 57),
+(116, '2024_12_30_142443_create_teams_table', 58);
 
 -- --------------------------------------------------------
 
@@ -1523,6 +1535,99 @@ CREATE TABLE `privacy_policies` (
 INSERT INTO `privacy_policies` (`id`, `lang_code`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'en', '<h4>01.Introduction</h4>\r\n<p>A Privacy Policy is a legal document that informs users about the data collected, how it\'s used, and how it\'s protected. It typically includes information about the type of personal our ainformation collected (such as names, email addresses, etc.), the purpose of collection, and whether the information is shared with third parties. It outlines the rights of users regarding their data, such as the right to access, correct, or delete their information.</p>\r\n<h4>02.Workzone of Privacy and Policy</h4>\r\n<p>Terms of Service (also known as Terms and Conditions or Terms of Use) set the rules and guidelines for using a particular service or platform. They establish the contractual relationship between the user and the service provider. They often include details about user behavior, content usage policies, disclaimers, limitations of liability, and procedures for dispute resolution.Users typically agree to these terms by using the service.When you visit a website or use an online service, you are usually asked to agree to both the Privacy Policy and the Terms of Service. These documents are crucial for transparency, legal compliance, and establishing the terms under which users can access and use the service.</p>\r\n<p>It\'s important for businesses and service providers to keep these documents up-to-date and easily accessible to users. If you have specific questions or concerns about privacy policies or terms of service, feel free to provide more details, and I\'ll do my best to assist you.</p>\r\n<h4>3. Protect Your Property</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown as printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuriezcs but also the on leap into as eylectronic typesetting, remaining as essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraszvxet sheets containing Lorem Ipsum our spassages, andei more recently with a desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. five centuries but also a the on leap into electronic typesetting, remaining essentially unchanged. It aswasn&rsquo;t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop our aspublishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<h4>4. What to Include in Terms and Conditions for Limitations of Liability</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the as1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five as centuries but also the on leap into as electronic ki typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of as Leitraset sheets containing Loriem Ipsum passages, our andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<p>ive centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraset as sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker our as including versions of Loriem Ipsum to make a type our as specimen book. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheets as containing Lorem Ipsum passages, andei more recently with a desktop publishing software like Aldus PageMaker including versions of Loremas Ipsum to make a type specimen book.</p>\r\n<h4>05.Pricing and Payment Policy</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the as 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five as centuries but also as the on leap into electronic as typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release as of Letraset sheets containing Lorem Ipsum our spassages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<p>five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker our as including versions of Lorem aIpsum to make a type specimen our as book. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheetsasd containing Lorem Ipsum passages, andei more recentlysl with desktop publishing software like Aldus PageMaker including versions of Loremadfsfds Ipsum to make a type specimen book.</p>\r\n<p>It has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the our 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing asou software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>', NULL, '2024-07-10 08:24:22'),
 (19, 'hd', '<h4>01.Introduction</h4>\r\n<p>A Privacy Policy is a legal document that informs users about the data collected, how it\'s used, and how it\'s protected. It typically includes information about the type of personal our ainformation collected (such as names, email addresses, etc.), the purpose of collection, and whether the information is shared with third parties. It outlines the rights of users regarding their data, such as the right to access, correct, or delete their information.</p>\r\n<h4>02.Freelance Terms of Service (Privacy and Policy)</h4>\r\n<p>Terms of Service (also known as Terms and Conditions or Terms of Use) set the rules and guidelines for using a particular service or platform. They establish the contractual relationship between the user and the service provider. They often include details about user behavior, content usage policies, disclaimers, limitations of liability, and procedures for dispute resolution.Users typically agree to these terms by using the service.When you visit a website or use an online service, you are usually asked to agree to both the Privacy Policy and the Terms of Service. These documents are crucial for transparency, legal compliance, and establishing the terms under which users can access and use the service.</p>\r\n<p>It\'s important for businesses and service providers to keep these documents up-to-date and easily accessible to users. If you have specific questions or concerns about privacy policies or terms of service, feel free to provide more details, and I\'ll do my best to assist you.</p>\r\n<h4>3. Protect Your Property</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown as printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuriezcs but also the on leap into as eylectronic typesetting, remaining as essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraszvxet sheets containing Lorem Ipsum our spassages, andei more recently with a desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. five centuries but also a the on leap into electronic typesetting, remaining essentially unchanged. It aswasn&rsquo;t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop our aspublishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<h4>4. What to Include in Terms and Conditions for Limitations of Liability</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the as1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five as centuries but also the on leap into as electronic ki typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of as Leitraset sheets containing Loriem Ipsum passages, our andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<p>ive centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraset as sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker our as including versions of Loriem Ipsum to make a type our as specimen book. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheets as containing Lorem Ipsum passages, andei more recently with a desktop publishing software like Aldus PageMaker including versions of Loremas Ipsum to make a type specimen book.</p>\r\n<h4>05.Pricing and Payment Policy</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the as 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five as centuries but also as the on leap into electronic as typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release as of Letraset sheets containing Lorem Ipsum our spassages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<p>five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker our as including versions of Lorem aIpsum to make a type specimen our as book. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheetsasd containing Lorem Ipsum passages, andei more recentlysl with desktop publishing software like Aldus PageMaker including versions of Loremadfsfds Ipsum to make a type specimen book.</p>\r\n<p>It has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the our 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing asou software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>', '2024-07-10 05:34:58', '2024-07-10 05:34:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `id` bigint UNSIGNED NOT NULL,
+  `category_id` int NOT NULL,
+  `sub_category_id` int DEFAULT NULL,
+  `thumb_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `website_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `project_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `project_fb` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `project_x` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `project_linkedin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `project_instagram` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'enable',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `category_id`, `sub_category_id`, `thumb_image`, `slug`, `website_url`, `project_date`, `project_fb`, `project_x`, `project_linkedin`, `project_instagram`, `status`, `created_at`, `updated_at`) VALUES
+(2, 5, NULL, 'uploads/custom-images/project-2024-12-29-04-51-00-3580.webp', 'facebook-hacking-service', 'https://github.com/copilot', '2024-02-05', 'https://fb.com/copilot', 'https://x.com/copilot', 'https://linkedin.com/copilot', 'https://instagram.com/copilot', 'enable', '2024-12-29 10:51:01', '2024-12-29 10:51:01'),
+(3, 5, NULL, 'uploads/custom-images/project-2024-12-30-12-14-41-7560.webp', 'uiux-design-service', 'https://github.com/copilot', '2025-10-10', 'https://github.com/copilot', 'https://github.com/copilot', 'https://github.com/copilot', 'https://github.com/copilot', 'enable', '2024-12-29 10:58:23', '2024-12-30 06:14:46'),
+(4, 12, NULL, 'uploads/custom-images/project-2024-12-30-12-07-50-3074.webp', 'web-security', 'https://github.com/copilot', '2024-10-02', 'https://github.com/copilot', 'https://github.com/copilot', 'https://linkedin.com/copilot', 'https://instagram.com/copilot', 'enable', '2024-12-29 11:00:41', '2024-12-30 06:07:52'),
+(5, 11, NULL, 'uploads/custom-images/project-2024-12-30-11-56-16-2642.webp', 'market-research', 'https://x.com/copilot', '2025-10-10', 'https://x.com/copilot', 'https://x.com/copilot', 'https://x.com/copilot', 'https://x.com/copilot', 'enable', '2024-12-30 05:56:18', '2024-12-30 05:56:18'),
+(6, 8, NULL, 'uploads/custom-images/project-2024-12-30-12-22-12-4052.webp', 'motion-device', 'https://github.com/copilot', '2021-10-02', 'https://github.com/copilot', 'https://github.com/copilot', 'https://github.com/copilot', 'https://instagram.com/copilot', 'enable', '2024-12-30 06:19:47', '2024-12-30 06:22:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_galleries`
+--
+
+CREATE TABLE `project_galleries` (
+  `id` bigint UNSIGNED NOT NULL,
+  `project_id` int NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `project_galleries`
+--
+
+INSERT INTO `project_galleries` (`id`, `project_id`, `image`, `created_at`, `updated_at`) VALUES
+(5, 2, 'uploads/custom-images/project-gallery-2024-12-29-04-51-16-76540.webp', '2024-12-29 10:51:16', '2024-12-29 10:51:16'),
+(6, 2, 'uploads/custom-images/project-gallery-2024-12-29-04-51-16-56491.webp', '2024-12-29 10:51:17', '2024-12-29 10:51:17'),
+(7, 3, 'uploads/custom-images/project-gallery-2024-12-30-11-49-25-83880.webp', '2024-12-30 05:49:25', '2024-12-30 05:49:25'),
+(8, 3, 'uploads/custom-images/project-gallery-2024-12-30-11-49-25-69651.webp', '2024-12-30 05:49:25', '2024-12-30 05:49:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_translations`
+--
+
+CREATE TABLE `project_translations` (
+  `id` bigint UNSIGNED NOT NULL,
+  `project_id` int NOT NULL,
+  `lang_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seo_title` text COLLATE utf8mb4_unicode_ci,
+  `seo_description` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `project_translations`
+--
+
+INSERT INTO `project_translations` (`id`, `project_id`, `lang_code`, `title`, `description`, `client_name`, `seo_title`, `seo_description`, `created_at`, `updated_at`) VALUES
+(3, 2, 'en', 'Facebook Hacking Service', '\r\n<h3>Project overview</h3>\r\n<p>A content management system helps you create, manage, and publish content on the web. It also keep content organized and accessible so it can be used and repurposed effectively. There are various kinds of content management systems available&mdash;from cloud-based to a headless</p>\r\n<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n\r\n\r\n<h3>The challenge of project</h3>\r\n<p>A content management system (CMS) is an application that is used to manage content, allowing multiple contributors to create, edit and publish. Content in a CMS is typically stored in a database and displayed in a presentation layer based on a set of templates like a website.</p>\r\n<p>&nbsp;</p>\r\n\r\n<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n\r\n\r\n<ul>\r\n<li>Creating and editing content</li>\r\n<li>Workflows, reporting, and content organization</li>\r\n<li>User &amp; role-based administration and security</li>\r\n<li>Flexibility, scalability, and performance and analysis</li>\r\n<li>Multilingual content capabilities</li>\r\n</ul>\r\n\r\n\r\n<h3>Final results</h3>\r\n<p>Having a content management system for your website allows you to have control of your content. It means having the ability to update, change or delete any images, text, video, or audio. It allows you to keep your site organized, up to date and looking.</p>\r\n\r\n', 'Anthony Fu', 'Laravel package which was created to manage your large Laravel', 'Laravel package which was created to manage your large Laravel', '2024-12-29 10:51:01', '2024-12-29 10:51:01'),
+(4, 2, 'hd', 'Facebook Hacking Service', '\r\n<h3>Project overview</h3>\r\n<p>A content management system helps you create, manage, and publish content on the web. It also keep content organized and accessible so it can be used and repurposed effectively. There are various kinds of content management systems available&mdash;from cloud-based to a headless</p>\r\n<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n\r\n\r\n<h3>The challenge of project</h3>\r\n<p>A content management system (CMS) is an application that is used to manage content, allowing multiple contributors to create, edit and publish. Content in a CMS is typically stored in a database and displayed in a presentation layer based on a set of templates like a website.</p>\r\n<p>&nbsp;</p>\r\n\r\n<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n\r\n\r\n<ul>\r\n<li>Creating and editing content</li>\r\n<li>Workflows, reporting, and content organization</li>\r\n<li>User &amp; role-based administration and security</li>\r\n<li>Flexibility, scalability, and performance and analysis</li>\r\n<li>Multilingual content capabilities</li>\r\n</ul>\r\n\r\n\r\n<h3>Final results</h3>\r\n<p>Having a content management system for your website allows you to have control of your content. It means having the ability to update, change or delete any images, text, video, or audio. It allows you to keep your site organized, up to date and looking.</p>\r\n\r\n', 'Anthony Fu', 'Laravel package which was created to manage your large Laravel', 'Laravel package which was created to manage your large Laravel', '2024-12-29 10:51:01', '2024-12-29 10:51:01'),
+(5, 3, 'en', 'UI-UX Design Service', '<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n<ul>\r\n<li>Creating and editing content</li>\r\n<li>Workflows, reporting, and content organization</li>\r\n<li>User &amp; role-based administration and security</li>\r\n<li>Flexibility, scalability, and performance and analysis</li>\r\n<li>Multilingual content capabilities</li>\r\n</ul>\r\n<h3>Final results</h3>\r\n<p>Having a content management system for your website allows you to have control of your content. It means having the ability to update, change or delete any images, text, video, or audio. It allows you to keep your site organized, up to date and looking.<br><br></p>\r\n<h3>Project overview</h3>\r\n<p>A content management system helps you create, manage, and publish content on the web. It also keep content organized and accessible so it can be used and repurposed effectively. There are various kinds of content management systems available&mdash;from cloud-based to a headless</p>\r\n<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n<h3>The challenge of project</h3>\r\n<p>A content management system (CMS) is an application that is used to manage content, allowing multiple contributors to create, edit and publish. Content in a CMS is typically stored in a database and displayed in a presentation layer based on a set of templates like a website.</p>', 'Nas Academy', 'Laravel package which was created to manage your large Laravel', 'Laravel package which was created to manage your large Laravel', '2024-12-29 10:58:23', '2024-12-30 06:08:44'),
+(6, 3, 'hd', 'UI-UX Design Service', '\r\n<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n\r\n\r\n<ul>\r\n<li>Creating and editing content</li>\r\n<li>Workflows, reporting, and content organization</li>\r\n<li>User &amp; role-based administration and security</li>\r\n<li>Flexibility, scalability, and performance and analysis</li>\r\n<li>Multilingual content capabilities</li>\r\n</ul>\r\n\r\n\r\n<h3>Final results</h3>\r\n<p>Having a content management system for your website allows you to have control of your content. It means having the ability to update, change or delete any images, text, video, or audio. It allows you to keep your site organized, up to date and looking.<br><br></p>\r\n\r\n<h3>Project overview</h3>\r\n<p>A content management system helps you create, manage, and publish content on the web. It also keep content organized and accessible so it can be used and repurposed effectively. There are various kinds of content management systems available&mdash;from cloud-based to a headless</p>\r\n<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n\r\n\r\n<h3>The challenge of project</h3>\r\n<p>A content management system (CMS) is an application that is used to manage content, allowing multiple contributors to create, edit and publish. Content in a CMS is typically stored in a database and displayed in a presentation layer based on a set of templates like a website.</p>\r\n\r\n', 'Nas Academy', 'Laravel package which was created to manage your large Laravel', 'Laravel package which was created to manage your large Laravel', '2024-12-29 10:58:23', '2024-12-29 10:58:23'),
+(7, 4, 'en', 'Web Security', '<h3>Project overview</h3>\r\n<p>A content management system helps you create, manage, and publish content on the web. It also keep content organized and accessible so it can be used and repurposed effectively. There are various kinds of content management systems available&mdash;from cloud-based to a headless</p>\r\n<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n<h3>The challenge of project</h3>\r\n<p>A content management system (CMS) is an application that is used to manage content, allowing multiple contributors to create, edit and publish. Content in a CMS is typically stored in a database and displayed in a presentation layer based on a set of templates like a website.</p>\r\n<h3>Project overview</h3>\r\n<p>A content management system helps you create, manage, and publish content on the web. It also keep content organized and accessible so it can be used and repurposed effectively. There are various kinds of content management systems available&mdash;from cloud-based to a headless</p>\r\n<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n<h3>The challenge of project</h3>\r\n<p>A content management system (CMS) is an application that is used to manage content, allowing multiple contributors to create, edit and publish. Content in a CMS is typically stored in a database and displayed in a presentation layer based on a set of templates like a website.</p>', 'Project Night fall', 'Laravel package which was created to manage your large Laravel', 'A content management system helps you create, manage, and pblish content on the web. It also keep content organized and accessible so it can be used and repurposed effectively. There are various kinds of content management systems available—from cloud-based to a headless', '2024-12-29 11:00:41', '2024-12-30 06:07:52'),
+(8, 4, 'hd', 'Web Security', '\r\n<h3>Project overview</h3>\r\n<p>A content management system helps you create, manage, and publish content on the web. It also keep content organized and accessible so it can be used and repurposed effectively. There are various kinds of content management systems available&mdash;from cloud-based to a headless</p>\r\n<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n\r\n\r\n<h3>The challenge of project</h3>\r\n<p>A content management system (CMS) is an application that is used to manage content, allowing multiple contributors to create, edit and publish. Content in a CMS is typically stored in a database and displayed in a presentation layer based on a set of templates like a website.</p>\r\n\r\n<h3>Project overview</h3>\r\n<p>A content management system helps you create, manage, and publish content on the web. It also keep content organized and accessible so it can be used and repurposed effectively. There are various kinds of content management systems available&mdash;from cloud-based to a headless</p>\r\n<p>CMS provides user-friendly features for easy editing and is compatible with installing plugins and tools that provide even more features for advanced functions. API CMS&rsquo;s are built to have an excellent user-friendly interface that is easy to use.</p>\r\n\r\n\r\n<h3>The challenge of project</h3>\r\n<p>A content management system (CMS) is an application that is used to manage content, allowing multiple contributors to create, edit and publish. Content in a CMS is typically stored in a database and displayed in a presentation layer based on a set of templates like a website.</p>\r\n\r\n', 'Project Night fall', 'Laravel package which was created to manage your large Laravel', 'A content management system helps you create, manage, and pblish content on the web. It also keep content organized and accessible so it can be used and repurposed effectively. There are various kinds of content management systems available—from cloud-based to a headless', '2024-12-29 11:00:41', '2024-12-29 11:00:41'),
+(9, 5, 'en', 'Market Research', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p>&nbsp;</p>', 'Abu Domain', 'Laborum tempor labor', 'Laravel Delvevehnkwjvegbhhujb jhm', '2024-12-30 05:56:18', '2024-12-30 05:56:18'),
+(10, 5, 'hd', 'Market Research', '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n<p>&nbsp;</p>', 'Abu Domain', 'Laborum tempor labor', 'Laravel Delvevehnkwjvegbhhujb jhm', '2024-12-30 05:56:18', '2024-12-30 05:56:18'),
+(11, 6, 'en', 'Motion Device', '<h2 class=\"heading-element\" dir=\"auto\" tabindex=\"-1\">A convenient Android app for checking your Dhaka MRT Card balance on the go.</h2>\r\n<p><a id=\"user-content-a-convenient-android-app-for-checking-your-dhaka-mrt-card-balance-on-the-go\" class=\"anchor\" href=\"https://github.com/aniruddha-adhikary/mrt-buddy#a-convenient-android-app-for-checking-your-dhaka-mrt-card-balance-on-the-go\" aria-label=\"Permalink: A convenient Android app for checking your Dhaka MRT Card balance on the go.\"></a></p>\r\n<h3 class=\"heading-element\" dir=\"auto\" tabindex=\"-1\">Overview</h3>\r\n<p><a id=\"user-content-overview\" class=\"anchor\" href=\"https://github.com/aniruddha-adhikary/mrt-buddy#overview\" aria-label=\"Permalink: Overview\"></a></p>\r\n<p dir=\"auto\">MRT Buddy is an unofficial community-driven Android app designed to check the balance of your Dhaka MRT Card. This app is not affiliated with DMTCL, JICA, Government of Bangladesh or any of its affiliates.</p>\r\n<h3 class=\"heading-element\" dir=\"auto\" tabindex=\"-1\">Key Features</h3>\r\n<p><a id=\"user-content-key-features\" class=\"anchor\" href=\"https://github.com/aniruddha-adhikary/mrt-buddy#key-features\" aria-label=\"Permalink: Key Features\"></a></p>\r\n<ul dir=\"auto\">\r\n<li>View and store the balance and last 19 transactions directly on your device from the RapidPass / MRT Card, which is a FeliCa Card.</li>\r\n<li>No API connectivity required.</li>\r\n<li>Limited to 10 transactions; for more, an official solution from DMTCL is necessary.</li>\r\n</ul>\r\n<h3 class=\"heading-element\" dir=\"auto\" tabindex=\"-1\">Instructions</h3>\r\n<ul dir=\"auto\">\r\n<li>Ensure your phone supports NFC.</li>\r\n<li>Place the MRT pass near the back of your phone properly for a successful scan.</li>\r\n</ul>\r\n<h3 class=\"heading-element\" dir=\"auto\" tabindex=\"-1\">Stay Updated</h3>\r\n<p><a id=\"user-content-stay-updated\" class=\"anchor\" href=\"https://github.com/aniruddha-adhikary/mrt-buddy#stay-updated\" aria-label=\"Permalink: Stay Updated\"></a></p>\r\n<p dir=\"auto\">Want to receive notifications when updates are available? Until approval on the Play Store, all updates will be announced on this WhatsApp channel!</p>', 'Al Kaseem Bigrede', 'Laborum tempor labor', 'laracvelk Lkshdiufhwi mjhbgjh,g uykhgyujh', '2024-12-30 06:19:47', '2024-12-30 06:22:15'),
+(12, 6, 'hd', 'Motion Device', '\r\n<h2 class=\"heading-element\" dir=\"auto\" tabindex=\"-1\">A convenient Android app for checking your Dhaka MRT Card balance on the go.</h2>\r\n<a id=\"user-content-a-convenient-android-app-for-checking-your-dhaka-mrt-card-balance-on-the-go\" class=\"anchor\" href=\"https://github.com/aniruddha-adhikary/mrt-buddy#a-convenient-android-app-for-checking-your-dhaka-mrt-card-balance-on-the-go\" aria-label=\"Permalink: A convenient Android app for checking your Dhaka MRT Card balance on the go.\"></a>\r\n\r\n<h3 class=\"heading-element\" dir=\"auto\" tabindex=\"-1\">Overview</h3>\r\n<a id=\"user-content-overview\" class=\"anchor\" href=\"https://github.com/aniruddha-adhikary/mrt-buddy#overview\" aria-label=\"Permalink: Overview\"></a>\r\n<p dir=\"auto\">MRT Buddy is an unofficial community-driven Android app designed to check the balance of your Dhaka MRT Card. This app is not affiliated with DMTCL, JICA, Government of Bangladesh or any of its affiliates.</p>\r\n\r\n<h3 class=\"heading-element\" dir=\"auto\" tabindex=\"-1\">Key Features</h3>\r\n<a id=\"user-content-key-features\" class=\"anchor\" href=\"https://github.com/aniruddha-adhikary/mrt-buddy#key-features\" aria-label=\"Permalink: Key Features\"></a>\r\n<ul dir=\"auto\">\r\n<li>View and store the balance and last 19 transactions directly on your device from the RapidPass / MRT Card, which is a FeliCa Card.</li>\r\n<li>No API connectivity required.</li>\r\n<li>Limited to 10 transactions; for more, an official solution from DMTCL is necessary.</li>\r\n</ul>\r\n\r\n<h3 class=\"heading-element\" dir=\"auto\" tabindex=\"-1\">Instructions</h3>\r\n<ul dir=\"auto\">\r\n<li>Ensure your phone supports NFC.</li>\r\n<li>Place the MRT pass near the back of your phone properly for a successful scan.</li>\r\n</ul>\r\n\r\n<h3 class=\"heading-element\" dir=\"auto\" tabindex=\"-1\">Stay Updated</h3>\r\n<a id=\"user-content-stay-updated\" class=\"anchor\" href=\"https://github.com/aniruddha-adhikary/mrt-buddy#stay-updated\" aria-label=\"Permalink: Stay Updated\"></a>\r\n<p dir=\"auto\">Want to receive notifications when updates are available? Until approval on the Play Store, all updates will be announced on this WhatsApp channel!</p>\r\n', 'Al Kaseem Bigrede', 'Laborum tempor labor', 'laracvelk Lkshdiufhwi mjhbgjh,g uykhgyujh', '2024-12-30 06:19:47', '2024-12-30 06:19:47');
 
 -- --------------------------------------------------------
 
@@ -1874,6 +1979,39 @@ INSERT INTO `sub_category_translates` (`id`, `subcategory_id`, `lang_code`, `nam
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `teams`
+--
+
+CREATE TABLE `teams` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instagram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `teams`
+--
+
+INSERT INTO `teams` (`id`, `name`, `slug`, `image`, `description`, `designation`, `mail`, `phone_number`, `facebook`, `twitter`, `linkedin`, `instagram`, `created_at`, `updated_at`) VALUES
+(1, 'Mahe karim', 'mahe-karim', 'uploads/custom-images/team-2024-12-30-03-59-30-2352.webp', '<p>MRT Buddy is an unofficial community-driven Android app designed to check the balance of your Dhaka MRT Card. This app is not affiliated with DMTCL, JICA, Government of Bangladesh or any of its affiliates.</p>', 'Solopreneur', 'mahe@grasshopper.digital', '1303062727', 'fb.com/ImMaheKarim', 'x.com/ImMaheKarim', 'lnkd.in/ImMaheKarim', 'instagram.com/ImMaheKarim', '2024-12-30 09:59:30', '2024-12-30 09:59:30'),
+(3, 'Karim Mahe', 'karim-mahe', 'uploads/custom-images/team-2024-12-30-05-16-33-5663.webp', '<p>Amader Deshta Sopnopuri Sathi Moder Velpuri</p>', 'Product Manager', 'mahe@mahi.com', '0122358875', 'https://www.facebook.com', 'https://www.twitter.com', 'https://www.linkedin.com/jui', 'https://www.instagram.com', '2024-12-30 11:16:39', '2024-12-30 11:16:39'),
+(4, 'Mahi Karim', 'mahi-karim', 'uploads/custom-images/team-2024-12-30-05-17-45-2768.webp', '<p>Alurre Zure</p>', 'Software Developer', 'software@dept.com', '01303062727', 'https://www.facebook.com', 'https://www.facebook.com', 'https://www.facebook.com', 'https://www.facebook.com', '2024-12-30 11:17:48', '2024-12-30 11:17:48'),
+(5, 'R Karim', 'r-karim', 'uploads/custom-images/team-2024-12-30-05-19-35-9956.webp', '<p>Zaman Dar Karim</p>', 'Daman+', 'mahe@grasshopper.digital', '01303062727', 'https://www.facebook.com', 'https://www.facebook.com', 'https://www.facebook.com', 'https://www.facebook.com', '2024-12-30 11:19:37', '2024-12-30 11:19:37');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `term_and_conditions`
 --
 
@@ -1902,23 +2040,20 @@ INSERT INTO `term_and_conditions` (`id`, `lang_code`, `description`, `created_at
 CREATE TABLE `testimonials` (
   `id` bigint UNSIGNED NOT NULL,
   `logo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `rating` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `testimonials`
 --
 
-INSERT INTO `testimonials` (`id`, `logo`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'uploads/custom-images/abdur-rohman-20240710125422.png', 'active', '2024-07-10 06:54:22', '2024-07-10 06:54:22'),
-(2, NULL, 'uploads/custom-images/niloy-mazumdar-20240710125510.png', 'active', '2024-07-10 06:55:10', '2024-07-10 06:55:10'),
-(3, NULL, 'uploads/custom-images/nasrun-nessa-20240710125554.png', 'active', '2024-07-10 06:55:54', '2024-07-10 06:55:54'),
-(4, NULL, 'uploads/custom-images/rafiqul-shuvo-20240710125626.png', 'active', '2024-07-10 06:56:26', '2024-07-10 06:56:26'),
-(5, NULL, 'uploads/custom-images/ibrahim-khalil-20240710125702.png', 'active', '2024-07-10 06:57:02', '2024-07-10 06:57:02'),
-(6, NULL, 'uploads/custom-images/sheikh-hasin-20240710125822.png', 'active', '2024-07-10 06:58:22', '2024-07-10 06:58:22');
+INSERT INTO `testimonials` (`id`, `logo`, `image`, `status`, `created_at`, `updated_at`, `rating`) VALUES
+(1, NULL, NULL, 'active', '2024-12-28 10:25:26', '2024-12-28 10:48:59', 5),
+(2, NULL, NULL, 'active', '2024-12-28 10:58:11', '2024-12-28 10:58:11', 4);
 
 -- --------------------------------------------------------
 
@@ -1931,7 +2066,7 @@ CREATE TABLE `testimonial_trasnlations` (
   `testimonial_id` int NOT NULL,
   `lang_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `designation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `designation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `comment` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1942,18 +2077,10 @@ CREATE TABLE `testimonial_trasnlations` (
 --
 
 INSERT INTO `testimonial_trasnlations` (`id`, `testimonial_id`, `lang_code`, `name`, `designation`, `comment`, `created_at`, `updated_at`) VALUES
-(1, 1, 'en', 'Abdur Rohman', 'CEO', 'Working with Shohelon our app project expectations was an absolute pleasure. Their attention to detail, creativity, and technical expertise shone through in every aspect of the app development process. The final product exceeded our expectations and has been well-received by our expectations users. Highly recommend!  Their attention to detail', '2024-07-10 06:54:22', '2024-07-15 08:21:48'),
-(2, 1, 'hd', 'Abdur Rohman', 'CEO', 'Working with [Your Name] on our app project was an absolute pleasure. Their attention to detail, creativity, and technical expertise shone through in every aspect of the app development process. The final product exceeded our expectations and has been well-received by our users. Highly recommend!', '2024-07-10 06:54:22', '2024-07-10 06:54:22'),
-(3, 2, 'en', 'Niloy Mazumdar', 'Founder', 'I am thrilled with the professionalism iOS app developed by [Your Name]. Their professionalism, dedication, and ability to bring our professionalism vision to life were exceptional. The app\'s user-friendly interface and seamless developer functionality are a testament to their expertise. professionalismA truly talented developer & results.', '2024-07-10 06:55:10', '2024-07-15 08:24:04'),
-(4, 2, 'hd', 'Niloy Mazumdar', 'Founder', 'I am thrilled with the iOS app developed by [Your Name]. Their professionalism, dedication, and ability to bring our vision to life were exceptional. The app\'s user-friendly interface and seamless functionality are a testament to their expertise. A truly talented developer who delivers outstanding results.', '2024-07-10 06:55:10', '2024-07-10 06:55:10'),
-(5, 3, 'en', 'Nasrun Nessa', 'Chairman', 'Choosing Shohel for our app development needs was one of the best decisions we made. Their knowledge of Swift programming and UI/UX design transformed our ideas into a polished, high-quality app. The collaborative approach, clear decisions communication, and commitment to excellence decisions made the entire process smooth and successful.', '2024-07-10 06:55:54', '2024-07-10 07:01:46'),
-(6, 3, 'hd', 'Nasrun Nessa', 'Chairman', 'Choosing Shohel for our app development needs was one of the best decisions we made. Their knowledge of Swift programming and UI/UX design transformed our ideas into a polished, high-quality app. The collaborative approach, clear communication, and commitment to excellence made the entire process smooth and successful.', '2024-07-10 06:55:54', '2024-07-10 06:55:54'),
-(7, 4, 'en', 'Rafiqul Shuvo', 'CTO', 'Shohel is a standout iOS App Developer who goes above and beyond to deliver exceptional results. Their attention to detail, problem-solving skills, and ability to adapt to changes made the development process seamless. The app they created for us not only met but exceeded ours. Highly recommended for anyone app development services.', '2024-07-10 06:56:26', '2024-07-15 08:23:33'),
-(8, 4, 'hd', 'Rafiqul Shuvo', 'CTO', 'Shohel is a standout iOS App Developer who goes above and beyond to deliver exceptional results. Their attention to detail, problem-solving skills, and ability to adapt to changes made the development process seamless. The app they created for us not only met but exceeded our expectations. Highly recommended for anyone seeking top-notch app development services.', '2024-07-10 06:56:26', '2024-07-10 06:56:26'),
-(9, 5, 'en', 'Ibrahim Khalil', 'COO', 'I cannot speak highly enough of the professionalism and expertise demonstrated by Shohel throughout our app development journey. Their commitment to quality, responsiveness to feedback, and dedication to delivering a top-tier app were truly . collaborative professionalism. Thank you for your outstanding work!', '2024-07-10 06:57:02', '2024-07-15 08:22:52'),
-(10, 5, 'hd', 'Ibrahim Khalil', 'COO', 'I cannot speak highly enough of the professionalism and expertise demonstrated by Shohel throughout our app development journey. Their commitment to quality, responsiveness to feedback, and dedication to delivering a top-tier app were truly commendable. Working with them was a collaborative and rewarding experience that resulted in a successful app launch. Thank you for your outstanding work!', '2024-07-10 06:57:02', '2024-07-10 06:57:02'),
-(11, 6, 'en', 'Camelia Jenesis', 'PM', 'I cannot speak highly enough of the professionalism and expertise demonstrated by Shohel throughout our app development journey. Their commitment to quality, responsiveness to feedback, and dedication to delivering a top-tier app were truly commendable. Working with them was a collaborative and rewarding experience', '2024-07-10 06:58:22', '2024-12-26 05:29:54'),
-(12, 6, 'hd', 'Sheikh Hasin', 'PM', 'I cannot speak highly enough of the professionalism and expertise demonstrated by Shohel throughout our app development journey. Their commitment to quality, responsiveness to feedback, and dedication to delivering a top-tier app were truly commendable. Working with them was a collaborative and rewarding experience that resulted in a successful app launch. Thank you for your outstanding work!\"', '2024-07-10 06:58:22', '2024-07-10 06:58:22');
+(1, 1, 'en', 'John Max', 'Daman+', 'Sylhet rocks , Beder meye josna amay kotha diyeche , asi si bnole kosnma dkal  SOUEWXJW   ASI ASI NBOLLE KOSMNA FAAK DIUECJE', '2024-12-28 10:25:26', '2024-12-28 10:25:26'),
+(2, 1, 'hd', 'John Max', 'Daman+', 'Sylhet rocks , Beder meye josna amay kotha diyeche , asi si bnole kosnma dkal  SOUEWXJW   ASI ASI NBOLLE KOSMNA FAAK DIUECJE', '2024-12-28 10:25:26', '2024-12-28 10:25:26'),
+(3, 2, 'en', 'Ami Na Tahkle', 'Product Manager', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.', '2024-12-28 10:58:11', '2024-12-28 10:58:11'),
+(4, 2, 'hd', 'Ami Na Tahkle', 'Product Manager', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.', '2024-12-28 10:58:11', '2024-12-28 10:58:11');
 
 -- --------------------------------------------------------
 
@@ -2408,6 +2535,24 @@ ALTER TABLE `privacy_policies`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project_galleries`
+--
+ALTER TABLE `project_galleries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project_translations`
+--
+ALTER TABLE `project_translations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `refund_requests`
 --
 ALTER TABLE `refund_requests`
@@ -2455,6 +2600,13 @@ ALTER TABLE `sub_categories`
 --
 ALTER TABLE `sub_category_translates`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `teams`
+--
+ALTER TABLE `teams`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `teams_slug_unique` (`slug`);
 
 --
 -- Indexes for table `term_and_conditions`
@@ -2549,7 +2701,7 @@ ALTER TABLE `blog_category_translations`
 -- AUTO_INCREMENT for table `blog_comments`
 --
 ALTER TABLE `blog_comments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `blog_translations`
@@ -2663,7 +2815,7 @@ ALTER TABLE `footer_translations`
 -- AUTO_INCREMENT for table `frontends`
 --
 ALTER TABLE `frontends`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `global_settings`
@@ -2747,7 +2899,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `newsletters`
@@ -2778,6 +2930,24 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `privacy_policies`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `project_galleries`
+--
+ALTER TABLE `project_galleries`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `project_translations`
+--
+ALTER TABLE `project_translations`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `refund_requests`
@@ -2828,6 +2998,12 @@ ALTER TABLE `sub_category_translates`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
+-- AUTO_INCREMENT for table `teams`
+--
+ALTER TABLE `teams`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `term_and_conditions`
 --
 ALTER TABLE `term_and_conditions`
@@ -2837,13 +3013,13 @@ ALTER TABLE `term_and_conditions`
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `testimonial_trasnlations`
 --
 ALTER TABLE `testimonial_trasnlations`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
