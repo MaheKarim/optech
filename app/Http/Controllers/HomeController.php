@@ -184,11 +184,35 @@ class HomeController extends Controller
         $blog = Blog::with('author')->where('status', 1)->where('slug', $slug)->firstOrFail();
 
         $blog_comments = BlogComment::where('blog_id', $blog->id)->where('status', 1)->latest()->get();
+        $categories = BlogCategory::withCount('blogs')->take(6)->get();
+
+        $currentBlogId = $request->id ?? null;
+        $recent_blogs = Blog::where('status', 1)
+            ->when($currentBlogId, function($query) use ($currentBlogId) {
+                return $query->where('id', '!=', $currentBlogId);
+            })
+            ->latest()
+            ->take(4)
+            ->get();
+
+        $previous = Blog::where('id', '<', $blog->id)
+            ->where('status', 1)
+            ->latest('id')
+            ->first();
+
+        $next = Blog::where('id', '>', $blog->id)
+            ->where('status', 1)
+            ->where('blog_category_id', $blog->blog_category_id) // Same category only
+            ->first();
 
 
         return view('blog_detail', [
             'blog' => $blog,
             'blog_comments' => $blog_comments,
+            'categories' => $categories,
+            'recent_blogs' => $recent_blogs,
+            'previous' => $previous,
+            'next' => $next,
         ]);
     }
 

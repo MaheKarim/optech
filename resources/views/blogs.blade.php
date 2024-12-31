@@ -8,11 +8,11 @@
 <!-- Main Start -->
 <div class="optech-breadcrumb" style="background-image: url({{ asset('frontend/assets/img/breadcrumb/breadcrumb.png') }})">
     <div class="container">
-        <h1 class="post__title">Blogs</h1>
+        <h1 class="post__title">{{ __('Blogs') }}</h1>
         <nav class="breadcrumbs">
             <ul>
-                <li><a href="{{ route('home') }}">Home</a></li>
-                <li aria-current="page"> Blogs</li>
+                <li><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
+                <li aria-current="page"> {{ __('Blogs') }}</li>
             </ul>
         </nav>
 
@@ -27,7 +27,7 @@
                 @foreach($blogs as $blog)
                     <div data-aos="fade-up" data-aos-duration="600">
                     <div class="optech-blog-wrap">
-                        <a href="single-blog.html">
+                        <a href="{{ route('blog', $blog->slug) }}">
                             <div class="optech-blog-thumb">
                                 <img src="{{ asset($blog->image) }}" alt="Blog Image">
                             </div>
@@ -56,18 +56,16 @@
                         <div class="optech-navigation">
                             <nav class="navigation pagination" aria-label="Posts">
                                 <div class="nav-links">
-                                    {{-- Previous Page Link --}}
                                     @if($blogs->onFirstPage())
                                         <span class="next page-numbers disabled">
-                        <i class="ri-arrow-left-s-line"></i>
-                    </span>
+                                            <i class="ri-arrow-left-s-line"></i>
+                                        </span>
                                     @else
                                         <a class="next page-numbers" href="{{ $blogs->previousPageUrl() }}">
                                             <i class="ri-arrow-left-s-line"></i>
                                         </a>
                                     @endif
 
-                                    {{-- Pagination Elements --}}
                                     @php
                                         $start = max($blogs->currentPage() - 2, 1);
                                         $end = min($start + 4, $blogs->lastPage());
@@ -96,15 +94,14 @@
                                         <a class="page-numbers" href="{{ $blogs->url($blogs->lastPage()) }}">{{ $blogs->lastPage() }}</a>
                                     @endif
 
-                                    {{-- Next Page Link --}}
                                     @if($blogs->hasMorePages())
                                         <a class="next page-numbers" href="{{ $blogs->nextPageUrl() }}">
                                             <i class="ri-arrow-right-s-line"></i>
                                         </a>
                                     @else
                                         <span class="next page-numbers disabled">
-                        <i class="ri-arrow-right-s-line"></i>
-                    </span>
+                                            <i class="ri-arrow-right-s-line"></i>
+                                        </span>
                                     @endif
                                 </div>
                             </nav>
