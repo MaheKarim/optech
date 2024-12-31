@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Review;
 use App\Rules\Captcha;
 use Illuminate\Http\Request;
+use Modules\Blog\App\Models\BlogCategory;
 use Modules\City\Entities\City;
 use Modules\FAQ\App\Models\Faq;
 use Modules\Blog\App\Models\Blog;
@@ -157,13 +158,24 @@ class HomeController extends Controller
             $blogs = $blogs->where('blog_category_id', $request->category);
         }
 
-        $blogs = $blogs->paginate(12);
+        $categories = BlogCategory::withCount('blogs')->take(6)->get();
 
+        $blogs = $blogs->paginate(4);
+        $currentBlogId = $request->id ?? null;
+        $recent_blogs = Blog::where('status', 1)
+            ->when($currentBlogId, function($query) use ($currentBlogId) {
+                return $query->where('id', '!=', $currentBlogId);
+            })
+            ->latest()
+            ->take(4)
+            ->get();
         $seo_setting = SeoSetting::where('id', 2)->first();
 
         return view('blogs', [
             'blogs' => $blogs,
             'seo_setting' => $seo_setting,
+            'categories' => $categories,
+            'recent_blogs' => $recent_blogs,
         ]);
     }
 

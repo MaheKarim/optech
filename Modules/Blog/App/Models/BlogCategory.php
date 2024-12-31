@@ -24,6 +24,11 @@ class BlogCategory extends Model
 
     }
 
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'blog_category_id', 'id');
+    }
+
     public function translate(){
         return $this->belongsTo(BlogCategoryTranslation::class, 'id', 'blog_category_id')->where('lang_code', admin_lang());
     }

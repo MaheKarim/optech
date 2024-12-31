@@ -66,11 +66,4 @@ class Blog extends Model
     public function getSeoDescriptionAttribute(){
         return $this->front_translate?->seo_description;
     }
-
-
-
-
-
-
-
 }
