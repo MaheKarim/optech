@@ -1072,6 +1072,7 @@
   'Online Activation Status' => 'Online Activation Status',
   'Not Show' => 'Not Show',
   'Online Activation' => 'Online Activation',
+  'Save my name, email, and website in this browser for the next time I comment' => 'Save my name, email, and website in this browser for the next time I comment',
   'Create Team Member' => 'Create Team Member',
   'Create Member' => 'Create Member',
   'Phone Number' => 'Phone Number',

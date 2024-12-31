@@ -1,3 +1,4 @@
+@php use Modules\Blog\App\Models\Blog; @endphp
 @extends('frontend.templates.main_demo_layout')
 
 @section('title')
@@ -50,7 +51,6 @@
                     </div>
                     <div class="entry-content">
                         <p>
-
                             {!! $blog->translate?->description !!}
                         </p>
 
@@ -90,68 +90,85 @@
                         </div>
 
                         <div class="optech-post-comment">
-                            <h3>Comments:</h3>
+                            <h3>{{ __('Comments:') }}</h3>
                             <ul>
+                                @foreach ($blog_comments as $blog_comment)
                                 <li>
                                     <div class="optech-post-comment-wrap">
                                         <div class="optech-post-comment-thumb">
-                                            <img src="assets/images/team/team1.png" alt="">
+                                            <img src="{{ asset($general_setting->default_avatar) }}" alt="">
                                         </div>
                                         <div class="optech-post-comment-data">
-                                            <p>Legal expertise and is client focused we enhance entrepreneurial environment flexible
-                                                supportive, allowing our lawyers introduced</p>
-                                            <strong>Alexander Cameron</strong>
-                                            <span>June 21, 2023</span>
+                                            <p>
+                                                {{ html_decode($blog_comment->comment) }}
+                                            </p>
+                                            <strong>{{ html_decode($blog_comment->name) }}</strong>
+                                            <span>{{ $blog_comment->created_at->format('d M Y') }}</span>
                                             <a class="optech-comment-reply" href="">
                                                 <i class="ri-reply-fill"></i>
-                                                Reply</a>
+                                                {{ __('Reply') }}
+                                                </a>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="children">
-                                    <div class="optech-post-comment-wrap">
-                                        <div class="optech-post-comment-thumb">
-                                            <img src="assets/images/team/team2.png" alt="">
-                                        </div>
-                                        <div class="optech-post-comment-data">
-                                            <p>Legal expertise and is client focused we enhance entrepreneurial environment flexible
-                                                supportive, allowing our lawyers</p>
-                                            <strong>Brooklyn Simmons</strong>
-                                            <span>September 22, 2023</span>
-                                            <a class="optech-comment-reply" href="">
-                                                <i class="ri-reply-fill"></i>
-                                                Reply</a>
-                                        </div>
-                                    </div>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="optech-comment-box">
-                            <h3>Leave a comments:</h3>
-                            <form action="#">
+                            <h3>{{ __('Leave a comments:') }}</h3>
+                            <form action="{{ route('store-blog-comment', $blog->id) }}" method="POST">
+                                @csrf
                                 <div class="optech-comment-box-form">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="optech-comment-form">
-                                                <input type="text" placeholder="Your Name*">
+                                                <input
+                                                    type="text"
+                                                    id="name"
+                                                    name="name"
+                                                    value="{{ old('name') }}"
+                                                    placeholder="Name"
+                                                >
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="optech-comment-form">
-                                                <input type="email" placeholder="Email Address*">
+                                                <input
+                                                    type="email"
+                                                    id="email"
+                                                    name="email"
+                                                    value="{{ old('email') }}"
+                                                    placeholder="Email"
+                                                >
                                             </div>
                                         </div>
                                     </div>
                                     <div class="optech-comment-form">
-                                        <textarea name="textarea" placeholder="Write us your comment"></textarea>
+                                       <textarea
+                                           id="desc"
+                                           name="comment"
+                                           placeholder="Comment"
+                                       >{{ old('comment') }}
+                                       </textarea>
                                     </div>
                                     <div class="optech-check">
                                         <input type="checkbox" id="css">
-                                        <label for="css">Save my name, email, and website in this browser for the next time I
-                                            comment.</label>
+                                        <label for="css">
+                                            {{ __('Save my name, email, and website in this browser for the next time I comment') }}.
+                                        </label>
                                     </div>
-                                    <button id="optech-default-btn" type="button" data-text="Send Message"> <span
-                                            class="btn-wraper">Send Message</span> </button>
+
+                                    @if($general_setting->recaptcha_status == 1)
+                                        <div class="contact-form-input col-lg-12 mt-4">
+                                            <div class="g-recaptcha" data-sitekey="{{ $general_setting->recaptcha_site_key }}"></div>
+                                        </div>
+                                    @endif
+
+                                    <button id="optech-default-btn" type="submit" data-text="Send Message">
+                                        <span class="btn-wraper">
+                                            {{ __('Send Message') }}
+                                        </span>
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -161,7 +178,7 @@
             <div class="col-lg-4">
                 <div class="optech-blog-sidebar">
                     <div class="optech-blog-widgets">
-                        <h5>Search</h5>
+                        <h5>{{ __('Search') }}</h5>
                         <form action="#">
                             <div class="optech-search-box">
                                 <input type="search" placeholder="Type to search...">
@@ -194,17 +211,12 @@
                         @endforeach
                     </div>
                     <div class="optech-blog-widgets">
-                        <h5>Tags</h5>
+                        <h5>{{ __('Tags') }}</h5>
                         <div class="optech-blog-tags">
                             <ul>
-                                <li><a href="">Business</a></li>
-                                <li><a href="">Digital</a></li>
-                                <li><a href="">IT Solution</a></li>
-                                <li><a href="">Technology</a></li>
-                                <li><a href="">Cyber Security</a></li>
-                                <li><a href="">Digital</a></li>
-                                <li><a href="">Finance</a></li>
-                                <li><a href="">Software</a></li>
+                                @foreach($allTags as $tag)
+                                    <li><a href="">{{ $tag }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

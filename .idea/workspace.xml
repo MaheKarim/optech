@@ -7,8 +7,8 @@
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/en/translate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/translate.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/blog_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog_detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogs.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +281,7 @@
       <workItem from="1735376376394" duration="11693000" />
       <workItem from="1735445914314" duration="21543000" />
       <workItem from="1735531546516" duration="22215000" />
-      <workItem from="1735618445182" duration="10729000" />
+      <workItem from="1735618445182" duration="14566000" />
     </task>
     <servers />
   </component>

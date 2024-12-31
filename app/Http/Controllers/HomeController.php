@@ -197,7 +197,7 @@ class HomeController extends Controller
 
         $previous = Blog::where('id', '<', $blog->id)
             ->where('status', 1)
-            ->latest('id')
+            ->latest()
             ->first();
 
         $next = Blog::where('id', '>', $blog->id)
@@ -206,6 +206,18 @@ class HomeController extends Controller
             ->first();
 
 
+        // Get all blog tags
+        $allTags = Blog::where('status', 1)
+            ->whereNotNull('tags')
+            ->pluck('tags')
+            ->map(function($tags) {
+                return collect(json_decode($tags))
+                    ->pluck('value');
+            })
+            ->flatten()
+            ->unique()
+            ->values();
+
         return view('blog_detail', [
             'blog' => $blog,
             'blog_comments' => $blog_comments,
@@ -213,6 +225,7 @@ class HomeController extends Controller
             'recent_blogs' => $recent_blogs,
             'previous' => $previous,
             'next' => $next,
+            'allTags' => $allTags,
         ]);
     }
 
@@ -236,7 +249,7 @@ class HomeController extends Controller
         $blog_comment->status = 0;
         $blog_comment->save();
 
-        $notify_message= trans('translate.Comment submited successfully');
+        $notify_message= trans('translate.Comment submitted successfully');
         $notify_message=array('message'=>$notify_message,'alert-type'=>'success');
         return redirect()->back()->with($notify_message);
     }
