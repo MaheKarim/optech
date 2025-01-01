@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ContactMessage/App/Http/Controllers/Frontend/ContactMessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ContactMessage/App/Http/Controllers/Frontend/ContactMessageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/ContactMessage/App/Http/Requests/ContactMessageRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/ContactMessage/App/Http/Requests/ContactMessageRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blogs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogs.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/contact_us.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact_us.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo_layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +286,8 @@
       <workItem from="1735376376394" duration="11693000" />
       <workItem from="1735445914314" duration="21543000" />
       <workItem from="1735531546516" duration="22215000" />
-      <workItem from="1735618445182" duration="20192000" />
+      <workItem from="1735618445182" duration="20977000" />
+      <workItem from="1735707054937" duration="4614000" />
     </task>
     <servers />
   </component>
@@ -297,7 +304,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/frontend/templates/main_demo_layout.blade.php</url>
-          <line>263</line>
+          <line>258</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

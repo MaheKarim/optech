@@ -160,7 +160,9 @@ class HomeController extends Controller
 
         $categories = BlogCategory::withCount('blogs')->take(6)->get();
 
-        $blogs = $blogs->paginate(4);
+        $perPage = $request->type === 'grid' ? 9 : 4;
+        $blogs = $blogs->paginate($perPage);
+
         $currentBlogId = $request->id ?? null;
         $recent_blogs = Blog::where('status', 1)
             ->when($currentBlogId, function($query) use ($currentBlogId) {
@@ -171,11 +173,24 @@ class HomeController extends Controller
             ->get();
         $seo_setting = SeoSetting::where('id', 2)->first();
 
+        // Get all blog tags
+        $allTags = Blog::where('status', 1)
+            ->whereNotNull('tags')
+            ->pluck('tags')
+            ->map(function($tags) {
+                return collect(json_decode($tags))
+                    ->pluck('value');
+            })
+            ->flatten()
+            ->unique()
+            ->values();
+
         return view('blogs', [
             'blogs' => $blogs,
             'seo_setting' => $seo_setting,
             'categories' => $categories,
             'recent_blogs' => $recent_blogs,
+            'allTags' => $allTags,
         ]);
     }
 

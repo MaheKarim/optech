@@ -28,7 +28,6 @@ class ContactMessageController extends Controller
         $contact_message->name = $request->name;
         $contact_message->email = $request->email;
         $contact_message->phone = $request->phone;
-        $contact_message->subject = $request->subject;
         $contact_message->message = $request->message;
         $contact_message->save();
 
@@ -42,7 +41,6 @@ class ContactMessageController extends Controller
         $message = str_replace('{{user_name}}',$request->name,$message);
         $message = str_replace('{{user_email}}',$request->email,$message);
         $message = str_replace('{{user_phone}}',$request->phone,$message);
-        $message = str_replace('{{message_subject}}',$request->subject,$message);
         $message = str_replace('{{message}}',$request->message,$message);
 
         Mail::to($setting->value)->send(new SendContactMessage($message,$subject, $request->email, $request->name));

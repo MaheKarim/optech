@@ -283,18 +283,21 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    @php
+                                        $isGrid = request()->query('type') === 'grid';
+                                    @endphp
                                     <li class="nav-item nav-item-has-children">
                                         <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Blog') }} <i
                                                 class="ri-arrow-down-s-fill"></i></a>
                                         <ul class="sub-menu" id="submenu-9">
                                             <li class="sub-menu--item">
                                                 <a href="{{ route('blogs') }}">
-                                                    <span class="menu-item-text">{{ __('translate.Blog') }}</span>
+                                                    <span class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('translate.Blog') }}</span>
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="{{ route('blogs') }}">
-                                                    <span class="menu-item-text">Blog grid</span>
+                                                <a href="{{ route('blogs', ['type' => 'grid']) }}">
+                                                    <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Blog Grid') }}</span>
                                                 </a>
                                             </li>
                                         </ul>

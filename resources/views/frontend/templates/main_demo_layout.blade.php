@@ -151,7 +151,9 @@
                                                     <span class="menu-item-text">Pricing</span>
                                                 </a>
                                             </li>
-
+                                            @php
+                                                $isGrid = request()->query('type') === 'grid';
+                                            @endphp
                                             <li class="sub-menu--item nav-item-has-children">
                                                 <a href="#" data-menu-get="h3"
                                                    class="drop-trigger">{{ __('translate.Blog') }} <i
@@ -160,17 +162,12 @@
                                                     <li class="sub-menu--item">
                                                         <a href="{{ route('blogs') }}">
                                                             <span
-                                                                class="menu-item-text">{{ __('translate.Blog') }}</span>
+                                                                class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('translate.Blog') }}</span>
                                                         </a>
                                                     </li>
                                                     <li class="sub-menu--item">
-                                                        <a href="{{ route('blogs') }}">
-                                                            <span class="menu-item-text">Blog Grid</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="single-blog.html">
-                                                            <span class="menu-item-text">Blog details</span>
+                                                        <a href="{{ route('blogs' ,['type' => 'grid']) }}">
+                                                            <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Blog Grid') }}</span>
                                                         </a>
                                                     </li>
                                                 </ul>

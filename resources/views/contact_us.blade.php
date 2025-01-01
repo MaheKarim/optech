@@ -53,6 +53,7 @@
                         <p>{{ __('Feel free to contact with us, we don’t spam your email') }}</p>
                         <form action="{{ route('store-contact-message') }}" method="POST">
                             @csrf
+
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="optech-main-field">
