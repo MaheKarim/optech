@@ -22,6 +22,11 @@ class Listing extends Model
     public function front_translate(){
         return $this->belongsTo(ListingTranslation::class, 'id', 'listing_id')->where('lang_code', front_lang());
     }
+
+    public function gallery()
+    {
+        return $this->hasMany(ListingGallery::class, 'listing_id');
+    }
     public function getTitleAttribute()
     {
         return $this->front_translate->title;

@@ -19,14 +19,18 @@
     },
     "key_feature": {
         "builder": true,
-        "name": "Key Feature - (Main Demo)",
+        "name": "Key Feature - (Main Demo/IT Consulting)",
         "content": {
+            "title": "text",
             "heading_1": "text",
             "description_1": "text",
+            "service_url_1": "url",
             "heading_2": "text",
             "description_2": "text",
+            "service_url_2": "url",
             "heading_3": "text",
             "description_3": "text",
+            "service_url_3": "url",
             "images": {
                 "image1": {
                     "size": "49x49"
@@ -42,13 +46,17 @@
     },
     "main_demo_about_us": {
         "builder": true,
-        "name": "About Us Section - (Main Demo)",
+        "name": "About Us Section - (Main Demo/IT Consulting)",
         "content": {
             "heading": "text",
             "sub_heading": "text",
             "description": "text",
             "button_text": "text",
             "button_link": "text",
+            "left_text": "text",
+            "left_counter": "number",
+            "right_text": "text",
+            "right_counter": "number",
             "images": {
                 "image_1": {
                     "size": "474x485"
@@ -61,7 +69,7 @@
     },
     "main_demo_service_section": {
         "builder": true,
-        "name": "Service Section - (Main Demo)",
+        "name": "Service Section - (Main Demo/IT Consulting)",
         "content": {
             "heading": "text"
         }
@@ -103,7 +111,7 @@
     },
     "main_demo_process_section": {
         "builder": true,
-        "name": "Process Section - (Main Demo)",
+        "name": "Process Section - (Main Demo/IT Consulting)",
         "content": {
             "heading": "text",
             "step_1": "text",
@@ -168,6 +176,51 @@
         "name": "Expert Section - (Main Demo)",
         "content": {
             "heading": "text"
+        }
+    },
+    "it_consulting_hero_section": {
+        "builder": true,
+        "name": "Hero Section - (IT Consulting)",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "left_button_text": "text",
+            "form_title": "text",
+            "form_description": "text",
+            "form_button_text": "text",
+            "images": {
+                "hero_image": {
+                    "size": "1600x1600"
+                }
+            }
+        }
+    },
+    "it_consulting_counter_section": {
+        "builder": true,
+        "name": "Counter Section - (IT Consulting)",
+        "content": {
+            "counter_1": "number",
+            "title_1": "text",
+            "counter_2": "number",
+            "title_2": "text",
+            "counter_3": "number",
+            "title_3": "text",
+            "counter_4": "number",
+            "title_4": "text",
+            "images": {
+                "image_1": {
+                    "size": "36x36"
+                },
+                "image_2": {
+                    "size": "36x36"
+                },
+                "image_3": {
+                    "size": "36x36"
+                },
+                "image_4": {
+                    "size": "36x36"
+                }
+            }
         }
     }
 }

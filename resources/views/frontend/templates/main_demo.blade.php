@@ -154,29 +154,6 @@
                                             </li>
 
                                             <li class="sub-menu--item nav-item-has-children">
-                                                <a href="#" data-menu-get="h3"
-                                                   class="drop-trigger">{{ __('translate.Blog') }} <i
-                                                        class="ri-arrow-down-s-fill"></i></a>
-                                                <ul class="sub-menu shape-none" id="submenu-3">
-                                                    <li class="sub-menu--item">
-                                                        <a href="{{ route('blogs') }}">
-                                                            <span
-                                                                class="menu-item-text">{{ __('translate.Blog') }}</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="{{ route('blogs') }}">
-                                                            <span class="menu-item-text">Blog Grid</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="single-blog.html">
-                                                            <span class="menu-item-text">Blog details</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="sub-menu--item nav-item-has-children">
                                                 <a href="#" data-menu-get="h3" class="drop-trigger">Service<i
                                                         class="ri-arrow-down-s-fill"></i>
                                                 </a>
@@ -624,9 +601,9 @@
                                     </a>
                                     <p>
                                         @if($project->category && $project->category->translate)
-                                            {{ $project->category->translate->title }}
+                                            {{ $project->category->translate->name }}
                                         @elseif($project->category)
-                                            {{ $project->category->title }}
+                                            {{ $project->category->name }}
                                         @endif
                                     </p>
                                 </div>
@@ -643,7 +620,6 @@
             </div>
         </div>
     </div>
-
     <!-- End section -->
 
     <div class="section optech-section-padding2 dark-bg">
@@ -660,17 +636,17 @@
                             <div class="optech-social-icon-box style-three position">
                                 <ul>
                                     <li>
-                                        <a href="https://www.linkedin.com/" target="_blank">
+                                        <a href="{{ $team->facebook }}" target="_blank">
                                             <i class="ri-linkedin-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://twitter.com/" target="_blank">
+                                        <a href="{{ $team->twitter }}" target="_blank">
                                             <i class="ri-twitter-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
+                                        <a href="{{ $team->instagram }}" target="_blank">
                                             <i class="ri-instagram-fill"></i>
                                         </a>
                                     </li>

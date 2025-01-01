@@ -15,7 +15,7 @@ class ContactMessageRequest extends FormRequest
         $rules = [
             'name'=>'required',
             'email'=>'required',
-            'phone'=>'required',
+            'phone'=>'nullable',
             'message'=>'required',
             'g-recaptcha-response'=>new Captcha()
         ];
@@ -38,7 +38,7 @@ class ContactMessageRequest extends FormRequest
         return [
             'name.required' => trans('translate.Name is required'),
             'email.required' => trans('translate.Email is required'),
-            'phone.required' => trans('translate.Phones is required'),
+            'phone.nullable' => trans('translate.Phones is nullable'),
             'message.required' => trans('translate.Message is required')
         ];
     }

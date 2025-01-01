@@ -69,7 +69,7 @@
                                 <div class="col-lg-6">
                                     <div class="optech-main-field">
                                         <input
-                                            type="text"
+                                            type="number"
                                             id="phone"
                                             placeholder="{{ __('translate.Phone') }}"
                                             name="phone"
