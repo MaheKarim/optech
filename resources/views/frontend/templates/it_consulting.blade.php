@@ -31,13 +31,13 @@
                         </div>
 
                         <div class="cur_lun_login_item">
-              <span>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M7.87643 2.47813C7.18954 4.3671 6.75001 7.02637 6.75001 10C6.75001 10.3796 6.75718 10.754 6.7711 11.1224C7.79627 11.2054 8.87923 11.25 10 11.25C11.1208 11.25 12.2038 11.2054 13.2289 11.1224C13.2429 10.754 13.25 10.3796 13.25 10C13.25 7.02637 12.8105 4.3671 12.1236 2.47813C11.779 1.53057 11.3865 0.816517 10.9883 0.353377C10.8696 0.215345 10.7565 0.106123 10.6496 0.0207619C10.4349 0.00699121 10.2183 0 10 0C9.78177 0 9.56516 0.00699124 9.3504 0.020762C9.24349 0.106123 9.13042 0.215345 9.01175 0.353377C8.61357 0.816517 8.221 1.53057 7.87643 2.47813ZM13.1315 12.6346C12.1291 12.71 11.0797 12.75 10 12.75C8.92028 12.75 7.87096 12.71 6.86854 12.6346C7.04293 14.5326 7.40024 16.2123 7.87643 17.5219C8.221 18.4694 8.61357 19.1835 9.01175 19.6466C9.13042 19.7847 9.24348 19.8939 9.35039 19.9792C9.56516 19.993 9.78177 20 10 20C10.2183 20 10.4349 19.993 10.6496 19.9792C10.7565 19.8939 10.8696 19.7847 10.9883 19.6466C11.3865 19.1835 11.779 18.4694 12.1236 17.5219C12.5998 16.2123 12.9571 14.5326 13.1315 12.6346ZM5.26493 10.968C5.25504 10.6486 5.25001 10.3257 5.25001 10C5.25001 6.8985 5.70592 4.05777 6.46674 1.96552C6.67341 1.39719 6.90681 0.872262 7.16688 0.407001C3.12245 1.59958 0.144576 5.28026 0.00512695 9.67717C0.882073 10.0753 2.09222 10.433 3.56698 10.7066C4.104 10.8062 4.67155 10.8938 5.26493 10.968ZM0.0879116 11.3317C1.0045 11.6736 2.09274 11.9587 3.29339 12.1814C3.94235 12.3018 4.63038 12.4051 5.3503 12.4893C5.5238 14.6072 5.91514 16.5176 6.46674 18.0345C6.67341 18.6028 6.90681 19.1277 7.16688 19.593C3.43599 18.4929 0.612705 15.2755 0.0879116 11.3317ZM14.6497 12.4893C15.3697 12.4051 16.0577 12.3018 16.7066 12.1814C17.9073 11.9587 18.9955 11.6736 19.9121 11.3317C19.3873 15.2755 16.564 18.4929 12.8332 19.593C13.0932 19.1277 13.3266 18.6028 13.5333 18.0345C14.0849 16.5176 14.4762 14.6072 14.6497 12.4893ZM19.9949 9.67717C19.118 10.0753 17.9078 10.433 16.4331 10.7066C15.896 10.8062 15.3285 10.8938 14.7351 10.968C14.745 10.6486 14.75 10.3257 14.75 10C14.75 6.8985 14.2941 4.05777 13.5333 1.96552C13.3266 1.39719 13.0932 0.872265 12.8332 0.407004C16.8776 1.59958 19.8555 5.28026 19.9949 9.67717Z"
-                        fill="white" />
-                </svg>
-              </span>
+                          <span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M7.87643 2.47813C7.18954 4.3671 6.75001 7.02637 6.75001 10C6.75001 10.3796 6.75718 10.754 6.7711 11.1224C7.79627 11.2054 8.87923 11.25 10 11.25C11.1208 11.25 12.2038 11.2054 13.2289 11.1224C13.2429 10.754 13.25 10.3796 13.25 10C13.25 7.02637 12.8105 4.3671 12.1236 2.47813C11.779 1.53057 11.3865 0.816517 10.9883 0.353377C10.8696 0.215345 10.7565 0.106123 10.6496 0.0207619C10.4349 0.00699121 10.2183 0 10 0C9.78177 0 9.56516 0.00699124 9.3504 0.020762C9.24349 0.106123 9.13042 0.215345 9.01175 0.353377C8.61357 0.816517 8.221 1.53057 7.87643 2.47813ZM13.1315 12.6346C12.1291 12.71 11.0797 12.75 10 12.75C8.92028 12.75 7.87096 12.71 6.86854 12.6346C7.04293 14.5326 7.40024 16.2123 7.87643 17.5219C8.221 18.4694 8.61357 19.1835 9.01175 19.6466C9.13042 19.7847 9.24348 19.8939 9.35039 19.9792C9.56516 19.993 9.78177 20 10 20C10.2183 20 10.4349 19.993 10.6496 19.9792C10.7565 19.8939 10.8696 19.7847 10.9883 19.6466C11.3865 19.1835 11.779 18.4694 12.1236 17.5219C12.5998 16.2123 12.9571 14.5326 13.1315 12.6346ZM5.26493 10.968C5.25504 10.6486 5.25001 10.3257 5.25001 10C5.25001 6.8985 5.70592 4.05777 6.46674 1.96552C6.67341 1.39719 6.90681 0.872262 7.16688 0.407001C3.12245 1.59958 0.144576 5.28026 0.00512695 9.67717C0.882073 10.0753 2.09222 10.433 3.56698 10.7066C4.104 10.8062 4.67155 10.8938 5.26493 10.968ZM0.0879116 11.3317C1.0045 11.6736 2.09274 11.9587 3.29339 12.1814C3.94235 12.3018 4.63038 12.4051 5.3503 12.4893C5.5238 14.6072 5.91514 16.5176 6.46674 18.0345C6.67341 18.6028 6.90681 19.1277 7.16688 19.593C3.43599 18.4929 0.612705 15.2755 0.0879116 11.3317ZM14.6497 12.4893C15.3697 12.4051 16.0577 12.3018 16.7066 12.1814C17.9073 11.9587 18.9955 11.6736 19.9121 11.3317C19.3873 15.2755 16.564 18.4929 12.8332 19.593C13.0932 19.1277 13.3266 18.6028 13.5333 18.0345C14.0849 16.5176 14.4762 14.6072 14.6497 12.4893ZM19.9949 9.67717C19.118 10.0753 17.9078 10.433 16.4331 10.7066C15.896 10.8062 15.3285 10.8938 14.7351 10.968C14.745 10.6486 14.75 10.3257 14.75 10C14.75 6.8985 14.2941 4.05777 13.5333 1.96552C13.3266 1.39719 13.0932 0.872265 12.8332 0.407004C16.8776 1.59958 19.8555 5.28026 19.9949 9.67717Z"
+                                    fill="white" />
+                            </svg>
+                          </span>
                             <form action="{{ route('language-switcher') }}" id="language_form">
                                 <select id="language_dropdown" class="js-example-basic-single" name="lang_code">
                                     @foreach ($language_list as $language_item)
@@ -68,7 +68,7 @@
                         <!-- Brand Logo-->
                         <div class="brand-logo">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset($general_setting->logo) }}" alt="logo" class="light-version-logo">
+                                <img src="{{ asset($general_setting->white_logo) }}" alt="logo" class="light-version-logo">
                             </a>
                         </div>
                         <div class="menu-block-wrapper">
@@ -224,11 +224,7 @@
                                                     <span class="menu-item-text">Portfolio masonry</span>
                                                 </a>
                                             </li>
-                                            <li class="sub-menu--item">
-                                                <a href="single-portfolio.html">
-                                                    <span class="menu-item-text">Single Portfolio</span>
-                                                </a>
-                                            </li>
+
                                         </ul>
                                     </li>
                                     @php
@@ -543,7 +539,7 @@
                                 <img src="{{ asset($listing->thumb_image) }}" alt="">
                             </div>
                             <a href="{{ route('service', $listing->slug) }}">
-                                <h5>{{ __($listing->translate?->title) }}</h5>
+                                <h5>{{ $listing->translate?->title }}</h5>
                             </a>
                         </div>
                     </div>
@@ -643,7 +639,7 @@
         <div class="container">
             <div id="optech-counter2"></div>
             <div class="optech-counter-wrap3">
-                <div class="optech-counter-data3" data-aos="fade-up" data-aos-duration="400">
+                <div class="optech-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_1', $currentLang) }}">
                     <div class="optech-counter-icon3">
                         <img src="{{ asset(getImage($counterContent, 'image_1')) }}" alt="">
                     </div>
@@ -654,7 +650,7 @@
                         <p>{{ getTranslatedValue($counterContent, 'title_1', $currentLang) }}</p>
                     </div>
                 </div>
-                <div class="optech-counter-data3" data-aos="fade-up" data-aos-duration="600">
+                <div class="optech-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_2', $currentLang) }}">
                     <div class="optech-counter-icon3">
                         <img src="{{ asset(getImage($counterContent, 'image_2')) }}" alt="">
                     </div>
@@ -665,7 +661,7 @@
                         <p>{{ getTranslatedValue($counterContent, 'title_2', $currentLang) }}</p>
                     </div>
                 </div>
-                <div class="optech-counter-data3" data-aos="fade-up" data-aos-duration="800">
+                <div class="optech-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_3', $currentLang) }}">
                     <div class="optech-counter-icon3">
                         <img src="{{ asset(getImage($counterContent, 'image_3')) }}" alt="">
                     </div>
@@ -676,7 +672,7 @@
                         <p>{{ getTranslatedValue($counterContent, 'title_3', $currentLang) }}</p>
                     </div>
                 </div>
-                <div class="optech-counter-data3" data-aos="fade-up" data-aos-duration="1000">
+                <div class="optech-counter-data3" data-aos="fade-up" data-aos-duration="{{ getTranslatedValue($counterContent, 'counter_4', $currentLang) }}">
                     <div class="optech-counter-icon3">
                         <img src="{{ asset(getImage($counterContent, 'image_4')) }}" alt="">
                     </div>
@@ -786,6 +782,7 @@
                                 <h4>{{ __('Fill The Contact Form') }}</h4>
                                 <p>{{ __('Get Free Consultation For IT Solutions') }}</p>
                                 <form action="{{ route('store-contact-message') }}" method="POST">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="optech-main-field">
@@ -846,30 +843,29 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-12">
                         <div class="optech-footer-textarea light-color">
-                            <a href="index.html">
-                                <img src="assets/images/logo/logo-white.svg" alt="">
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset($general_setting->white_logo) }}}" alt="">
                             </a>
-                            <p>Each demo built with Teba will look different. You can customize almost anything in the appearance of
-                                your website with only a few</p>
+                            <p>{{ __($footer->about_us) }}</p>
                             <div class="optech-social-icon-box">
                                 <ul>
                                     <li>
-                                        <a href="https://www.facebook.com/">
+                                        <a href="{{ $footer->facebook }}">
                                             <i class="ri-facebook-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.linkedin.com/">
+                                        <a href="{{ $footer->linkedin }}">
                                             <i class="ri-linkedin-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://twitter.com/">
+                                        <a href="{{ $footer->twitter }}">
                                             <i class="ri-twitter-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com/">
+                                        <a href="{{ $footer->instagram }}">
                                             <i class="ri-instagram-fill"></i>
                                         </a>
                                     </li>
@@ -880,14 +876,14 @@
                     <div class="col-xl-2 offset-xl-1 col-md-4">
                         <div class="optech-footer-menu">
                             <div class="optech-footer-title">
-                                <h5>Quick Links</h5>
+                                <h5>{{ __('Quick Links') }}</h5>
                             </div>
                             <ul>
-                                <li><a href="about-us.html">About Us</a></li>
+                                <li><a href="{{ route('about-us') }}">{{ __('About Us') }}</a></li>
                                 <li><a href="team.html">Our Team</a></li>
                                 <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="blog.html">Blogs</a></li>
-                                <li><a href="contact-us.html">Contact Us</a></li>
+                                <li><a href="{{ route('blogs') }}">{{ __('Blogs') }}</a></li>
+                                <li><a href="{{ route('contact-us') }}">{{ __('Contact Us') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -908,13 +904,12 @@
                     <div class="col-xl-2 col-md-3">
                         <div class="optech-footer-menu mb-0">
                             <div class="optech-footer-title">
-                                <h5>Information</h5>
+                                <h5>{{ __('Information') }}</h5>
                             </div>
                             <ul>
-                                <li><a href="">Working Process</a></li>
-                                <li><a href="">Privacy Policy</a></li>
-                                <li><a href="">Terms & Conditions</a></li>
-                                <li><a href="">Faqs</a></li>
+                                <li><a href="{{ route('privacy-policy') }}">{{ __('Privacy Policy') }}</a></li>
+                                <li><a href="{{ route('terms-conditions') }}">{{ __('Terms & Conditions') }}</a></li>
+                                <li><a href="{{ route('faq') }}">{{__('Faqs')}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -922,7 +917,7 @@
             </div>
             <div class="optech-footer-bottom center">
                 <div class="optech-copywright">
-                    <p> Copyright © 2024 MirrorTheme. All rights reserved.</p>
+                    <p> {{ $footer->copyright }}</p>
                 </div>
             </div>
         </div>

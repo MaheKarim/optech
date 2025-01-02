@@ -72,7 +72,6 @@
                         <div class="crancy-dsinner">
                             <div class="crancy-product-card mg-top-30">
 
-
                                 <form action="{{ route('admin.front-end.store', ['key' => $key, 'id' => $frontend->id ?? null]) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')

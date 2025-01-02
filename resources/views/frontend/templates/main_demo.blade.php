@@ -339,15 +339,19 @@
 
     <div class="search-overlay"></div>
     @php
-            $currentLang = session()->get('front_lang');
-            $contactUsContent = getContent('main_demo_hero.content', true);
-            $keyFeaturesContent = getContent('key_feature.content', true);
-            $aboutUsContent = getContent('main_demo_about_us.content', true);
-            $serviceContent = getContent('main_demo_service_section.content', true);
-            $serviceSuccessContent = getContent('main_demo_service_success_section.content', true);
-            $testimonialContent = getContent('main_demo_testimonial_section.content', true);
-            $blogContent = getContent('main_demo_blog_section.content', true);
-            $expertTeamContent = getContent('expert_feature_section.content', true);
+        function getAnimationDuration($index) {
+           $durations = [500, 700, 900];
+           return $durations[$index % 3];
+        }
+       $currentLang = session()->get('front_lang');
+       $contactUsContent = getContent('main_demo_hero.content', true);
+       $keyFeaturesContent = getContent('key_feature.content', true);
+       $aboutUsContent = getContent('main_demo_about_us.content', true);
+       $serviceContent = getContent('main_demo_service_section.content', true);
+       $serviceSuccessContent = getContent('main_demo_service_success_section.content', true);
+       $testimonialContent = getContent('main_demo_testimonial_section.content', true);
+       $blogContent = getContent('main_demo_blog_section.content', true);
+       $expertTeamContent = getContent('expert_feature_section.content', true);
     @endphp
     <div class="optech-hero-section bg-cover"
          style="background-image: url({{ asset('frontend/assets/img/hero/bg1.png') }})">
@@ -477,14 +481,13 @@
         </div>
         <div class="optech-4column-slider" data-aos="fade-up" data-aos-duration="800">
             @foreach($listings as $listing)
-
             <div class="optech-iconbox-wrap">
                 <div class="optech-iconbox-icon">
                     <img src="{{ asset($listing->thumb_image) }}" alt="Icon">
                 </div>
                 <div class="optech-iconbox-data">
                     <h5> {{ __($listing->translate?->title) }} </h5>
-                    <p>{{ __($listing->translate?->title) }}</p>
+                    <p>{!!  Str::limit($listing->translate?->description, 15) !!}</p>
                     <a class="optech-icon-btn" href="{{ route('service', $listing->slug) }}">
                         <i class="icon-show ri-arrow-right-line"></i>
                         <span>{{ __('translate.Learn More') }}</span>
@@ -492,7 +495,6 @@
                     </a>
                 </div>
             </div>
-
         @endforeach
         </div>
     </div>
@@ -572,14 +574,7 @@
             </div>
         </div>
     </div>
-    <!-- End section -->
-    @php
-        // Helper function to determine animation duration
-        function getAnimationDuration($index) {
-            $durations = [500, 700, 900];
-            return $durations[$index % 3];
-        }
-    @endphp
+
     <div class="section optech-section-padding bg-light1">
         <div class="container">
             <div class="optech-section-title center">
@@ -614,8 +609,8 @@
             </div>
 
                 <div class="optech-center-btn">
-                    <a class="optech-default-btn" href="portfolio-01.html" data-text="View Our All Works"><span
-                            class="btn-wraper">View Our All Works</span></a>
+                    <a class="optech-default-btn" href="{{ route('services') }}" data-text="View Our All Works"><span
+                            class="btn-wraper">{{ __('View Our All Services') }}</span></a>
                 </div>
             </div>
         </div>
@@ -759,7 +754,7 @@
                     <div class="col-xl-4 col-lg-12">
                         <div class="optech-footer-textarea dark-color">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset($general_setting->logo) }}" alt="Image">
+                                <img src="{{ $general_setting->logo }}" alt="Image">
                             </a>
                             <p> {{ $footer->about_us }}</p>
                             <div class="optech-social-icon-box style-two">
@@ -819,13 +814,12 @@
                     <div class="col-xl-2 col-md-3">
                         <div class="optech-footer-menu dark-color mb-0">
                             <div class="optech-footer-title dark-color">
-                                <h5>Information</h5>
+                                <h5>{{ __('Information') }}</h5>
                             </div>
                             <ul>
-                                <li><a href="">Working Process</a></li>
-                                <li><a href="">Privacy Policy</a></li>
-                                <li><a href="">Terms & Conditions</a></li>
-                                <li><a href="{{ route('faq') }}">{{ __('translate.FAQ') }}</a></li>
+                                <li><a href="{{ route('privacy-policy') }}">{{ __('Privacy Policy') }}</a></li>
+                                <li><a href="{{ route('terms-conditions') }}">{{ __('Terms & Conditions') }}</a></li>
+                                <li><a href="{{ route('faq') }}">{{__('Faqs')}}</a></li>
                             </ul>
                         </div>
                     </div>

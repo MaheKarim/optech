@@ -17,7 +17,7 @@
                 <div class="col-xl-4 col-lg-12">
                     <div class="optech-footer-textarea light-color">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset($general_setting->white_logo) }}" alt="Logo">
+                            <img src="{{ asset($general_setting->logo) }}" alt="Logo">
                         </a>
                         <p>{{ $footer->about_us }}</p>
                         <div class="optech-social-icon-box">
@@ -80,10 +80,9 @@
                             <h5>{{ __('Information') }}</h5>
                         </div>
                         <ul>
-                            <li><a href="">Working Process</a></li>
-                            <li><a href="">Privacy Policy</a></li>
-                            <li><a href="">Terms & Conditions</a></li>
-                            <li><a href="{{ route('faq') }}">{{ __('Faq') }}</a></li>
+                            <li><a href="{{ route('privacy-policy') }}">{{ __('Privacy Policy') }}</a></li>
+                            <li><a href="{{ route('terms-conditions') }}">{{ __('Terms & Conditions') }}</a></li>
+                            <li><a href="{{ route('faq') }}">{{__('Faqs')}}</a></li>
                         </ul>
                     </div>
                 </div>

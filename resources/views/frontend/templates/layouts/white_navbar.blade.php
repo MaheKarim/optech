@@ -65,7 +65,7 @@
                 <!-- Brand Logo-->
                 <div class="brand-logo">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset($general_setting->logo) }}" alt="logo" class="light-version-logo">
+                        <img src="{{ asset($general_setting->white_logo) }}" alt="logo" class="light-version-logo">
                     </a>
                 </div>
                 <div class="menu-block-wrapper">

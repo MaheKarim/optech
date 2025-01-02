@@ -111,7 +111,7 @@
     },
     "main_demo_process_section": {
         "builder": true,
-        "name": "Process Section - (Main Demo/IT Consulting)",
+        "name": "Process Section - (Main Demo/IT Solutions/IT Consulting)",
         "content": {
             "heading": "text",
             "step_1": "text",
@@ -165,7 +165,7 @@
     },
     "main_demo_blog_section": {
         "builder": true,
-        "name": "Blog Section - (Main Demo)",
+        "name": "Blog Section - (Main Demo/IT Solutions)",
         "content": {
             "heading": "text",
             "button_text": "text"
@@ -197,7 +197,7 @@
     },
     "it_consulting_counter_section": {
         "builder": true,
-        "name": "Counter Section - (IT Consulting)",
+        "name": "Counter Section - (IT Solutions/IT Consulting)",
         "content": {
             "counter_1": "number",
             "title_1": "text",
@@ -221,6 +221,58 @@
                     "size": "36x36"
                 }
             }
+        }
+    },
+    "it_solutions_hero_section": {
+        "builder": true,
+        "name": "Hero Section - (IT Solutions)",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "button_text": "text",
+            "images": {
+                "hero_image": {
+                    "size": "1600x1600"
+                }
+            }
+        }
+    },
+    "it_solutions_about_us": {
+        "builder": true,
+        "name": "About Us Section - (IT Solutions)",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "feature_text_1": "text",
+            "feature_text_2": "text",
+            "feature_text_3": "text",
+            "button_text": "text",
+            "images": {
+                "image_1": {
+                    "size": "474x485"
+                },
+                "image_2": {
+                    "size": "303x341"
+                }
+            }
+        }
+    },
+    "contact_form_section": {
+        "builder": true,
+        "name": "Contact Form Section - (Main Demo/IT Solutions)",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "button_text": "text"
+        }
+    },
+    "contact_info_section": {
+        "builder": true,
+        "name": "Contact Info Section - (IT Solutions)",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "office_hours": "text"
         }
     }
 }

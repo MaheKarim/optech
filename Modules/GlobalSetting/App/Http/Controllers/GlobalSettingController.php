@@ -115,7 +115,7 @@ class GlobalSettingController extends Controller
         $white_logo_setting = GlobalSetting::where('key', 'white_logo')->first();
 
         if($request->white_logo){
-            $old_logo = $logo_setting->value;
+            $old_logo = $white_logo_setting->value;
             $image = $request->white_logo;
             $ext = $image->getClientOriginalExtension();
             $logo_name = 'white_logo-'.date('Y-m-d-h-i-s-').rand(999,9999).'.'.$ext;
@@ -128,7 +128,7 @@ class GlobalSettingController extends Controller
                 if(File::exists(public_path().'/'.$old_logo))unlink(public_path().'/'.$old_logo);
             }
         }
-//        dd($logo_setting, $white_logo_setting);
+
         $footer_logo_setting = GlobalSetting::where('key', 'footer_logo')->first();
 
         if($request->footer_logo){

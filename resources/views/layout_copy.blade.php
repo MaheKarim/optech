@@ -466,7 +466,7 @@
                 <div class="col-lg-6 col-xl-4">
                   <div>
                     <a href="{{ route('home') }}" class="d-block mb-4">
-                      <img src="{{ asset($general_setting->footer_logo) }}" alt="" />
+                      <img src="{{ asset($general_setting->footer_logo) }}" class="testing_image" alt="" />
                     </a>
                     <p class="text-white">
                       {{ $footer->about_us }}
