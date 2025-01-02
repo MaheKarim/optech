@@ -156,10 +156,36 @@ function getContent($dataKeys, $singleQuery = false, $limit = null, $orderById =
     return $content;
 }
 
+//function getTranslatedValue($content, $key, $lang = 'en') {
+//    if (!$content) {
+//        return '';
+//    }
+//
+//    // If translations exist and language is not English
+//    if ($lang !== 'en') {
+//        $translations = json_decode($content->data_translations, true);
+//
+//        // Loop through the translations to find the matching language code
+//        foreach ($translations as $translation) {
+//            if (isset($translation['language_code']) && $translation['language_code'] === $lang) {
+//                return isset($translation['values'][$key]) ? $translation['values'][$key] : '';
+//            }
+//        }
+//
+//        return '';
+//    }
+//
+//    return isset($content->data_values[$key]) ? $content->data_values[$key] : '';
+//}
+
+
 function getTranslatedValue($content, $key, $lang = 'en') {
     if (!$content) {
         return '';
     }
+
+    // Handle nested keys
+    $keys = explode('.', $key);
 
     // If translations exist and language is not English
     if ($lang !== 'en') {
@@ -168,13 +194,49 @@ function getTranslatedValue($content, $key, $lang = 'en') {
         // Loop through the translations to find the matching language code
         foreach ($translations as $translation) {
             if (isset($translation['language_code']) && $translation['language_code'] === $lang) {
-                return isset($translation['values'][$key]) ? $translation['values'][$key] : '';
+                $value = $translation['values'];
+
+                // Navigate through nested keys
+                foreach ($keys as $k) {
+                    if (isset($value[$k])) {
+                        $value = $value[$k];
+                    } else {
+                        return '';
+                    }
+                }
+
+                return $value;
             }
         }
 
         return '';
     }
 
-    // Fallback to English content
-    return isset($content->data_values[$key]) ? $content->data_values[$key] : '';
+    // For English language, get from data_values
+    $value = $content->data_values;
+
+    // Navigate through nested keys
+    foreach ($keys as $k) {
+        if (isset($value[$k])) {
+            $value = $value[$k];
+        } else {
+            return '';
+        }
+    }
+
+    return $value;
+}
+
+function transformNestedData($data, $prefix = '') {
+    $result = [];
+    foreach ($data as $key => $value) {
+        $newKey = $prefix ? "{$prefix}_{$key}" : $key;
+        if (is_array($value)) {
+            $nested = transformNestedData($value, $newKey);
+            $result = array_merge($result, $nested);
+        } else {
+            $result[$newKey] = $value;
+        }
+    }
+    return $result;
 }
