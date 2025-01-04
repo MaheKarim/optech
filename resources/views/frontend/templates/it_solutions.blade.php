@@ -12,6 +12,11 @@
         $contactContent = getContent('contact_form_section.content', true);
         $contactInfoContent = getContent('contact_info_section.content', true);
         $pricingContent = getContent('it_solutions_pricing_section.content', true);
+
+        $packageInformation = $currentLang === 'en'
+            ? ($pricingContent->data_values['package_information'] ?? [])
+            : getTranslatedValue($pricingContent, 'package_information', $currentLang);
+
     @endphp
 
 <header class="site-header optech-header-section site-header--menu-right optech-header-two" id="sticky-menu">
@@ -455,16 +460,6 @@
 <div class="section bg-light1 optech-section-padding5">
     @include('frontend.templates.layouts.process_section')
 </div>
-<!-- End section -->
-    @php
-        $currentLang = session()->get('front_lang');
-        $pricingContent = getContent('it_solutions_pricing_section.content', true);
-
-        // Get package information from the data structure
-        $packageInformation = $currentLang === 'en'
-            ? ($pricingContent->data_values['package_information'] ?? [])
-            : getTranslatedValue($pricingContent, 'package_information', $currentLang);
-    @endphp
 
     <div class="section optech-section-padding2">
         <div class="container">
@@ -501,8 +496,6 @@
                         <p class="text-center">{{ __('No pricing packages available') }}.</p>
                     </div>
                 @endif
-
-
             </div>
         </div>
     </div>
@@ -662,7 +655,7 @@
                             <h5>{{ __('Information') }}</h5>
                         </div>
                         <ul>
-                            <li><a href="#">{{ __('Services') }}</a></li>
+                            <li><a href="{{ route('services') }}">{{ __('Services') }}</a></li>
                             <li><a href="{{ route('privacy-policy') }}">{{ __('Privacy Policy') }}</a></li>
                             <li><a href="{{ route('terms-conditions') }}">{{ __('Terms & Conditions') }}</a></li>
                             <li><a href="{{ route('faq') }}">{{ __('Faq') }}</a></li>

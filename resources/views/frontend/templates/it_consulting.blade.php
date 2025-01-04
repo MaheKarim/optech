@@ -246,6 +246,7 @@
 
                                         </ul>
                                     </li>
+
                                     <li class="nav-item">
                                         <a class="nav-link-item"
                                            href="{{ route('contact-us') }}">{{ __('translate.Contact') }}</a>

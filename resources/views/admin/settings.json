@@ -69,7 +69,7 @@
     },
     "main_demo_service_section": {
         "builder": true,
-        "name": "Service Section - (Main Demo/IT Consulting)",
+        "name": "Service Section - (Main Demo/IT Consulting/Digital Agency)",
         "content": {
             "heading": "text"
         }
@@ -135,7 +135,7 @@
     },
     "main_demo_service_success_section": {
         "builder": true,
-        "name": "Service Success Section - (Main Demo)",
+        "name": "Service Success Section - (Main Demo/Digital Agency)",
         "content": {
             "heading": "text",
             "description": "text",
@@ -277,7 +277,7 @@
     },
     "it_solutions_pricing_section": {
         "builder": true,
-        "name": "Pricing Section - (IT Solutions)",
+        "name": "Pricing Section - (IT Solutions/Digital Agency)",
         "content": {
             "heading": "text",
             "package_information": {
@@ -310,6 +310,85 @@
                         "feature_2": "text",
                         "feature_3": "text"
                     }
+                }
+            }
+        }
+    },
+    "digital_agency_hero_section": {
+        "builder": true,
+        "name": "Hero Section - (Digital Agency)",
+        "content": {
+            "heading": "text",
+            "title": "text",
+            "description": "text",
+            "left_button_text": "text",
+            "right_button_text": "text",
+            "images": {
+                "hero_image": {
+                    "size": "1600x1600"
+                }
+            }
+        }
+    },
+    "customer_brand_section": {
+        "builder": true,
+        "name": "Customer Brand Section - (Digital Agency)",
+        "content": {
+            "heading": "text",
+            "images": {
+                "image_1": {
+                    "size": "200x100"
+                },
+                "image_2": {
+                    "size": "200x100"
+                },
+                "image_3": {
+                    "size": "200x100"
+                },
+                "image_4": {
+                    "size": "200x100"
+                },
+                "image_5": {
+                    "size": "200x100"
+                },
+                "image_6": {
+                    "size": "200x100"
+                },
+                "image_7": {
+                    "size": "200x100"
+                }
+            }
+        }
+    },
+    "digital_agency_feature_section": {
+        "builder": true,
+        "name": "Feature Section - (Digital Agency)",
+        "content": {
+            "heading": "text",
+            "feature_1_heading": "text",
+            "feature_2_heading": "text",
+            "feature_3_heading": "text",
+            "feature_1_url": "text",
+            "feature_2_url": "text",
+            "feature_3_url": "text",
+            "feature_description_1": "text",
+            "feature_description_2": "text",
+            "feature_description_3": "text",
+            "images": {
+                "image_1": {
+                    "size": "490x520"
+                },
+                "image_2": {
+                    "size": "345x347"
+                },
+                "image_3": {
+                    "size": "49x49"
+                },
+                "image_4": {
+                    "size": "49x49"
+                },
+                "image_5": {
+                    "size": "49x49"
                 }
             }
         }

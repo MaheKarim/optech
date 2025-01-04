@@ -817,6 +817,7 @@
                                 <h5>{{ __('Information') }}</h5>
                             </div>
                             <ul>
+                                <li><a href="{{ route('services') }}">{{ __('Services') }}</a></li>
                                 <li><a href="{{ route('privacy-policy') }}">{{ __('Privacy Policy') }}</a></li>
                                 <li><a href="{{ route('terms-conditions') }}">{{ __('Terms & Conditions') }}</a></li>
                                 <li><a href="{{ route('faq') }}">{{__('Faqs')}}</a></li>
