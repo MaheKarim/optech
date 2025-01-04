@@ -9,6 +9,10 @@
 
 @section('content')
 
+    @php
+        $currentLang = session()->get('front_lang');
+        $contactContent = getContent('contact_form_section.content', true);
+    @endphp
     <!-- Main Start -->
     <div class="optech-breadcrumb"
         style="background-image: url({{ asset('frontend/assets/img/breadcrumb/breadcrumb.png') }})">

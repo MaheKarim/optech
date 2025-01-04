@@ -115,7 +115,6 @@
                                     <input type="hidden" name="lang_code" value="{{ request()->get('lang_code') }}">
 
                                     <div class="row">
-                                        {{-- Image Section (Only for English) --}}
                                         @if($lang_code === 'en' && isset($content['images']) && count($content['images']) > 0)
                                             <div class="col-md-3 pr-md-4">
                                                 @foreach($content['images'] as $imageKey => $imageDetails)
