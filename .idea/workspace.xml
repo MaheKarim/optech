@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helper/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helper/helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/digital_agency.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/digital_agency.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/it_solutions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/it_solutions.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

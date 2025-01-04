@@ -820,6 +820,7 @@
 
     <footer class="optech-footer-section optech-section-padding-top">
         <div class="container">
+
             <div class="optech-footer-cta-wrap shape-white" style="background-image: url({{ asset('frontend/assets/img/cta/cta.png') }})">
                 <div class="row">
                     <div class="col-xl-7 col-lg-8">
@@ -839,6 +840,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <div class="container">
             <div class="optech-footer-top optech-section-padding">
