@@ -71,91 +71,46 @@
                     <div class="crancy-body">
                         <div class="crancy-dsinner">
                             <div class="crancy-product-card mg-top-30">
-
                                 @php
                                     function renderFormFields($content, $dataValues, $parentKey = '') {
-    // Skip non-field properties
-    $skipFields = ['builder', 'name', 'images'];
+                                        // Fields to skip
+                                        $skipFields = ['builder', 'name', 'images', 'type'];
 
-    foreach ($content as $field => $value) {
-        if (in_array($field, $skipFields)) continue;
+                                        foreach ($content as $field => $value) {
+                                            if (in_array($field, $skipFields)) continue;
 
-        // Handle nested structures
-        if (is_array($value) && $field !== 'type') {
-            $currentKey = $parentKey ? "{$parentKey}_{$field}" : $field;
+                                            // Handle nested structures
+                                            if (is_array($value) && !isset($value['type'])) {
+                                                echo '<div class="nested-section mt-4">';
+                                                echo '<div class="nested-header">';
+                                                echo '<h5 class="mb-3">' . str_replace('_', ' ', ucfirst($field)) . '</h5>';
+                                                echo '</div>';
+                                                echo '<div class="nested-content">';
 
-            echo '<div class="nested-section mt-4">';
-            echo '<div class="nested-header">';
-            echo '<h5 class="mb-3">' . str_replace('_', ' ', ucfirst($field)) . '</h5>';
-            echo '</div>';
-            echo '<div class="nested-content">';
+                                                $newParentKey = $parentKey ? "{$parentKey}[{$field}]" : $field;
+                                                renderFormFields($value, $dataValues[$field] ?? [], $newParentKey);
 
-            // Recurse into nested structure
-            renderFormFields($value, $dataValues, $currentKey);
+                                                echo '</div>';
+                                                echo '</div>';
+                                            } else {
+                                                // Handle input fields for leaf nodes
+                                                $fieldName = $parentKey ? "{$parentKey}[{$field}]" : $field;
+                                                $fieldValue = $dataValues[$field] ?? '';
 
-            echo '</div>';
-            echo '</div>';
-        } else {
-            // Handle leaf nodes (actual input fields)
-            $fieldName = $parentKey ? "{$parentKey}_{$field}" : $field;
-
-            // Get field value
-            $fieldValue = $dataValues[$fieldName] ?? '';
-
-            echo '<div class="crancy__item-form--group mt-3">';
-            echo '<label class="crancy__item-label">';
-            echo '<span class="label-text">' . str_replace('_', ' ', ucfirst($field)) . '</span>';
-            echo '</label>';
-            echo '<input type="text" name="' . $fieldName . '" class="crancy__item-input" value="' . htmlspecialchars($fieldValue ?? '') . '">';
-            echo '</div>';
-        }
-    }
-}
+                                                echo '<div class="crancy__item-form--group mt-3">';
+                                                echo '<label class="crancy__item-label">';
+                                                echo '<span class="label-text">' . str_replace('_', ' ', ucfirst($field)) . '</span>';
+                                                echo '</label>';
+                                                echo '<input type="text" name="' . $fieldName . '" class="crancy__item-input" value="' . htmlspecialchars($fieldValue) . '">';
+                                                echo '</div>';
+                                            }
+                                        }
+                                    }
                                 @endphp
 
-                                {{-- Styles --}}
-                                <style>
-                                    .nested-section {
-                                        border-left: 2px solid #e5e7eb;
-                                        padding-left: 20px;
-                                        margin-left: 10px;
-                                    }
-                                    .nested-header {
-                                        position: relative;
-                                        margin-bottom: 15px;
-                                    }
-                                    .nested-header:before {
-                                        content: '';
-                                        position: absolute;
-                                        left: -22px;
-                                        top: 12px;
-                                        width: 20px;
-                                        height: 2px;
-                                        background: #e5e7eb;
-                                    }
-                                    .nested-content {
-                                        padding-left: 10px;
-                                    }
-                                    .label-text {
-                                        font-weight: 500;
-                                        color: #374151;
-                                    }
-                                    .info-tooltip {
-                                        margin-left: 5px;
-                                        color: #6b7280;
-                                        cursor: help;
-                                    }
-                                    .nested-section .nested-section {
-                                        margin-top: 15px;
-                                    }
-                                </style>
-                                <pre>{{ print_r($dataValues, true) }}</pre>
-                                {{-- Main Form --}}
                                 <form action="{{ route('admin.front-end.store', ['key' => $key, 'id' => $frontend->id ?? null]) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
-
-                                    {{-- Hidden Fields --}}
                                     <input type="hidden" name="type" value="{{ $contentType }}">
                                     <input type="hidden" name="lang_code" value="{{ request()->get('lang_code') }}">
 
@@ -176,7 +131,7 @@
                                                                       data-placement="top"
                                                                       class="fa fa-info-circle text--primary"
                                                                       title="{{ __('Recommended image size') }}: {{ $imageDetails['size'] }}">
-                                </span>
+                                                                </span>
                                                             @endif
                                                         </label>
 
@@ -218,6 +173,7 @@
                                         </div>
                                     </div>
                                 </form>
+
                             </div>
                         </div>
                     </div>
@@ -235,6 +191,41 @@
         .crancy-product-card__upload--border img{
             max-height: 200px !important;
         }
+        .nested-section {
+            border-left: 2px solid #e5e7eb;
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+        .nested-header {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .nested-header:before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 12px;
+            width: 20px;
+            height: 2px;
+            background: #e5e7eb;
+        }
+        .nested-content {
+            padding-left: 10px;
+        }
+        .label-text {
+            font-weight: 500;
+            color: #374151;
+        }
+        .info-tooltip {
+            margin-left: 5px;
+            color: #6b7280;
+            cursor: help;
+        }
+        .nested-section .nested-section {
+            margin-top: 15px;
+        }
+
+
     </style>
 
 @endpush
@@ -258,3 +249,4 @@
 
     </script>
 @endpush
+
