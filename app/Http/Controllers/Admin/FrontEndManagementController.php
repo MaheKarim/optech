@@ -21,7 +21,6 @@ class FrontEndManagementController extends Controller
     public function section($key)
     {
         $lang_code = request('lang_code', 'en');
-
         $jsonUrl = resource_path('views/admin/settings.json');
         $sections = json_decode(file_get_contents($jsonUrl), true);
 
@@ -38,50 +37,33 @@ class FrontEndManagementController extends Controller
 
         $dataKeys = $key . '.' . $contentType;
         $content = $section[$contentType];
-
         $frontend = Frontend::where('data_keys', $dataKeys)->first();
 
-        if ($lang_code === 'en') {
-            $dataValues = $frontend ? $frontend->data_values : [];
-        } else {
-            if ($frontend) {
-                // Get translations array
-                $translations = json_decode($frontend->data_translations, true) ?? [];
+        // Initialize data values
+        $dataValues = $frontend ? $frontend->data_values : [];
 
-                $translation = collect($translations)->first(function ($item) use ($lang_code) {
-                    return $item['language_code'] === $lang_code;
-                });
+        // Handle translations for non-English languages
+        if ($lang_code !== 'en' && $frontend) {
+            $translations = json_decode($frontend->data_translations, true) ?? [];
+            $translation = collect($translations)->firstWhere('language_code', $lang_code);
 
-                if ($translation) {
-                    $dataValues = $translation['values'];
-
-                    $frontend->data_translations = json_encode($translations);
-                    $frontend->save();
-                } else {
-                    // Create new translation entry with data_values
-
-                    $dataValues = $frontend->data_values;
-                    // Data Translation $key
-                    unset($dataValues['images']);
-
-                    // Add new language entry to translations
-                    $translations[] = [
-                        'language_code' => $lang_code,
-                        'values' => $frontend->data_values
-                    ];
-
-                    $frontend->data_translations = json_encode($translations);
-                    $frontend->save();
-                }
+            if ($translation) {
+                $dataValues = array_merge($frontend->data_values, $translation['values'] ?? []);
             } else {
-                $dataValues = [];
+                // Add new translation structure if not found
+                $translations[] = [
+                    'language_code' => $lang_code,
+                    'values' => array_diff_key($frontend->data_values, ['images' => '']),
+                ];
+                $frontend->data_translations = json_encode($translations);
+                $frontend->save();
             }
         }
 
-        // Count images
         $imageCount = isset($content['images']) ? count($content['images']) : 0;
         $pageTitle = $section['name'] ?? trans('Frontend Management');
-        return view('admin.frontend-management.edit', compact('pageTitle','key', 'content', 'dataValues', 'frontend', 'contentType', 'imageCount', 'lang_code'));
+
+        return view('admin.frontend-management.edit', compact('pageTitle', 'key', 'content', 'dataValues', 'frontend', 'contentType', 'imageCount', 'lang_code'));
     }
 
     public function store(Request $request, $key, $id = null)
@@ -107,41 +89,19 @@ class FrontEndManagementController extends Controller
         }
 
         $dataKeys = $key . '.' . $contentType;
-        $data = $request->except(['_token', '_method', 'type','lang_code']);
         $frontend = $id ? Frontend::findOrFail($id) : new Frontend();
+
+        // Process form data including nested structures
+        $formData = $this->processFormData($request->except(['_token', '_method', 'type', 'lang_code']));
+
+        // Handle image uploads
+        $imageData = $this->handleImageUploads($request, $section[$contentType]['images'] ?? [], $frontend->data_values['images'] ?? []);
 
         $translations = json_decode($frontend->data_translations, true) ?? [];
 
-        $textData = [];
-        $imageData = [];
-
-        if ($lang_code === 'en' && isset($section[$contentType]['images'])) {
-            foreach ($section[$contentType]['images'] as $imageKey => $imageDetails) {
-                if ($request->hasFile($imageKey)) {
-                    $image = $request->file($imageKey);
-                    $imageName = time() . '_' . $imageKey . '.' . $image->getClientOriginalExtension();
-                    $oldFile = $frontend->data_values['images'][$imageKey] ?? null;
-
-                    if ($oldFile && File::exists(public_path($oldFile))) {
-                        unlink(public_path($oldFile));
-                    }
-
-                    $image->move(public_path('uploads/website-images'), $imageName);
-                    $imageData[$imageKey] = 'uploads/website-images/' . $imageName;
-                } elseif (isset($frontend->data_values['images'][$imageKey])) {
-                    $imageData[$imageKey] = $frontend->data_values['images'][$imageKey];
-                }
-            }
-        }
-
-        foreach ($data as $key => $value) {
-            if ($key !== 'images') {
-                $textData[$key] = $value;
-            }
-        }
-
         if ($lang_code === 'en') {
-            $finalData = $textData;
+            // Handle English content
+            $finalData = $formData;
             if (!empty($imageData)) {
                 $finalData['images'] = $imageData;
             } elseif (isset($frontend->data_values['images'])) {
@@ -149,58 +109,15 @@ class FrontEndManagementController extends Controller
             }
 
             $frontend->data_values = $finalData;
-
-            $translationExists = false;
-            foreach ($translations as $key => $translation) {
-                if ($translation['language_code'] === 'en') {
-                    $translations[$key]['values'] = $textData;
-                    $translationExists = true;
-                    break;
-                }
-            }
-
-            if (!$translationExists) {
-                $translations[] = [
-                    'language_code' => 'en',
-                    'values' => $textData
-                ];
-            }
+            $this->updateTranslation($translations, 'en', $formData);
         } else {
-            $translationExists = false;
-
-            foreach ($translations as $key => $translation) {
-                if ($translation['language_code'] === $lang_code) {
-                    $translations[$key]['values'] = $textData;
-                    $translationExists = true;
-                    break;
-                }
-            }
-
-            if (!$translationExists) {
-                $translations[] = [
-                    'language_code' => $lang_code,
-                    'values' => $textData
-                ];
-            }
+            // Handle non-English content
+            $this->updateTranslation($translations, $lang_code, $formData);
 
             if (empty($frontend->data_values)) {
-                $frontend->data_values = [
-                    'images' => $imageData
-                ];
-
-                $hasEnglishTranslation = false;
-                foreach ($translations as $translation) {
-                    if ($translation['language_code'] === 'en') {
-                        $hasEnglishTranslation = true;
-                        break;
-                    }
-                }
-
-                if (!$hasEnglishTranslation) {
-                    $translations[] = [
-                        'language_code' => 'en',
-                        'values' => []
-                    ];
+                $frontend->data_values = ['images' => $imageData];
+                if (!$this->hasLanguageTranslation($translations, 'en')) {
+                    $translations[] = ['language_code' => 'en', 'values' => []];
                 }
             }
         }
@@ -213,4 +130,87 @@ class FrontEndManagementController extends Controller
         $frontend->save();
 
         return back()->with('success', "Content updated successfully for language: {$lang_code}");
-    }}
+    }
+
+    private function processFormData($data)
+    {
+        $processed = [];
+        foreach ($data as $key => $value) {
+            if (preg_match('/^([^[]+)(?:\[([^\]]+)\])+/', $key, $matches)) {
+                $keys = [];
+                $keys[] = $matches[1];
+                preg_match_all('/\[([^\]]+)\]/', $key, $nestedKeys);
+                $keys = array_merge($keys, $nestedKeys[1]);
+
+                $current = &$processed;
+                foreach ($keys as $k) {
+                    if (!isset($current[$k])) {
+                        $current[$k] = [];
+                    }
+                    $current = &$current[$k];
+                }
+                $current = $value;
+            } else {
+                $processed[$key] = $value;
+            }
+        }
+        return $processed;
+    }
+
+    private function handleImageUploads($request, $configuredImages, $existingImages)
+    {
+        $imageData = [];
+
+        if (empty($configuredImages)) {
+            return $existingImages ?? [];
+        }
+
+        foreach ($configuredImages as $imageKey => $imageDetails) {
+            if ($request->hasFile($imageKey)) {
+                $image = $request->file($imageKey);
+                $imageName = time() . '_' . $imageKey . '.' . $image->getClientOriginalExtension();
+
+                $oldFile = $existingImages[$imageKey] ?? null;
+                if ($oldFile && File::exists(public_path($oldFile))) {
+                    unlink(public_path($oldFile));
+                }
+
+                $image->move(public_path('uploads/website-images'), $imageName);
+                $imageData[$imageKey] = 'uploads/website-images/' . $imageName;
+            } elseif (isset($existingImages[$imageKey])) {
+                $imageData[$imageKey] = $existingImages[$imageKey];
+            }
+        }
+
+        return $imageData;
+    }
+
+    private function updateTranslation(&$translations, $langCode, $values)
+    {
+        $exists = false;
+        foreach ($translations as &$translation) {
+            if ($translation['language_code'] === $langCode) {
+                $translation['values'] = $values;
+                $exists = true;
+                break;
+            }
+        }
+
+        if (!$exists) {
+            $translations[] = [
+                'language_code' => $langCode,
+                'values' => $values
+            ];
+        }
+    }
+
+    private function hasLanguageTranslation($translations, $langCode)
+    {
+        foreach ($translations as $translation) {
+            if ($translation['language_code'] === $langCode) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

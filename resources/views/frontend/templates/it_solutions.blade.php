@@ -11,6 +11,7 @@
         $blogContent = getContent('main_demo_blog_section.content', true);
         $contactContent = getContent('contact_form_section.content', true);
         $contactInfoContent = getContent('contact_info_section.content', true);
+        $pricingContent = getContent('it_solutions_pricing_section.content', true);
     @endphp
 
 <header class="site-header optech-header-section site-header--menu-right optech-header-two" id="sticky-menu">
@@ -455,79 +456,56 @@
     @include('frontend.templates.layouts.process_section')
 </div>
 <!-- End section -->
+    @php
+        $currentLang = session()->get('front_lang');
+        $pricingContent = getContent('it_solutions_pricing_section.content', true);
 
-<div class="section optech-section-padding2">
-    <div class="container">
-        <div class="optech-section-title center">
-            <h2>Effective & flexible pricing</h2>
-        </div>
-        <div class="row">
-            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="500">
-                <div class="optech-pricing-wrap">
-                    <div class="optech-pricing-header">
-                        <h4>Startup</h4>
-                        <p>Best for Startup business owners who needs website for business.</p>
-                    </div>
-                    <div class="optech-pricing-price">
-                        <h2>$99<span>/month</span></h2>
-                    </div>
-                    <div class="optech-pricing-feature">
-                        <ul>
-                            <li><i class="ri-check-line"></i>10 GB disk space availability</li>
-                            <li><i class="ri-check-line"></i>50 GB NVMe SSD for use</li>
-                            <li><i class="ri-check-line"></i>Free platform access for all</li>
-                            <li><i class="ri-check-line"></i>Free lifetime updates facility</li>
-                            <li><i class="ri-check-line"></i>Free one year support</li>
-                        </ul>
-                    </div>
-                    <a class="optech-pricing-btn" href="pricing.html">Select This Plan</a>
-                </div>
+        // Get package information from the data structure
+        $packageInformation = $currentLang === 'en'
+            ? ($pricingContent->data_values['package_information'] ?? [])
+            : getTranslatedValue($pricingContent, 'package_information', $currentLang);
+    @endphp
+
+    <div class="section optech-section-padding2">
+        <div class="container">
+            <div class="optech-section-title center">
+                <h2>{{ getTranslatedValue($pricingContent, 'heading', $currentLang) }}</h2>
             </div>
-            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="700">
-                <div class="optech-pricing-wrap active">
-                    <div class="optech-pricing-header">
-                        <h4>Business</h4>
-                        <p>Best for Startup business owners who needs website for business.</p>
+            <div class="row">
+                @if(is_array($packageInformation))
+                    @foreach($packageInformation as $packageKey => $package)
+                        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="{{ $loop->iteration == 1 ? '500' : ($loop->iteration == 2 ? '700' : '900') }}">
+                            <div class="optech-pricing-wrap {{ $loop->iteration == 2 ? 'active' : '' }}">
+                                <div class="optech-pricing-header">
+                                    <h4>{{ $package['title'] ?? '' }}</h4>
+                                    <p>Best for Startup business owners who needs website for business.</p>
+                                </div>
+                                <div class="optech-pricing-price">
+                                    <h2>${{ $package['price'] ?? '0' }}<span>/month</span></h2>
+                                </div>
+                                <div class="optech-pricing-feature">
+                                    <ul>
+                                        @if(isset($package['features']) && is_array($package['features']))
+                                            @foreach($package['features'] as $featureKey => $feature)
+                                                <li><i class="ri-check-line"></i>{{ $feature }}</li>
+                                            @endforeach
+                                        @endif
+                                    </ul>
+                                </div>
+                                <a class="optech-pricing-btn" href="pricing.html">Select This Plan</a>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="col-12">
+                        <p class="text-center">No pricing packages available.</p>
                     </div>
-                    <div class="optech-pricing-price">
-                        <h2>$299<span>/month</span></h2>
-                    </div>
-                    <div class="optech-pricing-feature">
-                        <ul>
-                            <li><i class="ri-check-line"></i>10 GB disk space availability</li>
-                            <li><i class="ri-check-line"></i>50 GB NVMe SSD for use</li>
-                            <li><i class="ri-check-line"></i>Free platform access for all</li>
-                            <li><i class="ri-check-line"></i>Free lifetime updates facility</li>
-                            <li><i class="ri-check-line"></i>Free one year support</li>
-                        </ul>
-                    </div>
-                    <a class="optech-pricing-btn" href="pricing.html">Select This Plan</a>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="900">
-                <div class="optech-pricing-wrap">
-                    <div class="optech-pricing-header">
-                        <h4>Enterprise</h4>
-                        <p>Best for Startup business owners who needs website for business.</p>
-                    </div>
-                    <div class="optech-pricing-price">
-                        <h2>$779<span>/month</span></h2>
-                    </div>
-                    <div class="optech-pricing-feature">
-                        <ul>
-                            <li><i class="ri-check-line"></i>10 GB disk space availability</li>
-                            <li><i class="ri-check-line"></i>50 GB NVMe SSD for use</li>
-                            <li><i class="ri-check-line"></i>Free platform access for all</li>
-                            <li><i class="ri-check-line"></i>Free lifetime updates facility</li>
-                            <li><i class="ri-check-line"></i>Free one year support</li>
-                        </ul>
-                    </div>
-                    <a class="optech-pricing-btn" href="pricing.html">Select This Plan</a>
-                </div>
+                @endif
+
+
             </div>
         </div>
     </div>
-</div>
 <!-- End section -->
 
 <div class="section optech-section-padding bg-light1">

@@ -71,6 +71,42 @@
                     <div class="crancy-body">
                         <div class="crancy-dsinner">
                             <div class="crancy-product-card mg-top-30">
+                                @php
+                                    function renderFormFields($content, $dataValues, $parentKey = '') {
+                                        // Fields to skip
+                                        $skipFields = ['builder', 'name', 'images', 'type'];
+
+                                        foreach ($content as $field => $value) {
+                                            if (in_array($field, $skipFields)) continue;
+
+                                            // Handle nested structures
+                                            if (is_array($value) && !isset($value['type'])) {
+                                                echo '<div class="nested-section mt-4">';
+                                                echo '<div class="nested-header">';
+                                                echo '<h5 class="mb-3">' . str_replace('_', ' ', ucfirst($field)) . '</h5>';
+                                                echo '</div>';
+                                                echo '<div class="nested-content">';
+
+                                                $newParentKey = $parentKey ? "{$parentKey}[{$field}]" : $field;
+                                                renderFormFields($value, $dataValues[$field] ?? [], $newParentKey);
+
+                                                echo '</div>';
+                                                echo '</div>';
+                                            } else {
+                                                // Handle input fields for leaf nodes
+                                                $fieldName = $parentKey ? "{$parentKey}[{$field}]" : $field;
+                                                $fieldValue = $dataValues[$field] ?? '';
+
+                                                echo '<div class="crancy__item-form--group mt-3">';
+                                                echo '<label class="crancy__item-label">';
+                                                echo '<span class="label-text">' . str_replace('_', ' ', ucfirst($field)) . '</span>';
+                                                echo '</label>';
+                                                echo '<input type="text" name="' . $fieldName . '" class="crancy__item-input" value="' . htmlspecialchars($fieldValue) . '">';
+                                                echo '</div>';
+                                            }
+                                        }
+                                    }
+                                @endphp
 
                                 <form action="{{ route('admin.front-end.store', ['key' => $key, 'id' => $frontend->id ?? null]) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
@@ -79,94 +115,65 @@
                                     <input type="hidden" name="lang_code" value="{{ request()->get('lang_code') }}">
 
                                     <div class="row">
-                                        @if($lang_code === 'en' && $imageCount > 0)
+                                        {{-- Image Section (Only for English) --}}
+                                        @if($lang_code === 'en' && isset($content['images']) && count($content['images']) > 0)
                                             <div class="col-md-3 pr-md-4">
-                                                @if($content)
-                                                    @foreach($content as $field => $value)
-                                                        @if($field === 'images' && $imageCount > 0)
-                                                            @foreach($value as $imageKey => $imageDetails)
+                                                @foreach($content['images'] as $imageKey => $imageDetails)
+                                                    @php
+                                                        $existingImagePath = $dataValues['images'][$imageKey] ?? null;
+                                                    @endphp
 
-                                                                @php
-                                                                    $existingImagePath = $dataValues['images'][$imageKey] ?? null;
-                                                                @endphp
+                                                    <div class="crancy__item-form--group @if (!$loop->first) mg-top-25 @endif w-100">
+                                                        <label for="{{ $imageKey }}">
+                                                            {{ str_replace('_', ' ', ucfirst($imageKey)) }}
+                                                            @if(isset($imageDetails['size']))
+                                                                <span data-toggle="tooltip"
+                                                                      data-placement="top"
+                                                                      class="fa fa-info-circle text--primary"
+                                                                      title="{{ __('Recommended image size') }}: {{ $imageDetails['size'] }}">
+                                                                </span>
+                                                            @endif
+                                                        </label>
 
-                                                                <div class="crancy__item-form--group @if (!$loop->first) mg-top-25 @endif w-100">
-                                                                    <label for="{{ $imageKey }}">
-                                                                        {{ str_replace('_', ' ', ucfirst($imageKey)) }}
+                                                        <div class="crancy-product-card__upload crancy-product-card__upload--border">
+                                                            <input type="file"
+                                                                   id="{{ $imageKey }}"
+                                                                   name="{{ $imageKey }}"
+                                                                   class="custom-file-input d-none"
+                                                                   accept="image/jpeg,image/png,image/gif,image/webp"
+                                                                   onchange="previewImage(event, '{{ $imageKey }}')">
 
-                                                                        <span data-toggle="tooltip" data-placement="top" class="fa fa-info-circle text--primary" title="@if(isset($imageDetails['size']))
-                                                                        ({{ __('Recommended image size') }}:  {{ $imageDetails['size'] }})
-                                                                    @endif">
-                                                                    </label>
-
-                                                                    <div class="crancy-product-card__upload crancy-product-card__upload--border">
-
-                                                                        <input
-                                                                            type="file"
-                                                                            id="{{ $imageKey }}"
-                                                                            name="{{ $imageKey }}"
-                                                                            class="custom-file-input d-none"
-                                                                            accept="image/jpeg,image/png,image/gif,image/webp"
-                                                                            onchange="previewImage(event, '{{ $imageKey }}')"
-                                                                        >
-
-                                                                        <label class="crancy-image-video-upload__label" for="{{ $imageKey }}">
-                                                                            <img id="view_img_{{ $imageKey }}" src="{{ asset($existingImagePath) }}">
-                                                                            <h4 class="crancy-image-video-upload__title">{{ __('translate.Click here to') }} <span class="crancy-primary-color">{{ __('translate.Choose File') }}</span> {{ __('translate.and upload') }} </h4>
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-
-                                                            @endforeach
-                                                        @endif
-                                                    @endforeach
-                                                @endif
+                                                            <label class="crancy-image-video-upload__label" for="{{ $imageKey }}">
+                                                                <img id="view_img_{{ $imageKey }}"
+                                                                     src="{{ $existingImagePath ? asset($existingImagePath) : asset('path/to/placeholder.png') }}"
+                                                                     alt="{{ $imageKey }}">
+                                                                <h4 class="crancy-image-video-upload__title">
+                                                                    {{ __('translate.Click here to') }}
+                                                                    <span class="crancy-primary-color">{{ __('translate.Choose File') }}</span>
+                                                                    {{ __('translate.and upload') }}
+                                                                </h4>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
                                             </div>
                                         @endif
 
-                                        <div class="{{ $lang_code === 'en' && $imageCount > 0 ? 'col-md-9 pl-md-4 ' : 'col-12' }}">
+                                        {{-- Content Section --}}
+                                        <div class="{{ $lang_code === 'en' && isset($content['images']) && count($content['images']) > 0 ? 'col-md-9 pl-md-4' : 'col-12' }}">
                                             @if($content)
-                                                @foreach($content as $field => $value)
-                                                    @if($field !== 'images')
-                                                        @if(is_array($value))
-                                                            @foreach($value as $subField => $subValue)
-                                                                <div class="form-group crancy__item-form--group @if (!$loop->first) mg-top-form-20 @endif">
-                                                                    <label for="{{ $field }}_{{ $subField }}" class="crancy__item-label">
-                                                                        {{ str_replace('_', ' ', ucfirst($field)) }} - {{ str_replace('_', ' ', ucfirst($subField)) }}
-                                                                    </label>
-                                                                    <input
-                                                                        type="text"
-                                                                        id="{{ $field }}_{{ $subField }}"
-                                                                        name="{{ $field }}[{{ $subField }}]"
-                                                                        class="crancy__item-input"
-                                                                        value="{{ $dataValues[$field][$subField] ?? (is_scalar($subValue) ? $subValue : json_encode($subValue)) }}"
-                                                                    >
-                                                                </div>
-                                                            @endforeach
-                                                        @else
-                                                            <div class="col-12">
-                                                                <div class="crancy__item-form--group @if (!$loop->first) mg-top-form-20 @endif">
-                                                                    <label for="{{ $field }}" class="crancy__item-label">{{ str_replace('_', ' ', ucfirst($field)) }}</label>
-                                                                    <input
-                                                                        type="text"
-                                                                        id="{{ $field }}"
-                                                                        name="{{ $field }}"
-                                                                        class="crancy__item-input"
-                                                                        value="{{ $dataValues[$field] ?? $value }}"
-                                                                    >
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                    @endif
-                                                @endforeach
+                                                @php
+                                                    $renderContent = isset($content['content']) ? $content['content'] : $content;
+                                                    renderFormFields($renderContent, $dataValues ?? []);
+                                                @endphp
+                                                <button type="submit" class="crancy-btn mg-top-25">{{ __('translate.Update') }}</button>
                                             @else
                                                 <p>{{ __('translate.Nothing to display') }}</p>
                                             @endif
-
-                                            <button type="submit" class="crancy-btn mg-top-25">{{ __('translate.Update') }}</button>
                                         </div>
                                     </div>
                                 </form>
+
                             </div>
                         </div>
                     </div>
@@ -184,6 +191,41 @@
         .crancy-product-card__upload--border img{
             max-height: 200px !important;
         }
+        .nested-section {
+            border-left: 2px solid #e5e7eb;
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+        .nested-header {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .nested-header:before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 12px;
+            width: 20px;
+            height: 2px;
+            background: #e5e7eb;
+        }
+        .nested-content {
+            padding-left: 10px;
+        }
+        .label-text {
+            font-weight: 500;
+            color: #374151;
+        }
+        .info-tooltip {
+            margin-left: 5px;
+            color: #6b7280;
+            cursor: help;
+        }
+        .nested-section .nested-section {
+            margin-top: 15px;
+        }
+
+
     </style>
 
 @endpush
@@ -207,3 +249,4 @@
 
     </script>
 @endpush
+

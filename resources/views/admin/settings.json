@@ -274,5 +274,44 @@
             "description": "text",
             "office_hours": "text"
         }
+    },
+    "it_solutions_pricing_section": {
+        "builder": true,
+        "name": "Pricing Section - (IT Solutions)",
+        "content": {
+            "heading": "text",
+            "package_information": {
+                "package_1": {
+                    "title": "text",
+                    "description": "text",
+                    "price": "text",
+                    "features": {
+                        "feature_1": "text",
+                        "feature_2": "text",
+                        "feature_3": "text"
+                    }
+                },
+                "package_2": {
+                    "title": "text",
+                    "description": "text",
+                    "price": "text",
+                    "features": {
+                        "feature_1": "text",
+                        "feature_2": "text",
+                        "feature_3": "text"
+                    }
+                },
+                "package_3": {
+                    "title": "text",
+                    "description": "text",
+                    "price": "text",
+                    "features": {
+                        "feature_1": "text",
+                        "feature_2": "text",
+                        "feature_3": "text"
+                    }
+                }
+            }
+        }
     }
 }
