@@ -239,28 +239,25 @@
                                     </ul>
                                 </li>
 
+                                @php
+                                    $isGrid = request()->query('type') === 'grid';
+                                @endphp
                                 <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">Blog <i
-                                            class="ri-arrow-down-s-fill"></i></a>
+                                    <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Blog') }}<i class="ri-arrow-down-s-fill"></i></a>
                                     <ul class="sub-menu" id="submenu-9">
                                         <li class="sub-menu--item">
-                                            <a href="blog.html">
-                                                <span class="menu-item-text">blog</span>
+                                            <a href="{{ route('blogs') }}">
+                                                <span class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('translate.Blog') }}</span>
                                             </a>
                                         </li>
                                         <li class="sub-menu--item">
-                                            <a href="blog-grid.html">
-                                                <span class="menu-item-text">Blog grid</span>
+                                            <a href="{{ route('blogs' ,['type' => 'grid']) }}">
+                                                <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Blog Grid') }}</span>
                                             </a>
                                         </li>
-                                        <li class="sub-menu--item">
-                                            <a href="single-blog.html">
-                                                <span class="menu-item-text">blog Details</span>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </li>
-
 
                                 <li class="nav-item">
                                     <a href="{{ route('contact-us') }}" class="nav-link-item">{{ __('Contact') }}</a>

@@ -23,10 +23,11 @@
                         fill="white" />
                 </svg>
               </span>
-                            <select class="js-example-basic-single" name="state">
-                                <option value="AL">USD</option>
-                                <option value="WY">EUR</option>
-                                <option value="WY">INR</option>
+                            <select class="js-example-basic-single" name="currency_code">
+                                @foreach ($currency_list as $currency_item)
+                                    <option
+                                        {{ Session::get('currency_code') == $currency_item->currency_code ? 'selected' : '' }} value="{{ $currency_item->currency_code }}">{{ $currency_item->currency_name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -38,12 +39,14 @@
                         fill="white" />
                 </svg>
               </span>
-                            <select class="js-example-basic-single" name="state">
-                                <option value="AL">ENG</option>
-                                <option value="WY">SPN</option>
-                                <option value="WY">BNG</option>
-                                <option value="WY">RUS</option>
-                            </select>
+                            <form action="{{ route('language-switcher') }}" id="language_form">
+                                <select id="language_dropdown" class="js-example-basic-single" name="lang_code">
+                                    @foreach ($language_list as $language_item)
+                                        <option
+                                            {{ Session::get('front_lang') == $language_item->lang_code ? 'selected' : '' }} value="{{ $language_item->lang_code }}">{{ $language_item->lang_name }}</option>
+                                    @endforeach
+                                </select>
+                            </form>
                         </div>
 
                         <div class="cur_lun_login_item">
@@ -54,7 +57,7 @@
                         fill="white" />
                 </svg>
               </span>
-                            <a href="./login.html" class="login-btn">Login</a>
+                            <a href="{{ route('login') }}" class="login-btn">{{ __('Login') }}</a>
                         </div>
                     </div>
                 </div>
@@ -65,8 +68,8 @@
                 <nav class="navbar site-navbar">
                     <!-- Brand Logo-->
                     <div class="brand-logo">
-                        <a href="index.html">
-                            <img src="assets/images/logo/logo-dark.svg" alt="" class="light-version-logo">
+                        <a href="{{ route('home') }}">
+                            <img src="{{ asset($general_setting->logo) }}" alt="" class="light-version-logo">
                         </a>
                     </div>
                     <div class="menu-block-wrapper">
@@ -81,7 +84,7 @@
                             </div>
                             <ul class="site-menu-main">
                                 <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">Home <i class="ri-arrow-down-s-fill"></i></a>
+                                    <a href="#" class="nav-link-item drop-trigger">{{ __('Home') }} <i class="ri-arrow-down-s-fill"></i></a>
                                     <ul class="sub-menu" id="submenu-1">
                                         <li class="sub-menu--item">
                                             <a href="{{ route('home', ['theme' => 'main_demo']) }}">
@@ -126,11 +129,11 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">Pages <i class="ri-arrow-down-s-fill"></i></a>
+                                    <a href="#" class="nav-link-item drop-trigger">{{ __('Pages') }} <i class="ri-arrow-down-s-fill"></i></a>
                                     <ul class="sub-menu" id="submenu-2">
                                         <li class="sub-menu--item">
-                                            <a href="about-us.html">
-                                                <span class="menu-item-text">About Us</span>
+                                            <a href="{{ route('about-us') }}">
+                                                <span class="menu-item-text">{{ __('About Us') }}</span>
                                             </a>
                                         </li>
                                         <li class="sub-menu--item">
@@ -138,46 +141,12 @@
                                                 <span class="menu-item-text">Pricing</span>
                                             </a>
                                         </li>
-                                        <li class="sub-menu--item">
-                                            <a href="dashbord.html">
-                                                <span class="menu-item-text">Dashboard</span>
+
+
+                                        <li class="sub-menu--item ">
+                                            <a href="{{ route('services') }}">
+                                                <span class="menu-item-text">{{ __('Services') }}</span>
                                             </a>
-                                        </li>
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">blog <i class="ri-arrow-down-s-fill"></i></a>
-                                            <ul class="sub-menu shape-none" id="submenu-3">
-                                                <li class="sub-menu--item">
-                                                    <a href="blog.html">
-                                                        <span class="menu-item-text">Blog</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sub-menu--item">
-                                                    <a href="blog-grid.html">
-                                                        <span class="menu-item-text">Blog grid</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sub-menu--item">
-                                                    <a href="single-blog.html">
-                                                        <span class="menu-item-text">blog details</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">Service<i class="ri-arrow-down-s-fill"></i>
-                                            </a>
-                                            <ul class="sub-menu shape-none" id="submenu-4">
-                                                <li class="sub-menu--item">
-                                                    <a href="service.html">
-                                                        <span class="menu-item-text">service</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sub-menu--item">
-                                                    <a href="single-service.html">
-                                                        <span class="menu-item-text">service details</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
                                         </li>
                                         <li class="sub-menu--item nav-item-has-children">
                                             <a href="#" data-menu-get="h3" class="drop-trigger">Team<i class="ri-arrow-down-s-fill"></i>
@@ -188,11 +157,7 @@
                                                         <span class="menu-item-text">team</span>
                                                     </a>
                                                 </li>
-                                                <li class="sub-menu--item">
-                                                    <a href="single-team.html">
-                                                        <span class="menu-item-text">team details</span>
-                                                    </a>
-                                                </li>
+
                                             </ul>
                                         </li>
                                         <li class="sub-menu--item nav-item-has-children">
@@ -200,8 +165,8 @@
                                             </a>
                                             <ul class="sub-menu shape-none" id="submenu-7">
                                                 <li class="sub-menu--item">
-                                                    <a href="faq.html">
-                                                        <span class="menu-item-text">faq</span>
+                                                    <a href="{{ route('faq') }}">
+                                                        <span class="menu-item-text">{{ __('FAQ') }}</span>
                                                     </a>
                                                 </li>
                                                 <li class="sub-menu--item">
@@ -257,35 +222,31 @@
                                                 <span class="menu-item-text">Portfolio masonry</span>
                                             </a>
                                         </li>
-                                        <li class="sub-menu--item">
-                                            <a href="single-portfolio.html">
-                                                <span class="menu-item-text">Single Portfolio</span>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </li>
+
+                                @php
+                                    $isGrid = request()->query('type') === 'grid';
+                                @endphp
                                 <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">Blog <i class="ri-arrow-down-s-fill"></i></a>
+                                    <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Blog') }}<i class="ri-arrow-down-s-fill"></i></a>
                                     <ul class="sub-menu" id="submenu-9">
                                         <li class="sub-menu--item">
-                                            <a href="blog.html">
-                                                <span class="menu-item-text">blog</span>
+                                            <a href="{{ route('blogs') }}">
+                                                <span class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('translate.Blog') }}</span>
                                             </a>
                                         </li>
                                         <li class="sub-menu--item">
-                                            <a href="blog-grid.html">
-                                                <span class="menu-item-text">Blog grid</span>
+                                            <a href="{{ route('blogs' ,['type' => 'grid']) }}">
+                                                <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Blog Grid') }}</span>
                                             </a>
                                         </li>
-                                        <li class="sub-menu--item">
-                                            <a href="single-blog.html">
-                                                <span class="menu-item-text">blog Details</span>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="contact-us.html" class="nav-link-item">Contact</a>
+                                    <a href="{{ route('contact-us') }}" class="nav-link-item">{{ __('Contact') }}</a>
                                 </li>
                             </ul>
                         </nav>
@@ -306,8 +267,8 @@
                 </span>
                                 <span class="cart_number">3</span>
                             </div>
-                            <a class="optech-default-btn optech-header-btn" href="contact-us.html" data-text="Get in Touch"><span
-                                    class="btn-wraper">Get in Touch</span></a>
+                            <a class="optech-default-btn optech-header-btn" href="{{ route('contact-us') }}" data-text="{{ __('Get in Touch') }}"><span
+                                    class="btn-wraper">{{ __('Get in Touch') }}</span></a>
                         </div>
                     </div>
                     <!-- mobile menu trigger -->
@@ -325,7 +286,7 @@
             <div class="optech-header-search-box">
                 <input type="search" placeholder="Search here...">
                 <button id="header-search" type="button"><i class="ri-search-line"></i></button>
-                <p>Type above and press Enter to search. Press Close to cancel.</p>
+                <p>{{ __('Type above and press Enter to search. Press Close to cancel.') }}</p>
             </div>
         </div>
         <div class="optech-header-search-close">
@@ -335,30 +296,36 @@
     <div class="search-overlay"></div>
     <!--End landex-header-section -->
 
+    @php
+    $currentLang = session()->get('front_lang');
+    $heroSection = getContent('startup_home_hero_section.content', true);
+    $serviceSection = getContent('main_demo_service_section.content', true);
+    @endphp
 
-
-    <div class="optech-hero-section4 bg-cover" style="background-image: url(assets/images/hero/bg3.png)">
+    <div class="optech-hero-section4 bg-cover" style="background-image: url({{ asset('frontend/assets/img/hero/bg3.png') }})">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex align-items-center">
                     <div class="optech-hero-content dark-color">
-                        <h5>We provide professional IT services</h5>
-                        <h1>Best IT services for your agency</h1>
-                        <p>We transform businesses of most major sectors with powerful and adaptable digital solutions that satisfy
-                            the needs of today.</p>
+                        <h5>{{ getTranslatedValue($heroSection, 'heading', $currentLang) }}</h5>
+                        <h1>{{ getTranslatedValue($heroSection, 'description', $currentLang) }}</h1>
+                        <p>{{ getTranslatedValue($heroSection, 'small_description', $currentLang) }}</p>
                         <div class="optech-extra-mt">
                             <div class="optech-btn-wrap">
-                                <a class="optech-default-btn" href="contact-us.html" data-text="Work With Us"><span
-                                        class="btn-wraper">Work With Us</span></a>
-                                <a class="optech-default-btn optech-light-btn" href="service.html" data-text="View Services"> <span
-                                        class="btn-wraper">View Services</span> </a>
+                                <a class="optech-default-btn" href="{{ getTranslatedValue($heroSection,'left_button_text', $currentLang) }}" data-text="Work With Us"><span
+                                        class="btn-wraper">{{ getTranslatedValue($heroSection,'left_button_url', $currentLang) }}</span></a>
+                                <a class="optech-default-btn optech-light-btn" href="{{ getTranslatedValue($heroSection,'right_button_url', $currentLang) }}" data-text="View Services">
+                                    <span class="btn-wraper">
+                                        {{ getTranslatedValue($heroSection,'right_button_text', $currentLang) }}
+                                    </span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800">
                     <div class="optech-hero-thumb">
-                        <img src="assets/images/hero/hero-thumb3.png" alt="">
+                        <img src="{{ asset(getImage($heroSection, 'hero_image')) }}" alt="Image">
                     </div>
                 </div>
             </div>
@@ -369,9 +336,10 @@
     <div class="section optech-section-padding2">
         <div class="container">
             <div class="optech-section-title center">
-                <h2>Our awesome services to give you success</h2>
+                <h2>{{ getTranslatedValue($serviceSection, 'heading', $currentLang) }}</h2>
             </div>
             <div class="row">
+
                 <div class="col-lg-6" data-aos="fade-up" data-aos-duration="600">
                     <div class="optech-iconbox-wrap style-two border_all">
                         <div class="optech-iconbox-icon">
@@ -385,71 +353,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800">
-                    <div class="optech-iconbox-wrap style-two border_all">
-                        <div class="optech-iconbox-icon">
-                            <img src="assets/images/iconbox/icon5.svg" alt="">
-                        </div>
-                        <div class="optech-iconbox-data">
-                            <h5>IT Management Service</h5>
-                            <p>Each demo built with Teba will look different. You can customize almost anything the appearance</p>
-                            <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="600">
-                    <div class="optech-iconbox-wrap style-two border_all">
-                        <div class="optech-iconbox-icon">
-                            <img src="assets/images/iconbox/icon6.svg" alt="">
-                        </div>
-                        <div class="optech-iconbox-data">
-                            <h5>UI/UX & Branding Identity</h5>
-                            <p>Each demo built with Teba will look different. You can customize almost anything the appearance</p>
-                            <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800">
-                    <div class="optech-iconbox-wrap style-two border_all">
-                        <div class="optech-iconbox-icon">
-                            <img src="assets/images/iconbox/icon7.svg" alt="">
-                        </div>
-                        <div class="optech-iconbox-data">
-                            <h5>Web & Mobile App Development</h5>
-                            <p>Each demo built with Teba will look different. You can customize almost anything the appearance</p>
-                            <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="600">
-                    <div class="optech-iconbox-wrap style-two border_all">
-                        <div class="optech-iconbox-icon">
-                            <img src="assets/images/iconbox/icon8.svg" alt="">
-                        </div>
-                        <div class="optech-iconbox-data">
-                            <h5>Digital Marketing Services</h5>
-                            <p>Each demo built with Teba will look different. You can customize almost anything the appearance</p>
-                            <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800">
-                    <div class="optech-iconbox-wrap style-two border_all">
-                        <div class="optech-iconbox-icon">
-                            <img src="assets/images/iconbox/icon9.svg" alt="">
-                        </div>
-                        <div class="optech-iconbox-data">
-                            <h5>Cyber Security Solutions</h5>
-                            <p>Each demo built with Teba will look different. You can customize almost anything the appearance</p>
-                            <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
+
+{{--                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800">--}}
+{{--                    <div class="optech-iconbox-wrap style-two border_all">--}}
+{{--                        <div class="optech-iconbox-icon">--}}
+{{--                            <img src="assets/images/iconbox/icon5.svg" alt="">--}}
+{{--                        </div>--}}
+{{--                        <div class="optech-iconbox-data">--}}
+{{--                            <h5>IT Management Service</h5>--}}
+{{--                            <p>Each demo built with Teba will look different. You can customize almost anything the appearance</p>--}}
+{{--                            <a class="optech-icon-btn" href="single-service.html"><i class="icon-show ri-arrow-right-line"></i>--}}
+{{--                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
             </div>
         </div>
     </div>

@@ -69,7 +69,7 @@
     },
     "main_demo_service_section": {
         "builder": true,
-        "name": "Service Section - (Main Demo/IT Consulting/Digital Agency/Software Company)",
+        "name": "Service Section - (Main Demo/IT Consulting/Digital Agency/Software Company/Startup)",
         "content": {
             "heading": "text"
         }
@@ -400,6 +400,24 @@
             "heading": "text",
             "description": "text",
             "button_text": "text"
+        }
+    },
+    "startup_home_hero_section": {
+        "builder": true,
+        "name": "Hero Section - (Startup Home)",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "small_description": "text",
+            "left_button_text": "text",
+            "left_button_url": "url",
+            "right_button_text": "text",
+            "right_button_url": "url",
+            "images": {
+                "hero_image": {
+                    "size": "516x578"
+                }
+            }
         }
     }
 }

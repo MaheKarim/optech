@@ -144,7 +144,7 @@
 
                                                             <label class="crancy-image-video-upload__label" for="{{ $imageKey }}">
                                                                 <img id="view_img_{{ $imageKey }}"
-                                                                     src="{{ $existingImagePath ? asset($existingImagePath) : asset('path/to/placeholder.png') }}"
+                                                                     src="{{ $existingImagePath ? asset($existingImagePath) : asset($general_setting->placeholder_image) }}"
                                                                      alt="{{ $imageKey }}">
                                                                 <h4 class="crancy-image-video-upload__title">
                                                                     {{ __('translate.Click here to') }}
