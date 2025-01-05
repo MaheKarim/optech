@@ -327,32 +327,22 @@
 
     <div class="optech-hero-section6">
         <div class="optech-hero-slider">
-            <div class="optech-hero-slider-item" style="background-image: url(assets/images/hero/hero-bg3.png)">
+            @foreach($sliders as $slider)
+               <div class="optech-hero-slider-item" style="background-image: url({{ asset($slider->image) }})">
                 <div class="container">
                     <div class="optech-hero-content center sm">
-                        <h5>We provide professional IT services</h5>
-                        <h1>Affordable big IT & technology solutions</h1>
+                        <h5>{{ $slider->translate?->title }}</h5>
+                        <h1>{{ $slider->translate?->small_text }}</h1>
                         <div class="optech-extra-mt">
-                            <a class="optech-default-btn" href="contact-us.html" data-text="Work With Us"><span
-                                    class="btn-wraper">Work With Us</span></a>
+                            <a class="optech-default-btn" href="{{ $slider->url }}" data-text="{{ $slider->translate?->button_text }}"><span
+                                    class="btn-wraper">{{ $slider->translate?->button_text }}
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="optech-hero-slider-item" style="background-image: url(assets/images/hero/hero-bg2.png)">
-                <div class="container">
-                    <div class="optech-hero-content center sm">
-                        <div class="animated">
-                            <h5>We provide professional IT services</h5>
-                            <h1>Software crafting for digital success</h1>
-                        </div>
-                        <div class="optech-extra-mt animated">
-                            <a class="optech-default-btn" href="contact-us.html" data-text="Work With Us"><span
-                                    class="btn-wraper">Work With Us</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <!-- End section -->
@@ -750,4 +740,21 @@
     </footer>
 
 @endsection
+
+
+@push('style_section')
+    <style>
+        .optech-hero-slider-item::before {
+            content: "";
+            left: 0;
+            top: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-size: cover;
+            background-image: url({{ asset('frontend/assets/img/hero/overlay.png') }});
+        }
+    </style>
+@endpush
 

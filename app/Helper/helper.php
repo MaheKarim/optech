@@ -202,3 +202,15 @@ function getTranslatedValue($content, $key, $lang = 'en') {
 
     return $value;
 }
+
+
+function randomNumber($length = 10) {
+    $random = '';
+    $possible = '0123456789';
+
+    for ($i = 0; $i < $length; $i++) {
+        $random .= $possible[rand(0, strlen($possible) - 1)];
+    }
+
+    return $random;
+}

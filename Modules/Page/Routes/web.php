@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Page\App\Http\Controllers\PageController;
 use Modules\Page\App\Http\Controllers\PrivacyController;
 use Modules\Page\App\Http\Controllers\HomepageController;
+use Modules\Page\App\Http\Controllers\SliderController;
 use Modules\Page\App\Http\Controllers\TermsConditiondController;
 use Modules\Page\App\Http\Controllers\AboutusController;
 use Modules\Page\App\Http\Controllers\ContactPageController;
@@ -33,8 +34,6 @@ Route::group(['as'=> 'admin.', 'prefix' => 'admin', 'middleware' => ['auth:admin
     Route::get('intro2-section', [HomepageController::class, 'intro2_section'])->name('intro2-section');
     Route::put('update-intro2-section', [HomepageController::class, 'update_intro2_section'])->name('update-intro2-section');
 
-
-
     Route::get('working-step', [HomepageController::class, 'working_step'])->name('working-step');
     Route::put('update-working-step', [HomepageController::class, 'update_working_step'])->name('update-working-step');
 
@@ -58,5 +57,13 @@ Route::group(['as'=> 'admin.', 'prefix' => 'admin', 'middleware' => ['auth:admin
     Route::put('update-footer', [FooterContrllerController::class, 'update'])->name('update-footer');
 
     Route::resource('custom-page', CustomPageController::class);
+
+    Route::prefix('slider')->controller(SliderController::class)->name('slider.')->group(function (){
+        Route::get('/','index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::get('edit/{id}', 'edit')->name('edit');
+        Route::post('store/{id?}', 'store')->name('store');
+        Route::delete('delete/{id?}', 'destroy')->name('delete');
+    });
 
 });

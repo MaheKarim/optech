@@ -4,14 +4,14 @@ namespace Modules\Language\App\Http\Controllers;
 
 use DB, File;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
 use Modules\Language\App\Models\Language;
 use Modules\City\Entities\CityTranslation;
 use Modules\FAQ\App\Models\FaqTranslation;
+use Modules\Page\App\Http\Controllers\SliderController;
 use Modules\Page\App\Models\PrivacyPolicy;
 use Modules\Blog\App\Models\BlogTranslation;
+use Modules\Page\App\Models\SliderTranslation;
 use Modules\Page\App\Models\TermAndCondition;
 use Modules\Page\App\Models\FooterTranslation;
 use Modules\Page\App\Models\AboutUsTranslation;
@@ -128,6 +128,9 @@ class LanguageController extends Controller
         $page_lang = new CustomPageController();
         $page_lang->setup_language($request->lang_code);
 
+        $page_lang = new SliderController();
+        $page_lang->setup_language($request->lang_code);
+
 
         /** generate local language */
 
@@ -150,12 +153,10 @@ class LanguageController extends Controller
             }
         }
 
-
-
         $notify_message = trans('translate.Created successfully');
         $notify_message = array('message' => $notify_message, 'alert-type' => 'success');
-        return redirect()->route('admin.language.index')->with($notify_message);
 
+        return redirect()->route('admin.language.index')->with($notify_message);
     }
 
     /**
@@ -201,7 +202,6 @@ class LanguageController extends Controller
      */
     public function destroy($id)
     {
-
         if($id == 1){
             $notify_message = trans('translate.You can not delete english language');
             $notify_message = array('message' => $notify_message, 'alert-type' => 'error');
@@ -227,6 +227,7 @@ class LanguageController extends Controller
         HomepageTranslation::where('lang_code' , $language->lang_code)->delete();
         CustomPageTranslation::where('lang_code' , $language->lang_code)->delete();
         ProjectTranslation::where('lang_code' , $language->lang_code)->delete();
+        SliderTranslation::where('lang_code' , $language->lang_code)->delete();
 
         $path = base_path().'/lang'.'/'.$language->lang_code;
 
@@ -252,13 +253,11 @@ class LanguageController extends Controller
         return view('language::theme_language', [
             'data' => $data
         ]);
-
-
     }
 
 
-    public function update_theme_language (Request $request){
-
+    public function update_theme_language (Request $request)
+    {
 
         if(!File::exists('lang/'.$request->lang_code.'/translate.php')){
             $notify_message = trans('translate.Requested language does not exist');
@@ -277,11 +276,8 @@ class LanguageController extends Controller
 
         $notify_message = trans('translate.Updated successfully');
         $notify_message = array('message' => $notify_message, 'alert-type' => 'success');
+
         return redirect()->back()->with($notify_message);
-
-
     }
-
-
 
 }

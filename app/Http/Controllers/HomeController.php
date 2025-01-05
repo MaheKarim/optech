@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slider;
 use App\Models\Team;
 use Illuminate\Support\Facades\Session;
 use File;
@@ -96,6 +97,8 @@ class HomeController extends Controller
 
         $faqs = Faq::latest()->take(4)->get();
 
+        $sliders = Slider::latest()->get();
+
         // Common data for all views
         $view_data = compact(
             'seo_setting',
@@ -108,7 +111,8 @@ class HomeController extends Controller
             'testimonials',
             'projects',
             'teams',
-            'faqs'
+            'faqs',
+            'sliders'
         );
 
         // View template mapping

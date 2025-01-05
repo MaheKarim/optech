@@ -291,7 +291,7 @@
                 </span>
                 <span class="menu-bar__name">{{ __('translate.Manage Pages') }}</span></span> <span class="crancy__toggle"></span></a></span>
                 <!-- Dropdown Menu -->
-                <div class="collapse crancy__dropdown {{ Route::is('admin.terms-conditions') || Route::is('admin.privacy-policy') || Route::is('admin.faq.*') || Route::is('admin.custom-page.*') || Route::is('admin.contact-us') || Route::is('admin.about-us') ? 'show' : '' }}" id="menu-item__pages"  data-bs-parent="#CrancyMenu">
+                <div class="collapse crancy__dropdown {{ Route::is('admin.terms-conditions') ||Route::is('admin.slider.index') || Route::is('admin.privacy-policy') || Route::is('admin.faq.*') || Route::is('admin.custom-page.*') || Route::is('admin.contact-us') || Route::is('admin.about-us') ? 'show' : '' }}" id="menu-item__pages"  data-bs-parent="#CrancyMenu">
                     <ul class="menu-bar__one-dropdown">
 
                         <li><a href="{{ route('admin.about-us', ['lang_code' => admin_lang()]) }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.About Us') }}</span></span></a></li>
@@ -304,6 +304,7 @@
 
                         <li><a href="{{ route('admin.faq.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.FAQ') }}</span></span></a></li>
 
+                        <li><a href="{{ route('admin.slider.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Manage Slider') }}</span></span></a></li>
 
                         <li><a href="{{ route('admin.custom-page.index') }}"><span class="menu-bar__text"><span class="menu-bar__name">{{ __('translate.Custom Page') }}</span></span></a></li>
 

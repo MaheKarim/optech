@@ -3,8 +3,8 @@
     Template Name: 'Relik-Admin Dashboard'
     Template URI:
     Description:
-    Author: 
-    Author URI: 
+    Author:
+    Author URI:
     Version: 1.0.0
     -------------------------------------------------
      1.0 base css
@@ -3434,17 +3434,7 @@ h1.post__title {
     padding: 250px 0 150px;
   }
 }
-.optech-hero-slider-item::before {
-  content: "";
-  left: 0;
-  top: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-size: cover;
-  background-image: url(../images/hero/overlay.png);
-}
+
 
 .optech-hero-slider .optech-hero-next,
 .optech-hero-slider .optech-hero-prev {
