@@ -69,7 +69,7 @@
     },
     "main_demo_service_section": {
         "builder": true,
-        "name": "Service Section - (Main Demo/IT Consulting/Digital Agency)",
+        "name": "Service Section - (Main Demo/IT Consulting/Digital Agency/Software Company)",
         "content": {
             "heading": "text"
         }
@@ -90,7 +90,7 @@
     },
     "main_demo_cta_section": {
         "builder": true,
-        "name": "CTA Section - (Main Demo)",
+        "name": "CTA Section - (Main Demo/Digital Agency)",
         "content": {
             "heading": "text",
             "description": "text",
@@ -165,7 +165,7 @@
     },
     "main_demo_blog_section": {
         "builder": true,
-        "name": "Blog Section - (Main Demo/IT Solutions)",
+        "name": "Blog Section - (Main Demo/IT Solutions/Digital Agency/Software Co)",
         "content": {
             "heading": "text",
             "button_text": "text"
@@ -239,7 +239,7 @@
     },
     "it_solutions_about_us": {
         "builder": true,
-        "name": "About Us Section - (IT Solutions)",
+        "name": "About Us Section - (IT Solutions/Software Company)",
         "content": {
             "heading": "text",
             "description": "text",
@@ -391,6 +391,15 @@
                     "size": "49x49"
                 }
             }
+        }
+    },
+    "digital_agency_faqs": {
+        "builder": true,
+        "name": "FAQ Section - (Digital Agency)",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "button_text": "text"
         }
     }
 }

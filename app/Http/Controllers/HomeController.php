@@ -94,6 +94,8 @@ class HomeController extends Controller
 
         $teams = Team::latest()->take(4)->get();
 
+        $faqs = Faq::latest()->take(4)->get();
+
         // Common data for all views
         $view_data = compact(
             'seo_setting',
@@ -105,7 +107,8 @@ class HomeController extends Controller
             'home2_filter_service',
             'testimonials',
             'projects',
-            'teams'
+            'teams',
+            'faqs'
         );
 
         // View template mapping
