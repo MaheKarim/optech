@@ -27,21 +27,21 @@ class ListingController extends Controller
      */
     public function index()
     {
-        $listings = Listing::with('translate','seller','category')->latest()->get();
+        $listings = Listing::with('translate','category')->latest()->get();
 
         return view('listing::index', compact('listings'));
     }
 
     public function awaiting_listings()
     {
-        $listings = Listing::with('translate','seller')->where('approved_by_admin', 'pending')->latest()->get();
+        $listings = Listing::with('translate')->where('approved_by_admin', 'pending')->latest()->get();
 
         return view('listing::awaiting_listing', compact('listings'));
     }
 
     public function featured_listings()
     {
-        $listings = Listing::with('translate','seller')->where('is_featured', 'enable')->latest()->get();
+        $listings = Listing::with('translate')->where('is_featured', 'enable')->latest()->get();
 
         return view('listing::featured_listing', compact('listings'));
     }
@@ -57,11 +57,7 @@ class ListingController extends Controller
         return view('listing::create', compact('categories', ));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
+
     public function store(ListingRequest $request)
     {
         $listing = new Listing();
@@ -101,11 +97,7 @@ class ListingController extends Controller
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
+
     public function edit(Request $request, $id)
     {
 
@@ -121,12 +113,7 @@ class ListingController extends Controller
         return view('listing::edit', compact('categories', 'listing', 'listing_translate', 'subcategories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
+
     public function update(ListingRequest $request, $id)
     {
 
@@ -168,11 +155,7 @@ class ListingController extends Controller
         return redirect()->back()->with($notify_message);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
+
     public function destroy($id)
     {
 

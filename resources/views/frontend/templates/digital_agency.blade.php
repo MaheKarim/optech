@@ -365,7 +365,7 @@
                 </div>
             </div>
         </div>
-        <!-- End section -->
+        <!-- End Hero section -->
 
         <div class="section optech-section-padding2">
             <div class="container">
@@ -393,7 +393,7 @@
                 </div>
             </div>
         </div>
-        <!-- End section -->
+        <!-- End Service section -->
 
         <div class="section large-padding-tb2 overflow-hidden bg-light1">
             <div class="container">
@@ -545,6 +545,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-6 d-flex align-items-center">
                         <div class="optech-default-content mr40">
                             <h2>{{ getTranslatedValue($agencyFeatureSection,'heading', $currentLang) }}</h2>
@@ -560,8 +561,6 @@
                                         <p>{{ getTranslatedValue($agencyFeatureSection,'feature_description_1', $currentLang) }}</p>
                                     </div>
                                 </div>
-
-
 
                                 <div class="optech-iconbox-wrap2">
                                     <div class="optech-iconbox-icon2 bg-white">
@@ -642,10 +641,9 @@
                     <h2>{{ getTranslatedValue($blogSection,'heading', $currentLang) }}</h2>
                 </div>
                 <div class="row">
-                    {{-- Last post in left-align --}}
                     @if($blogPosts->isNotEmpty())
                         @php
-                            $lastPost = $blogPosts->last(); // Get the last post
+                            $lastPost = $blogPosts->last();
                         @endphp
                         <div class="col-xl-6 left-align" data-aos="fade-up" data-aos-duration="600">
                             <div class="optech-blog-wrap bg-white">
@@ -657,8 +655,8 @@
                                 <div class="optech-blog-content padding-medium">
                                     <div class="optech-blog-meta">
                                         <ul>
-                                            <li><a href="{{ route('blog', $lastPost->slug) }}">Technology</a></li>
-                                            <li><a href="{{ route('blog', $lastPost->slug) }}">26 June 2023</a></li>
+                                            <li><a href="{{ route('blog', $lastPost->slug) }}">{{ $lastPost->category->translate->name ?? '' }}</a></li>
+                                            <li><a href="{{ route('blog', $lastPost->slug) }}">{{ $lastPost->created_at->diffForHumans() }}</a></li>
                                         </ul>
                                     </div>
                                     <a href="{{ route('blog', $lastPost->slug) }}">
@@ -674,10 +672,9 @@
                         </div>
                     @endif
 
-                    {{-- Other posts in right-align --}}
                     <div class="col-xl-6 right-align">
                         @foreach($blogPosts as $index => $blog)
-                            @if($index !== count($blogPosts) - 1) {{-- Skip the last post --}}
+                            @if($index !== count($blogPosts) - 1)
                             <div data-aos="fade-left" data-aos-duration="800">
                                 <div class="optech-blog-wrap blog-column">
                                     <div class="optech-blog-left">
@@ -690,8 +687,8 @@
                                     <div class="optech-blog-content">
                                         <div class="optech-blog-meta">
                                             <ul>
-                                                <li><a href="{{ route('blog', $blog->slug) }}">Technology</a></li>
-                                                <li><a href="{{ route('blog', $blog->slug) }}">26 June 2023</a></li>
+                                                <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->category->translate->name ?? '' }}</a></li>
+                                                <li><a href="{{ route('blog', $blog->slug) }}">{{ $blog->created_at->diffForHumans() }}</a></li>
                                             </ul>
                                         </div>
                                         <a href="{{ route('blog', $blog->slug) }}">
@@ -699,7 +696,7 @@
                                         </a>
                                         <a class="optech-icon-btn" href="{{ route('blog', $blog->slug) }}">
                                             <i class="icon-show ri-arrow-right-line"></i>
-                                            <span>Learn More</span>
+                                            <span>{{ __('Learn More') }}</span>
                                             <i class="icon-hide ri-arrow-right-line"></i>
                                         </a>
                                     </div>
