@@ -520,7 +520,7 @@
             </div>
         </div>
     </div>
-    <!-- End section -->
+    <!-- End About Us section -->
 
     <div class="section optech-section-padding bg-light1">
         <div class="container">

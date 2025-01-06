@@ -628,7 +628,7 @@
                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="400">
                     <div class="optech-team-wrap">
                         <div class="optech-team-thumb">
-                            <img src="{{ asset($team->image) }}" alt="">
+                            <img src="{{ asset($team->image) }}" alt="Team Member Image">
                             <div class="optech-social-icon-box style-three position">
                                 <ul>
                                     <li>
@@ -661,7 +661,7 @@
             </div>
         </div>
     </div>
-    <!-- End section -->
+    <!-- End Team section -->
 
     <div class="section optech-section-padding bg-light1">
         <div class="container">
@@ -693,7 +693,7 @@
             </div>
         </div>
     </div>
-    <!-- End section -->
+    <!-- End Testimonial section -->
 
     <div class="section optech-section-padding2">
         <div class="container">

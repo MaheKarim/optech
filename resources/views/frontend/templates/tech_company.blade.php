@@ -2,6 +2,14 @@
 
 @section('front-content')
 
+    @php
+        $currentLang = session()->get('front_lang');
+        $heroContent = getContent('tech_company_hero_section.content', true);
+        $serviceContent = getContent('main_demo_service_section.content', true);
+        $expertTeamContent = getContent('expert_feature_section.content', true);
+        $blogContent = getContent('main_demo_blog_section.content', true);
+
+    @endphp
 
     <header class="site-header optech-header-section site-header--menu-right optech-header-two" id="sticky-menu">
         <div class="optech-header-top dark-bg3">
@@ -9,9 +17,9 @@
                 <div class="optech-header-info-wrap">
                     <div class="optech-header-info ">
                         <ul>
-                            <li><i class="ri-map-pin-2-fill"></i>2774 Oak Drive, Plattsburgh, New York</li>
-                            <li><a href="tel:123"><i class="ri-phone-fill"></i>518-564-3200</a></li>
-                            <li><a href="mailto:name@email.com"><i class="ri-mail-fill"></i>tecbolt@example.com</a></li>
+                            <li><i class="ri-map-pin-2-fill"></i>{{ $footer->address }}</li>
+                            <li><a href="tel:{{ $footer->phone }}"><i class="ri-phone-fill"></i>{{ $footer->phone }}</a></li>
+                            <li><a href="mailto:{{ $footer->email }}"><i class="ri-mail-fill"></i>{{ $footer->email }}</a></li>
                         </ul>
                     </div>
 
@@ -24,10 +32,11 @@
                         fill="white" />
                 </svg>
               </span>
-                            <select class="js-example-basic-single" name="state">
-                                <option value="AL">USD</option>
-                                <option value="WY">EUR</option>
-                                <option value="WY">INR</option>
+                            <select class="js-example-basic-single" name="currency_code">
+                                @foreach ($currency_list as $currency_item)
+                                    <option
+                                        {{ Session::get('currency_code') == $currency_item->currency_code ? 'selected' : '' }} value="{{ $currency_item->currency_code }}">{{ $currency_item->currency_name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -39,12 +48,13 @@
                         fill="white" />
                 </svg>
               </span>
-                            <select class="js-example-basic-single" name="state">
-                                <option value="AL">ENG</option>
-                                <option value="WY">SPN</option>
-                                <option value="WY">BNG</option>
-                                <option value="WY">RUS</option>
-                            </select>
+                            <form action="{{ route('language-switcher') }}" id="language_form">
+                                <select id="language_dropdown" class="js-example-basic-single" name="lang_code">
+                                    @foreach ($language_list as $language_item)
+                                        <option {{ Session::get('front_lang') == $language_item->lang_code ? 'selected' : '' }} value="{{ $language_item->lang_code }}">{{ $language_item->lang_name }}</option>
+                                    @endforeach
+                                </select>
+                            </form>
                         </div>
 
                         <div class="cur_lun_login_item">
@@ -55,7 +65,7 @@
                         fill="white" />
                 </svg>
               </span>
-                            <a href="./login.html" class="login-btn">Login</a>
+                            <a href="{{ route('login') }}" class="login-btn">{{ __('translate.Login') }}</a>
                         </div>
                     </div>
                 </div>
@@ -66,8 +76,8 @@
                 <nav class="navbar site-navbar">
                     <!-- Brand Logo-->
                     <div class="brand-logo">
-                        <a href="index.html">
-                            <img src="assets/images/logo/logo-white.svg" alt="" class="light-version-logo">
+                        <a href="{{ route('home') }}">
+                            <img src="{{ asset($general_setting->white_logo) }}" alt="logo" class="light-version-logo">
                         </a>
                     </div>
                     <div class="menu-block-wrapper">
@@ -127,11 +137,11 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">Pages <i class="ri-arrow-down-s-fill"></i></a>
+                                    <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Pages') }}  <i class="ri-arrow-down-s-fill"></i></a>
                                     <ul class="sub-menu" id="submenu-2">
                                         <li class="sub-menu--item">
-                                            <a href="about-us.html">
-                                                <span class="menu-item-text">About Us</span>
+                                            <a href="{{ route('about-us') }}">
+                                                <span class="menu-item-text">{{ __('translate.About Us') }}</span>
                                             </a>
                                         </li>
                                         <li class="sub-menu--item">
@@ -140,46 +150,11 @@
                                             </a>
                                         </li>
                                         <li class="sub-menu--item">
-                                            <a href="dashbord.html">
-                                                <span class="menu-item-text">Dashboard</span>
+                                            <a href="#" class="drop-trigger">{{ __('Service') }}
                                             </a>
                                         </li>
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">blog <i class="ri-arrow-down-s-fill"></i></a>
-                                            <ul class="sub-menu shape-none" id="submenu-3">
-                                                <li class="sub-menu--item">
-                                                    <a href="blog.html">
-                                                        <span class="menu-item-text">Blog</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sub-menu--item">
-                                                    <a href="blog-grid.html">
-                                                        <span class="menu-item-text">Blog grid</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sub-menu--item">
-                                                    <a href="single-blog.html">
-                                                        <span class="menu-item-text">blog details</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">Service<i class="ri-arrow-down-s-fill"></i>
-                                            </a>
-                                            <ul class="sub-menu shape-none" id="submenu-4">
-                                                <li class="sub-menu--item">
-                                                    <a href="service.html">
-                                                        <span class="menu-item-text">service</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sub-menu--item">
-                                                    <a href="single-service.html">
-                                                        <span class="menu-item-text">service details</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
+
+
                                         <li class="sub-menu--item nav-item-has-children">
                                             <a href="#" data-menu-get="h3" class="drop-trigger">Team<i class="ri-arrow-down-s-fill"></i>
                                             </a>
@@ -265,28 +240,28 @@
                                         </li>
                                     </ul>
                                 </li>
+                                @php
+                                    $isGrid = request()->query('type') === 'grid';
+                                @endphp
                                 <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">Blog <i class="ri-arrow-down-s-fill"></i></a>
+                                    <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Blog') }}<i class="ri-arrow-down-s-fill"></i></a>
                                     <ul class="sub-menu" id="submenu-9">
                                         <li class="sub-menu--item">
-                                            <a href="blog.html">
-                                                <span class="menu-item-text">blog</span>
+                                            <a href="{{ route('blogs') }}">
+                                                <span class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('translate.Blog') }}</span>
                                             </a>
                                         </li>
                                         <li class="sub-menu--item">
-                                            <a href="blog-grid.html">
-                                                <span class="menu-item-text">Blog grid</span>
+                                            <a href="{{ route('blogs' ,['type' => 'grid']) }}">
+                                                <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Blog Grid') }}</span>
                                             </a>
                                         </li>
-                                        <li class="sub-menu--item">
-                                            <a href="single-blog.html">
-                                                <span class="menu-item-text">blog Details</span>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="contact-us.html" class="nav-link-item">Contact</a>
+                                    <a class="nav-link-item"
+                                       href="{{ route('contact-us') }}">{{ __('translate.Contact') }}</a>
                                 </li>
                             </ul>
                         </nav>
@@ -305,8 +280,8 @@
                                 <span class="cart_number">3</span>
                             </div>
 
-                            <a class="optech-default-btn optech-header-btn" href="contact-us.html" data-text="Get in Touch"><span
-                                    class="btn-wraper">Get in Touch</span></a>
+                            <a class="optech-default-btn optech-header-btn" href="{{ route('contact-us') }}" data-text="Get in Touch"><span
+                                    class="btn-wraper">{{ __('Get in Touch') }}</span></a>
                         </div>
 
                     </div>
@@ -321,21 +296,17 @@
 
     </header>
 
-
-
-
-    <div class="optech-hero-section8 bg-cover" style="background-image: url(assets/images/hero/bg4.png)">
+    <div class="optech-hero-section8 bg-cover" style="background-image: url({{ asset('frontend/assets/img/hero/bg4.png') }})">
         <div class="container">
             <div class="optech-hero-content center medium">
-                <h1>We provide best tech solutions for your business</h1>
-                <p>We are architects of innovation, trailblazers of technological advancement, and partners in your success. As
-                    a dynamic and forward-thinking organization</p>
+                <h1>{{ getTranslatedValue($heroContent, 'heading', $currentLang) }}</h1>
+                <p>{{ getTranslatedValue($heroContent, 'description', $currentLang) }}</p>
                 <div class="optech-extra-mt">
                     <div class="optech-btn-wrap center">
-                        <a class="optech-default-btn" data-aos="fade-up" data-aos-duration="600" href="contact-us.html"
-                           data-text="Work With Us"><span class="btn-wraper">Work With Us</span></a>
+                        <a class="optech-default-btn" data-aos="fade-up" data-aos-duration="600" href="{{ getTranslatedValue($heroContent, 'left_button_url', $currentLang) }}"
+                           data-text="{{ getTranslatedValue($heroContent, 'left_button_text', $currentLang) }}"><span class="btn-wraper">{{ getTranslatedValue($heroContent, 'left_button_text', $currentLang) }}</span></a>
                         <a class="optech-default-btn optech-white-btn" data-aos="fade-up" data-aos-duration="800"
-                           href="service.html" data-text="View Services"> <span class="btn-wraper">View Services</span> </a>
+                           href="{{ getTranslatedValue($heroContent, 'right_button_url', $currentLang) }}" data-text="{{ getTranslatedValue($heroContent, 'right_button_text', $currentLang) }}"> <span class="btn-wraper">{{ getTranslatedValue($heroContent, 'right_button_text', $currentLang) }}</span> </a>
                     </div>
                 </div>
             </div>
@@ -346,350 +317,102 @@
     <div class="section optech-section-padding">
         <div class="container">
             <div class="optech-section-title center">
-                <h2>Our awesome services to give you success</h2>
+                <h2>{{ getTranslatedValue($serviceContent, 'heading', $currentLang) }}</h2>
             </div>
             <div class="optech-4column-slider2" data-aos="fade-up" data-aos-duration="800">
+                @foreach($listings as $listing)
                 <div class="optech-service-box">
                     <div class="optech-service-thumb">
-                        <img src="assets/images/v3/service1.png" alt="">
+                        @if($listing->gallery->isNotEmpty())
+                            <img src="{{ asset($listing->gallery->first()['image']) }}" alt="Image Coupon">
+                        @endif
                         <div class="optech-service-data">
                             <div class="optech-service-icon">
-                                <img src="assets/images/v3/icon1.svg" alt="">
+                                <img src="{{ asset($listing->thumb_image) }}" alt="Image">
                             </div>
-                            <a href="single-service.html">
-                                <h5>IT Management <br> Service</h5>
+                            <a href="{{ route('service', $listing->slug) }}">
+                                <h5>{{ $listing->translate?->title }}</h5>
                             </a>
                         </div>
                     </div>
                 </div>
-
-                <div class="optech-service-box">
-                    <div class="optech-service-thumb">
-                        <img src="assets/images/v3/service2.png" alt="">
-                        <div class="optech-service-data">
-                            <div class="optech-service-icon">
-                                <img src="assets/images/v3/icon2.svg" alt="">
-                            </div>
-                            <a href="single-service.html">
-                                <h5>Web & Mobile App <br> Development</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="optech-service-box">
-                    <div class="optech-service-thumb">
-                        <img src="assets/images/v3/service3.png" alt="">
-                        <div class="optech-service-data">
-                            <div class="optech-service-icon">
-                                <img src="assets/images/v3/icon3.svg" alt="">
-                            </div>
-                            <a href="single-service.html">
-                                <h5>UI/UX & Branding <br> Identity</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="optech-service-box">
-                    <div class="optech-service-thumb">
-                        <img src="assets/images/v3/service4.png" alt="">
-                        <div class="optech-service-data">
-                            <div class="optech-service-icon">
-                                <img src="assets/images/v3/icon4.svg" alt="">
-                            </div>
-                            <a href="single-service.html">
-                                <h5>Digital Marketing <br> Services</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="optech-service-box">
-                    <div class="optech-service-thumb">
-                        <img src="assets/images/v3/service2.png" alt="">
-                        <div class="optech-service-data">
-                            <div class="optech-service-icon">
-                                <img src="assets/images/v3/icon2.svg" alt="">
-                            </div>
-                            <a href="single-service.html">
-                                <h5>Web & Mobile App <br> Development</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
     <!-- End section -->
 
-    <div class="section large-padding-tb7 overflow-hidden bg-light1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="optech-thumb extra-mr">
-                        <img data-aos="fade-up" data-aos-duration="600" src="assets/images/v8/thumb1.png" alt="">
-                        <div class="optech-thumb-position" data-aos="fade-up" data-aos-duration="800">
-                            <img src="assets/images/v8/thumb2.png" alt="">
-                        </div>
-                        <div class="optech-shape1">
-                            <img src="assets/images/shape/shape1.svg" alt="">
-                        </div>
-                        <div class="optech-shape2">
-                            <img src="assets/images/shape/shape2.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 d-flex align-items-center">
-                    <div class="optech-default-content ml40">
-                        <h2>We provide perfect IT solutions & technology</h2>
-                        <h5>During this time, we’ve built a reputation for excellent clients satisfaction as evidenced by our</h5>
-                        <p>Each demo built with Teba will look different. You can customize almost anything in the appearance of
-                            your website with only a few clicks. Each demo built with Teba will look different.</p>
-                        <div class="optech-extra-mt">
-                            <div class="optech-iconbox-column">
-                                <div class="optech-iconbox-wrap3">
-                                    <div class="optech-iconbox-icon3">
-                                        <img src="assets/images/iconbox/icon11.svg" alt="">
-                                    </div>
-                                    <div class="optech-iconbox-data3">
-                                        <p>Provide Skills <br> Services</p>
-                                    </div>
-                                </div>
-                                <div class="optech-iconbox-wrap3">
-                                    <div class="optech-iconbox-icon3">
-                                        <img src="assets/images/iconbox/icon12.svg" alt="">
-                                    </div>
-                                    <div class="optech-iconbox-data3">
-                                        <p>Urgent Support <br> For Clients</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('frontend.templates.layouts.about_us_section')
     <!-- End section -->
 
     <div class="section optech-section-padding5">
-        <div class="container">
-            <div class="optech-section-title center">
-                <h2>Our working process on how to grow your business</h2>
-            </div>
-            <div class="row z-index">
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="600">
-                    <div class="optech-numberbox-wrap">
-                        <div class="optech-numberbox-icon">
-                            <img src="assets/images/v2/illustration1.svg" alt="">
-                        </div>
-                        <div class="optech-numberbox-data">
-                            <span>01</span>
-                            <h4>Initiation & Planning</h4>
-                            <p>We are architects innovation trailblazers of technological advancement</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="800">
-                    <div class="optech-numberbox-wrap">
-                        <div class="optech-numberbox-icon">
-                            <img src="assets/images/v2/illustration2.svg" alt="">
-                        </div>
-                        <div class="optech-numberbox-data">
-                            <span>02</span>
-                            <h4>Execution & Development</h4>
-                            <p>We are architects innovation trailblazers of technological advancement</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="optech-numberbox-wrap">
-                        <div class="optech-numberbox-icon">
-                            <img src="assets/images/v2/illustration3.svg" alt="">
-                        </div>
-                        <div class="optech-numberbox-data">
-                            <span>03</span>
-                            <h4>Testing & Maintenance</h4>
-                            <p>We are architects innovation trailblazers of technological advancement</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="optech-line">
-                    <img src="assets/images/v2/line.png" alt="">
-                </div>
-            </div>
-        </div>
+        @include('frontend.templates.layouts.process_section')
     </div>
-    <!-- End section -->
+    <!-- End Working Process section -->
 
     <div class="section optech-section-padding bg-light1">
         <div class="container">
             <div class="optech-section-title center">
-                <h2>Explore our recent projects</h2>
+                <h2>{{ __('Explore our recent projects') }}</h2>
             </div>
         </div>
         <div class="optech-3column-slider" data-aos="fade-up" data-aos-duration="800">
+            @foreach($projects as $index => $project)
             <div class="optech-portfolio-wrap2">
                 <div class="optech-portfolio-thumb2">
-                    <img src="assets/images/p2/p1.png" alt="">
+                    <img src="{{ asset($project->thumb_image) }}" alt="Image">
                 </div>
                 <div class="optech-portfolio-data2-wrap">
                     <div class="optech-portfolio-data2">
-                        <a href="single-portfolio.html">
-                            <h4>Cyber Security Analysis</h4>
+                        <a href="{{ route('portfolio.show', $project->slug) }}">
+                            <h4>{{ $project->translate?->title }}</h4>
                         </a>
-                        <p>Security, Technology</p>
+                        <p>
+                            @if($project->category && $project->category->translate)
+                                {{ $project->category->translate->name }}
+                            @elseif($project->category)
+                                {{ $project->category->name }}
+                            @endif
+                        </p>
                     </div>
-                    <a class="optech-portfolio-btn2" href="single-portfolio.html">
+                    <a class="optech-portfolio-btn2" href="{{ route('portfolio.show', $project->slug) }}">
                         <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
                     </a>
                 </div>
             </div>
-            <div class="optech-portfolio-wrap2">
-                <div class="optech-portfolio-thumb2">
-                    <img src="assets/images/p2/p2.png" alt="">
-                </div>
-                <div class="optech-portfolio-data2-wrap">
-                    <div class="optech-portfolio-data2">
-                        <a href="single-portfolio.html">
-                            <h4>Digital Product Design</h4>
-                        </a>
-                        <p>Design, Graphics</p>
-                    </div>
-                    <a class="optech-portfolio-btn2" href="single-portfolio.html">
-                        <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                    </a>
-                </div>
-            </div>
-            <div class="optech-portfolio-wrap2">
-                <div class="optech-portfolio-thumb2">
-                    <img src="assets/images/p2/p3.png" alt="">
-                </div>
-                <div class="optech-portfolio-data2-wrap">
-                    <div class="optech-portfolio-data2">
-                        <a href="single-portfolio.html">
-                            <h4>Health App Development</h4>
-                        </a>
-                        <p>Development, Software</p>
-                    </div>
-                    <a class="optech-portfolio-btn2" href="single-portfolio.html">
-                        <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                    </a>
-                </div>
-            </div>
-            <div class="optech-portfolio-wrap2">
-                <div class="optech-portfolio-thumb2">
-                    <img src="assets/images/p2/p4.png" alt="">
-                </div>
-                <div class="optech-portfolio-data2-wrap">
-                    <div class="optech-portfolio-data2">
-                        <a href="single-portfolio.html">
-                            <h4>Marketing Agency Website</h4>
-                        </a>
-                        <p>Development, Marketing</p>
-                    </div>
-                    <a class="optech-portfolio-btn2" href="single-portfolio.html">
-                        <span class="p-btn-wraper"><i class="ri-arrow-right-up-line"></i></span>
-                    </a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
-    <!-- End section -->
+    <!-- End Projects section -->
 
-    <div class="section optech-section-padding dark-bg">
-        <div class="container">
-            <div class="optech-1column-slider">
-                <div class="optech-t-box2">
-                    <div class="optech-t-quote2">
-                        <img src="assets/images/v1/quote.svg" alt="">
-                    </div>
-                    <div class="optech-t-data2">
-                        <p>“ Working with several word press themes and templates the years, I only can say this is best in every
-                            level. I use it for my company and the reviews that I have already are excellent. only design but the code
-                            quality ”</p>
-                        <div class="optech-t-rating2">
-                            <ul>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                            </ul>
-                        </div>
-                        <h5>Brooklyn Simmons</h5>
-                        <span>Lead Developer</span>
-                    </div>
-                </div>
-                <div class="optech-t-box2">
-                    <div class="optech-t-quote2">
-                        <img src="assets/images/v1/quote.svg" alt="">
-                    </div>
-                    <div class="optech-t-data2">
-                        <p>“ Working with several word press themes and templates the last years, I only can say this is best in
-                            every level. I use it for my company and the reviews that I have already are all excellent. Not only the
-                            design but the code quality ”</p>
-                        <div class="optech-t-rating">
-                            <ul>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                            </ul>
-                        </div>
-                        <h5>Alexander Cameron</h5>
-                        <span>Lead Developer</span>
-                    </div>
-                </div>
-                <div class="optech-t-box2">
-                    <div class="optech-t-quote2">
-                        <img src="assets/images/v1/quote.svg" alt="">
-                    </div>
-                    <div class="optech-t-data2">
-                        <p>“ Working with several word press themes and templates the last years, I only can say this is best in
-                            every level. I use it for my company and the reviews that I have already are all excellent. Not only the
-                            design but the code quality ”</p>
-                        <div class="optech-t-rating">
-                            <ul>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                                <li><img src="assets/images/v1/rating.svg" alt=""></li>
-                            </ul>
-                        </div>
-                        <h5>Brooklyn Simmons</h5>
-                        <span>Lead Developer</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End section -->
+    @include('frontend.templates.layouts.testimonial')
+    <!-- End testimonial section -->
 
     <div class="section optech-section-padding2">
         <div class="container">
             <div class="optech-section-title center">
-                <h2>Our expert team is always ready to help you</h2>
+                <h2>{{ getTranslatedValue($expertTeamContent, 'heading', $currentLang) }}</h2>
             </div>
             <div class="row">
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="400">
+                @foreach($teams as $team)
+                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="400">
                     <div class="optech-team-wrap border_all">
                         <div class="optech-team-thumb">
-                            <img src="assets/images/team/team1.png" alt="">
+                            <img src="{{ asset($team->image) }}" alt="Team Member Image">
                             <div class="optech-social-icon-box style-three position">
                                 <ul>
                                     <li>
-                                        <a href="https://www.linkedin.com/">
+                                        <a href="{{ $team->linkedin }}" target="_blank">
                                             <i class="ri-linkedin-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://twitter.com/">
+                                        <a href="{{ $team->twitter }}" target="_blank">
                                             <i class="ri-twitter-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com/">
+                                        <a href="{{ $team->instagram }}" target="_blank">
                                             <i class="ri-instagram-fill"></i>
                                         </a>
                                     </li>
@@ -698,253 +421,56 @@
                         </div>
                         <div class="optech-team-data">
                             <a href="single-team.html">
-                                <h5>Marvin McKinney</h5>
+                                <h5>{{ $team->name }}</h5>
                             </a>
-                            <p>CEO & Founder</p>
+                            <p>{{ $team->designation }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="600">
-                    <div class="optech-team-wrap border_all">
-                        <div class="optech-team-thumb">
-                            <img src="assets/images/team/team2.png" alt="">
-                            <div class="optech-social-icon-box style-three position">
-                                <ul>
-                                    <li>
-                                        <a href="https://www.linkedin.com/">
-                                            <i class="ri-linkedin-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/">
-                                            <i class="ri-instagram-fill"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="optech-team-data">
-                            <a href="single-team.html">
-                                <h5>Sophia Rodriguez</h5>
-                            </a>
-                            <p>Creative Director</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="800">
-                    <div class="optech-team-wrap border_all">
-                        <div class="optech-team-thumb">
-                            <img src="assets/images/team/team3.png" alt="">
-                            <div class="optech-social-icon-box style-three position">
-                                <ul>
-                                    <li>
-                                        <a href="https://www.linkedin.com/">
-                                            <i class="ri-linkedin-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/">
-                                            <i class="ri-instagram-fill"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="optech-team-data">
-                            <a href="single-team.html">
-                                <h5>Marvin McKinney</h5>
-                            </a>
-                            <p>Lead Developer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="optech-team-wrap border_all">
-                        <div class="optech-team-thumb">
-                            <img src="assets/images/team/team4.png" alt="">
-                            <div class="optech-social-icon-box style-three position">
-                                <ul>
-                                    <li>
-                                        <a href="https://www.linkedin.com/">
-                                            <i class="ri-linkedin-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/">
-                                            <i class="ri-instagram-fill"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="optech-team-data">
-                            <a href="single-team.html">
-                                <h5>Alexander Cameron</h5>
-                            </a>
-                            <p>Product Designer</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
-    <!-- End section -->
+    <!-- End Team section -->
 
-    <div class="section optech-section-padding bg-light1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 d-flex align-items-center">
-                    <div class="optech-default-content mr40">
-                        <h2>Let’s build an awesome project together</h2>
-                        <p>Each demo built with Teba will look different. You can customize almost anything in the appearance of
-                            your website with only a few clicks. Each demo built with Teba will look different.</p>
-                        <div class="optech-contact-info-column">
-                            <div class="optech-contact-info">
-                                <i class="ri-map-pin-2-fill"></i>
-                                <h5>Address</h5>
-                                <p>1791 Yorkshire Circle Kitty<br>
-                                    Hawk, NC 279499</p>
-                            </div>
-                            <div class="optech-contact-info">
-                                <i class="ri-mail-fill"></i>
-                                <h5>Contact</h5>
-                                <a href="mailto:name@email.com">info@mthemeus.com</a>
-                                <a href="tel:123">518-564-3200</a>
-                            </div>
-                        </div>
-                        Office Hours: Mon – Sat: 8:00 AM – 10:00 PM
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800">
-                    <div class="optech-main-form bg-white ml60">
-                        <h3>Fill The Contact Form</h3>
-                        <p>Feel free to contact with us, we don’t spam your email</p>
-                        <form action="#">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="optech-main-field">
-                                        <input type="text" placeholder="Your name">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="optech-main-field">
-                                        <input type="number" placeholder="Phone number">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="optech-main-field">
-                                        <input type="email" placeholder="Email address">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="optech-main-field">
-                                        <textarea name="textarea" placeholder="Write your message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <button id="optech-main-form-btn" type="button" data-text="Send Message"> <span
-                                            class="btn-wraper">Send Message</span> </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('frontend.templates.layouts.contact_section')
     <!-- End section -->
 
     <div class="section optech-section-padding">
         <div class="container">
             <div class="optech-section-title center">
-                <h2>Recent blog & articles about technology</h2>
+                <h2>{{ getTranslatedValue($blogContent, 'heading', $currentLang) }}</h2>
             </div>
             <div class="row">
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="600">
+                @foreach($blogPosts as $blog)
+                    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="600">
                     <div class="optech-blog-wrap">
-                        <a href="single-blog.html">
+                        <a href="{{ route('blog' , $blog->slug) }}">
                             <div class="optech-blog-thumb">
-                                <img src="assets/images/blog/blog6.png" alt="">
+                                <img src="{{ asset($blog->image) }}" alt="Image">
                             </div>
                         </a>
                         <div class="optech-blog-content reduced-padding">
                             <div class="optech-blog-meta">
                                 <ul>
-                                    <li><a href="single-blog.html">Technology</a></li>
-                                    <li><a href="single-blog.html">26 June 2023</a></li>
+                                    <li><a href="{{ route('blog' , $blog->slug) }}">{{ $blog->category->translate->name ?? '' }}</a></li>
+                                    <li><a href="{{ route('blog' , $blog->slug) }}">{{ $blog->created_at->diffForHumans() }}</a></li>
                                 </ul>
                             </div>
-                            <a href="single-blog.html">
-                                <h4>Planning your online business goals with a specialist</h4>
+                            <a href="{{ route('blog' , $blog->slug) }}">
+                                <h4>{{ \Illuminate\Support\Str::limit($blog->translate->title, 25) }}</h4>
                             </a>
-                            <a class="optech-icon-btn" href="single-blog.html"><i class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
+                            <a class="optech-icon-btn" href="{{ route('blog' , $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
+                                <span>{{ __('Learn More') }}</span> <i class="icon-hide ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="800">
-                    <div class="optech-blog-wrap">
-                        <a href="single-blog.html">
-                            <div class="optech-blog-thumb">
-                                <img src="assets/images/blog/blog7.png" alt="">
-                            </div>
-                        </a>
-                        <div class="optech-blog-content reduced-padding">
-                            <div class="optech-blog-meta">
-                                <ul>
-                                    <li><a href="single-blog.html">Technology</a></li>
-                                    <li><a href="single-blog.html">26 June 2023</a></li>
-                                </ul>
-                            </div>
-                            <a href="single-blog.html">
-                                <h4>Boost your startup business with our digital agency</h4>
-                            </a>
-                            <a class="optech-icon-btn" href="single-blog.html"><i class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="optech-blog-wrap">
-                        <a href="single-blog.html">
-                            <div class="optech-blog-thumb">
-                                <img src="assets/images/blog/blog8.png" alt="">
-                            </div>
-                        </a>
-                        <div class="optech-blog-content reduced-padding">
-                            <div class="optech-blog-meta">
-                                <ul>
-                                    <li><a href="single-blog.html">Technology</a></li>
-                                    <li><a href="single-blog.html">26 June 2023</a></li>
-                                </ul>
-                            </div>
-                            <a href="single-blog.html">
-                                <h4>Proactive customer experience in the business</h4>
-                            </a>
-                            <a class="optech-icon-btn" href="single-blog.html"><i class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="optech-center-btn">
-                <a class="optech-default-btn" href="blog.html" data-text="View All Posts"><span class="btn-wraper">View All
-            Posts</span></a>
+                <a class="optech-default-btn" href="{{ route('blogs') }}" data-text="{{ __('View All Posts') }}">
+                    <span class="btn-wraper">{{ __('View All Posts') }}</span>
+                </a>
             </div>
         </div>
     </div>
@@ -959,30 +485,29 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-12">
                         <div class="optech-footer-textarea light-color">
-                            <a href="index.html">
-                                <img src="assets/images/logo/logo-white.svg" alt="">
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset($general_setting->white_logo) }}" alt="Image">
                             </a>
-                            <p>Each demo built with Teba will look different. You can customize almost anything in the appearance of
-                                your website with only a few</p>
+                            <p>{{ $footer->about_us }}</p>
                             <div class="optech-social-icon-box">
                                 <ul>
                                     <li>
-                                        <a href="https://www.facebook.com/">
+                                        <a href="{{ $footer->facebook }}" target="_blank">
                                             <i class="ri-facebook-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.linkedin.com/">
+                                        <a href="{{ $footer->linkedin }}" target="_blank">
                                             <i class="ri-linkedin-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://twitter.com/">
+                                        <a href="{{ $footer->twitter }}" target="_blank">
                                             <i class="ri-twitter-fill"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.instagram.com/">
+                                        <a href="{{ $footer->instagram }}" target="_blank">
                                             <i class="ri-instagram-fill"></i>
                                         </a>
                                     </li>
@@ -993,21 +518,21 @@
                     <div class="col-xl-2 offset-xl-1 col-md-4">
                         <div class="optech-footer-menu">
                             <div class="optech-footer-title">
-                                <h5>Quick Links</h5>
+                                <h5>{{ __('Quick Links') }}</h5>
                             </div>
                             <ul>
-                                <li><a href="about-us.html">About Us</a></li>
+                                <li><a href="{{ route('about-us') }}">{{ __('translate.About Us') }}</a></li>
                                 <li><a href="team.html">Our Team</a></li>
                                 <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="blog.html">Blogs</a></li>
-                                <li><a href="contact-us.html">Contact Us</a></li>
+                                <li><a href="{{ route('blogs') }}">Blogs</a></li>
+                                <li><a href="{{ route('contact-us') }}">{{ __('translate.Contact Us') }}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-5">
                         <div class="optech-footer-menu">
                             <div class="optech-footer-title">
-                                <h5>Services</h5>
+                                <h5>{{ __('Services') }}</h5>
                             </div>
                             <ul>
                                 <li><a href="">UI/UX Design</a></li>
@@ -1021,13 +546,13 @@
                     <div class="col-xl-2 col-md-3">
                         <div class="optech-footer-menu mb-0">
                             <div class="optech-footer-title">
-                                <h5>Information</h5>
+                                <h5>{{ __('Information') }}</h5>
                             </div>
                             <ul>
-                                <li><a href="">Working Process</a></li>
-                                <li><a href="">Privacy Policy</a></li>
-                                <li><a href="">Terms & Conditions</a></li>
-                                <li><a href="">Faqs</a></li>
+                                <li><a href="{{ route('services') }}">{{ __('Services') }}</a></li>
+                                <li><a href="{{ route('privacy-policy') }}">{{ __('Privacy Policy') }}</a></li>
+                                <li><a href="{{ route('terms-conditions') }}">{{ __('Terms & Conditions') }}</a></li>
+                                <li><a href="{{ route('faq') }}">{{ __('Faq') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1035,7 +560,7 @@
             </div>
             <div class="optech-footer-bottom center">
                 <div class="optech-copywright">
-                    <p> Copyright © 2024 MirrorTheme. All rights reserved.</p>
+                    <p>{{ $footer->copyright }}</p>
                 </div>
             </div>
         </div>

@@ -1,3 +1,8 @@
+@php
+    $getProcessData = getContent('main_demo_process_section.content', true);
+@endphp
+
+
 <div class="container">
     <div class="optech-section-title center">
         <h2>{{ getTranslatedValue($getProcessData, 'heading', $currentLang) }} </h2>

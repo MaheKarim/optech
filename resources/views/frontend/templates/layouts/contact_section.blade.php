@@ -1,3 +1,7 @@
+@php
+    $contactInfoContent = getContent('contact_info_section.content', true);
+    $contactContent = getContent('contact_form_section.content', true);
+@endphp
 <div class="section optech-section-padding bg-light1">
     <div class="container">
         <div class="row">

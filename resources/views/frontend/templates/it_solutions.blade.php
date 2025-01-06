@@ -7,7 +7,6 @@
         $aboutUsContent = getContent('it_solutions_about_us.content', true);
         $counterContent = getContent('it_consulting_counter_section.content', true);
         $serviceContent = getContent('main_demo_service_section.content', true);
-        $getProcessData = getContent('main_demo_process_section.content', true);
         $blogContent = getContent('main_demo_blog_section.content', true);
         $contactContent = getContent('contact_form_section.content', true);
         $contactInfoContent = getContent('contact_info_section.content', true);
@@ -461,7 +460,7 @@
     @include('frontend.templates.layouts.process_section')
 </div>
 
-    <div class="section optech-section-padding2">
+<div class="section optech-section-padding2">
         <div class="container">
             <div class="optech-section-title center">
                 <h2>{{ getTranslatedValue($pricingContent, 'heading', $currentLang) }}</h2>
@@ -526,7 +525,7 @@
                                 <h4>{{ \Illuminate\Support\Str::limit($blog->translate->title, 25) }}</h4>
                             </a>
                             <a class="optech-icon-btn" href="{{ route('blog', $blog->slug) }}"><i class="icon-show ri-arrow-right-line"></i>
-                                <span>Learn More</span> <i class="icon-hide ri-arrow-right-line"></i></a>
+                                <span>{{ __('Learn More') }}</span> <i class="icon-hide ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div>
