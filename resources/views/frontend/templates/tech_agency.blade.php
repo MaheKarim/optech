@@ -723,7 +723,7 @@
                         <a href="{{ route('home') }}">
                             <img src="{{ asset($general_setting->white_logo) }}" alt="">
                         </a>
-                        <p>{{  }}</p>
+                        <p>{{ $footer->about_us }}</p>
                         <div class="optech-footer-info">
                             <ul>
                                 <li><a href="tel:{{ $footer->phone }}"><i class="ri-phone-fill"></i>{{ $footer->phone }}</a></li>
@@ -785,22 +785,22 @@
                     <div class="optech-social-icon-box right-align">
                         <ul>
                             <li>
-                                <a href="{{ $footer->facebook }}">
+                                <a href="{{ $footer->facebook }}" target="_blank">
                                     <i class="ri-facebook-fill"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $footer->linkedin }}">
+                                <a href="{{ $footer->linkedin }}" target="_blank">
                                     <i class="ri-linkedin-fill"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $footer->twitter }}">
+                                <a href="{{ $footer->twitter }}" target="_blank">
                                     <i class="ri-twitter-fill"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $footer->instagram }}">
+                                <a href="{{ $footer->instagram }}" target="_blank">
                                     <i class="ri-instagram-fill"></i>
                                 </a>
                             </li>
