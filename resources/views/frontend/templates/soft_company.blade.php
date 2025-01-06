@@ -148,18 +148,9 @@
                                         </li>
 
 
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">Service<i
-                                                    class="ri-arrow-down-s-fill"></i>
+                                        <li class="sub-menu--item">
+                                            <a href="{{ route('services') }}" class="menu-item-text"><span class="menu-item-text">Service</span>
                                             </a>
-                                            <ul class="sub-menu shape-none" id="submenu-4">
-                                                <li class="sub-menu--item">
-                                                    <a href="service.html">
-                                                        <span class="menu-item-text">Service</span>
-                                                    </a>
-                                                </li>
-
-                                            </ul>
                                         </li>
                                         <li class="sub-menu--item nav-item-has-children">
                                             <a href="#" data-menu-get="h3" class="drop-trigger">Team<i
@@ -290,7 +281,7 @@
                     <div class="mobile-menu-trigger">
                         <span></span>
                     </div>
-                    <!--/.Mobile Menu Hamburger Ends-->
+                    <!-- Mobile Menu Hamburger Ends -->
                 </nav>
             </div>
         </div>

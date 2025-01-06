@@ -607,14 +607,15 @@
                     </div>
                 @endforeach
             </div>
-
                 <div class="optech-center-btn">
                     <a class="optech-default-btn" href="{{ route('services') }}" data-text="View Our All Works"><span
-                            class="btn-wraper">{{ __('View Our All Services') }}</span></a>
+                            class="btn-wraper">{{ __('View Our All Services') }}</span>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- End section -->
 
     <div class="section optech-section-padding2 dark-bg">
@@ -632,7 +633,7 @@
                                 <ul>
                                     <li>
                                         <a href="{{ $team->facebook }}" target="_blank">
-                                            <i class="ri-linkedin-fill"></i>
+                                            <i class="ri-facebook-fill"></i>
                                         </a>
                                     </li>
                                     <li>
