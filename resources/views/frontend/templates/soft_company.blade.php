@@ -647,14 +647,12 @@
                     <div class="col-xl-3 col-lg-3 col-md-5">
                         <div class="optech-footer-menu dark-color ml30">
                             <div class="optech-footer-title dark-color">
-                                <h5>Services</h5>
+                                <h5>{{ __('Services') }}</h5>
                             </div>
                             <ul>
-                                <li><a href="">UI/UX Design</a></li>
-                                <li><a href="">App Development</a></li>
-                                <li><a href="">Digital Marketing</a></li>
-                                <li><a href="">Web Development</a></li>
-                                <li><a href="">Cyber Security</a></li>
+                                @foreach($services as $service)
+                                    <li><a href="{{ $service->slug }}">{{ $service->translate?->title }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

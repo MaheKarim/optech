@@ -479,24 +479,24 @@
                 <h2>{{ getTranslatedValue($serviceContent, 'heading', $currentLang) }}</h2>
             </div>
         </div>
-        <div class="optech-4column-slider" data-aos="fade-up" data-aos-duration="800">
-            @foreach($listings as $listing)
-            <div class="optech-iconbox-wrap">
-                <div class="optech-iconbox-icon">
-                    <img src="{{ asset($listing->thumb_image) }}" alt="Icon">
+            <div class="optech-4column-slider" data-aos="fade-up" data-aos-duration="800">
+               @foreach($listings as $listing)
+                <div class="optech-iconbox-wrap">
+                    <div class="optech-iconbox-icon">
+                        <img src="{{ asset($listing->thumb_image) }}" alt="Icon">
+                    </div>
+                    <div class="optech-iconbox-data">
+                        <h5> {{ __($listing->translate?->title) }} </h5>
+                        <p>{!!  Str::limit($listing->translate?->description, 15) !!}</p>
+                        <a class="optech-icon-btn" href="{{ route('service', $listing->slug) }}">
+                            <i class="icon-show ri-arrow-right-line"></i>
+                            <span>{{ __('translate.Learn More') }}</span>
+                            <i class="icon-hide ri-arrow-right-line"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="optech-iconbox-data">
-                    <h5> {{ __($listing->translate?->title) }} </h5>
-                    <p>{!!  Str::limit($listing->translate?->description, 15) !!}</p>
-                    <a class="optech-icon-btn" href="{{ route('service', $listing->slug) }}">
-                        <i class="icon-show ri-arrow-right-line"></i>
-                        <span>{{ __('translate.Learn More') }}</span>
-                        <i class="icon-hide ri-arrow-right-line"></i>
-                    </a>
-                </div>
+                 @endforeach
             </div>
-        @endforeach
-        </div>
     </div>
     <!-- End section -->
 
@@ -801,14 +801,12 @@
                     <div class="col-xl-3 col-md-5">
                         <div class="optech-footer-menu dark-color ml30">
                             <div class="optech-footer-title dark-color">
-                                <h5>Services</h5>
+                                <h5>{{ __('Services') }}</h5>
                             </div>
                             <ul>
-                                <li><a href="">UI/UX Design</a></li>
-                                <li><a href="">App Development</a></li>
-                                <li><a href="">Digital Marketing</a></li>
-                                <li><a href="">Web Development</a></li>
-                                <li><a href="">Cyber Security</a></li>
+                                @foreach($services as $service)
+                                    <li><a href="{{ $service->slug }}">{{ $service->translate?->title }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

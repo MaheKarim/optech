@@ -55,7 +55,7 @@ class HomeController extends Controller
         // Determine selected theme
         $selected_theme = $theme_setting && in_array($theme_setting->value, $supported_themes)
             ? $theme_setting->value
-            : 'main_demo'; // Default theme
+            : 'main_demo';
 
         if ($request->has('theme')) {
             $requested_theme = $request->input('theme');
@@ -75,6 +75,8 @@ class HomeController extends Controller
             ->latest()
             ->take(10)
             ->get();
+
+        $services = Listing::latest()->take(5)->get();
 
         $blogPosts = Blog::latest()->take(3)->get();
 
@@ -112,7 +114,8 @@ class HomeController extends Controller
             'projects',
             'teams',
             'faqs',
-            'sliders'
+            'sliders',
+            'services'
         );
 
         // View template mapping
