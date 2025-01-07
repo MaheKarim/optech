@@ -448,49 +448,7 @@
     </div>
     <!-- End section -->
 
-    <div class="section optech-section-padding2">
-        <div class="container">
-            <div class="optech-section-title center">
-                <h2>{{ getTranslatedValue($expertTeamContent, 'heading', $currentLang) }}</h2>
-            </div>
-            <div class="row">
-                @foreach($teams as $team)
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-duration="400">
-                    <div class="optech-team-wrap border_all">
-                        <div class="optech-team-thumb">
-                            <img src="{{ asset($team->image) }}" alt="Image">
-                            <div class="optech-social-icon-box style-three position">
-                                <ul>
-                                    <li>
-                                        <a href="{{ $team->facebook }}" target="_blank">
-                                            <i class="ri-facebook-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ $team->twitter }}" target="_blank">
-                                            <i class="ri-twitter-fill"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ $team->instagram }}" target="_blank">
-                                            <i class="ri-instagram-fill"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="optech-team-data">
-                            <a href="single-team.html">
-                                <h5>{{ $team->name }}</h5>
-                            </a>
-                            <p>{{ $team->designation }}</p>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
+    @include('frontend.templates.layouts.teams')
     <!-- End Team section -->
 
     @include('frontend.templates.layouts.faq')
@@ -561,9 +519,9 @@
                             </div>
                             <ul>
                                 <li><a href="{{ route('about-us') }}">{{ __('translate.About Us') }}</a></li>
-                                <li><a href="team.html">Our Team</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="{{ route('blogs') }}">Blogs</a></li>
+                                <li><a href="{{ route('teams') }}">{{ __('Our Team') }}</a></li>
+                                <li><a href="{{ route('pricing') }}">{{ __('Pricing Plan') }}</a></li>
+                                <li><a href="{{ route('blogs') }}">{{ __('Blogs') }}</a></li>
                                 <li><a href="{{ route('contact-us') }}">{{ __('translate.Contact Us') }}</a></li>
                             </ul>
                         </div>

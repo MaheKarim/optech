@@ -650,10 +650,10 @@
                             </div>
                         </div>
                         <div class="optech-team-data">
-                            <a href="single-team.html">
-                                <h5>{{ $team->name }}</h5>
+                            <a href="{{ route('teamPerson', $team->slug) }}">
+                                <h5>{{ $team->translate->name }}</h5>
                             </a>
-                            <p>{{ $team->designation }}</p>
+                            <p>{{ $team->translate->designation }}</p>
                         </div>
                     </div>
                 </div>

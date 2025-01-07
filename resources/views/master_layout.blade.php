@@ -8,7 +8,6 @@
 
 @section('front-content')
     @include('frontend.templates.layouts.white_navbar')
-    @include('frontend.templates.layouts.breadcrumb')
 
     @yield('new-layout')
 

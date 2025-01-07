@@ -133,7 +133,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">Pages <i
+                                    <a href="#" class="nav-link-item drop-trigger">{{ __('Pages') }} <i
                                             class="ri-arrow-down-s-fill"></i></a>
                                     <ul class="sub-menu" id="submenu-2">
                                         <li class="sub-menu--item">
@@ -142,8 +142,8 @@
                                             </a>
                                         </li>
                                         <li class="sub-menu--item">
-                                            <a href="pricing.html">
-                                                <span class="menu-item-text">Pricing</span>
+                                            <a href="{{ route('pricing') }}">
+                                                <span class="menu-item-text">{{ __('Pricing Plan') }}</span>
                                             </a>
                                         </li>
 
@@ -152,18 +152,10 @@
                                             <a href="{{ route('services') }}" class="menu-item-text"><span class="menu-item-text">Service</span>
                                             </a>
                                         </li>
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">Team<i
-                                                    class="ri-arrow-down-s-fill"></i>
+                                        <li class="sub-menu--item ">
+                                            <a href="{{ route('teams') }}" class="drop-trigger">
+                                                {{ __('Our Teams') }}
                                             </a>
-                                            <ul class="sub-menu shape-none" id="submenu-5">
-                                                <li class="sub-menu--item">
-                                                    <a href="team.html">
-                                                        <span class="menu-item-text">team</span>
-                                                    </a>
-                                                </li>
-
-                                            </ul>
                                         </li>
                                         <li class="sub-menu--item nav-item-has-children">
                                             <a href="#" data-menu-get="h3" class="drop-trigger">Utility<i
@@ -480,6 +472,7 @@
                 <h2>{{ getTranslatedValue($expertTeamContent, 'heading', $currentLang) }}</h2>
             </div>
         </div>
+
         <div class="optech-4column-slider" data-aos="fade-up" data-aos-duration="800">
             @foreach($teams as $team)
               <div class="optech-team-wrap border_all mb-0">
@@ -505,12 +498,12 @@
                         </ul>
                     </div>
                 </div>
-                <div class="optech-team-data">
-                    <a href="single-team.html">
-                        <h5>{{ $team->name }}</h5>
-                    </a>
-                    <p>{{ $team->designation }}</p>
-                </div>
+                  <div class="optech-team-data">
+                      <a href="{{ route('teamPerson', $team->slug) }}">
+                          <h5>{{ $team->translate->name }}</h5>
+                      </a>
+                      <p>{{ $team->translate->designation }}</p>
+                  </div>
             </div>
             @endforeach
         </div>
@@ -590,7 +583,7 @@
             <div class="optech-infobox-wrap extra-padding">
                 <div class="row">
                     <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="600">
-                        <a href="tel:123">
+                        <a href="tel:{{ $footer->phone }}">
                             <div class="optech-infobox-item light-color">
                                 <div class="optech-infobox-icon">
                                     <i class="ri-phone-fill"></i>
@@ -603,7 +596,7 @@
                         </a>
                     </div>
                     <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="800">
-                        <a href="mailto:name@email.com">
+                        <a href="mailto:{{ $footer->email }}">
                             <div class="optech-infobox-item light-color">
                                 <div class="optech-infobox-icon">
                                     <i class="ri-mail-fill"></i>
@@ -637,9 +630,9 @@
                             </div>
                             <ul>
                                 <li><a href="{{ route('about-us') }}">{{ __('translate.About Us') }}</a></li>
-                                <li><a href="team.html">Our Team</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="{{ route('blogs') }}">Blogs</a></li>
+                                <li><a href="{{ route('teams') }}">{{ __('Our Teams') }}</a></li>
+                                <li><a href="{{ route('pricing') }}">{{ __('Pricing Plan') }}</a></li>
+                                <li><a href="{{ route('blogs') }}">{{ __('Blogs') }}</a></li>
                                 <li><a href="{{ route('contact-us') }}">{{ __('translate.Contact Us') }}</a></li>
                             </ul>
                         </div>

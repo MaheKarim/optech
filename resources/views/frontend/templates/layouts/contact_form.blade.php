@@ -1,3 +1,7 @@
+@php
+    $currentLang = session()->get('front_lang');
+    $contactContent = getContent('contact_form_section.content', true);
+@endphp
 <form action="{{ route('store-contact-message') }}" method="POST">
     @csrf
     <div class="row">
@@ -36,12 +40,11 @@
         </div>
         <div class="col-lg-12">
             <div class="optech-main-field">
-                <textarea name="message" placeholder="{{ __('translate.Message') }}">
-                    {{ old('message') }}
-                </textarea>
+                <textarea name="message" placeholder="{{ __('translate.Message') }}">{{ old('message') ? trim(old('message')) : '' }}</textarea>
             </div>
         </div>
-        @if($general_setting->recaptcha_status==1)
+
+    @if($general_setting->recaptcha_status==1)
             <div class="optech-main-field">
                 <div class="g-recaptcha" data-sitekey="{{ $general_setting->recaptcha_site_key }}"></div>
             </div>
