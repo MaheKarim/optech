@@ -4,17 +4,16 @@ namespace Modules\Team\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Team;
+use App\Models\TeamTranslation;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+use Modules\Language\App\Models\Language;
 
 class TeamController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $teams = Team::latest()->get();
@@ -22,21 +21,17 @@ class TeamController extends Controller
         return view('team::index', compact('teams'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         return view('team::create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-          'name' => 'required|string',
+            'name' => 'required|string',
             'slug' => 'required|string',
             'image' => 'required|image',
             'description' => 'required|string',
@@ -60,10 +55,7 @@ class TeamController extends Controller
             $team->image = $image_name;
         }
 
-        $team->name = $request->name;
         $team->slug = $request->slug;
-        $team->description = $request->description;
-        $team->designation = $request->designation;
         $team->mail = $request->mail;
         $team->phone_number = $request->phone_number;
         $team->facebook = $request->facebook;
@@ -72,62 +64,68 @@ class TeamController extends Controller
         $team->instagram = $request->instagram;
         $team->save();
 
+        $languages = Language::all();
+        foreach ($languages as $language) {
+            $team_translate = TeamTranslation::firstOrNew([
+                'lang_code' => $language->lang_code,
+                'team_id' => $team->id,
+            ]);
+
+            $team_translate->name = $request->name;
+            $team_translate->description = $request->description;
+            $team_translate->designation = $request->designation;
+            $team_translate->save();
+        }
+
         return redirect()->route('admin.team.index')->with('success', 'Team created successfully');
     }
 
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('team::show');
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
+
+    public function edit(Request $request,$id)
     {
         $teamMember = Team::findOrFail($id);
-        return view('team::edit', compact('teamMember'));
+        $team_translate = TeamTranslation::where(['team_id' => $id, 'lang_code' => $request->lang_code])->first();
+        return view('team::edit', compact('teamMember', 'team_translate'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, $id): RedirectResponse
     {
-        $project = Team::findOrFail($id);
+        $team = Team::findOrFail($id);
 
         if($request->lang_code == admin_lang()) {
 
             if($request->image) {
-                $old_image = $project->image;
+                $old_image = $team->image;
                 $image_name = 'team'.date('-Y-m-d-h-i-s-').rand(999,9999).'.webp';
                 $image_name ='uploads/custom-images/'.$image_name;
                 Image::make($request->image)
                     ->encode('webp', 80)
                     ->save(public_path().'/'.$image_name);
-                $project->image = $image_name;
-                $project->save();
+                $team->image = $image_name;
+                $team->save();
 
                 if($old_image) {
                     if(File::exists(public_path().'/'.$old_image)) unlink(public_path().'/'.$old_image);
                 }
             }
 
-            $project->name = $request->name;
-            $project->slug = $request->slug;
-            $project->description = $request->description;
-            $project->designation = $request->designation;
-            $project->mail = $request->mail;
-            $project->phone_number = $request->phone_number;
-            $project->facebook = $request->facebook;
-            $project->twitter = $request->twitter;
-            $project->linkedin = $request->linkedin;
-            $project->instagram = $request->instagram;
-            $project->save();
+            $team->slug = $request->slug;
+            $team->mail = $request->mail;
+            $team->phone_number = $request->phone_number;
+            $team->facebook = $request->facebook;
+            $team->twitter = $request->twitter;
+            $team->linkedin = $request->linkedin;
+            $team->instagram = $request->instagram;
+            $team->save();
         }
+        $team_translate = TeamTranslation::where(['id' => $request->team_id])->first();
+        $team_translate->name = $request->name;
+        $team_translate->designation = $request->designation;
+        $team_translate->description = $request->description;
+        $team_translate->save();
+
 
         $notify_message = trans('translate.Updated Successfully');
         $notify_message = array('message' => $notify_message, 'alert-type' => 'success');
@@ -145,11 +143,27 @@ class TeamController extends Controller
         if($old_image){
             if(File::exists(public_path().'/'.$old_image))unlink(public_path().'/'.$old_image);
         }
-
+        TeamTranslation::where('team_id', $id)->delete();
         $team->delete();
 
         $notify_message=  trans('translate.Delete Successfully');
         $notify_message=array('message'=>$notify_message,'alert-type'=>'success');
         return redirect()->route('admin.team.index')->with($notify_message);
     }
+
+    public function setup_language($lang_code){
+        $blog_translates = TeamTranslation::where('lang_code' , admin_lang())->get();
+
+        foreach($blog_translates as $team_translate){
+            $new_trans = new TeamTranslation();
+            $new_trans->lang_code = $lang_code;
+            $new_trans->team_id = $team_translate->team_id;
+            $new_trans->name = $team_translate->name;
+            $new_trans->description = $team_translate->description;
+            $new_trans->designation = $team_translate->designation;
+            $new_trans->save();
+
+        }
+    }
+
 }

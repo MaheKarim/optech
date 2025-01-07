@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Session;
+use Modules\Listing\Entities\Listing;
 use View;
 use Cache;
 use Throwable;
@@ -64,12 +65,14 @@ class AppServiceProvider extends ServiceProvider
             $language_list = Language::where('status', 1)->get();
             $currency_list = Currency::where('status', 'active')->get();
             $custom_pages = CustomPage::where('status', 1)->get();
+            $services = Listing::latest()->take(5)->get();
 
             $footer_categories = Category::where('status', 'enable')->latest()->take(7)->get();
             $footer_blog_categories = BlogCategory::where('status', 1)->latest()->take(7)->get();
 
             $footer = Footer::first();
 
+            $view->with('services', $services);
             $view->with('general_setting', $general_setting);
             $view->with('language_list', $language_list);
             $view->with('currency_list', $currency_list);
@@ -79,8 +82,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('footer_blog_categories', $footer_blog_categories);
 
         });
-
-
 
     }
 }

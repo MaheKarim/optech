@@ -192,8 +192,6 @@ class BlogController extends Controller
         return redirect()->route('admin.comment-list')->with($notify_message);
     }
 
-
-
     public function blog_comment_status($id){
 
         $blog_comment = BlogComment::findOrFail($id);
@@ -208,7 +206,6 @@ class BlogController extends Controller
         $notify_message = trans('translate.Updated successfully');
         return response()->json($notify_message);
     }
-
 
     public function setup_language($lang_code){
         $blog_translates = BlogTranslation::where('lang_code' , admin_lang())->get();

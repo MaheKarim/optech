@@ -80,7 +80,6 @@ class SliderController extends Controller
         return view('page::slider.create', compact('slider'));
     }
 
-
     public function destroy($id)
     {
         $slider = Slider::findOrFail($id);
@@ -98,5 +97,21 @@ class SliderController extends Controller
         $notification=  trans('translate.Delete Successfully');
         $notification=array('messege'=>$notification,'alert-type'=>'success');
         return redirect()->route('admin.slider.index')->with($notification);
+    }
+
+
+    public function setup_language($lang_code){
+        $blog_translates = SliderTranslation::where('lang_code' , admin_lang())->get();
+
+        foreach($blog_translates as $blog_translate){
+            $new_trans = new SliderTranslation();
+            $new_trans->lang_code = $lang_code;
+            $new_trans->slider_id = $blog_translate->slider_id;
+            $new_trans->title = $blog_translate->title;
+            $new_trans->small_text = $blog_translate->small_text;
+            $new_trans->button_text = $blog_translate->button_text;
+            $new_trans->save();
+
+        }
     }
 }

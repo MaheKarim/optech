@@ -70,11 +70,11 @@
                                                 </td>
 
                                                 <td class="crancy-table__column-2 crancy-table__data-2">
-                                                    <h4 class="crancy-table__product-title"><a target="_blank" href="{{ route('service', $team->slug) }}">{{ html_decode($team->name) }}</a></h4>
+                                                    <h4 class="crancy-table__product-title"><a target="_blank" href="{{ route('service', $team->slug) }}">{{ html_decode($team->translate->name) }}</a></h4>
                                                 </td>
 
                                                 <td class="crancy-table__column-2 crancy-table__data-2">
-                                                    <h4 class="crancy-table__product-title">{{ html_decode($team->designation) }}</h4>
+                                                    <h4 class="crancy-table__product-title">{{ html_decode($team->translate->designation) }}</h4>
                                                 </td>
 
                                                 <td class="crancy-table__column-2 crancy-table__data-2">
@@ -92,13 +92,11 @@
                                                                 <a onclick="itemDeleteConfrimation({{ $team->id }})" href="javascript:;" data-bs-toggle="modal"
                                                                    data-bs-target="#exampleModal" class="dropdown-item"><i class="fas fa-trash"></i> {{ __('translate.Delete') }}</a>
                                                             </li>
-
                                                         </ul>
                                                     </div>
                                                 </td>
                                             </tr>
                                         @endforeach
-
                                         </tbody>
                                         <!-- End crancy Table Body -->
                                     </table>

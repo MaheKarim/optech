@@ -303,6 +303,21 @@ class HomeController extends Controller
         ]);
     }
 
+
+    public function teams()
+    {
+        $teams = Team::latest()->get();
+        $pageTitle = 'Our Teams';
+
+        $seo_setting = SeoSetting::where('id', 11)->first();
+
+        return view('frontend.teams', [
+            'teams' => $teams,
+            'seo_setting' => $seo_setting,
+            'pageTitle' => $pageTitle
+        ]);
+    }
+
     public function freelancers(Request $request)
     {
         $sellers = User::where(['status' => 'enable' , 'is_banned' => 'no', 'is_seller' => 1])->where('email_verified_at', '!=', null)->select('id', 'username', 'name', 'image', 'status', 'is_banned', 'is_seller', 'is_top_seller', 'designation', 'hourly_payment','kyc_status','online_status','online');

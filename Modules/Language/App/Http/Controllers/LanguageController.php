@@ -2,6 +2,7 @@
 
 namespace Modules\Language\App\Http\Controllers;
 
+use App\Models\TeamTranslation;
 use DB, File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -34,6 +35,7 @@ use Modules\Category\Http\Controllers\CategoryController;
 use Modules\Page\App\Http\Controllers\HomepageController;
 use Modules\Project\App\Http\Controllers\ProjectController;
 use Modules\Project\App\Models\ProjectTranslation;
+use Modules\Team\App\Http\Controllers\TeamController;
 use Modules\Testimonial\App\Models\TestimonialTrasnlation;
 use Modules\Page\App\Http\Controllers\CustomPageController;
 use Modules\Page\App\Http\Controllers\ContactPageController;
@@ -128,8 +130,11 @@ class LanguageController extends Controller
         $page_lang = new CustomPageController();
         $page_lang->setup_language($request->lang_code);
 
-        $page_lang = new SliderController();
-        $page_lang->setup_language($request->lang_code);
+        $slider_lang = new SliderController();
+        $slider_lang->setup_language($request->lang_code);
+
+        $team_lang = new TeamController();
+        $team_lang->setup_language($request->lang_code);
 
 
         /** generate local language */
@@ -228,6 +233,7 @@ class LanguageController extends Controller
         CustomPageTranslation::where('lang_code' , $language->lang_code)->delete();
         ProjectTranslation::where('lang_code' , $language->lang_code)->delete();
         SliderTranslation::where('lang_code' , $language->lang_code)->delete();
+        TeamTranslation::where('lang_code' , $language->lang_code)->delete();
 
         $path = base_path().'/lang'.'/'.$language->lang_code;
 

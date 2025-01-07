@@ -790,11 +790,11 @@
                                 <h5>{{ __('translate.Quick Links') }}</h5>
                             </div>
                             <ul>
-                                <li><a href="{{ route('about-us') }}">{{ __('translate.About Us') }}</a></li>
-                                <li><a href="team.html">Our Team</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="{{ route('blogs') }}">Blogs</a></li>
-                                <li><a href="{{ route('contact-us') }}">{{ __('translate.Contact Us') }}</a></li>
+                                <li><a href="{{ route('about-us') }}">{{ __('About Us') }}</a></li>
+                                <li><a href="{{ route('teams') }}">{{ __('Our Team') }}</a></li>
+                                <li><a href="{{ route('pricing') }}">{{ __('Pricing') }}</a></li>
+                                <li><a href="{{ route('blogs') }}">{{ __('Blogs') }}</a></li>
+                                <li><a href="{{ route('contact-us') }}">{{ __('Contact Us') }}</a></li>
                             </ul>
                         </div>
                     </div>

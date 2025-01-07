@@ -62,6 +62,8 @@
     <form action="{{ route('admin.team.update', $teamMember->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+        <input type="hidden" name="team_id" value="{{ $team_translate->id }}">
+        <input type="hidden" name="lang_code" value="{{ $team_translate->lang_code }}">
         <section class="crancy-adashboard crancy-show">
             <div class="container container__bscreen">
                 <div class="row">
@@ -76,7 +78,8 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-12 mg-top-form-20">
+                                                @if (admin_lang() == request()->get('lang_code'))
+                                                    <div class="col-12 mg-top-form-20">
                                                     <div class="row">
                                                         <div class="col-md-3">
                                                             <div class="crancy__item-form--group w-100 h-100">
@@ -92,28 +95,29 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @endif
 
                                                 <div class="col-md-6">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Name') }} * </label>
-                                                        <input class="crancy__item-input" type="text" name="name" id="name" value="{{ $teamMember->name }}">
+                                                        <input class="crancy__item-input" type="text" name="name" id="name" value="{{ $team_translate->name }}">
                                                     </div>
                                                 </div>
-
-                                                <div class="col-md-6">
+                                                @if (admin_lang() == request()->get('lang_code'))
+                                                     <div class="col-md-6">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Slug') }} * </label>
                                                         <input class="crancy__item-input" type="text" name="slug" id="slug" value="{{ $teamMember->slug }}">
                                                     </div>
                                                 </div>
-
+                                                @endif
                                                 <div class="col-md-6">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Designation') }} * </label>
-                                                        <input class="crancy__item-input" type="text" name="designation" id="designation" value="{{ $teamMember->designation }}">
+                                                        <input class="crancy__item-input" type="text" name="designation" id="designation" value="{{ $team_translate->designation }}">
                                                     </div>
                                                 </div>
-
+                                                    @if (admin_lang() == request()->get('lang_code'))
                                                 <div class="col-md-6">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Personal Mail') }} * </label>
@@ -155,16 +159,15 @@
                                                         <input class="crancy__item-input" type="text" name="instagram" id="instagram" value="{{ $teamMember->instagram }}">
                                                     </div>
                                                 </div>
-
+                                                @endif
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Description') }} * </label>
-                                                        <textarea class="crancy__item-input crancy__item-textarea summernote" name="description" id="description">{{ $teamMember->description }}</textarea>
+                                                        <textarea class="crancy__item-input crancy__item-textarea summernote" name="description" id="description">{{ $team_translate->description }}</textarea>
                                                     </div>
                                                 </div>
 
                                             </div>
-
                                         </div>
                                     </div>
                                     <button class="crancy-btn mg-top-25" type="submit">{{ __('translate.Update Data') }}</button>
