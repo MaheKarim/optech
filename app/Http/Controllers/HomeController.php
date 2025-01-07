@@ -254,6 +254,14 @@ class HomeController extends Controller
         ]);
     }
 
+    public function pricing()
+    {
+        $pageTitle = 'Pricing Plan';
+        $faqs = Faq::latest()->take(5)->get();
+
+        return view('frontend.pricing', compact('pageTitle', 'faqs'));
+    }
+
     public function store_blog_comment(Request $request, $id){
         $request->validate([
             'name' => 'required',

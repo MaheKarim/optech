@@ -14,10 +14,7 @@
     </div>
 
     <!-- End breadcrumb -->
-    @php
-    $currentLang = session()->get('front_lang');
-    $contactContent = getContent('contact_form_section.content', true);
-    @endphp
+
 
     <div class="section optech-section-padding">
         <div class="container">
@@ -68,8 +65,6 @@
                         </div>
 
                         <div class="optech-main-form p-0">
-                            <h3>{{ getTranslatedValue($contactContent, 'heading', $currentLang) }}</h3>
-                            <p>{{ getTranslatedValue($contactContent, 'description', $currentLang) }}</p>
                             @include('frontend.templates.layouts.contact_form')
                         </div>
                     </div>

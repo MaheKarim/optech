@@ -1,3 +1,7 @@
+@php
+    $currentLang = session()->get('front_lang');
+    $faqSection = getContent('digital_agency_faqs.content', true);
+@endphp
 <div class="section bg-light1 optech-section-padding">
     <div class="container">
         <div class="row">

@@ -137,8 +137,8 @@
                                         </li>
 
                                         <li class="sub-menu--item">
-                                            <a href="pricing.html">
-                                                <span class="menu-item-text">Pricing</span>
+                                            <a href="{{ route('pricing') }}">
+                                                <span class="menu-item-text">{{ __('Pricing') }}</span>
                                             </a>
                                         </li>
 
@@ -715,8 +715,8 @@
                         </div>
                         <ul>
                             <li><a href="{{ route('about-us') }}">{{ __('About Us') }}</a></li>
-                            <li><a href="team.html">{{ __('Our Team') }}</a></li>
-                            <li><a href="pricing.html">{{ __('Pricing') }}</a></li>
+                            <li><a href="{{ route('teams') }}">{{ __('Our Team') }}</a></li>
+                            <li><a href="{{ route('pricing') }}">{{ __('Pricing') }}</a></li>
                             <li><a href="{{ route('blogs') }}">{{ __('Blogs') }}</a></li>
                             <li><a href="{{ route('contact-us') }}">{{ __('Contact Us') }}</a></li>
                         </ul>

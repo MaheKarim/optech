@@ -148,44 +148,20 @@
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="pricing.html">
-                                                    <span class="menu-item-text">Pricing</span>
+                                                <a href="{{ route('pricing') }}">
+                                                    <span class="menu-item-text">{{ __('Pricing Plan') }}</span>
                                                 </a>
                                             </li>
 
-                                            <li class="sub-menu--item nav-item-has-children">
-                                                <a href="#" data-menu-get="h3" class="drop-trigger">Service<i
-                                                        class="ri-arrow-down-s-fill"></i>
+                                            <li class="sub-menu--item ">
+                                                <a href="{{ route('services') }}"  class="drop-trigger">{{ __('Service') }}
                                                 </a>
-                                                <ul class="sub-menu shape-none" id="submenu-4">
-                                                    <li class="sub-menu--item">
-                                                        <a href="service.html">
-                                                            <span class="menu-item-text">Service</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="single-service.html">
-                                                            <span class="menu-item-text">Service details</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </li>
-                                            <li class="sub-menu--item nav-item-has-children">
-                                                <a href="#" data-menu-get="h3" class="drop-trigger">Team<i
-                                                        class="ri-arrow-down-s-fill"></i>
+
+                                            <li class="sub-menu--item ">
+                                                <a href="{{ route('teams') }}" class="drop-trigger">{{ __('Our Teams') }}
                                                 </a>
-                                                <ul class="sub-menu shape-none" id="submenu-5">
-                                                    <li class="sub-menu--item">
-                                                        <a href="team.html">
-                                                            <span class="menu-item-text">Team</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="single-team.html">
-                                                            <span class="menu-item-text">Team details</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+
                                             </li>
                                             <li class="sub-menu--item nav-item-has-children">
                                                 <a href="#" data-menu-get="h3" class="drop-trigger">Utility<i
@@ -260,6 +236,7 @@
                                             </li>
                                         </ul>
                                     </li>
+
                                     @php
                                         $isGrid = request()->query('type') === 'grid';
                                     @endphp
@@ -273,7 +250,7 @@
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="{{ route('blogs', ['type' => 'grid']) }}">
+                                                <a href="{{ route('blogs' ,['type' => 'grid']) }}">
                                                     <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Blog Grid') }}</span>
                                                 </a>
                                             </li>

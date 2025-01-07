@@ -137,30 +137,17 @@
                                                 </a>
                                             </li>
                                             <li class="sub-menu--item">
-                                                <a href="pricing.html">
-                                                    <span class="menu-item-text">Pricing</span>
+                                                <a href="{{ route('pricing') }}">
+                                                    <span class="menu-item-text">{{ __('Pricing') }}</span>
                                                 </a>
                                             </li>
 
                                             <li class="sub-menu--item">
-                                                <a href="#" class="drop-trigger">{{ __('Service') }}
+                                                <a href="{{ route('services') }}" class="drop-trigger">{{ __('Services') }}
                                                 </a>
                                             </li>
-                                            <li class="sub-menu--item nav-item-has-children">
-                                                <a href="#" data-menu-get="h3" class="drop-trigger">Team<i class="ri-arrow-down-s-fill"></i>
-                                                </a>
-                                                <ul class="sub-menu shape-none" id="submenu-5">
-                                                    <li class="sub-menu--item">
-                                                        <a href="team.html">
-                                                            <span class="menu-item-text">Team</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="single-team.html">
-                                                            <span class="menu-item-text">Team details</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                            <li class="sub-menu--item ">
+                                                <a href="{{ route('teams') }}" class="drop-trigger">{{ __('Our Teams') }}</a>
                                             </li>
                                             <li class="sub-menu--item nav-item-has-children">
                                                 <a href="#" data-menu-get="h3" class="drop-trigger">Utility<i class="ri-arrow-down-s-fill"></i>
@@ -168,7 +155,7 @@
                                                 <ul class="sub-menu shape-none" id="submenu-7">
                                                     <li class="sub-menu--item">
                                                         <a href="faq.html">
-                                                            <span class="menu-item-text">faq</span>
+                                                            <span class="menu-item-text">FAQ</span>
                                                         </a>
                                                     </li>
                                                     <li class="sub-menu--item">
@@ -881,8 +868,8 @@
                             </div>
                             <ul>
                                 <li><a href="{{ route('about-us') }}">{{ __('About Us') }}</a></li>
-                                <li><a href="team.html">Our Team</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="{{ route('teams') }}">{{ __('Our Teams') }}</a></li>
+                                <li><a href="{{ route('pricing') }}">{{ __('Pricing') }}</a></li>
                                 <li><a href="{{ route('blogs') }}">{{ __('Blogs') }}</a></li>
                                 <li><a href="{{ route('contact-us') }}">{{ __('Contact Us') }}</a></li>
                             </ul>

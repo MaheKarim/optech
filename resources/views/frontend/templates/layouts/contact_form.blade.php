@@ -2,6 +2,8 @@
     $currentLang = session()->get('front_lang');
     $contactContent = getContent('contact_form_section.content', true);
 @endphp
+<h3>{{ getTranslatedValue($contactContent, 'heading', $currentLang) }}</h3>
+<p>{{ getTranslatedValue($contactContent, 'description', $currentLang) }}</p>
 <form action="{{ route('store-contact-message') }}" method="POST">
     @csrf
     <div class="row">

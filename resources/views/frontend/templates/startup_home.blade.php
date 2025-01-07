@@ -137,28 +137,19 @@
                                             </a>
                                         </li>
                                         <li class="sub-menu--item">
-                                            <a href="pricing.html">
-                                                <span class="menu-item-text">Pricing</span>
+                                            <a href="{{ route('pricing') }}">
+                                                <span class="menu-item-text">{{ __('Pricing') }}</span>
                                             </a>
                                         </li>
-
-
                                         <li class="sub-menu--item ">
                                             <a href="{{ route('services') }}">
                                                 <span class="menu-item-text">{{ __('Services') }}</span>
                                             </a>
                                         </li>
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">Team<i class="ri-arrow-down-s-fill"></i>
+                                        <li class="sub-menu--item ">
+                                            <a href="{{ route('teams') }}" class="drop-trigger">{{ __('Our Teams') }}
                                             </a>
-                                            <ul class="sub-menu shape-none" id="submenu-5">
-                                                <li class="sub-menu--item">
-                                                    <a href="team.html">
-                                                        <span class="menu-item-text">team</span>
-                                                    </a>
-                                                </li>
 
-                                            </ul>
                                         </li>
                                         <li class="sub-menu--item nav-item-has-children">
                                             <a href="#" data-menu-get="h3" class="drop-trigger">Utility<i class="ri-arrow-down-s-fill"></i>
@@ -302,7 +293,6 @@
     $serviceSection = getContent('main_demo_service_section.content', true);
     $pricingContent = getContent('it_solutions_pricing_section.content', true);
     $expertTeamContent = getContent('expert_feature_section.content', true);
-    $faqSection = getContent('digital_agency_faqs.content', true);
     $blogContent = getContent('main_demo_blog_section.content', true);
 
 

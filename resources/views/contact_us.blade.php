@@ -1,4 +1,4 @@
-@extends('frontend.templates.main_demo_layout')
+@extends('master_layout')
 
 
 @section('title')
@@ -7,7 +7,7 @@
     <meta name="description" content="{!! strip_tags(clean($seo_setting->seo_description)) !!}">
 @endsection
 
-@section('content')
+@section('new-layout')
 
     <!-- Main Start -->
     <div class="optech-breadcrumb"
@@ -49,8 +49,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="optech-main-form bg-light1 ml60" data-aos="fade-up" data-aos-duration="800">
-                        <h3>{{ getTranslatedValue($contactContent, 'heading', $currentLang) }}</h3>
-                        <p>{{ getTranslatedValue($contactContent, 'description', $currentLang) }}</p>
+
                         @include('frontend.templates.layouts.contact_form')
                     </div>
                 </div>
