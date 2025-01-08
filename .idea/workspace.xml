@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/templates/portfolio.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about_us.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about_us.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blogs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/digital_agency.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/digital_agency.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/contact_section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/contact_section.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/pricing.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/services.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/it_solutions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/it_solutions.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/white_navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/white_navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/portfolio_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/portfolio_detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/soft_company.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/soft_company.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/startup_home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/startup_home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/tech_agency.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/tech_agency.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/tech_company.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/tech_company.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +302,7 @@
       <workItem from="1736137099616" duration="30200000" />
       <workItem from="1736223697436" duration="13391000" />
       <workItem from="1736251923564" duration="1940000" />
-      <workItem from="1736311010895" duration="5260000" />
+      <workItem from="1736311010895" duration="12140000" />
     </task>
     <servers />
   </component>
@@ -311,7 +319,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php</url>
-          <line>278</line>
+          <line>282</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

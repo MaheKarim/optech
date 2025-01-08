@@ -1,12 +1,11 @@
-@extends('frontend.templates.main_demo_layout')
-
+@extends('master_layout')
 @section('title')
     <title>{{ __($project->translate->seo_title) }} || {{ __($project->translate->title) }}</title>
     <meta name="title" content="{{ __($project->translate->seo_title) }}">
     <meta name="description" content="{{ __($project->translate->seo_description) }}">
 @endsection
 
-@section('content')
+@section('new-layout')
     @php
         $currentLang = session()->get('front_lang');
         $getSidebarCTAData = getContent('main_demo_sidebar_cta_section.content', true);
@@ -17,7 +16,7 @@
             <nav class="breadcrumbs">
                 <ul>
                     <li><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
-                    <li><a href="{{ route('services') }}">{{ __('Portfolio') }}</a></li>
+                    <li><a href="{{ route('portfolio') }}">{{ __('Portfolio') }}</a></li>
                     <li aria-current="page"> {{ __($project->translate->title) }}</li>
                 </ul>
             </nav>

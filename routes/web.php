@@ -21,11 +21,6 @@ use App\Http\Controllers\Auth\RegisterController as BuyerRegisterController;
 use App\Http\Controllers\Auth\RegisterController as SellerRegisterController;
 use App\Http\Controllers\Seller\ProfileController as SellerProfileController;
 
-
-
-
-
-
 Route::group(['middleware' => [ 'HtmlSpecialchars', 'MaintenanceMode']], function () {
 
     Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -53,6 +48,7 @@ Route::group(['middleware' => [ 'HtmlSpecialchars', 'MaintenanceMode']], functio
     Route::get('/freelancers', [HomeController::class, 'freelancers'])->name('freelancers');
     Route::get('/freelancer/{username}', [HomeController::class, 'freelancer'])->name('freelancer');
 
+    Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
     Route::get('/portfolio/{slug}', [HomeController::class, 'portfolioShow'])->name('portfolio.show');
 
     Route::get('/job-posts', [HomeController::class, 'job_posts'])->name('job-posts');
@@ -152,7 +148,6 @@ Route::group(['middleware' => [ 'HtmlSpecialchars', 'MaintenanceMode']], functio
 
     });
 
-
     Route::group(['as' => 'seller.', 'prefix' => 'seller'], function(){
 
         Route::get('/login', [SellerLoginController::class, 'seller_login_page'])->name('login');
@@ -199,11 +194,9 @@ Route::group(['middleware' => [ 'HtmlSpecialchars', 'MaintenanceMode']], functio
 
 
 Route::group(['as'=> 'admin.', 'prefix' => 'admin'],function (){
-
     Route::get('login', [LoginController::class, 'custom_login_page'])->name('login');
     Route::post('store-login', [LoginController::class, 'store_login'])->name('store-login');
     Route::post('logout', [LoginController::class, 'admin_logout'])->name('logout');
-
 
     Route::group(['middleware' => ['auth:admin']], function () {
 
@@ -263,14 +256,11 @@ Route::group(['as'=> 'admin.', 'prefix' => 'admin'],function (){
         });
 
     });
-
-
 });
 
 
 
 Route::get('/setup-plugin', function(){
-
     Artisan::call('migrate');
 
     Artisan::call('optimize:clear');

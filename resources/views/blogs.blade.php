@@ -1,10 +1,10 @@
-@extends('frontend.templates.main_demo_layout')
+@extends('master_layout')
 @section('title')
 <title>{{ $seo_setting->seo_title }}</title>
-<meta name="title" content="{{ $seo_setting->seo_title }}" />
+<meta name="title" content="{{ $seo_setting->seo_title }}"/>
 <meta name="description" content="{!! strip_tags(clean($seo_setting->seo_description)) !!}" />
 @endsection
-@section('content')
+@section('new-layout')
 <!-- Main Start -->
 <div class="optech-breadcrumb" style="background-image: url({{ asset('frontend/assets/img/breadcrumb/breadcrumb.png') }})">
     <div class="container">
@@ -117,7 +117,7 @@
             <div class="col-lg-4">
                 <div class="optech-blog-sidebar">
                     <div class="optech-blog-widgets">
-                        <h5>Search</h5>
+                        <h5>{{ __('Search') }}</h5>
                         <form action="#">
                             <div class="optech-search-box">
                                 <input type="search" placeholder="Type to search...">

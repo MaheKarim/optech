@@ -209,31 +209,28 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item nav-item-has-children">
-                                <a href="#" class="nav-link-item drop-trigger">Portfolio <i
-                                        class="ri-arrow-down-s-fill"></i></a>
-                                <ul class="sub-menu shape-none" id="submenu-6">
-                                    <li class="sub-menu--item">
-                                        <a href="portfolio-01.html">
-                                            <span class="menu-item-text">Portfolio Grid</span>
-                                        </a>
-                                    </li>
-                                    <li class="sub-menu--item">
-                                        <a href="portfolio-02.html">
-                                            <span class="menu-item-text">Portfolio masonry</span>
-                                        </a>
-                                    </li>
-                                    <li class="sub-menu--item">
-                                        <a href="single-portfolio.html">
-                                            <span class="menu-item-text">Single Portfolio</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
 
                             @php
                                 $isGrid = request()->query('type') === 'grid';
                             @endphp
+                            <li class="nav-item nav-item-has-children">
+                                <a href="#" class="nav-link-item drop-trigger">{{ __('Portfolio') }} <i
+                                        class="ri-arrow-down-s-fill"></i></a>
+                                <ul class="sub-menu shape-none" id="submenu-6">
+                                    <li class="sub-menu--item">
+                                        <a href="{{ route('portfolio', ['type' => 'grid']) }}">
+                                            <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Portfolio Grid') }}</span>
+                                        </a>
+                                    </li>
+                                    <li class="sub-menu--item">
+                                        <a href="{{ route('portfolio') }}">
+                                            <span class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('Portfolio Masonry') }}</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
                             <li class="nav-item nav-item-has-children">
                                 <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Blog') }} <i
                                         class="ri-arrow-down-s-fill"></i></a>
@@ -244,12 +241,14 @@
                                         </a>
                                     </li>
                                     <li class="sub-menu--item">
-                                        <a href="{{ route('blogs' ,['type' => 'grid']) }}">
+                                        <a href="{{ route('blogs', ['type' => 'grid']) }}">
                                             <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Blog Grid') }}</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
+
+
                             <li class="nav-item">
                                 <a class="nav-link-item"
                                    href="{{ route('contact-us') }}">{{ __('translate.Contact') }}</a>

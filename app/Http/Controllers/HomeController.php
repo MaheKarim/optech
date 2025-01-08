@@ -603,6 +603,15 @@ class HomeController extends Controller
         return response()->download($filepath);
     }
 
+
+    public function portfolio()
+    {
+        $projects = Project::latest()->paginate(9);
+
+        return view('frontend.templates.portfolio', compact('projects'));
+    }
+
+
     public function portfolioShow($slug)
     {
         $project = Project::where('slug', $slug)->firstOrFail();
