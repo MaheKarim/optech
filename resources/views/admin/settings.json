@@ -497,5 +497,14 @@
             "right_button_text": "text",
             "right_button_url": "url"
         }
+    },
+    "faq_section": {
+        "builder": true,
+        "name": "FAQ Section ",
+        "content": {
+            "heading": "text",
+            "description": "text",
+            "button_text": "text"
+        }
     }
 }

@@ -152,22 +152,18 @@
 
                                         </li>
                                         <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">Utility<i class="ri-arrow-down-s-fill"></i>
+                                            <a href="#" data-menu-get="h3" class="drop-trigger">{{ __('Utility') }}<i class="ri-arrow-down-s-fill"></i>
                                             </a>
                                             <ul class="sub-menu shape-none" id="submenu-7">
                                                 <li class="sub-menu--item">
                                                     <a href="{{ route('faq') }}">
-                                                        <span class="menu-item-text">{{ __('FAQ') }}</span>
+                                                            <span class="menu-item-text">{{ __('FAQ') }}</span>
                                                     </a>
                                                 </li>
+
                                                 <li class="sub-menu--item">
-                                                    <a href="errors-404.html">
-                                                        <span class="menu-item-text">Error 404</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sub-menu--item">
-                                                    <a href="testimonial.html">
-                                                        <span class="menu-item-text">testimonial</span>
+                                                    <a href="{{ route('testimonials') }}">
+                                                        <span class="menu-item-text">{{ __('Testimonials') }}</span>
                                                     </a>
                                                 </li>
                                             </ul>

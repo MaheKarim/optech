@@ -39,4 +39,10 @@ class Testimonial extends Model
         return $this->front_translate?->designation;
     }
 
+    public function scopeActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
+
 }

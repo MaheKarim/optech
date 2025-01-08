@@ -32,6 +32,7 @@ use Modules\Project\App\Models\Project;
 use Modules\SeoSetting\App\Models\SeoSetting;
 use Modules\Testimonial\App\Models\Testimonial;
 use Modules\GlobalSetting\App\Models\GlobalSetting;
+use Modules\Testimonial\App\Models\TestimonialTrasnlation;
 
 class HomeController extends Controller
 {
@@ -300,15 +301,12 @@ class HomeController extends Controller
     public function faq()
     {
         $faqs = Faq::latest()->get();
+        $pageTitle = 'FAQs';
 
         $seo_setting = SeoSetting::where('id', 5)->first();
 
-        return view('faq', [
-            'faqs' => $faqs,
-            'seo_setting' => $seo_setting,
-        ]);
+        return view('faq', compact('faqs', 'pageTitle', 'seo_setting'));
     }
-
 
     public function teams()
     {
@@ -331,6 +329,14 @@ class HomeController extends Controller
         $pageTitle = $team->translate->name;
 
         return view('frontend.team_single', compact('team', 'pageTitle'));
+    }
+
+    public function testimonials()
+    {
+        $pageTitle = 'Testimonials';
+        $testimonials = Testimonial::with('translate')->active()->latest()->get();
+
+        return view('frontend.testimonials', compact('testimonials', 'pageTitle'));
     }
 
     public function freelancers(Request $request)

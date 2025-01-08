@@ -45,6 +45,8 @@ Route::group(['middleware' => [ 'HtmlSpecialchars', 'MaintenanceMode']], functio
 
     Route::get('/pricing-plan', [HomeController::class, 'pricing'])->name('pricing');
 
+    Route::get('/testimonials', [HomeController::class, 'testimonials'])->name('testimonials');
+
     Route::get('/freelancers', [HomeController::class, 'freelancers'])->name('freelancers');
     Route::get('/freelancer/{username}', [HomeController::class, 'freelancer'])->name('freelancer');
 

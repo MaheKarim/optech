@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('master_layout')
 
 @section('title')
     <title>{{ $seo_setting->seo_title }}</title>
@@ -6,80 +6,58 @@
     <meta name="description" content="{!! strip_tags(clean($seo_setting->seo_description)) !!}">
 @endsection
 
-@section('front-content')
+@section('new-layout')
 
-<!-- Main Start -->
-<main>
-    <!-- Breadcrumb -->
-    <section
-    class="w-breadcrumb-area"
-    style="background-image: url({{ asset($general_setting->breadcrumb_image) }});">
+    @php
+        $currentLang = session()->get('front_lang');
+        $faqContent = getContent('faq_section.content', true);
+    @endphp
+
+    <div class="optech-breadcrumb" style="background-image: url({{ asset('frontend/assets/img/breadcrumb/breadcrumb.png') }})">
         <div class="container">
-            <div class="row">
-                <div class="col-auto">
-                <div
-                    class="position-relative z-2"
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
-                    data-aos-easing="linear"
-                >
-                    <h2 class="section-title-light mb-2">{{ __('translate.FAQ') }}</h2>
-                    <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb w-breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('translate.Home') }}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">
-                        {{ __('translate.FAQ') }}
-                        </li>
-                    </ol>
-                    </nav>
-                </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb End -->
+            <h1 class="post__title">{{ __($pageTitle) }}</h1>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
 
-    <!-- Faq -->
-    <section class="py-110 bg-offWhite">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="faq-accordions">
-              <div
-                class="accordion accordion-flush"
-                id="accordionFlushExample"
-              >
-              @foreach ($faqs as $index => $faq)
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button
-                        class="accordion-button shadow-none {{ $index != 0 ? 'collapsed' : '' }}"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne{{ $index }}"
-                        aria-expanded="false"
-                        aria-controls="flush-collapseOne{{ $index }}"
-                        >
-                        {{ $faq->question }}
-                        </button>
-                    </h2>
-                    <div
-                        id="flush-collapseOne{{ $index }}"
-                        class="accordion-collapse {{ $index == 0 ? 'show' : '' }} collapse "
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                        {!! clean($faq->answer) !!}
+                    <li aria-current="page">{{ __($pageTitle) }}</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="section accordion-page">
+        <div class="container">
+            <div class="optech-accordion-column">
+                <div class="optech-accordion-wrap mt-0 init-wrap">
+                    @foreach($faqs as $faq)
+                    <div class="optech-accordion-item {{ $loop->first ? 'open' : '' }}">
+                        <div class="optech-accordion-header init-header">
+                            <h5> <span> {{ __('Q') }} </span>{{ $loop->iteration }}. {{ $faq->translate?->question }}</h5>
+                        </div>
+                        <div class="optech-accordion-body init-body">
+                            <p>{!! $faq->translate?->answer !!}</p>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                @endforeach
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <!-- Faq End -->
-  </main>
-  <!-- Main End -->
+    </div>
+    <!-- End section -->
+
+    <div class="section optech-section-padding-bottom">
+        <div class="container">
+            <div class="optech-default-content sm-mw">
+                <h2>{{ getTranslatedValue($faqContent, 'heading', $currentLang) }}</h2>
+                <p>{{ getTranslatedValue($faqContent, 'description', $currentLang) }}</p>
+                <div class="optech-extra-mt" data-aos="fade-up" data-aos-duration="800">
+                    <a class="optech-default-btn optech-light-btn" href="{{ route('contact-us') }}" data-text="{{ getTranslatedValue($faqContent, 'button_text', $currentLang) }}"> <span
+                            class="btn-wraper">{{ getTranslatedValue($faqContent, 'button_text', $currentLang) }}</span> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End section -->
+
 @endsection
