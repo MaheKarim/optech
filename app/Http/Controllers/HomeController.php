@@ -138,15 +138,14 @@ class HomeController extends Controller
 
     public function about_us()
     {
+        $pageTitle = 'About Us';
+
         $about_us = AboutUs::first();
 
         $homepage = Homepage::first();
 
-        $testimonials = Testimonial::where('status', 'active')->latest()->get();
+        $teams = Team::latest()->take(4)->get();
 
-        $latest_testimonials = Testimonial::where('status', 'active')->get();
-
-        $faqs = Faq::latest()->get();
 
         $seo_setting = SeoSetting::where('id', 3)->first();
 
@@ -154,9 +153,8 @@ class HomeController extends Controller
             'seo_setting' => $seo_setting,
             'about_us' => $about_us,
             'homepage' => $homepage,
-            'testimonials' => $testimonials,
-            'latest_testimonials' => $latest_testimonials,
-            'faqs' => $faqs,
+            'teams' => $teams,
+            'pageTitle' => $pageTitle
         ]);
     }
 
@@ -533,7 +531,7 @@ class HomeController extends Controller
 
     public function services(Request $request)
     {
-        $services = Listing::where(['status' => 'enable'])->latest()->take(6)->get();
+        $services = Listing::where(['status' => 'enable'])->latest()->get();
 
         $seo_setting = SeoSetting::where('id', 10)->first();
 

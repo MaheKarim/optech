@@ -674,7 +674,7 @@
             </div>
         </div>
     </div>
-    <!-- End section -->
+    <!-- End Counter section -->
 
     <div class="container">
         <div class="optech-divider"></div>

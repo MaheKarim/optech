@@ -27,8 +27,6 @@
             </div>
             <div class="col-lg-6" data-aos="fade-up" data-aos-duration="600">
                 <div class="optech-main-form bg-white ml60">
-                    <h3>{{ getTranslatedValue($contactContent, 'heading', $currentLang) }}</h3>
-                    <p>{{ getTranslatedValue($contactContent, 'description', $currentLang) }}</p>
                     @include('frontend.templates.layouts.contact_form')
                 </div>
             </div>
