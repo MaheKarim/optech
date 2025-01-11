@@ -6,6 +6,8 @@ use App\Models\TeamTranslation;
 use DB, File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Modules\Ecommerce\Entities\ProductTranslation;
+use Modules\Ecommerce\Http\Controllers\ProductController;
 use Modules\Language\App\Models\Language;
 use Modules\City\Entities\CityTranslation;
 use Modules\FAQ\App\Models\FaqTranslation;
@@ -136,6 +138,9 @@ class LanguageController extends Controller
         $team_lang = new TeamController();
         $team_lang->setup_language($request->lang_code);
 
+        $product_lang = new ProductController();
+        $product_lang->setup_language($request->lang_code);
+
 
         /** generate local language */
 
@@ -234,6 +239,7 @@ class LanguageController extends Controller
         ProjectTranslation::where('lang_code' , $language->lang_code)->delete();
         SliderTranslation::where('lang_code' , $language->lang_code)->delete();
         TeamTranslation::where('lang_code' , $language->lang_code)->delete();
+        ProductTranslation::where('lang_code' , $language->lang_code)->delete();
 
         $path = base_path().'/lang'.'/'.$language->lang_code;
 

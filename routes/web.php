@@ -150,7 +150,7 @@ Route::group(['middleware' => [ 'HtmlSpecialchars', 'MaintenanceMode']], functio
 
     });
 
-    Route::group(['as' => 'seller.', 'prefix' => 'seller'], function(){
+    Route::group(['as' => 'user.', 'prefix' => 'user'], function(){
 
         Route::get('/login', [SellerLoginController::class, 'seller_login_page'])->name('login');
         Route::post('/store-login', [SellerLoginController::class, 'store_login'])->name('store-login');

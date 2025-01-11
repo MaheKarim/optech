@@ -14,7 +14,6 @@ use Modules\LiveChat\App\Models\Message;
 use App\Http\Requests\PasswordChangeRequest;
 use Modules\Listing\Entities\ListingGallery;
 use App\Http\Requests\EditBuyerProfileRequest;
-use Modules\Listing\App\Models\ListingPackage;
 use Modules\Listing\Entities\ListingTranslation;
 
 class ProfileController extends Controller
@@ -120,8 +119,6 @@ class ProfileController extends Controller
 
 
     }
-
-
 
     public function orders(){
         $user = Auth::guard('web')->user();

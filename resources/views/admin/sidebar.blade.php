@@ -62,7 +62,9 @@
                 </a>
             </li>
 
-
+            @if (Module::isEnabled('ecommerce'))
+                @include('ecommerce::admin.sidebar')
+            @endif
 
             <li class="{{ Route::is('admin.orders') || Route::is('admin.order') || Route::is('admin.active-orders') || Route::is('admin.awaiting-orders') || Route::is('admin.reject-orders') || Route::is('admin.cancel-orders') || Route::is('admin.complete-orders') || Route::is('admin.pending-payment-orders') ? 'active' : '' }}"><a href="#!" class="collapsed" data-bs-toggle="collapse" data-bs-target="#menu-item__order"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">

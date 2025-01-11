@@ -1,7 +1,7 @@
 {
     "main_demo_hero": {
-    "builder": true,
-    "name": "Hero Section - (Main Demo)",
+        "builder": true,
+        "name": "Hero Section - (Main Demo)",
         "content": {
             "heading": "text",
             "description": "text",
@@ -12,7 +12,7 @@
             "right_button_url": "url",
             "images": {
                 "hero_image": {
-                        "size": "516x578"
+                    "size": "516x578"
                 }
             }
         }
@@ -96,7 +96,6 @@
             "description": "text",
             "button_link": "text",
             "button_text": "text"
-
         }
     },
     "main_demo_sidebar_cta_section": {
@@ -160,7 +159,6 @@
         "name": "Testimonial Section - (Main Demo)",
         "content": {
             "heading": "text"
-
         }
     },
     "main_demo_blog_section": {
@@ -505,6 +503,14 @@
             "heading": "text",
             "description": "text",
             "button_text": "text"
+        }
+    },
+    "login_section": {
+        "builder": true,
+        "name": "LogIn Section",
+        "content": {
+            "heading": "text",
+            "description": "text"
         }
     }
 }

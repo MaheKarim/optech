@@ -34,7 +34,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/buyer/dashboard';
+    protected $redirectTo = '/user/dashboard';
 
     /**
      * Create a new controller instance.
@@ -97,9 +97,9 @@ class LoginController extends Controller
                                 $user->online = 1;
                                 $user->save();
 
-                                return redirect()->route('seller.dashboard')->with($notify_message);
+                                return redirect()->route('user.dashboard')->with($notify_message);
                             }else{
-                                return redirect()->route('buyer.dashboard')->with($notify_message);
+                                return redirect()->route('user.dashboard')->with($notify_message);
                             }
 
                         }
@@ -250,7 +250,6 @@ class LoginController extends Controller
         return redirect()->route('buyer.login')->with($notify_message);
     }
 
-
     public function redirect_to_google(){
 
         $gmail_client_id = GlobalSetting::where('key', 'gmail_client_id')->first();
@@ -342,7 +341,5 @@ class LoginController extends Controller
         }
         return $user;
     }
-
-
 
 }

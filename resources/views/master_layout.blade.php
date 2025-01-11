@@ -11,7 +11,8 @@
 
     @yield('new-layout')
 
-
-    @include('frontend.templates.layouts.main_demo_cta')
+    @if(!request()->routeIs('user.*'))
+        @include('frontend.templates.layouts.main_demo_cta')
+    @endif
     @include('frontend.templates.layouts.footer')
 @endsection
