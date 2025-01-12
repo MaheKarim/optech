@@ -10,6 +10,12 @@ class Product extends Model
 {
     protected $guarded = [];
 
+    protected $casts = [
+        'tags' => 'array',
+    ];
+
+    protected $appends = ['title', 'description', 'seo_title', 'seo_description'];
+
     // Relationship with main Category
     public function category()
     {
@@ -22,17 +28,14 @@ class Product extends Model
         return $this->belongsTo(ProductTranslation::class, 'id', 'product_id')->where('lang_code', admin_lang());
     }
 
-
     public function front_translate(){
         return $this->belongsTo(ProductTranslation::class, 'id', 'product_id')->where('lang_code', front_lang());
     }
-
 
     public function galleries()
     {
         return $this->hasMany(ProductGallery::class, 'product_id');
     }
-
 
     public function reviews()
     {

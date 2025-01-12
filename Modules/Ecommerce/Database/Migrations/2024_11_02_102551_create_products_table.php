@@ -15,17 +15,11 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->integer('category_id');
-            $table->integer('sub_category_id');
-            $table->integer('child_category_id')->nullable();
-            $table->string('name');
             $table->string('slug');
             $table->decimal('price', 8, 2);
             $table->decimal('offer_price', 8, 2)->nullable();
-            $table->mediumText('small_description');
             $table->string('thumbnail_image');
-            $table->string('sku');
-            $table->text('description');
-            $table->tinyInteger('is_trending')->default(Status::DISABLE);
+            $table->text('tags');
             $table->tinyInteger('status')->default(Status::ENABLE);
             $table->timestamps();
         });

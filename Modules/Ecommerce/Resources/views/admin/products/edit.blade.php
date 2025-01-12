@@ -148,9 +148,9 @@
                                                         <label class="crancy__item-label">{{ __('translate.Category') }} * </label>
                                                         <select class="form-select crancy__item-input" name="category_id" id="category_id">
                                                             <option value="">{{ __('translate.Select Sub Category') }}</option>
-                                                            @foreach ($subCategories as $sub_category)
-                                                                <option value="{{ $sub_category->id }}" {{ (isset($product) && $product->sub_category_id == $sub_category->id) ? 'selected' : '' }}>
-                                                                    {{ $sub_category->translate->name }}
+                                                            @foreach ($categories as $category)
+                                                                <option value="{{ $category->id }}" {{ (isset($product) && $product->category_id == $category->id) ? 'selected' : '' }}>
+                                                                    {{ $category->translate->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
@@ -174,8 +174,21 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                @endif
 
+{{--                                                <div class="col-12">--}}
+{{--                                                    <div class="crancy__item-form--group mg-top-form-20">--}}
+{{--                                                        <label class="crancy__item-label">{{ __('translate.Tags') }} </label>--}}
+{{--                                                        <input class="crancy__item-input tags" type="text" name="tags" value="{{ $product->tags }}">--}}
+{{--                                                        <input class="crancy__item-input tags" type="text" name="tags" value="{{ $product->tags }}">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+                                                    <div class="col-12">
+                                                        <div class="crancy__item-form--group mg-top-form-20">
+                                                            <label class="crancy__item-label">{{ __('translate.Tags') }}</label>
+                                                            <input class="crancy__item-input tags" type="text" name="tags" value="{{ $tags }}">
+                                                        </div>
+                                                    </div>
+                                                @endif
                                                 <div class="col-12">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Description') }} *</label>
@@ -248,6 +261,7 @@
 
 
 @push('style_section')
+    <link rel="stylesheet" href="{{ asset('global/tagify/tagify.css') }}">
 
     <style>
         .offer-price{
@@ -259,6 +273,7 @@
 @push('js_section')
 
     <script src="{{ asset('global/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('global/tagify/tagify.js') }}"></script>
 
     <script>
         (function ($) {
@@ -270,49 +285,6 @@
                     $("#slug").val(slug);
                 });
 
-                // Load child categories for existing product
-                let sub_category_id = $("#sub_category_id").val();
-                let existingChildCategoryId = "{{ isset($product) ? $product->child_category_id : '' }}";
-
-                if (sub_category_id) {
-                    $.ajax({
-                        type: "get",
-                        url: "{{ url('child-categories-by-sub-category') }}" + "/" + sub_category_id,
-                        success: function (response) {
-                            $("#child_category_id").html(response);
-                            // Set the selected child category if it exists
-                            if (existingChildCategoryId) {
-                                $("#child_category_id").val(existingChildCategoryId);
-                            }
-                        },
-                        error: function (response) {
-                            let empty_html = `<option value="">{{ __('translate.Select') }}</option>`;
-                            $("#child_category_id").html(empty_html);
-                        }
-                    });
-                }
-
-                // Handle sub category change
-                $("#sub_category_id").on("change", function (e) {
-                    let sub_category_id = $(this).val();
-
-                    if (sub_category_id) {
-                        $.ajax({
-                            type: "get",
-                            url: "{{ url('child-categories-by-sub-category') }}" + "/" + sub_category_id,
-                            success: function (response) {
-                                $("#child_category_id").html(response);
-                            },
-                            error: function (response) {
-                                let empty_html = `<option value="">{{ __('translate.Select') }}</option>`;
-                                $("#child_category_id").html(empty_html);
-                            }
-                        });
-                    } else {
-                        let empty_html = `<option value="">{{ __('translate.Select') }}</option>`;
-                        $("#child_category_id").html(empty_html);
-                    }
-                });
 
                 tinymce.init({
                     selector: '.summernote',
@@ -325,6 +297,7 @@
                         {value: 'Email', title: 'Email'},
                     ]
                 });
+                $('.tags').tagify();
             });
         })(jQuery);
 

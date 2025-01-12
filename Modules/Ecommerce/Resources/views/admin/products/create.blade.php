@@ -214,49 +214,6 @@
                     $("#slug").val(slug);
                 });
 
-                // Load child categories for existing product
-                let sub_category_id = $("#sub_category_id").val();
-                let existingChildCategoryId = "{{ isset($product) ? $product->child_category_id : '' }}";
-
-                if (sub_category_id) {
-                    $.ajax({
-                        type: "get",
-                        url: "{{ url('child-categories-by-sub-category') }}" + "/" + sub_category_id,
-                        success: function (response) {
-                            $("#child_category_id").html(response);
-                            // Set the selected child category if it exists
-                            if (existingChildCategoryId) {
-                                $("#child_category_id").val(existingChildCategoryId);
-                            }
-                        },
-                        error: function (response) {
-                            let empty_html = `<option value="">{{ __('translate.Select') }}</option>`;
-                            $("#child_category_id").html(empty_html);
-                        }
-                    });
-                }
-
-                // Handle sub category change
-                $("#sub_category_id").on("change", function (e) {
-                    let sub_category_id = $(this).val();
-
-                    if (sub_category_id) {
-                        $.ajax({
-                            type: "get",
-                            url: "{{ url('child-categories-by-sub-category') }}" + "/" + sub_category_id,
-                            success: function (response) {
-                                $("#child_category_id").html(response);
-                            },
-                            error: function (response) {
-                                let empty_html = `<option value="">{{ __('translate.Select') }}</option>`;
-                                $("#child_category_id").html(empty_html);
-                            }
-                        });
-                    } else {
-                        let empty_html = `<option value="">{{ __('translate.Select') }}</option>`;
-                        $("#child_category_id").html(empty_html);
-                    }
-                });
 
                 tinymce.init({
                     selector: '.summernote',
@@ -269,6 +226,7 @@
                         {value: 'Email', title: 'Email'},
                     ]
                 });
+                $('.tags').tagify();
             });
         })(jQuery);
         function previewImage(event) {

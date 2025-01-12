@@ -82,7 +82,7 @@
 
 
                                                 <td class="crancy-table__column-2 crancy-table__data-2">
-                                                    <h4 class="crancy-table__product-title">{{ $product->subCategory?->translate?->name }}</h4>
+                                                    <h4 class="crancy-table__product-title">{{ $product->category?->translate?->name }}</h4>
                                                 </td>
 
                                                 <td class="crancy-table__column-2 crancy-table__data-2">

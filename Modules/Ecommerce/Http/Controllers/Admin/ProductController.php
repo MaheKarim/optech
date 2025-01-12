@@ -57,6 +57,7 @@ class ProductController extends Controller
         $product = $id ? Product::findOrFail($id) : new Product();
         $product->slug = $request->slug;
         $product->price = $request->price;
+        $product->tags = $request->tags;
         $product->offer_price = $request->filled('offer_price') ? $request->offer_price : null;
         $product->category_id = $request->category_id;
         $product->status = Status::ENABLE;
@@ -111,11 +112,25 @@ class ProductController extends Controller
         $id = $request->product_id;
         $lang_code = $request->lang_code;
 
-        $subCategories = Category::with('translate')->where('status', 'enable')->get();
+        $categories = Category::with('translate')->where('status', 'enable')->get();
         $product = Product::findOrFail($id);
+        $tags = '';
+        if ($product->tags) {
+            if (is_string($product->tags)) {
+                // If tags is already a string, use it directly
+                $tags = $product->tags;
+            } else {
+                // If tags is an array/collection, process it
+                $tags = collect($product->tags)
+                    ->map(function ($tag) {
+                        return $tag['value'];
+                    })
+                    ->implode(',');
+            }
+        }
         $listing_translate = ProductTranslation::where(['product_id' => $id, 'lang_code' =>  $lang_code])->first();
 
-        return view('ecommerce::admin.products.edit', compact('subCategories', 'product', 'listing_translate'));
+        return view('ecommerce::admin.products.edit', compact('categories', 'product','tags', 'listing_translate'));
     }
 
     public function update(Request $request, $id)
@@ -133,9 +148,8 @@ class ProductController extends Controller
                 $product->slug = $request->slug;
                 $product->price = $request->price; // Store original price
                 $product->offer_price = $request->filled('offer_price') ? $request->offer_price : null; // Store discount percentage
-                $product->sku = $request->sku;
                 $product->category_id = $request->category_id;
-                $product->is_trending = $request->is_trending ?? Status::DISABLE;
+                $product->tags = $request->tags;
                 $product->status = Status::ENABLE;
 
                 // Handle image upload and watermarking
@@ -152,15 +166,15 @@ class ProductController extends Controller
                     $image = $manager->make($request->thumbnail_image);
 
                     // Add watermark
-                    $author_name = '©'. env('APP_NAME');
-                    $author_name = explode(' ', trim($author_name))[0];
-                    $image->text($author_name, $image->width() / 2, $image->height() - 50, function($font) {
-                        $font->file(public_path('fonts/static/Quicksand-Bold.ttf'));
-                        $font->size(40);
-                        $font->color([255, 255, 255, 0.5]);
-                        $font->align('center');
-                        $font->valign('bottom');
-                    });
+//                    $author_name = '©'. env('APP_NAME');
+//                    $author_name = explode(' ', trim($author_name))[0];
+//                    $image->text($author_name, $image->width() / 2, $image->height() - 50, function($font) {
+//                        $font->file(public_path('fonts/static/Quicksand-Bold.ttf'));
+//                        $font->size(40);
+//                        $font->color([255, 255, 255, 0.5]);
+//                        $font->align('center');
+//                        $font->valign('bottom');
+//                    });
 
                     // Save the new image
                     $image->encode('webp', 80)->save(public_path().'/'.$image_name);
@@ -177,7 +191,6 @@ class ProductController extends Controller
 
         $listing_translate = ProductTranslation::findOrFail($request->translate_id);
         $listing_translate->name = $request->name;
-        $listing_translate->small_description = $request->small_description;
         $listing_translate->description = $request->description;
         $listing_translate->seo_title = $request->seo_title;
         $listing_translate->seo_description = $request->seo_description;

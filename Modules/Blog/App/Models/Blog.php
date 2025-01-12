@@ -4,12 +4,9 @@ namespace Modules\Blog\App\Models;
 
 use App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Blog\Database\factories\BlogFactory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Blog extends Model
 {
-    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -24,8 +21,6 @@ class Blog extends Model
     ];
 
     protected $appends = ['title', 'description', 'seo_title', 'seo_description', 'total_comment'];
-
-    protected static function newFactory(): BlogFactory{}
 
     public function author(){
         return $this->belongsTo(Admin::class, 'admin_id', 'id')->select('id', 'name');

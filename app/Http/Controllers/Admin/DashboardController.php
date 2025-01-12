@@ -14,20 +14,17 @@ class DashboardController extends Controller
 
         $orders = Order::with('listing', 'seller', 'buyer')->latest()->take(10)->get();
 
-        $active_orders = Order::with('listing', 'seller')->where(['approved_by_seller' => 'approved', 'order_status' => 'approved_by_seller'])->latest()->count();
+        $active_orders = Order::with('listing', 'seller')->latest()->count();
 
         $complete_orders = Order::where(function ($query) {
-            $query->where('order_status', 'complete_by_buyer')
-                  ->orWhere('completed_by_buyer', 'complete');
+            $query->where('order_status', 'complete_by_buyer');
         })->latest()->count();
 
         $cancel_orders = Order::where(function ($query) {
-            $query->where('order_status', 'cancel_by_seller')
-                  ->orWhere('order_status', 'cancel_by_buyer');
+            $query->where('order_status', 1);
         })->latest()->count();
 
-        $rejected_orders = Order::where(['approved_by_seller' => 'rejected'])->where('order_status' , '!=', 'cancel_by_buyer')->latest()->count();
-
+        $rejected_orders = Order::latest()->count();
 
         $lable = array();
         $data = array();
@@ -47,7 +44,7 @@ class DashboardController extends Controller
                 $date = $start->addDays(1)->format('Y-m-d');
             };
 
-            $sum = Order::whereDate('created_at', $date)->sum('total_amount');
+            $sum = Order::whereDate('created_at', $date)->sum('total');
             $data[] = $sum;
             $lable[] = $i;
 

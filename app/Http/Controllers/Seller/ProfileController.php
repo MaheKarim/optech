@@ -22,21 +22,19 @@ class ProfileController extends Controller
 
         $user = Auth::guard('web')->user();
 
-        $orders = Order::with('listing', 'seller')->where('seller_id', $user->id)->latest()->take(10)->get();
+        $orders = Order::with('listing', 'seller')->where('user_id', $user->id)->latest()->take(10)->get();
 
-        $active_orders = Order::with('listing', 'seller')->where('seller_id', $user->id)->where(['approved_by_seller' => 'approved', 'order_status' => 'approved_by_seller'])->latest()->count();
+        $active_orders = Order::with('listing', 'seller')->where('user_id', $user->id)->where(['order_status' => 1])->latest()->count();
 
-        $complete_orders = Order::where('seller_id', $user->id)->where(function ($query) {
-            $query->where('order_status', 'complete_by_buyer')
-                  ->orWhere('completed_by_buyer', 'complete');
+        $complete_orders = Order::where('user_id', $user->id)->where(function ($query) {
+            $query->where('order_status', 1);
         })->latest()->count();
 
-        $cancel_orders = Order::where('seller_id', $user->id)->where(function ($query) {
-            $query->where('order_status', 'cancel_by_seller')
-                  ->orWhere('order_status', 'cancel_by_buyer');
+        $cancel_orders = Order::where('user_id', $user->id)->where(function ($query) {
+            $query->where('order_status', 1);
         })->latest()->count();
 
-        $rejected_orders = Order::where('seller_id', $user->id)->where(['approved_by_seller' => 'rejected'])->where('order_status' , '!=', 'cancel_by_buyer')->latest()->count();
+        $rejected_orders = Order::where('user_id', $user->id)->where(['order_status' => 2])->where('order_status' , '!=', 3)->latest()->count();
 
         return view('seller.dashboard', [
             'active_orders' => $active_orders,
@@ -123,20 +121,20 @@ class ProfileController extends Controller
     public function orders(){
         $user = Auth::guard('web')->user();
 
-        $orders = Order::with('listing', 'seller')->where('seller_id', $user->id)->latest()->get();
+        $orders = Order::with('listing', 'seller')->where('user_id', $user->id)->latest()->get();
 
-        $active_orders = Order::where('seller_id', $user->id)->where(['approved_by_seller' => 'approved', 'order_status' => 'approved_by_seller'])->latest()->get();
+        $active_orders = Order::where('user_id', $user->id)->where(['approved_by_seller' => 'approved', 'order_status' => 'approved_by_seller'])->latest()->get();
 
-        $awaiting_orders = Order::where('seller_id', $user->id)->where(['approved_by_seller' => 'pending'])->where('order_status' , '!=', 'cancel_by_buyer')->latest()->get();
+        $awaiting_orders = Order::where('user_id', $user->id)->where(['approved_by_seller' => 'pending'])->where('order_status' , '!=', 'cancel_by_buyer')->latest()->get();
 
-        $rejected_orders = Order::where('seller_id', $user->id)->where(['approved_by_seller' => 'rejected'])->where('order_status' , '!=', 'cancel_by_buyer')->latest()->get();
+        $rejected_orders = Order::where('user_id', $user->id)->where(['approved_by_seller' => 'rejected'])->where('order_status' , '!=', 'cancel_by_buyer')->latest()->get();
 
-        $cancel_orders = Order::where('seller_id', $user->id)->where(function ($query) {
+        $cancel_orders = Order::where('user_id', $user->id)->where(function ($query) {
             $query->where('order_status', 'cancel_by_seller')
                   ->orWhere('order_status', 'cancel_by_buyer');
         })->latest()->get();
 
-        $complete_orders = Order::where('seller_id', $user->id)->where(function ($query) {
+        $complete_orders = Order::where('user_id', $user->id)->where(function ($query) {
             $query->where('order_status', 'complete_by_buyer')
                   ->orWhere('completed_by_buyer', 'complete');
         })->latest()->get();
@@ -154,7 +152,7 @@ class ProfileController extends Controller
     public function order_show($order_id){
         $user = Auth::guard('web')->user();
 
-        $order = Order::with('listing')->where('seller_id', $user->id)->where('order_id', $order_id)->first();
+        $order = Order::with('listing')->where('user_id', $user->id)->where('order_id', $order_id)->first();
 
         $buyer = User::findOrFail($order->buyer_id);
 
@@ -177,7 +175,7 @@ class ProfileController extends Controller
 
         $user = Auth::guard('web')->user();
 
-        $order = Order::where('seller_id', $user->id)->where('id', $id)->first();
+        $order = Order::where('user_id', $user->id)->where('id', $id)->first();
         $order->approved_by_seller = 'approved';
         $order->order_status = 'approved_by_seller';
         $order->save();
@@ -193,7 +191,7 @@ class ProfileController extends Controller
 
         $user = Auth::guard('web')->user();
 
-        $order = Order::where('seller_id', $user->id)->where('id', $id)->first();
+        $order = Order::where('user_id', $user->id)->where('id', $id)->first();
         $order->approved_by_seller = 'rejected';
         $order->order_status = 'rejected_by_seller';
         $order->save();
@@ -208,7 +206,7 @@ class ProfileController extends Controller
 
         $user = Auth::guard('web')->user();
 
-        $order = Order::where('seller_id', $user->id)->where('id', $id)->first();
+        $order = Order::where('user_id', $user->id)->where('id', $id)->first();
         $order->order_status = 'cancel_by_seller';
         $order->save();
 
@@ -238,7 +236,7 @@ class ProfileController extends Controller
             if(File::exists(public_path().'/'.$user_image))unlink(public_path().'/'.$user_image);
         }
 
-        $listings = Listing::where('seller_id', $user->id)->latest()->get();
+        $listings = Listing::where('user_id', $user->id)->latest()->get();
 
         foreach($listings as $listing){
             $old_image = $listing->thumb_image;
@@ -266,19 +264,19 @@ class ProfileController extends Controller
         }
 
         Review::where('buyer_id',$user->id)->delete();
-        Review::where('seller_id',$user->id)->delete();
+        Review::where('user_id',$user->id)->delete();
 
         JobRequest::where('user_id',$user->id)->delete();
-        JobRequest::where('seller_id',$user->id)->delete();
+        JobRequest::where('user_id',$user->id)->delete();
 
-        Order::where('seller_id',$user->id)->delete();
+        Order::where('user_id',$user->id)->delete();
         Order::where('buyer_id',$user->id)->delete();
 
         $json_module_data = file_get_contents(base_path('modules_statuses.json'));
         $module_status = json_decode($json_module_data);
 
         if(isset($module_status->LiveChat) && $module_status->LiveChat){
-            Message::where('seller_id',$user->id)->delete();
+            Message::where('user_id',$user->id)->delete();
             Message::where('buyer_id',$user->id)->delete();
         }
 
@@ -297,7 +295,7 @@ class ProfileController extends Controller
     public function order_submission(Request $request, $id){
         $user = Auth::guard('web')->user();
 
-        $order = Order::where('seller_id', $user->id)->where('id', $id)->first();
+        $order = Order::where('user_id', $user->id)->where('id', $id)->first();
 
         if($request->file('submit_file')){
 

@@ -5,24 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Constants/Status.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/seller/dashboard_layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/seller/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Language/App/Http/Controllers/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Language/App/Http/Controllers/LanguageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Blog/App/Models/Blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Blog/App/Models/Blog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Blog/App/Models/BlogCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Blog/App/Models/BlogCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Blog/App/Models/BlogCategoryTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Blog/App/Models/BlogCategoryTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Blog/App/Models/BlogComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Blog/App/Models/BlogComment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Blog/App/Models/BlogTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Blog/App/Models/BlogTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Database/Migrations/2024_11_02_102551_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Database/Migrations/2024_11_02_102551_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Database/Migrations/2024_11_02_102556_create_product_translations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Database/Migrations/2024_11_02_102556_create_product_translations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Entities/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Entities/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/Admin/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/admin/products/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/admin/products/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/admin/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/admin/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Seller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Seller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/en/translate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/translate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules_statuses.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules_statuses.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/it_solutions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/it_solutions.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/master_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master_layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/seller/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Wishlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Wishlist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2025_01_11_170518_create_wishlists_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2025_01_11_170518_create_wishlists_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +307,9 @@
       <workItem from="1736395898194" duration="34000" />
       <workItem from="1736395946231" duration="16302000" />
       <workItem from="1736569069101" duration="3232000" />
-      <workItem from="1736576833537" duration="14641000" />
+      <workItem from="1736576833537" duration="15416000" />
+      <workItem from="1736655592748" duration="3648000" />
+      <workItem from="1736660823824" duration="4634000" />
     </task>
     <servers />
   </component>
@@ -328,6 +328,11 @@
           <url>file://$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php</url>
           <line>282</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Modules/Ecommerce/Database/Migrations/2024_11_02_102556_create_product_translations_table.php</url>
+          <line>21</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
