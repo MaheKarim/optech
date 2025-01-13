@@ -47,9 +47,10 @@ Route::group(['as'=> 'admin.', 'prefix' => 'admin/ecommerce', 'middleware' => ['
 
 // Public FrontEnd
 Route::group(['middleware' => ['HtmlSpecialchars', 'MaintenanceMode']], function () {
-    Route::group(['middleware' => ['HtmlSpecialchars', 'MaintenanceChecker', 'LangSession']], function () {
+    Route::group(['middleware' => ['HtmlSpecialchars', 'MaintenanceMode']], function () {
         // Product Controller
         Route::controller(PublicProductController::class)->name('product.')->group(function (){
+           Route::get('/shop', 'shop')->name('shop');
            Route::get('/product/{slug}', 'product')->name('view');
         });
 
@@ -80,6 +81,7 @@ Route::group(['middleware' => ['HtmlSpecialchars', 'MaintenanceMode']], function
             Route::get('/pay-via-instamojo', 'pay_via_instamojo')->name('pay-via-instamojo');
             Route::get('/ecommerce/response-instamojo', 'instamojo_response')->name('response-instamojo');
         });
+
 
         Route::controller(UserPaypalController::class)->name('user.')->group(function (){
             Route::get('/pay-via-paypal','paypal')->name('pay-via-paypal');

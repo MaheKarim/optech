@@ -76,11 +76,25 @@
                                                 </div>
 
 
-                                                <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    <div class="crancy__item-form--group mg-top-form-20">
+                                                        <label class="crancy__item-label">{{ __('Brand') }} * </label>
+                                                        <select class="form-select crancy__item-input" name="brand_id" id="brand_id">
+                                                            <option value="" disabled selected>{{ __('Select Brand') }}</option>
+                                                            @foreach ($brands as $brand)
+                                                                <option value="{{ $brand->id }}" {{ (isset($product) && $product->brand_id == $brand->id) ? 'selected' : '' }}>
+                                                                    {{ $brand->translate->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
                                                     <div class="crancy__item-form--group mg-top-form-20">
                                                         <label class="crancy__item-label">{{ __('translate.Category') }} * </label>
                                                         <select class="form-select crancy__item-input" name="category_id" id="category_id">
-                                                            <option value="">{{ __('translate.Select Category') }}</option>
+                                                            <option value="" disabled selected>{{ __('translate.Select Category') }}</option>
                                                             @foreach ($categories as $category)
                                                                 <option value="{{ $category->id }}" {{ (isset($product) && $product->category_id == $category->id) ? 'selected' : '' }}>
                                                                     {{ $category->translate->name }}

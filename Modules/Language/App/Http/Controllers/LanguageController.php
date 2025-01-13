@@ -6,6 +6,8 @@ use App\Models\TeamTranslation;
 use DB, File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Modules\Brand\Entities\BrandTranslation;
+use Modules\Brand\Http\Controllers\BrandController;
 use Modules\Ecommerce\Entities\ProductTranslation;
 use Modules\Ecommerce\Http\Controllers\ProductController;
 use Modules\Language\App\Models\Language;
@@ -141,6 +143,9 @@ class LanguageController extends Controller
         $product_lang = new ProductController();
         $product_lang->setup_language($request->lang_code);
 
+        $brand_lang = new BrandController();
+        $brand_lang->setup_language($request->lang_code);
+
 
         /** generate local language */
 
@@ -221,6 +226,7 @@ class LanguageController extends Controller
         $language = Language::findOrFail($id);
         $language->delete();
 
+        BrandTranslation::where('lang_code', $language->lang_code)->delete();
         BlogCategoryTranslation::where('lang_code' , $language->lang_code)->delete();
         BlogTranslation::where('lang_code' , $language->lang_code)->delete();
         FaqTranslation::where('lang_code' , $language->lang_code)->delete();

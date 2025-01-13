@@ -14,8 +14,6 @@
                 <span class="menu-bar__name">{{ __('translate.Manage Frontend') }}</span></span></a>
             </li>
 
-
-
             <li class="{{ Route::is('admin.dashboard') ? 'active' : '' }}"><a class="collapsed" href="{{ route('admin.dashboard') }}"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">
                     <svg class="crancy-svg-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
@@ -65,6 +63,23 @@
             @if (Module::isEnabled('ecommerce'))
                 @include('ecommerce::admin.sidebar')
             @endif
+
+            <li class="{{ Route::is('admin.brand.index') ? 'active' : '' }}">
+                <a class="collapsed" href="{{ route('admin.brand.index') }}">
+                    <span class="menu-bar__text">
+                        <span class="crancy-menu-icon crancy-svg-icon__v1">
+                            <svg class="crancy-svg-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="22"
+                                 viewBox="0 0 24 24" fill="none">
+                                <circle cx="8" cy="8" r="3" fill="currentColor"/>
+                                <path d="M5 15C5 12.79 6.79 11 9 11H11C13.21 11 15 12.79 15 15V16H5V15Z" fill="currentColor"/>
+                                <circle cx="16" cy="8" r="3" fill="currentColor"/>
+                                <path d="M14 15C14 12.79 15.79 11 18 11H20C22.21 11 24 12.79 24 15V16H14V15Z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        <span class="menu-bar__name">{{ __('Manage Brand') }}</span>
+                    </span>
+                </a>
+            </li>
 
             <li class="{{ Route::is('admin.orders') || Route::is('admin.order') || Route::is('admin.active-orders') || Route::is('admin.awaiting-orders') || Route::is('admin.reject-orders') || Route::is('admin.cancel-orders') || Route::is('admin.complete-orders') || Route::is('admin.pending-payment-orders') ? 'active' : '' }}"><a href="#!" class="collapsed" data-bs-toggle="collapse" data-bs-target="#menu-item__order"><span class="menu-bar__text">
                 <span class="crancy-menu-icon crancy-svg-icon__v1">

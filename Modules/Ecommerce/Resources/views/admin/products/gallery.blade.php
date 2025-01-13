@@ -4,8 +4,8 @@
 @endsection
 
 @section('body-header')
-    <h3 class="crancy-header__title m-0">{{ __('translate.Product Gallery') }}</h3>
-    <p class="crancy-header__text">{{ __('translate.Manage Product') }} >> {{ __('translate.Product Gallery') }}</p>
+    <h3 class="crancy-header__title m-0">{{ __('Product Gallery') }}</h3>
+    <p class="crancy-header__text">{{ __('Manage Product') }} >> {{ __('translate.Product Gallery') }}</p>
 @endsection
 
 @section('body-content')
@@ -23,17 +23,14 @@
                                     <!-- Product Card -->
                                     <div class="crancy-product-card">
                                         <div class="create_new_btn_inline_box">
-                                            <h4 class="crancy-product-card__title">{{ __('translate.Product') }} : {{ html_decode($product->translate->name) }}</h4>
+                                            <h4 class="crancy-product-card__title">{{ __('Product') }} : {{ html_decode($product->translate->name) }}</h4>
                                         </div>
 
                                         <div class="row mg-top-30">
-
                                             <form id="dropzoneForm" method="post" action="{{ route('admin.product.uploadGallery', $product->id) }}"  enctype="multipart/form-data"  class="dropzone">
                                                 @csrf
-
                                             </form>
                                             <div class="text-center">
-
                                                 <button id="submit-all" class="crancy-btn mg-top-25" type="submit">{{ __('translate.Upload Images') }}
                                                 </button>
                                             </div>

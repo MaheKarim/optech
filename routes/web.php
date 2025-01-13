@@ -193,8 +193,7 @@ Route::group(['middleware' => [ 'HtmlSpecialchars', 'MaintenanceMode']], functio
 
 });
 
-
-
+/* Admin Code */
 Route::group(['as'=> 'admin.', 'prefix' => 'admin'],function (){
     Route::get('login', [LoginController::class, 'custom_login_page'])->name('login');
     Route::post('store-login', [LoginController::class, 'store_login'])->name('store-login');
@@ -227,11 +226,6 @@ Route::group(['as'=> 'admin.', 'prefix' => 'admin'],function (){
 
         });
 
-        // Route::controller(AdsBannerController::class)->group(function () {
-        //     Route::get('ads-banner', 'index')->name('ads-banner');
-        //     Route::put('ads-banner-update/{id}', 'update')->name('ads-banner-update');
-        // });
-
         Route::controller(OrderController::class)->group(function () {
             Route::get('orders', 'index')->name('orders');
             Route::get('active-orders', 'active_orders')->name('active-orders');
@@ -249,7 +243,6 @@ Route::group(['as'=> 'admin.', 'prefix' => 'admin'],function (){
             Route::post('/order-cancel/{id}', 'order_cancel')->name('order-cancel');
             Route::delete('/order-delete/{id}', 'order_delete')->name('order-delete');
         });
-
         // Frontend Management
         Route::controller(FrontEndManagementController::class)->name('front-end.')->group(function () {
             Route::get('/', 'index')->name('index');
@@ -261,7 +254,6 @@ Route::group(['as'=> 'admin.', 'prefix' => 'admin'],function (){
 });
 
 
-
 Route::get('/setup-plugin', function(){
     Artisan::call('migrate');
 
@@ -271,7 +263,6 @@ Route::get('/setup-plugin', function(){
     $notification = array('message' => $notification, 'alert-type' => 'success');
     return redirect()->route('home')->with($notification);
 });
-
 
 Route::get('/migrate', function(){
 

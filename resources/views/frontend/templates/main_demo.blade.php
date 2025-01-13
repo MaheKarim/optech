@@ -183,20 +183,16 @@
                                                 </ul>
                                             </li>
                                             <li class="sub-menu--item nav-item-has-children">
-                                                <a href="#" data-menu-get="h3" class="drop-trigger">Shop<i
+                                                <a href="#" data-menu-get="h3" class="drop-trigger">{{ __('Shop') }}<i
                                                         class="ri-arrow-down-s-fill"></i>
                                                 </a>
                                                 <ul class="sub-menu shape-none" id="submenu-8">
                                                     <li class="sub-menu--item">
-                                                        <a href="shop.html">
+                                                        <a href="{{ route('product.shop') }}">
                                                             <span class="menu-item-text">Shop</span>
                                                         </a>
                                                     </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="single-shop.html">
-                                                            <span class="menu-item-text">Shop Details</span>
-                                                        </a>
-                                                    </li>
+
                                                     <li class="sub-menu--item">
                                                         <a href="my-cart.html">
                                                             <span class="menu-item-text">My Cart</span>

@@ -4,13 +4,11 @@ namespace Modules\Ecommerce\Http\Controllers\Admin;
 
 use App\Constants\Status;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManager;
+use Modules\Brand\Entities\Brand;
 use Modules\Category\Entities\Category;
-use Modules\Category\Entities\SubCategory;
 use Modules\Ecommerce\Entities\Product;
 use Modules\Ecommerce\Entities\ProductGallery;
 use Modules\Ecommerce\Entities\ProductReview;
@@ -24,7 +22,6 @@ use App\Models\Review;
 
 class ProductController extends Controller
 {
-
     public function index()
     {
         $products = Product::latest()->get();
@@ -35,8 +32,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::with('translate')->where('status', 'enable')->get();
+        $brands = Brand::with('translate')->where('status', 'enable')->get();
 
-        return view('ecommerce::admin.products.create', compact('categories' ));
+        return view('ecommerce::admin.products.create', compact('categories', 'brands'));
     }
 
     public function store(Request $request, $id = null)
@@ -57,9 +55,18 @@ class ProductController extends Controller
         $product = $id ? Product::findOrFail($id) : new Product();
         $product->slug = $request->slug;
         $product->price = $request->price;
-        $product->tags = $request->tags;
+        if ($request->has('tags') && $request->tags !== null) {
+            $tags = array_map(function($tag) {
+                return trim($tag);
+            }, array_filter(explode(',', $request->tags)));
+            $product->tags = $tags;
+        } else {
+            $product->tags = [];
+        }
+
         $product->offer_price = $request->filled('offer_price') ? $request->offer_price : null;
         $product->category_id = $request->category_id;
+        $product->brand_id = $request->brand_id;
         $product->status = Status::ENABLE;
 
         // Handle image upload and watermarking
@@ -113,24 +120,21 @@ class ProductController extends Controller
         $lang_code = $request->lang_code;
 
         $categories = Category::with('translate')->where('status', 'enable')->get();
+        $brands = Brand::with('translate')->where('status', 'enable')->get();
         $product = Product::findOrFail($id);
         $tags = '';
-        if ($product->tags) {
-            if (is_string($product->tags)) {
-                // If tags is already a string, use it directly
+        if (!is_null($product->tags)) {
+            if (is_array($product->tags)) {
+                $tags = implode(',', $product->tags);
+            } elseif (is_string($product->tags)) {
                 $tags = $product->tags;
             } else {
-                // If tags is an array/collection, process it
-                $tags = collect($product->tags)
-                    ->map(function ($tag) {
-                        return $tag['value'];
-                    })
-                    ->implode(',');
+                $tags = '';
             }
         }
         $listing_translate = ProductTranslation::where(['product_id' => $id, 'lang_code' =>  $lang_code])->first();
 
-        return view('ecommerce::admin.products.edit', compact('categories', 'product','tags', 'listing_translate'));
+        return view('ecommerce::admin.products.edit', compact('brands','categories', 'product','tags', 'listing_translate'));
     }
 
     public function update(Request $request, $id)
@@ -146,11 +150,13 @@ class ProductController extends Controller
 
                 $product = Product::findOrFail($id);
                 $product->slug = $request->slug;
-                $product->price = $request->price; // Store original price
-                $product->offer_price = $request->filled('offer_price') ? $request->offer_price : null; // Store discount percentage
+                $product->price = $request->price;
+                $product->offer_price = $request->filled('offer_price') ? $request->offer_price : null;
                 $product->category_id = $request->category_id;
-                $product->tags = $request->tags;
-                $product->status = Status::ENABLE;
+                $product->brand_id = $request->brand_id;
+                $product->tags = $request->has('tags') ? explode(',', $request->tags) : [];
+
+            $product->status = Status::ENABLE;
 
                 // Handle image upload and watermarking
                 if ($request->hasFile('thumbnail_image')) {
@@ -164,17 +170,6 @@ class ProductController extends Controller
                     // Process and save the new image
                     $manager = new ImageManager(['driver' => 'gd']);
                     $image = $manager->make($request->thumbnail_image);
-
-                    // Add watermark
-//                    $author_name = '©'. env('APP_NAME');
-//                    $author_name = explode(' ', trim($author_name))[0];
-//                    $image->text($author_name, $image->width() / 2, $image->height() - 50, function($font) {
-//                        $font->file(public_path('fonts/static/Quicksand-Bold.ttf'));
-//                        $font->size(40);
-//                        $font->color([255, 255, 255, 0.5]);
-//                        $font->align('center');
-//                        $font->valign('bottom');
-//                    });
 
                     // Save the new image
                     $image->encode('webp', 80)->save(public_path().'/'.$image_name);
@@ -261,6 +256,7 @@ class ProductController extends Controller
 
         return view('ecommerce::admin.products.gallery', compact('product', 'galleries'));
     }
+
     public function uploadGallery(Request $request, $id)
     {
         $product = Product::findOrFail($id);
@@ -274,18 +270,6 @@ class ProductController extends Controller
                 $image_name = 'uploads/custom-images/'.$image_name;
                 $manager = new ImageManager(['driver' => 'gd']);
                 $image = $manager->make($image);
-
-                $author_name = '©'. randomNumber(5);
-
-                $author_name = explode(' ', trim($author_name))[0];
-
-                $image->text($author_name, $image->width() / 2, $image->height() - 50, function($font) {
-                    $font->file(public_path('fonts/static/Quicksand-Bold.ttf'));
-                    $font->size(40);
-                    $font->color([255, 255, 255, 0.5]);
-                    $font->align('center');
-                    $font->valign('bottom');
-                });
 
                 $image->encode('webp', 80)->save(public_path().'/'.$image_name);
 
@@ -309,6 +293,7 @@ class ProductController extends Controller
             ]);
         }
     }
+
     public function deleteGallery($id){
 
         $gallery = ProductGallery::findOrFail($id);
@@ -319,6 +304,7 @@ class ProductController extends Controller
         return redirect()->back()->with($notification);
 
     }
+
     public function assign_language($lang_code){
         $product_translates = ProductTranslation::where('lang_code', admin_lang())->get();
         foreach($product_translates as $product_translate){
@@ -326,13 +312,13 @@ class ProductController extends Controller
             $product_translate_new->lang_code = $lang_code;
             $product_translate_new->product_id = $product_translate->product_id;
             $product_translate_new->name = $product_translate->name;
-            $product_translate_new->small_description = $product_translate->small_description;
             $product_translate_new->description = $product_translate->description;
             $product_translate_new->seo_title = $product_translate->seo_title;
             $product_translate_new->seo_description = $product_translate->seo_description;
             $product_translate_new->save();
         }
     }
+
     public function review_list(){
 
         $reviews = Review::with('user','listing')->where('reviewType','product')->latest()->get();
