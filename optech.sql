@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 07, 2025 at 12:42 PM
+-- Generation Time: Jan 13, 2025 at 12:58 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -136,7 +136,8 @@ INSERT INTO `blogs` (`id`, `slug`, `image`, `admin_id`, `blog_category_id`, `vie
 (5, 'graphics-designer-editor-workplace', 'uploads/custom-images/blog--2024-07-15-03-48-08-1303.webp', 1, 4, 0, 1, 'no', '0', '[{\"value\":\"php\"},{\"value\":\"laravel\"},{\"value\":\"html\"},{\"value\":\"css\"},{\"value\":\"design\"}]', '2024-07-15 09:48:08', '2024-07-15 09:48:08'),
 (6, 'serious-confident-our-curly-bearded-office', 'uploads/custom-images/blog--2024-07-15-03-50-28-5273.webp', 1, 5, 0, 1, 'no', '0', '[{\"value\":\"djongo\"},{\"value\":\"python\"},{\"value\":\"mysql\"},{\"value\":\"database\"}]', '2024-07-15 09:49:50', '2024-07-15 09:50:28'),
 (7, 'person-working-in-the-office-workplace', 'uploads/custom-images/blog--2024-07-15-03-54-04-7096.webp', 1, 2, 0, 1, 'no', '0', '[{\"value\":\"web development\"},{\"value\":\"programming\"},{\"value\":\"javascript\"},{\"value\":\"laravel\"}]', '2024-07-15 09:54:05', '2024-07-15 09:54:05'),
-(8, 'colleagues-discussing-in-coworking-office', 'uploads/custom-images/blog--2024-07-15-03-58-45-2281.webp', 1, 1, 0, 1, 'no', '0', '[{\"value\":\"web devleopment\"},{\"value\":\"design\"},{\"value\":\"php\"},{\"value\":\"html\"}]', '2024-07-15 09:56:42', '2024-07-15 09:58:45');
+(8, 'colleagues-discussing-in-coworking-office', 'uploads/custom-images/blog--2024-07-15-03-58-45-2281.webp', 1, 1, 0, 1, 'no', '0', '[{\"value\":\"web devleopment\"},{\"value\":\"design\"},{\"value\":\"php\"},{\"value\":\"html\"}]', '2024-07-15 09:56:42', '2024-07-15 09:58:45'),
+(9, 'blog-create', 'uploads/custom-images/blog--2025-01-12-03-18-03-7918.webp', 1, 2, 0, 0, 'no', '0', NULL, '2025-01-12 09:18:03', '2025-01-12 09:18:03');
 
 -- --------------------------------------------------------
 
@@ -263,7 +264,81 @@ INSERT INTO `blog_translations` (`id`, `blog_id`, `lang_code`, `title`, `descrip
 (13, 7, 'en', 'Person working in the office workplace', '<p><strong>Blog Post Title: \"Person working in the office workplace\"</strong></p>\r\n<p>In today\'s digital age, cloud computing has revolutionized the way businesses operate and store their data. With the ability to access resources and applications over the internet, cloud computing offers unparalleled flexibility, scalability, and cost-efficiency for organizations worldwide. From small startups to large enterprises, businesses are leveraging the power of the cloud to streamline operations, improve collaboration, and drive innovation.</p>\r\n<p><img src=\"../../../../uploads/custom-images/blog--2024-07-15-03-54-04-7096.webp\" alt=\"\" width=\"940\" height=\"618\"></p>\r\n<p>Cloud computing provides businesses with the agility to scale resources up or down based on demand, eliminating the need for costly hardware investments and infrastructure maintenance. This flexibility enables companies to respond quickly to changing market conditions, launch new products and services faster, and stay ahead of the competition. Additionally, the pay-as-you-go model of cloud services allows organizations to pay only for the resources they use, reducing overall IT costs and maximizing operational efficiency.</p>\r\n<p>One of the key benefits of cloud computing is its global reach, enabling businesses to expand their operations beyond geographical boundaries. With cloud-based solutions, teams can collaborate in real-time from anywhere in the world, breaking down communication barriers and fostering a more connected and productive workforce. This global accessibility not only enhances business operations but also improves customer service by providing seamless access to products and services on a global scale.</p>\r\n<p>Security is a top priority for businesses when it comes to adopting cloud computing solutions. Cloud service providers invest heavily in robust security measures to protect data from unauthorized access, breaches, and cyber threats. By storing data in secure cloud environments, businesses can mitigate risks, ensure compliance with data privacy regulations, and safeguard sensitive information against potential security vulnerabilities.<br><br></p>\r\n<ul>\r\n<li><strong>Scalability:</strong>&nbsp;Cloud computing allows businesses to scale resources up or down based on demand, eliminating the need for costly hardware investments and infrastructure maintenance.</li>\r\n<li><strong>Global Reach:</strong>&nbsp;Cloud-based solutions enable teams to collaborate globally in real-time, breaking down communication barriers and fostering a connected workforce.</li>\r\n<li><strong>Cost-Efficiency:</strong>&nbsp;The pay-as-you-go model of cloud services reduces overall IT costs by allowing organizations to pay only for the resources they use.</li>\r\n<li><strong>Security Measures:</strong>&nbsp;Cloud service providers invest in robust security measures to protect data from unauthorized access, breaches, and cyber threats.</li>\r\n<li><strong>Innovation:</strong> Cloud computing empowers businesses to experiment with emerging technologies and drive digital transformation initiatives without the constraints of traditional IT infrastructure.<br><br></li>\r\n</ul>\r\n<p>Moreover, cloud computing empowers companies to innovate and experiment with emerging technologies without the constraints of traditional IT infrastructure. From machine learning and artificial intelligence to Internet of Things (IoT) applications, the cloud provides a platform for organizations to test new ideas, develop custom solutions, and drive digital transformation initiatives. By harnessing the power of cloud-based tools and services, businesses can stay agile, competitive, and future-ready in a rapidly evolving technological landscape.</p>\r\n<p>In conclusion, cloud computing is a game-changer for businesses looking to enhance their operations on a global scale. By embracing cloud technologies, organizations can optimize efficiency, reduce costs, improve collaboration, strengthen security measures, and drive innovation across all facets of their operations. As businesses continue to navigate the complexities of the digital economy, leveraging the capabilities of cloud computing will be essential for staying agile, resilient, and competitive in an increasingly interconnected world.</p>', 'Person working in the office workplace', 'Person working in the office workplace', '2024-07-15 09:54:05', '2024-07-15 09:54:18'),
 (14, 7, 'hd', 'Person working in the office workplace', '<p><strong>Blog Post Title: \"Person working in the office workplace\"</strong></p>\r\n<p>In today\'s digital age, cloud computing has revolutionized the way businesses operate and store their data. With the ability to access resources and applications over the internet, cloud computing offers unparalleled flexibility, scalability, and cost-efficiency for organizations worldwide. From small startups to large enterprises, businesses are leveraging the power of the cloud to streamline operations, improve collaboration, and drive innovation.</p>\r\n<p><img src=\"../../../uploads/custom-images/blog--2024-07-15-03-50-28-5273.webp\" alt=\"\" width=\"940\" height=\"618\"></p>\r\n<p>Cloud computing provides businesses with the agility to scale resources up or down based on demand, eliminating the need for costly hardware investments and infrastructure maintenance. This flexibility enables companies to respond quickly to changing market conditions, launch new products and services faster, and stay ahead of the competition. Additionally, the pay-as-you-go model of cloud services allows organizations to pay only for the resources they use, reducing overall IT costs and maximizing operational efficiency.</p>\r\n<p>One of the key benefits of cloud computing is its global reach, enabling businesses to expand their operations beyond geographical boundaries. With cloud-based solutions, teams can collaborate in real-time from anywhere in the world, breaking down communication barriers and fostering a more connected and productive workforce. This global accessibility not only enhances business operations but also improves customer service by providing seamless access to products and services on a global scale.</p>\r\n<p>Security is a top priority for businesses when it comes to adopting cloud computing solutions. Cloud service providers invest heavily in robust security measures to protect data from unauthorized access, breaches, and cyber threats. By storing data in secure cloud environments, businesses can mitigate risks, ensure compliance with data privacy regulations, and safeguard sensitive information against potential security vulnerabilities.<br><br></p>\r\n<ul>\r\n<li><strong>Scalability:</strong>&nbsp;Cloud computing allows businesses to scale resources up or down based on demand, eliminating the need for costly hardware investments and infrastructure maintenance.</li>\r\n<li><strong>Global Reach:</strong>&nbsp;Cloud-based solutions enable teams to collaborate globally in real-time, breaking down communication barriers and fostering a connected workforce.</li>\r\n<li><strong>Cost-Efficiency:</strong>&nbsp;The pay-as-you-go model of cloud services reduces overall IT costs by allowing organizations to pay only for the resources they use.</li>\r\n<li><strong>Security Measures:</strong>&nbsp;Cloud service providers invest in robust security measures to protect data from unauthorized access, breaches, and cyber threats.</li>\r\n<li><strong>Innovation:</strong> Cloud computing empowers businesses to experiment with emerging technologies and drive digital transformation initiatives without the constraints of traditional IT infrastructure.<br><br></li>\r\n</ul>\r\n<p>Moreover, cloud computing empowers companies to innovate and experiment with emerging technologies without the constraints of traditional IT infrastructure. From machine learning and artificial intelligence to Internet of Things (IoT) applications, the cloud provides a platform for organizations to test new ideas, develop custom solutions, and drive digital transformation initiatives. By harnessing the power of cloud-based tools and services, businesses can stay agile, competitive, and future-ready in a rapidly evolving technological landscape.</p>\r\n<p>In conclusion, cloud computing is a game-changer for businesses looking to enhance their operations on a global scale. By embracing cloud technologies, organizations can optimize efficiency, reduce costs, improve collaboration, strengthen security measures, and drive innovation across all facets of their operations. As businesses continue to navigate the complexities of the digital economy, leveraging the capabilities of cloud computing will be essential for staying agile, resilient, and competitive in an increasingly interconnected world.</p>', 'Person working in the office workplace', 'Person working in the office workplace', '2024-07-15 09:54:05', '2024-07-15 09:54:05'),
 (15, 8, 'en', 'Colleagues discussing in coworking office', '<p><strong>Blog Post Title: \"Colleagues discussing in coworking office\"</strong></p>\r\n<p>In today\'s digital age, cloud computing has revolutionized the way businesses operate and store their data. With the ability to access resources and applications over the internet, cloud computing offers unparalleled flexibility, scalability, and cost-efficiency for organizations worldwide. From small startups to large enterprises, businesses are leveraging the power of the cloud to streamline operations, improve collaboration, and drive innovation.</p>\r\n<p><img src=\"../../../../uploads/custom-images/blog--2024-07-15-03-58-45-2281.webp\" alt=\"\" width=\"940\" height=\"618\"></p>\r\n<p>Cloud computing provides businesses with the agility to scale resources up or down based on demand, eliminating the need for costly hardware investments and infrastructure maintenance. This flexibility enables companies to respond quickly to changing market conditions, launch new products and services faster, and stay ahead of the competition. Additionally, the pay-as-you-go model of cloud services allows organizations to pay only for the resources they use, reducing overall IT costs and maximizing operational efficiency.</p>\r\n<p>One of the key benefits of cloud computing is its global reach, enabling businesses to expand their operations beyond geographical boundaries. With cloud-based solutions, teams can collaborate in real-time from anywhere in the world, breaking down communication barriers and fostering a more connected and productive workforce. This global accessibility not only enhances business operations but also improves customer service by providing seamless access to products and services on a global scale.</p>\r\n<p>Security is a top priority for businesses when it comes to adopting cloud computing solutions. Cloud service providers invest heavily in robust security measures to protect data from unauthorized access, breaches, and cyber threats. By storing data in secure cloud environments, businesses can mitigate risks, ensure compliance with data privacy regulations, and safeguard sensitive information against potential security vulnerabilities.<br><br></p>\r\n<ul>\r\n<li><strong>Scalability:</strong>&nbsp;Cloud computing allows businesses to scale resources up or down based on demand, eliminating the need for costly hardware investments and infrastructure maintenance.</li>\r\n<li><strong>Global Reach:</strong>&nbsp;Cloud-based solutions enable teams to collaborate globally in real-time, breaking down communication barriers and fostering a connected workforce.</li>\r\n<li><strong>Cost-Efficiency:</strong>&nbsp;The pay-as-you-go model of cloud services reduces overall IT costs by allowing organizations to pay only for the resources they use.</li>\r\n<li><strong>Security Measures:</strong>&nbsp;Cloud service providers invest in robust security measures to protect data from unauthorized access, breaches, and cyber threats.</li>\r\n<li><strong>Innovation:</strong> Cloud computing empowers businesses to experiment with emerging technologies and drive digital transformation initiatives without the constraints of traditional IT infrastructure.<br><br></li>\r\n</ul>\r\n<p>Moreover, cloud computing empowers companies to innovate and experiment with emerging technologies without the constraints of traditional IT infrastructure. From machine learning and artificial intelligence to Internet of Things (IoT) applications, the cloud provides a platform for organizations to test new ideas, develop custom solutions, and drive digital transformation initiatives. By harnessing the power of cloud-based tools and services, businesses can stay agile, competitive, and future-ready in a rapidly evolving technological landscape.</p>\r\n<p>In conclusion, cloud computing is a game-changer for businesses looking to enhance their operations on a global scale. By embracing cloud technologies, organizations can optimize efficiency, reduce costs, improve collaboration, strengthen security measures, and drive innovation across all facets of their operations. As businesses continue to navigate the complexities of the digital economy, leveraging the capabilities of cloud computing will be essential for staying agile, resilient, and competitive in an increasingly interconnected world.</p>', 'Colleagues discussing in coworking office', 'Colleagues discussing in coworking office', '2024-07-15 09:56:42', '2024-07-15 09:59:02'),
-(16, 8, 'hd', 'Colleagues discussing in coworking office', '<p><strong>Blog Post Title: \"Colleagues discussing in coworking office\"</strong></p>\r\n<p>In today\'s digital age, cloud computing has revolutionized the way businesses operate and store their data. With the ability to access resources and applications over the internet, cloud computing offers unparalleled flexibility, scalability, and cost-efficiency for organizations worldwide. From small startups to large enterprises, businesses are leveraging the power of the cloud to streamline operations, improve collaboration, and drive innovation.</p>\r\n<p>Cloud computing provides businesses with the agility to scale resources up or down based on demand, eliminating the need for costly hardware investments and infrastructure maintenance. This flexibility enables companies to respond quickly to changing market conditions, launch new products and services faster, and stay ahead of the competition. Additionally, the pay-as-you-go model of cloud services allows organizations to pay only for the resources they use, reducing overall IT costs and maximizing operational efficiency.</p>\r\n<p>One of the key benefits of cloud computing is its global reach, enabling businesses to expand their operations beyond geographical boundaries. With cloud-based solutions, teams can collaborate in real-time from anywhere in the world, breaking down communication barriers and fostering a more connected and productive workforce. This global accessibility not only enhances business operations but also improves customer service by providing seamless access to products and services on a global scale.</p>\r\n<p>Security is a top priority for businesses when it comes to adopting cloud computing solutions. Cloud service providers invest heavily in robust security measures to protect data from unauthorized access, breaches, and cyber threats. By storing data in secure cloud environments, businesses can mitigate risks, ensure compliance with data privacy regulations, and safeguard sensitive information against potential security vulnerabilities.<br><br></p>\r\n<ul>\r\n<li><strong>Scalability:</strong>&nbsp;Cloud computing allows businesses to scale resources up or down based on demand, eliminating the need for costly hardware investments and infrastructure maintenance.</li>\r\n<li><strong>Global Reach:</strong>&nbsp;Cloud-based solutions enable teams to collaborate globally in real-time, breaking down communication barriers and fostering a connected workforce.</li>\r\n<li><strong>Cost-Efficiency:</strong>&nbsp;The pay-as-you-go model of cloud services reduces overall IT costs by allowing organizations to pay only for the resources they use.</li>\r\n<li><strong>Security Measures:</strong>&nbsp;Cloud service providers invest in robust security measures to protect data from unauthorized access, breaches, and cyber threats.</li>\r\n<li><strong>Innovation:</strong> Cloud computing empowers businesses to experiment with emerging technologies and drive digital transformation initiatives without the constraints of traditional IT infrastructure.<br><br></li>\r\n</ul>\r\n<p>Moreover, cloud computing empowers companies to innovate and experiment with emerging technologies without the constraints of traditional IT infrastructure. From machine learning and artificial intelligence to Internet of Things (IoT) applications, the cloud provides a platform for organizations to test new ideas, develop custom solutions, and drive digital transformation initiatives. By harnessing the power of cloud-based tools and services, businesses can stay agile, competitive, and future-ready in a rapidly evolving technological landscape.</p>\r\n<p>In conclusion, cloud computing is a game-changer for businesses looking to enhance their operations on a global scale. By embracing cloud technologies, organizations can optimize efficiency, reduce costs, improve collaboration, strengthen security measures, and drive innovation across all facets of their operations. As businesses continue to navigate the complexities of the digital economy, leveraging the capabilities of cloud computing will be essential for staying agile, resilient, and competitive in an increasingly interconnected world.</p>', 'Colleagues discussing in coworking office', 'Colleagues discussing in coworking office', '2024-07-15 09:56:42', '2024-07-15 09:56:42');
+(16, 8, 'hd', 'Colleagues discussing in coworking office', '<p><strong>Blog Post Title: \"Colleagues discussing in coworking office\"</strong></p>\r\n<p>In today\'s digital age, cloud computing has revolutionized the way businesses operate and store their data. With the ability to access resources and applications over the internet, cloud computing offers unparalleled flexibility, scalability, and cost-efficiency for organizations worldwide. From small startups to large enterprises, businesses are leveraging the power of the cloud to streamline operations, improve collaboration, and drive innovation.</p>\r\n<p>Cloud computing provides businesses with the agility to scale resources up or down based on demand, eliminating the need for costly hardware investments and infrastructure maintenance. This flexibility enables companies to respond quickly to changing market conditions, launch new products and services faster, and stay ahead of the competition. Additionally, the pay-as-you-go model of cloud services allows organizations to pay only for the resources they use, reducing overall IT costs and maximizing operational efficiency.</p>\r\n<p>One of the key benefits of cloud computing is its global reach, enabling businesses to expand their operations beyond geographical boundaries. With cloud-based solutions, teams can collaborate in real-time from anywhere in the world, breaking down communication barriers and fostering a more connected and productive workforce. This global accessibility not only enhances business operations but also improves customer service by providing seamless access to products and services on a global scale.</p>\r\n<p>Security is a top priority for businesses when it comes to adopting cloud computing solutions. Cloud service providers invest heavily in robust security measures to protect data from unauthorized access, breaches, and cyber threats. By storing data in secure cloud environments, businesses can mitigate risks, ensure compliance with data privacy regulations, and safeguard sensitive information against potential security vulnerabilities.<br><br></p>\r\n<ul>\r\n<li><strong>Scalability:</strong>&nbsp;Cloud computing allows businesses to scale resources up or down based on demand, eliminating the need for costly hardware investments and infrastructure maintenance.</li>\r\n<li><strong>Global Reach:</strong>&nbsp;Cloud-based solutions enable teams to collaborate globally in real-time, breaking down communication barriers and fostering a connected workforce.</li>\r\n<li><strong>Cost-Efficiency:</strong>&nbsp;The pay-as-you-go model of cloud services reduces overall IT costs by allowing organizations to pay only for the resources they use.</li>\r\n<li><strong>Security Measures:</strong>&nbsp;Cloud service providers invest in robust security measures to protect data from unauthorized access, breaches, and cyber threats.</li>\r\n<li><strong>Innovation:</strong> Cloud computing empowers businesses to experiment with emerging technologies and drive digital transformation initiatives without the constraints of traditional IT infrastructure.<br><br></li>\r\n</ul>\r\n<p>Moreover, cloud computing empowers companies to innovate and experiment with emerging technologies without the constraints of traditional IT infrastructure. From machine learning and artificial intelligence to Internet of Things (IoT) applications, the cloud provides a platform for organizations to test new ideas, develop custom solutions, and drive digital transformation initiatives. By harnessing the power of cloud-based tools and services, businesses can stay agile, competitive, and future-ready in a rapidly evolving technological landscape.</p>\r\n<p>In conclusion, cloud computing is a game-changer for businesses looking to enhance their operations on a global scale. By embracing cloud technologies, organizations can optimize efficiency, reduce costs, improve collaboration, strengthen security measures, and drive innovation across all facets of their operations. As businesses continue to navigate the complexities of the digital economy, leveraging the capabilities of cloud computing will be essential for staying agile, resilient, and competitive in an increasingly interconnected world.</p>', 'Colleagues discussing in coworking office', 'Colleagues discussing in coworking office', '2024-07-15 09:56:42', '2024-07-15 09:56:42'),
+(17, 9, 'en', 'Blog Create', '<p><strong>Nooran Sisters</strong>&nbsp;are&nbsp;<strong>Sultana Nooran</strong>&nbsp;(born 14 June 1992) and&nbsp;<strong>Jyoti Nooran</strong>&nbsp;(born 24 February 1994),<sup id=\"cite_ref-1\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-1\"><span class=\"cite-bracket\">[</span>1<span class=\"cite-bracket\">]</span></a></sup>&nbsp;an Indian devotional&nbsp;<a title=\"Sufi music\" href=\"https://en.wikipedia.org/wiki/Sufi_music\">Sufi</a>&nbsp;singing duo.<sup id=\"cite_ref-2\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-2\"><span class=\"cite-bracket\">[</span>2<span class=\"cite-bracket\">]</span></a></sup>&nbsp;Born to a family of Sufi musicians, they perform&nbsp;<a title=\"Sham Chaurasia gharana\" href=\"https://en.wikipedia.org/wiki/Sham_Chaurasia_gharana\">Sham Chaurasia gharana</a>&nbsp;<a title=\"Indian classical music\" href=\"https://en.wikipedia.org/wiki/Indian_classical_music\">classical music</a>.<sup id=\"cite_ref-:4_3-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:4-3\"><span class=\"cite-bracket\">[</span>3<span class=\"cite-bracket\">]</span></a></sup>&nbsp;They gained public recognition in 2012, when their song \"Tung Tung\" was featured on&nbsp;<a title=\"MTV Sound Trippin\" href=\"https://en.wikipedia.org/wiki/MTV_Sound_Trippin\">MTV Sound Trippin</a>&nbsp;of&nbsp;<a class=\"mw-redirect\" title=\"MTV India\" href=\"https://en.wikipedia.org/wiki/MTV_India\">MTV India</a><sup id=\"cite_ref-:5_4-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:5-4\"><span class=\"cite-bracket\">[</span>4<span class=\"cite-bracket\">]</span></a></sup><sup id=\"cite_ref-5\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-5\"><span class=\"cite-bracket\">[</span>5<span class=\"cite-bracket\">]</span></a></sup>&nbsp;and was used in the soundtrack for the 2015 film&nbsp;<a class=\"mw-redirect\" title=\"Singh is Bling\" href=\"https://en.wikipedia.org/wiki/Singh_is_Bling\">Singh is Bling</a>.<sup id=\"cite_ref-:0_6-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:0-6\"><span class=\"cite-bracket\">[</span>6<span class=\"cite-bracket\">]</span></a></sup></p>\r\n<p>Nooran Sisters released their first album,&nbsp;Yaar Gariban Da, in 2015.<sup id=\"cite_ref-:1_7-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:1-7\"><span class=\"cite-bracket\">[</span>7<span class=\"cite-bracket\">]</span></a></sup>&nbsp;The same year, they received their first major awards, for the song \"Patakha Guddi\", which appeared in the film&nbsp;<a title=\"Highway (2014 Hindi film)\" href=\"https://en.wikipedia.org/wiki/Highway_(2014_Hindi_film)\">Highway</a>, including two Mirchi Music Awards&mdash;for Upcoming Female Vocalist of the Year and Vocalist (Female) of the Year.<sup id=\"cite_ref-:2_8-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:2-8\"><span class=\"cite-bracket\">[</span>8<span class=\"cite-bracket\">]</span></a></sup>&nbsp;They were also decorated at the&nbsp;<a title=\"Global Indian Music Academy Awards\" href=\"https://en.wikipedia.org/wiki/Global_Indian_Music_Academy_Awards\">Global Indian Music Academy Awards</a>&nbsp;and the&nbsp;<a title=\"Screen Awards\" href=\"https://en.wikipedia.org/wiki/Screen_Awards\">Screen Awards</a>.<sup id=\"cite_ref-:9_9-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:9-9\"><span class=\"cite-bracket\">[</span>9<span class=\"cite-bracket\">]</span></a></sup><sup id=\"cite_ref-:10_10-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:10-10\"><span class=\"cite-bracket\">[</span>10<span class=\"cite-bracket\">]</span></a></sup>&nbsp;The duo additionally received the Best Playback Singer (Female) award at the&nbsp;<a title=\"Filmfare Awards Punjabi\" href=\"https://en.wikipedia.org/wiki/Filmfare_Awards_Punjabi\">Filmfare Awards Punjabi</a>, for the song \"<a title=\"Channo Kamli Yaar Di\" href=\"https://en.wikipedia.org/wiki/Channo_Kamli_Yaar_Di\">Yaar Di Gali</a>\", in 2017.<sup id=\"cite_ref-:2_8-1\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:2-8\"><span class=\"cite-bracket\">[</span>8<span class=\"cite-bracket\">]</span></a></sup><sup id=\"cite_ref-:3_11-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:3-11\"><span class=\"cite-bracket\">[</span>11<span class=\"cite-bracket\">]</span></a></sup></p>', 'When Sultana was seven and Jyoti five, Mir discovered their talent while they were playing at', 'Sultana and Jyoti Nooran trained from early childhood under their father, Ustad Gulshan Mir (or Meer),[12] grandson of Bibi Nooran, a Sufi singer,[13] and son of Swarn Nooran, a Sufi singer of the 1970s.[6] According to Mir, the family was on hard times, and he gave music lessons to support them.[14] The sisters were not able to obtain formal elementary education.[12]', '2025-01-12 09:18:03', '2025-01-12 09:18:03'),
+(18, 9, 'hd', 'Blog Create', '<p><strong>Nooran Sisters</strong>&nbsp;are&nbsp;<strong>Sultana Nooran</strong>&nbsp;(born 14 June 1992) and&nbsp;<strong>Jyoti Nooran</strong>&nbsp;(born 24 February 1994),<sup id=\"cite_ref-1\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-1\"><span class=\"cite-bracket\">[</span>1<span class=\"cite-bracket\">]</span></a></sup>&nbsp;an Indian devotional&nbsp;<a title=\"Sufi music\" href=\"https://en.wikipedia.org/wiki/Sufi_music\">Sufi</a>&nbsp;singing duo.<sup id=\"cite_ref-2\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-2\"><span class=\"cite-bracket\">[</span>2<span class=\"cite-bracket\">]</span></a></sup>&nbsp;Born to a family of Sufi musicians, they perform&nbsp;<a title=\"Sham Chaurasia gharana\" href=\"https://en.wikipedia.org/wiki/Sham_Chaurasia_gharana\">Sham Chaurasia gharana</a>&nbsp;<a title=\"Indian classical music\" href=\"https://en.wikipedia.org/wiki/Indian_classical_music\">classical music</a>.<sup id=\"cite_ref-:4_3-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:4-3\"><span class=\"cite-bracket\">[</span>3<span class=\"cite-bracket\">]</span></a></sup>&nbsp;They gained public recognition in 2012, when their song \"Tung Tung\" was featured on&nbsp;<a title=\"MTV Sound Trippin\" href=\"https://en.wikipedia.org/wiki/MTV_Sound_Trippin\">MTV Sound Trippin</a>&nbsp;of&nbsp;<a class=\"mw-redirect\" title=\"MTV India\" href=\"https://en.wikipedia.org/wiki/MTV_India\">MTV India</a><sup id=\"cite_ref-:5_4-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:5-4\"><span class=\"cite-bracket\">[</span>4<span class=\"cite-bracket\">]</span></a></sup><sup id=\"cite_ref-5\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-5\"><span class=\"cite-bracket\">[</span>5<span class=\"cite-bracket\">]</span></a></sup>&nbsp;and was used in the soundtrack for the 2015 film&nbsp;<a class=\"mw-redirect\" title=\"Singh is Bling\" href=\"https://en.wikipedia.org/wiki/Singh_is_Bling\">Singh is Bling</a>.<sup id=\"cite_ref-:0_6-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:0-6\"><span class=\"cite-bracket\">[</span>6<span class=\"cite-bracket\">]</span></a></sup></p>\r\n<p>Nooran Sisters released their first album,&nbsp;Yaar Gariban Da, in 2015.<sup id=\"cite_ref-:1_7-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:1-7\"><span class=\"cite-bracket\">[</span>7<span class=\"cite-bracket\">]</span></a></sup>&nbsp;The same year, they received their first major awards, for the song \"Patakha Guddi\", which appeared in the film&nbsp;<a title=\"Highway (2014 Hindi film)\" href=\"https://en.wikipedia.org/wiki/Highway_(2014_Hindi_film)\">Highway</a>, including two Mirchi Music Awards&mdash;for Upcoming Female Vocalist of the Year and Vocalist (Female) of the Year.<sup id=\"cite_ref-:2_8-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:2-8\"><span class=\"cite-bracket\">[</span>8<span class=\"cite-bracket\">]</span></a></sup>&nbsp;They were also decorated at the&nbsp;<a title=\"Global Indian Music Academy Awards\" href=\"https://en.wikipedia.org/wiki/Global_Indian_Music_Academy_Awards\">Global Indian Music Academy Awards</a>&nbsp;and the&nbsp;<a title=\"Screen Awards\" href=\"https://en.wikipedia.org/wiki/Screen_Awards\">Screen Awards</a>.<sup id=\"cite_ref-:9_9-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:9-9\"><span class=\"cite-bracket\">[</span>9<span class=\"cite-bracket\">]</span></a></sup><sup id=\"cite_ref-:10_10-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:10-10\"><span class=\"cite-bracket\">[</span>10<span class=\"cite-bracket\">]</span></a></sup>&nbsp;The duo additionally received the Best Playback Singer (Female) award at the&nbsp;<a title=\"Filmfare Awards Punjabi\" href=\"https://en.wikipedia.org/wiki/Filmfare_Awards_Punjabi\">Filmfare Awards Punjabi</a>, for the song \"<a title=\"Channo Kamli Yaar Di\" href=\"https://en.wikipedia.org/wiki/Channo_Kamli_Yaar_Di\">Yaar Di Gali</a>\", in 2017.<sup id=\"cite_ref-:2_8-1\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:2-8\"><span class=\"cite-bracket\">[</span>8<span class=\"cite-bracket\">]</span></a></sup><sup id=\"cite_ref-:3_11-0\" class=\"reference\"><a href=\"https://en.wikipedia.org/wiki/Nooran_Sisters#cite_note-:3-11\"><span class=\"cite-bracket\">[</span>11<span class=\"cite-bracket\">]</span></a></sup></p>', 'When Sultana was seven and Jyoti five, Mir discovered their talent while they were playing at', 'Sultana and Jyoti Nooran trained from early childhood under their father, Ustad Gulshan Mir (or Meer),[12] grandson of Bibi Nooran, a Sufi singer,[13] and son of Swarn Nooran, a Sufi singer of the 1970s.[6] According to Mir, the family was on hard times, and he gave music lessons to support them.[14] The sisters were not able to obtain formal elementary education.[12]', '2025-01-12 09:18:03', '2025-01-12 09:18:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brands`
+--
+
+CREATE TABLE `brands` (
+  `id` bigint UNSIGNED NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('enable','disable') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `brands`
+--
+
+INSERT INTO `brands` (`id`, `slug`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'xiaomi', 'enable', '2025-01-13 04:50:58', '2025-01-13 04:51:03'),
+(3, 'realme', 'enable', '2025-01-13 05:50:48', '2025-01-13 05:50:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brand_translations`
+--
+
+CREATE TABLE `brand_translations` (
+  `id` bigint UNSIGNED NOT NULL,
+  `lang_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brand_id` int NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `brand_translations`
+--
+
+INSERT INTO `brand_translations` (`id`, `lang_code`, `brand_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'en', 2, 'Xiaomi', '2025-01-13 04:50:58', '2025-01-13 04:50:58'),
+(2, 'hd', 2, 'Xiaomi', '2025-01-13 04:50:58', '2025-01-13 04:50:58'),
+(3, 'en', 3, 'Realme', '2025-01-13 05:50:48', '2025-01-13 05:50:48'),
+(4, 'hd', 3, 'Realme', '2025-01-13 05:50:48', '2025-01-13 05:50:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carts`
+--
+
+CREATE TABLE `carts` (
+  `id` bigint UNSIGNED NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `session_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_id` int NOT NULL,
+  `quantity` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `user_id`, `session_id`, `product_id`, `quantity`, `created_at`, `updated_at`) VALUES
+(1, 3, 'h2LJCbaGzLnzn9UnalwIqtrmwmKV3WwHkKtW4AZC', 1, 2, '2025-01-13 12:50:49', '2025-01-13 12:56:25'),
+(2, NULL, 'h2LJCbaGzLnzn9UnalwIqtrmwmKV3WwHkKtW4AZC', 1, 2, '2025-01-13 12:54:30', '2025-01-13 12:55:31'),
+(3, 3, 'HRwJ8d3QjVveNwDjs7YdDmCpkQDwxt073wHz3cWW', 1, 1, '2025-01-13 12:56:45', '2025-01-13 12:56:45');
 
 -- --------------------------------------------------------
 
@@ -774,7 +849,9 @@ INSERT INTO `frontends` (`id`, `data_keys`, `data_values`, `created_at`, `update
 (35, 'startup_home_about_us.content', '{\"heading\":\"We provide perfect SAAS solutions & tech\",\"sub_heading\":\"During this time, we\\u2019ve built a reputation for excellent clients satisfaction\",\"description\":\"Each demo built with different. You can customize almost anything in the appearance of your website with only a few clicks.\",\"left_text\":\"Provide Skills Services\",\"right_text\":\"Support For Clients\",\"images\":{\"image_1\":\"uploads\\/website-images\\/1736139443_image_1.png\",\"image_2\":\"uploads\\/website-images\\/1736139443_image_2.png\"}}', '2025-01-06 04:54:56', '2025-01-06 04:57:52', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"We provide perfect SAAS solutions & tech\",\"sub_heading\":\"During this time, we\\u2019ve built a reputation for excellent clients satisfaction\",\"description\":\"Each demo built with different. You can customize almost anything in the appearance of your website with only a few clicks.\",\"left_text\":\"Provide Skills Services\",\"right_text\":\"Support For Clients\"}}]'),
 (36, 'tech_agency_hero_section.content', '{\"heading\":\"Delivering SAAS solutions for your startup\",\"description\":\"We transform SAAS  major sectors with powerful and adaptable digital solutions that satisfy the needs of today.\",\"left_button_text\":\"Contact us\",\"left_button_url\":\"contact-us\",\"right_button_text\":\"Our Services\",\"right_button_url\":\"services\",\"images\":{\"hero_image\":\"uploads\\/website-images\\/1736144806_hero_image.png\"}}', '2025-01-06 06:26:46', '2025-01-06 06:27:45', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Delivering SAAS solutions for your startup\",\"description\":\"We transform SAAS  major sectors with powerful and adaptable digital solutions that satisfy the needs of today.\",\"left_button_text\":\"Contact us\",\"left_button_url\":\"contact-us\",\"right_button_text\":\"Our Services\",\"right_button_url\":\"services\"}}]'),
 (37, 'tech_agency_brand_section.content', '{\"heading\":\"Empowered professionals to connect with top-tier SAAS\",\"images\":{\"image_1\":\"uploads\\/website-images\\/1736145168_image_1.png\",\"image_2\":\"uploads\\/website-images\\/1736145168_image_2.png\",\"image_3\":\"uploads\\/website-images\\/1736145168_image_3.png\",\"image_4\":\"uploads\\/website-images\\/1736145168_image_4.png\",\"image_5\":\"uploads\\/website-images\\/1736145168_image_5.png\",\"image_6\":\"uploads\\/website-images\\/1736145168_image_6.png\",\"image_7\":\"uploads\\/website-images\\/1736145168_image_7.png\"}}', '2025-01-06 06:31:20', '2025-01-06 06:32:52', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Empowered professionals to connect with top-tier SAAS\"}}]'),
-(38, 'tech_company_hero_section.content', '{\"heading\":\"We provide best tech solutions for your SAAS\",\"description\":\"We are architects of innovation, trailblazers of technological advancement, and partners in your success. As a dynamic and forward-thinking SAAS\",\"left_button_text\":\"Work With Us\",\"left_button_url\":\"contact-us\",\"right_button_text\":\"View Services\",\"right_button_url\":\"services\"}', '2025-01-06 10:31:20', '2025-01-06 10:31:20', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"We provide best tech solutions for your SAAS\",\"description\":\"We are architects of innovation, trailblazers of technological advancement, and partners in your success. As a dynamic and forward-thinking SAAS\",\"left_button_text\":\"Work With Us\",\"left_button_url\":\"contact-us\",\"right_button_text\":\"View Services\",\"right_button_url\":\"services\"}}]');
+(38, 'tech_company_hero_section.content', '{\"heading\":\"We provide best tech solutions for your SAAS\",\"description\":\"We are architects of innovation, trailblazers of technological advancement, and partners in your success. As a dynamic and forward-thinking SAAS\",\"left_button_text\":\"Work With Us\",\"left_button_url\":\"contact-us\",\"right_button_text\":\"View Services\",\"right_button_url\":\"services\"}', '2025-01-06 10:31:20', '2025-01-06 10:31:20', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"We provide best tech solutions for your SAAS\",\"description\":\"We are architects of innovation, trailblazers of technological advancement, and partners in your success. As a dynamic and forward-thinking SAAS\",\"left_button_text\":\"Work With Us\",\"left_button_url\":\"contact-us\",\"right_button_text\":\"View Services\",\"right_button_url\":\"services\"}}]'),
+(39, 'faq_section.content', '{\"heading\":\"Still have questions?\",\"description\":\"Each demo built with will look different. You can customize almost anything in the appearance of your website with only in our SAAS\",\"button_text\":\"Ask Me Anything\"}', '2025-01-08 12:27:25', '2025-01-08 12:27:25', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Still have questions?\",\"description\":\"Each demo built with will look different. You can customize almost anything in the appearance of your website with only in our SAAS\",\"button_text\":\"Ask Me Anything\"}}]'),
+(40, 'login_section.content', '{\"heading\":\"Login to your account\",\"description\":\"Welcome to our application. Bookmark and get faster reminder\"}', '2025-01-09 05:00:00', '2025-01-09 05:00:00', '[{\"language_code\":\"en\",\"values\":{\"heading\":\"Login to your account\",\"description\":\"Welcome to our application. Bookmark and get faster reminder\"}}]');
 
 -- --------------------------------------------------------
 
@@ -797,10 +874,10 @@ CREATE TABLE `global_settings` (
 INSERT INTO `global_settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
 (1, 'logo', 'uploads/website-images/logo-2025-01-02-11-48-55-5041.png', NULL, '2025-01-02 05:48:55'),
 (2, 'favicon', 'uploads/website-images/favicon-2024-12-18-03-53-38-7740.png', NULL, '2024-12-18 09:53:38'),
-(3, 'app_name', 'Optech', NULL, '2024-12-25 12:18:06'),
-(4, 'contact_message_mail', 'workzone.contact@gmail.com', NULL, '2024-12-25 12:18:06'),
-(5, 'timezone', 'Asia/Dhaka', NULL, '2024-12-25 12:18:06'),
-(6, 'selected_theme', 'main_demo', NULL, '2024-12-25 12:18:06'),
+(3, 'app_name', 'Optech', NULL, '2025-01-08 12:40:13'),
+(4, 'contact_message_mail', 'workzone.contact@gmail.com', NULL, '2025-01-08 12:40:13'),
+(5, 'timezone', 'Asia/Dhaka', NULL, '2025-01-08 12:40:13'),
+(6, 'selected_theme', 'it_solutions', NULL, '2025-01-08 12:40:13'),
 (7, 'recaptcha_status', '0', NULL, '2024-07-10 05:25:54'),
 (8, 'recaptcha_site_key', '6LdnfvkpAAAAAOoDqEeVqqOA-BIdVmYd4bBPejuq', NULL, '2024-07-10 05:25:54'),
 (9, 'recaptcha_secret_key', '6LdnfvkpAAAAAC0GBj1_ERX2y581bVRUdSpNDgJm', NULL, '2024-07-10 05:25:54'),
@@ -838,10 +915,10 @@ INSERT INTO `global_settings` (`id`, `key`, `value`, `created_at`, `updated_at`)
 (41, 'footer_logo', 'uploads/website-images/footer-logo-2025-01-02-11-37-45-6803.png', '2024-07-02 11:51:07', '2025-01-02 05:37:45'),
 (42, 'empty_image', 'uploads/website-images/empty-2024-05-17-11-50-01-3653.png', '2024-07-03 14:39:42', NULL),
 (43, 'not_found', 'uploads/website-images/not-found-2024-05-17-11-50-01-3653.png', '2024-07-08 10:07:05', NULL),
-(44, 'commission_type', 'commission', '2024-09-15 03:54:23', '2024-12-25 12:18:06'),
-(45, 'commission_per_sale', '1', '2024-09-15 03:54:23', '2024-12-25 12:18:06'),
-(46, 'commission_type', 'commission', '2024-09-15 04:46:44', '2024-12-25 12:18:06'),
-(47, 'commission_per_sale', '1', '2024-09-15 04:46:44', '2024-12-25 12:18:06'),
+(44, 'commission_type', 'commission', '2024-09-15 03:54:23', '2025-01-08 12:40:13'),
+(45, 'commission_per_sale', '1', '2024-09-15 03:54:23', '2025-01-08 12:40:13'),
+(46, 'commission_type', 'commission', '2024-09-15 04:46:44', '2025-01-08 12:40:13'),
+(47, 'commission_per_sale', '1', '2024-09-15 04:46:44', '2025-01-08 12:40:13'),
 (48, 'white_logo', 'uploads/website-images/white_logo-2025-01-02-11-54-26-4338.png', '2024-12-18 08:49:33', '2025-01-02 05:54:26');
 
 -- --------------------------------------------------------
@@ -1362,7 +1439,18 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (117, '2025_01_05_163935_create_sliders_table', 59),
 (119, '2025_01_05_163956_create_slider_translations_table', 60),
 (120, '2025_01_06_190028_create_team_translations_table', 62),
-(121, '2024_12_30_142443_create_teams_table', 63);
+(121, '2024_12_30_142443_create_teams_table', 63),
+(124, '2024_11_02_102600_create_product_galleries_table', 64),
+(125, '2024_11_02_105807_create_product_reviews_table', 64),
+(126, '2024_11_05_061817_create_carts_table', 64),
+(127, '2024_11_05_070331_create_orders_table', 65),
+(128, '2024_11_05_070354_create_order_details_table', 65),
+(129, '2024_11_05_074635_create_shipping_methods_table', 65),
+(131, '2024_11_02_102556_create_product_translations_table', 66),
+(132, '2025_01_11_170518_create_wishlists_table', 67),
+(135, '2024_01_30_110607_create_brand_translations_table', 69),
+(136, '2024_01_30_104319_create_brands_table', 70),
+(137, '2024_11_02_102551_create_products_table', 71);
 
 -- --------------------------------------------------------
 
@@ -1388,46 +1476,36 @@ CREATE TABLE `newsletters` (
 
 CREATE TABLE `orders` (
   `id` bigint UNSIGNED NOT NULL,
-  `order_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `buyer_id` int NOT NULL,
-  `seller_id` int NOT NULL,
-  `listing_id` int NOT NULL,
-  `listing_package_id` int NOT NULL,
-  `total_amount` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `package_amount` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `additional_amount` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `package_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `package_description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `delivery_date` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `revision` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `fn_website` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
-  `number_of_page` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `responsive` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
-  `source_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
-  `content_upload` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
-  `speed_optimized` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
-  `payment_method` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payment_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
-  `transaction_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `order_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
-  `approved_by_seller` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
-  `completed_by_buyer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `user_id` int NOT NULL,
+  `order_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subtotal` decimal(28,8) NOT NULL,
+  `shipping_charge` decimal(28,8) NOT NULL,
+  `total` decimal(28,8) NOT NULL,
+  `shipping_method_id` int NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_method` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_status` tinyint NOT NULL,
+  `order_status` tinyint NOT NULL,
+  `transaction_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `submit_file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `orders`
+-- Table structure for table `order_details`
 --
 
-INSERT INTO `orders` (`id`, `order_id`, `buyer_id`, `seller_id`, `listing_id`, `listing_package_id`, `total_amount`, `package_amount`, `additional_amount`, `package_name`, `package_description`, `delivery_date`, `revision`, `fn_website`, `number_of_page`, `responsive`, `source_code`, `content_upload`, `speed_optimized`, `payment_method`, `payment_status`, `transaction_id`, `order_status`, `approved_by_seller`, `completed_by_buyer`, `created_at`, `updated_at`, `submit_file`) VALUES
-(1, '1532267775', 1, 7, 2, 2, '99.00', '99.00', '0.00', 'Basic', 'Get a basic 10-screen Mobile App Design or Development', '1', '1', 'no', '4', 'yes', 'no', 'no', 'no', 'Stripe', 'success', 'txn_3PcjoYF56Pb8BOOX1O6qD8NJ', 'pending', 'pending', 'pending', '2024-07-15 07:59:19', '2024-07-15 07:59:19', NULL),
-(2, '17774696', 1, 5, 3, 3, '99.00', '99.00', '0.00', 'Basic', 'Get a basic 10-screen Mobile App Design or Development', '1', '1', 'no', '4', 'yes', 'no', 'no', 'no', 'Paypal', 'success', 'ZUJKUEUDELUGE', 'cancel_by_buyer', 'pending', 'pending', '2024-07-15 07:59:51', '2024-07-30 02:15:38', NULL),
-(3, '928264438', 1, 7, 10, 10, '99.00', '99.00', '0.00', 'Basic', 'Get a basic 10-screen Mobile App Design or Development', '1', '1', 'no', '4', 'yes', 'no', 'no', 'no', 'Mollie', 'success', 'tr_aB8CcdG94i', 'complete_by_buyer', 'approved', 'complete', '2024-07-15 08:00:28', '2024-07-15 08:09:31', NULL),
-(4, '1720558422', 1, 3, 4, 4, '99.00', '99.00', '0.00', 'Basic', 'Get a basic 10-screen Mobile App Design or Development', '1', '1', 'no', '4', 'yes', 'no', 'no', 'no', 'Stripe', 'success', 'txn_3PcjrVF56Pb8BOOX0zsOfVSe', 'complete_by_buyer', 'approved', 'complete', '2024-07-15 08:02:22', '2024-07-15 08:08:54', NULL),
-(5, '535722509', 1, 3, 4, 4, '99.00', '99.00', '0.00', 'Basic', 'Get a basic 10-screen Mobile App Design or Development', '1', '1', 'no', '4', 'yes', 'no', 'no', 'no', 'Mollie', 'success', 'tr_rY7HW8CoWJ', 'complete_by_buyer', 'approved', 'complete', '2024-07-15 08:03:26', '2024-07-15 08:11:17', NULL),
-(6, '1246543857', 1, 3, 4, 4, '30.00', '30.00', '0.00', 'Basic', 'Get a basic 10-screen Mobile App Design or Development', '1', '1', 'no', '4', 'yes', 'no', 'no', 'no', 'Paypal', 'success', 'ZUJKUEUDELUGE', 'complete_by_buyer', 'approved', 'complete', '2024-07-15 08:10:35', '2024-07-15 08:11:03', NULL);
+CREATE TABLE `order_details` (
+  `id` bigint UNSIGNED NOT NULL,
+  `order_id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `quantity` int NOT NULL,
+  `price` decimal(28,8) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1556,6 +1634,97 @@ CREATE TABLE `privacy_policies` (
 INSERT INTO `privacy_policies` (`id`, `lang_code`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'en', '<h4>01.Introduction</h4>\r\n<p>A Privacy Policy is a legal document that informs users about the data collected, how it\'s used, and how it\'s protected. It typically includes information about the type of personal our ainformation collected (such as names, email addresses, etc.), the purpose of collection, and whether the information is shared with third parties. It outlines the rights of users regarding their data, such as the right to access, correct, or delete their information.</p>\r\n<h4>02.Workzone of Privacy and Policy</h4>\r\n<p>Terms of Service (also known as Terms and Conditions or Terms of Use) set the rules and guidelines for using a particular service or platform. They establish the contractual relationship between the user and the service provider. They often include details about user behavior, content usage policies, disclaimers, limitations of liability, and procedures for dispute resolution.Users typically agree to these terms by using the service.When you visit a website or use an online service, you are usually asked to agree to both the Privacy Policy and the Terms of Service. These documents are crucial for transparency, legal compliance, and establishing the terms under which users can access and use the service.</p>\r\n<p>It\'s important for businesses and service providers to keep these documents up-to-date and easily accessible to users. If you have specific questions or concerns about privacy policies or terms of service, feel free to provide more details, and I\'ll do my best to assist you.</p>\r\n<h4>3. Protect Your Property</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown as printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuriezcs but also the on leap into as eylectronic typesetting, remaining as essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraszvxet sheets containing Lorem Ipsum our spassages, andei more recently with a desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. five centuries but also a the on leap into electronic typesetting, remaining essentially unchanged. It aswasn&rsquo;t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop our aspublishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<h4>4. What to Include in Terms and Conditions for Limitations of Liability</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the as1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five as centuries but also the on leap into as electronic ki typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of as Leitraset sheets containing Loriem Ipsum passages, our andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<p>ive centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraset as sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker our as including versions of Loriem Ipsum to make a type our as specimen book. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheets as containing Lorem Ipsum passages, andei more recently with a desktop publishing software like Aldus PageMaker including versions of Loremas Ipsum to make a type specimen book.</p>\r\n<h4>05.Pricing and Payment Policy</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the as 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five as centuries but also as the on leap into electronic as typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release as of Letraset sheets containing Lorem Ipsum our spassages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<p>five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker our as including versions of Lorem aIpsum to make a type specimen our as book. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheetsasd containing Lorem Ipsum passages, andei more recentlysl with desktop publishing software like Aldus PageMaker including versions of Loremadfsfds Ipsum to make a type specimen book.</p>\r\n<p>It has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the our 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing asou software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>', NULL, '2024-07-10 08:24:22'),
 (19, 'hd', '<h4>01.Introduction</h4>\r\n<p>A Privacy Policy is a legal document that informs users about the data collected, how it\'s used, and how it\'s protected. It typically includes information about the type of personal our ainformation collected (such as names, email addresses, etc.), the purpose of collection, and whether the information is shared with third parties. It outlines the rights of users regarding their data, such as the right to access, correct, or delete their information.</p>\r\n<h4>02.Freelance Terms of Service (Privacy and Policy)</h4>\r\n<p>Terms of Service (also known as Terms and Conditions or Terms of Use) set the rules and guidelines for using a particular service or platform. They establish the contractual relationship between the user and the service provider. They often include details about user behavior, content usage policies, disclaimers, limitations of liability, and procedures for dispute resolution.Users typically agree to these terms by using the service.When you visit a website or use an online service, you are usually asked to agree to both the Privacy Policy and the Terms of Service. These documents are crucial for transparency, legal compliance, and establishing the terms under which users can access and use the service.</p>\r\n<p>It\'s important for businesses and service providers to keep these documents up-to-date and easily accessible to users. If you have specific questions or concerns about privacy policies or terms of service, feel free to provide more details, and I\'ll do my best to assist you.</p>\r\n<h4>3. Protect Your Property</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown as printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuriezcs but also the on leap into as eylectronic typesetting, remaining as essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraszvxet sheets containing Lorem Ipsum our spassages, andei more recently with a desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. five centuries but also a the on leap into electronic typesetting, remaining essentially unchanged. It aswasn&rsquo;t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop our aspublishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<h4>4. What to Include in Terms and Conditions for Limitations of Liability</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the as1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five as centuries but also the on leap into as electronic ki typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of as Leitraset sheets containing Loriem Ipsum passages, our andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<p>ive centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraset as sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker our as including versions of Loriem Ipsum to make a type our as specimen book. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheets as containing Lorem Ipsum passages, andei more recently with a desktop publishing software like Aldus PageMaker including versions of Loremas Ipsum to make a type specimen book.</p>\r\n<h4>05.Pricing and Payment Policy</h4>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the as 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five as centuries but also as the on leap into electronic as typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release as of Letraset sheets containing Lorem Ipsum our spassages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>\r\n<p>five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker our as including versions of Lorem aIpsum to make a type specimen our as book. It wasn&rsquo;t popularised in the 1960s with the release of Letraset sheetsasd containing Lorem Ipsum passages, andei more recentlysl with desktop publishing software like Aldus PageMaker including versions of Loremadfsfds Ipsum to make a type specimen book.</p>\r\n<p>It has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn&rsquo;t popularised in the our 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing asou software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.</p>', '2024-07-10 05:34:58', '2024-07-10 05:34:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` bigint UNSIGNED NOT NULL,
+  `category_id` int NOT NULL,
+  `brand_id` int NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` decimal(8,2) NOT NULL,
+  `offer_price` decimal(8,2) DEFAULT NULL,
+  `thumbnail_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tags` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `category_id`, `brand_id`, `slug`, `price`, `offer_price`, `thumbnail_image`, `tags`, `status`, `created_at`, `updated_at`) VALUES
+(1, 13, 3, 'realme-air-buds-5-pro', '100.00', NULL, 'uploads/custom-images/listing-2025-01-13-11-54-22-7729.webp', '[\"[{\\\"value\\\":\\\"realme\\\"}\",\"{\\\"value\\\":\\\"air buds\\\"}\",\"{\\\"value\\\":\\\"headphone\\\"}\",\"{\\\"value\\\":\\\"anc earbuds\\\"}]\"]', 1, '2025-01-13 05:54:22', '2025-01-13 05:54:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_galleries`
+--
+
+CREATE TABLE `product_galleries` (
+  `id` bigint UNSIGNED NOT NULL,
+  `product_id` int NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_galleries`
+--
+
+INSERT INTO `product_galleries` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'uploads/custom-images/listing-2025-01-12-04-58-37-4956.webp', '2025-01-12 10:58:37', '2025-01-12 10:58:37'),
+(2, 1, 'uploads/custom-images/listing-2025-01-12-04-58-37-6826.webp', '2025-01-12 10:58:37', '2025-01-12 10:58:37');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_reviews`
+--
+
+CREATE TABLE `product_reviews` (
+  `id` bigint UNSIGNED NOT NULL,
+  `user_id` bigint UNSIGNED NOT NULL,
+  `product_id` int NOT NULL,
+  `rating` int NOT NULL,
+  `reviews` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_translations`
+--
+
+CREATE TABLE `product_translations` (
+  `id` bigint UNSIGNED NOT NULL,
+  `product_id` int NOT NULL,
+  `lang_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seo_title` text COLLATE utf8mb4_unicode_ci,
+  `seo_description` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_translations`
+--
+
+INSERT INTO `product_translations` (`id`, `product_id`, `lang_code`, `name`, `description`, `seo_title`, `seo_description`, `created_at`, `updated_at`) VALUES
+(1, 1, 'en', 'Realme Air Buds 5 pro', '<p>Feature&nbsp; :</p>\r\n<ul>\r\n<li>10mm Dynamic Bass: Indulge into rich sound tones, clear vocals and enhanced bass with realme TechLife Buds T100 as they come with a 10mm dynamic bass driver.</li>\r\n<li>AI ENC for Calls: The realme TechLife Buds T100 features AI ENC technology to eliminate background noise, so you can listen to music without being distracted by the surroundings.</li>\r\n<li>28 Hours Total Playback: Whether you&rsquo;re watching your favourite shows, blazing through your playlist, or enjoying the outdoors, realme TechLife Buds T100 keeps you connected and comfortable all day long.</li>\r\n<li>88ms Super Low Latency: With the realme TechLife Buds T100 precise audio and visual synchronization, you can play games in a fun way and switch on the gaming mode that allows you to play games with super low latency.</li>\r\n<li>Real HD Sound: The realme TechLife Buds T100 provides &ldquo;Studio-Level&rdquo; sound. Experience Real HD sound on the realme Link App.</li>\r\n<li>realme Link App: With realme Link, you&rsquo;ll be able to customize EQ settings, assign customized touch commands, and perform more tailored functions.</li>\r\n</ul>', 'Realme TechLife Buds T100 True Wireless Earbuds', 'Realme TechLife Buds T100 True Wireless Earbuds', '2025-01-12 06:23:48', '2025-01-13 05:58:29'),
+(2, 1, 'hd', 'Realme Air Buds 5 pro', '<p>Feature&nbsp; :</p>\r\n<ul>\r\n<li>\r\n10mm Dynamic Bass: Indulge into rich sound tones, clear vocals and enhanced bass with realme TechLife Buds T100 as they come with a 10mm dynamic bass driver.\r\n</li>\r\n<li>\r\nAI ENC for Calls: The realme TechLife Buds T100 features AI ENC technology to eliminate background noise, so you can listen to music without being distracted by the surroundings.\r\n</li>\r\n<li>\r\n28 Hours Total Playback: Whether you&rsquo;re watching your favourite shows, blazing through your playlist, or enjoying the outdoors, realme TechLife Buds T100 keeps you connected and comfortable all day long.\r\n</li>\r\n<li>\r\n88ms Super Low Latency: With the realme TechLife Buds T100 precise audio and visual synchronization, you can play games in a fun way and switch on the gaming mode that allows you to play games with super low latency.\r\n</li>\r\n<li>\r\nReal HD Sound: The realme TechLife Buds T100 provides &ldquo;Studio-Level&rdquo; sound. Experience Real HD sound on the realme Link App.\r\n</li>\r\n<li>\r\nrealme Link App: With realme Link, you&rsquo;ll be able to customize EQ settings, assign customized touch commands, and perform more tailored functions.\r\n</li>\r\n</ul>', 'Realme TechLife Buds T100 True Wireless Earbuds', 'Realme TechLife Buds T100 True Wireless Earbuds\r\nFeature  :', '2025-01-12 06:23:48', '2025-01-13 05:54:22');
 
 -- --------------------------------------------------------
 
@@ -1765,6 +1934,28 @@ INSERT INTO `seo_settings` (`id`, `page_name`, `seo_title`, `seo_description`, `
 (9, 'Privacy Policy', 'Privacy Policy', 'Privacy Policy', NULL, NULL),
 (10, 'Service', 'Service', 'Service', NULL, NULL),
 (11, 'Teams', 'Teams', 'Teams', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shipping_methods`
+--
+
+CREATE TABLE `shipping_methods` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` decimal(28,8) NOT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `shipping_methods`
+--
+
+INSERT INTO `shipping_methods` (`id`, `name`, `price`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Free', '0.00000000', 1, '2025-01-12 07:28:05', '2025-01-12 07:28:05');
 
 -- --------------------------------------------------------
 
@@ -2235,7 +2426,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `kyc_status`, `phone`, `address`, `gender`, `image`, `hourly_payment`, `designation`, `is_top_seller`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `status`, `is_banned`, `is_seller`, `about_me`, `language`, `university_name`, `university_location`, `university_time_period`, `school_name`, `school_location`, `school_time_period`, `skills`, `verification_token`, `provider`, `provider_id`, `forget_password_token`, `feez_status`, `online_status`, `online`) VALUES
 (1, 'John Doe', 'john-doe-20240710113541', 'buyer@gmail.com', 0, '125-985-4587', 'Los Angeles, CA, USA', 'Male', 'uploads/custom-images/john-doe-2024-07-10-04-01-57-4496.png', '0.00', 'Web Developer', 'disable', '2024-07-10 05:35:57', '$2y$10$hPSxen6nSk7nTL6s8hxoFe3rZXYjLmU/UfjjJWLxVo1Jig30oi0Hu', NULL, '2024-07-10 05:35:41', '2024-07-10 10:04:36', 'enable', 'no', '0', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', 0),
-(3, 'David Richard', 'david-richard-20240710113753', 'seller@gmail.com', 1, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/david-richard-2024-07-10-11-40-49-2937.png', '10.00', 'Laravel Developer', 'enable', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', 'K2agyG2bHLnVgew5zP2sfmmn3CLwpGJDCKRurWdLAx5MsM8kRfdZV4x8AidN', '2024-07-10 05:37:53', '2024-08-29 08:39:51', 'enable', 'no', '1', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;}]', 'North South University', 'Aperiam deserunt dol, Burundi', '2015 - 2020', 'Independent University BD', 'Aperiam deserunt dol, Burundi', '2020-2024', '[{&quot;value&quot;:&quot;Php&quot;},{&quot;value&quot;:&quot;Laravel&quot;},{&quot;value&quot;:&quot;Html&quot;},{&quot;value&quot;:&quot;Css&quot;},{&quot;value&quot;:&quot;Javascript&quot;}]', NULL, NULL, NULL, NULL, '0', '1', 1),
+(3, 'David Richard', 'david-richard-20240710113753', 'seller@gmail.com', 1, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/david-richard-2024-07-10-11-40-49-2937.png', '10.00', 'Laravel Developer', 'enable', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', '7fvnVrohEJtS5a2caeXYwUX7VAp21jrkop1Istplc186ft8PdxTEFMZBV5Rl', '2024-07-10 05:37:53', '2025-01-13 12:55:48', 'enable', 'no', '1', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;}]', 'North South University', 'Aperiam deserunt dol, Burundi', '2015 - 2020', 'Independent University BD', 'Aperiam deserunt dol, Burundi', '2020-2024', '[{&quot;value&quot;:&quot;Php&quot;},{&quot;value&quot;:&quot;Laravel&quot;},{&quot;value&quot;:&quot;Html&quot;},{&quot;value&quot;:&quot;Css&quot;},{&quot;value&quot;:&quot;Javascript&quot;}]', NULL, NULL, NULL, NULL, '0', '1', 1),
 (4, 'David Simmonsss', 'david-simmons-20240710113753', 'seller2@gmail.com', 1, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/david-simmonsss-2024-07-10-11-42-35-3948.png', '10.00', 'Laravel Developer', 'enable', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', NULL, '2024-07-10 05:37:53', '2024-08-29 08:09:42', 'enable', 'no', '1', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Arabic&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', 'North South University', 'Aperiam deserunt dol, Burundi', '2015 - 2020', 'Independent University BD', 'Aperiam deserunt dol, Burundi', '2020-2024', '[{&quot;value&quot;:&quot;Php&quot;},{&quot;value&quot;:&quot;Laravel&quot;},{&quot;value&quot;:&quot;Html&quot;},{&quot;value&quot;:&quot;Css&quot;},{&quot;value&quot;:&quot;Javascript&quot;}]', NULL, NULL, NULL, NULL, '0', '1', 0),
 (5, 'Naymr Jhon', 'naymr-jhon-20240710113753', 'seller3@gmail.com', 0, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/naymr-jhon-2024-07-10-11-43-55-9474.png', '15.00', 'Graphic Designer', 'enable', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', NULL, '2024-07-10 05:37:53', '2024-07-10 05:43:55', 'enable', 'no', '1', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Arabic&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', 'North South University', 'Aperiam deserunt dol, Burundi', '2015 - 2020', 'Independent University BD', 'Aperiam deserunt dol, Burundi', '2020-2024', '[{&quot;value&quot;:&quot;Php&quot;},{&quot;value&quot;:&quot;Laravel&quot;},{&quot;value&quot;:&quot;Html&quot;},{&quot;value&quot;:&quot;Css&quot;},{&quot;value&quot;:&quot;Javascript&quot;}]', NULL, NULL, NULL, NULL, '0', '0', 0),
 (6, 'Madge Jordan', 'madge-jordan-20240710113753', 'seller4@gmail.com', 0, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/madge-jordan-2024-07-10-11-45-29-6149.png', '20.00', 'Graphic Designer', 'enable', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', NULL, '2024-07-10 05:37:53', '2024-07-10 05:45:29', 'enable', 'no', '1', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Arabic&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', 'North South University', 'Aperiam deserunt dol, Burundi', '2015 - 2020', 'Independent University BD', 'Aperiam deserunt dol, Burundi', '2020-2024', '[{&quot;value&quot;:&quot;Php&quot;},{&quot;value&quot;:&quot;Laravel&quot;},{&quot;value&quot;:&quot;Html&quot;},{&quot;value&quot;:&quot;Css&quot;},{&quot;value&quot;:&quot;Javascript&quot;}]', NULL, NULL, NULL, NULL, '0', '0', 0),
@@ -2305,8 +2496,8 @@ INSERT INTO `wallet_transactions` (`id`, `buyer_id`, `amount`, `payment_gateway`
 
 CREATE TABLE `wishlists` (
   `id` bigint UNSIGNED NOT NULL,
-  `item_id` int NOT NULL,
-  `user_id` int NOT NULL,
+  `user_id` bigint UNSIGNED NOT NULL,
+  `product_id` bigint UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2315,11 +2506,8 @@ CREATE TABLE `wishlists` (
 -- Dumping data for table `wishlists`
 --
 
-INSERT INTO `wishlists` (`id`, `item_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2024-07-15 09:27:46', '2024-07-15 09:27:46'),
-(2, 3, 1, '2024-07-15 09:27:48', '2024-07-15 09:27:48'),
-(3, 5, 1, '2024-07-15 09:27:49', '2024-07-15 09:27:49'),
-(4, 6, 1, '2024-07-15 09:27:51', '2024-07-15 09:27:51');
+INSERT INTO `wishlists` (`id`, `user_id`, `product_id`, `created_at`, `updated_at`) VALUES
+(1, 3, 1, '2025-01-13 10:07:46', '2025-01-13 10:07:46');
 
 -- --------------------------------------------------------
 
@@ -2397,6 +2585,24 @@ ALTER TABLE `blog_comments`
 -- Indexes for table `blog_translations`
 --
 ALTER TABLE `blog_translations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `brand_translations`
+--
+ALTER TABLE `brand_translations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `carts`
+--
+ALTER TABLE `carts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2605,6 +2811,12 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -2634,6 +2846,30 @@ ALTER TABLE `personal_access_tokens`
 -- Indexes for table `privacy_policies`
 --
 ALTER TABLE `privacy_policies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_galleries`
+--
+ALTER TABLE `product_galleries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_reviews`
+--
+ALTER TABLE `product_reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_translations`
+--
+ALTER TABLE `product_translations`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2676,6 +2912,12 @@ ALTER TABLE `seller_withdraws`
 -- Indexes for table `seo_settings`
 --
 ALTER TABLE `seo_settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `shipping_methods`
+--
+ALTER TABLE `shipping_methods`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2803,7 +3045,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `blog_categories`
@@ -2827,7 +3069,25 @@ ALTER TABLE `blog_comments`
 -- AUTO_INCREMENT for table `blog_translations`
 --
 ALTER TABLE `blog_translations`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `brand_translations`
+--
+ALTER TABLE `brand_translations`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `carts`
+--
+ALTER TABLE `carts`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -2935,7 +3195,7 @@ ALTER TABLE `footer_translations`
 -- AUTO_INCREMENT for table `frontends`
 --
 ALTER TABLE `frontends`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `global_settings`
@@ -3019,7 +3279,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT for table `newsletters`
@@ -3031,7 +3291,13 @@ ALTER TABLE `newsletters`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -3050,6 +3316,30 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `privacy_policies`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `product_galleries`
+--
+ALTER TABLE `product_galleries`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `product_reviews`
+--
+ALTER TABLE `product_reviews`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `product_translations`
+--
+ALTER TABLE `product_translations`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `projects`
@@ -3092,6 +3382,12 @@ ALTER TABLE `seller_withdraws`
 --
 ALTER TABLE `seo_settings`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `shipping_methods`
+--
+ALTER TABLE `shipping_methods`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sliders`
@@ -3181,7 +3477,7 @@ ALTER TABLE `wallet_transactions`
 -- AUTO_INCREMENT for table `wishlists`
 --
 ALTER TABLE `wishlists`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `withdraw_methods`

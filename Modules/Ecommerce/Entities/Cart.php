@@ -10,7 +10,6 @@ class Cart extends Model
 {
 
     public $guarded = ['id'];
-
     public function product()
     {
         return $this->belongsTo(Product::class, 'product_id');
@@ -19,7 +18,6 @@ class Cart extends Model
     {
         return $this->belongsTo(User::class);
     }
-
     public static function insertUserToCart($userId, $sessionId)
     {
         try {

@@ -10,9 +10,7 @@ use App\Models\PaypalPayment;
 use App\Models\PaystackAndMollie;
 use App\Models\RazorpayPayment;
 use App\Models\StripePayment;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Session;
 use Modules\Ecommerce\Entities\Cart;
 use Modules\Ecommerce\Entities\ShippingMethod;
@@ -21,7 +19,6 @@ use Auth, Stripe, Mail, Str, Exception, Redirect;
 
 class CheckoutController extends Controller
 {
-
     public function index()
     {
         if(auth()->user()){

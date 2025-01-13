@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Session;
+use Modules\Ecommerce\Entities\Cart;
 use Modules\Listing\Entities\Listing;
 use View;
 use Cache;
@@ -56,12 +56,7 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function($view){
 
-//            if (Session::has('front_lang')) {
-//                app()->setLocale(Session::get('front_lang'));
-//            }
-
             $general_setting = Cache::get('setting');
-
             $language_list = Language::where('status', 1)->get();
             $currency_list = Currency::where('status', 'active')->get();
             $custom_pages = CustomPage::where('status', 1)->get();
@@ -71,6 +66,8 @@ class AppServiceProvider extends ServiceProvider
             $footer_blog_categories = BlogCategory::where('status', 1)->latest()->take(7)->get();
 
             $footer = Footer::first();
+            $userId = auth()->id();
+            $totalCart = Cart::where('user_id', $userId)->count();
 
             $view->with('services', $services);
             $view->with('general_setting', $general_setting);

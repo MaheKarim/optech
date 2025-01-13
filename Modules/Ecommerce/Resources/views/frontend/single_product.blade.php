@@ -73,8 +73,9 @@
                                 <input type="text" value="1" />
                                 <span class="optech-product-plus"><i class="ri-add-line"></i></span>
                             </div>
-                            <a class="optech-product-btn" href="#" data-text="Add to Cart"><span class="btn-wraper">Add to
-                  Cart</span></a>
+                            <button class="optech-product-btn cart-add-btn" data-product-id="{{ $product->id }}" data-text="{{ __('Add to Cart') }}">
+                                <span class="btn-wraper">{{ __('Add to Cart') }}</span>
+                            </button>
                         </div>
                         <div class="optech-product-info">
                             <h5>{{ __('Quick info') }}</h5>
@@ -105,11 +106,11 @@
                 <ul class="nav nav-pills" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-                                type="button" role="tab" aria-controls="pills-home" aria-selected="true">Description</button>
+                                type="button" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('Description') }}</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
-                                type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Reviews (0)</button>
+                                type="button" role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('Reviews') }} (0)</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -199,7 +200,7 @@
                                 <div class="write_review_box_form_item">
                                     <div class="write_review_box_form_inner">
                                         <div class="optech-checkout-field mb-0">
-                                            <label>Write your message</label>
+                                            <label>{{ __('Write your message') }}</label>
                                             <textarea name="textarea"></textarea>
                                         </div>
                                     </div>

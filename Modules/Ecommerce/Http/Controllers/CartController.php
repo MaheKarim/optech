@@ -45,7 +45,7 @@ class CartController extends Controller
 
             $product = Product::active()->findOrFail($request->product_id);
 
-            $userId = auth()->id();
+           $userId = auth()->id();
            $sessionId = session()->get('session_id', session()->getId());
            session()->put('session_id', session()->getId());
 
