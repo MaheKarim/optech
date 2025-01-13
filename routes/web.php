@@ -20,6 +20,7 @@ use App\Http\Controllers\Buyer\ProfileController as BuyerProfileController;
 use App\Http\Controllers\Auth\RegisterController as BuyerRegisterController;
 use App\Http\Controllers\Auth\RegisterController as SellerRegisterController;
 use App\Http\Controllers\Seller\ProfileController as SellerProfileController;
+use Modules\Wishlist\App\Http\Controllers\WishlistController;
 
 Route::group(['middleware' => [ 'HtmlSpecialchars', 'MaintenanceMode']], function () {
 
@@ -182,12 +183,9 @@ Route::group(['middleware' => [ 'HtmlSpecialchars', 'MaintenanceMode']], functio
 
             Route::post('/update-status', [SellerProfileController::class, 'updateStatus'])->name('update-status');
 
+            Route::post('wishlist-set', [WishlistController::class, 'setWishlist']);
 
         });
-
-
-
-
 
     });
 

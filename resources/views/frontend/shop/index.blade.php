@@ -8,7 +8,7 @@
             <h1 class="post__title">Shop</h1>
             <nav class="breadcrumbs">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
                     <li aria-current="page"> Shop</li>
                 </ul>
             </nav>
@@ -31,12 +31,12 @@
                                 <input type="text" placeholder="Search">
                                 <button type="button" class="search_btn">
                                     <span>
-                    <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                          d="M16.031 14.6168L20.3137 18.8995L18.8995 20.3137L14.6168 16.031C13.0769 17.263 11.124 18 9 18C4.032 18 0 13.968 0 9C0 4.032 4.032 0 9 0C13.968 0 18 4.032 18 9C18 11.124 17.263 13.0769 16.031 14.6168ZM14.0247 13.8748C15.2475 12.6146 16 10.8956 16 9C16 5.1325 12.8675 2 9 2C5.1325 2 2 5.1325 2 9C2 12.8675 5.1325 16 9 16C10.8956 16 12.6146 15.2475 13.8748 14.0247L14.0247 13.8748Z"
-                          fill="#0A165E"/>
-                    </svg>
-                  </span>
+                                        <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path
+                                              d="M16.031 14.6168L20.3137 18.8995L18.8995 20.3137L14.6168 16.031C13.0769 17.263 11.124 18 9 18C4.032 18 0 13.968 0 9C0 4.032 4.032 0 9 0C13.968 0 18 4.032 18 9C18 11.124 17.263 13.0769 16.031 14.6168ZM14.0247 13.8748C15.2475 12.6146 16 10.8956 16 9C16 5.1325 12.8675 2 9 2C5.1325 2 2 5.1325 2 9C2 12.8675 5.1325 16 9 16C10.8956 16 12.6146 15.2475 13.8748 14.0247L14.0247 13.8748Z"
+                                              fill="#0A165E"/>
+                                        </svg>
+                                      </span>
                                 </button>
                             </form>
                         </div>
@@ -111,8 +111,10 @@
                                         <a class="optech-shop-btn" href="my-cart.html" data-text="Add to Cart"><span
                                                 class="btn-wraper">Add to Cart</span></a>
                                         <a class="optech-shop-badge" href="#">{{ __('Sale') }}</a>
-                                        <a href="#" class="wishlist_icon">
-                                            <span>
+{{--                                        <a href="javascript:void(0)" class="wishlist_icon" onclick="addToWishlist({{ $product->id }})">--}}
+                                            <a href="javascript:void(0)"
+                                               class="wishlist_icon {{ in_array($product->id, auth()->user()->wishlists->pluck('product_id')->toArray()) ? 'active' : '' }}"
+                                               onclick="addToWishlist({{ $product->id }}, this)">                                            <span>
                                               <svg width="22" height="20" viewBox="0 0 22 20" fill="none"
                                                    xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -160,7 +162,43 @@
 @endsection
 @push('style_section')
     <link href="{{ asset('frontend/assets/css/nouislider.min.css') }}" rel="stylesheet"/>
+    <style>
+        .wishlist_icon svg path {
+            stroke: #000;  /* default outline color */
+            fill: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .wishlist_icon:hover svg path {
+            fill: #ff4d4d;  /* hover fill color */
+            stroke: #ff4d4d;
+        }
+
+        .wishlist_icon.active svg path {
+            fill: #ff4d4d;  /* active state fill color */
+            stroke: #ff4d4d;
+        }
+    </style>
 @endpush
 @push('js_section')
     <script src="{{ asset('frontend/assets/js/nouislider.min.js') }}"></script>
+    <script>
+        function addToWishlist(productId, element) {
+            $.ajax({
+                url: "{{ route('user.wishlist.store') }}",
+                type: "POST",
+                data: {
+                    product_id: productId,
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    $(element).toggleClass('active');
+                    toastr.success(response.message);
+                },
+                error: function(xhr) {
+                    toastr.error(xhr.responseJSON.message);
+                }
+            });
+        }
+    </script>
 @endpush

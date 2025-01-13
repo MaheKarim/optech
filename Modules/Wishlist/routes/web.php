@@ -14,7 +14,7 @@ use Modules\Wishlist\App\Http\Controllers\WishlistController;
 |
 */
 
-Route::group(['as' => 'buyer.', 'prefix' => 'buyer', 'middleware' => ['auth:web', 'MaintenanceMode']], function () {
+Route::group(['as' => 'user.', 'prefix' => 'user/', 'middleware' => ['auth:web', 'MaintenanceMode']], function () {
     Route::resource('wishlist', WishlistController::class);
 });
 

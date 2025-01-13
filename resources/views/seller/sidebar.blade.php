@@ -33,7 +33,7 @@
         </div>
         <ul class="dashbord_sidebar_menu">
             <li>
-                <a href="{{ route('user.dashboard') }}" class="active">
+                <a href="{{ route('user.dashboard') }}" class="{{ request()->routeIs('user.dashboard') ? 'active' : '' }}">
                     <span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li>
-                <a href="./dashbord-wishlist.html">
+                <a href="{{ route('user.wishlist.index') }}" class="{{ request()->routeIs('user.wishlist.*') ? 'active' : '' }}">
                     <span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@
                                 stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
                         </svg>
                     </span>
-                    Wishlist
+                    {{ __('Wishlist') }}
                 </a>
             </li>
             <li>

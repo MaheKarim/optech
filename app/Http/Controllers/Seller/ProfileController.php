@@ -186,7 +186,6 @@ class ProfileController extends Controller
 
     }
 
-
     public function order_rejected(Request $request, $id){
 
         $user = Auth::guard('web')->user();
@@ -216,15 +215,9 @@ class ProfileController extends Controller
 
     }
 
-
-
-
-
-
     public function account_delete(){
         return view('seller.account_delete');
     }
-
 
     public function confirm_account_delete(){
 
@@ -291,7 +284,6 @@ class ProfileController extends Controller
 
     }
 
-
     public function order_submission(Request $request, $id){
         $user = Auth::guard('web')->user();
 
@@ -328,8 +320,4 @@ class ProfileController extends Controller
 
         return response()->json(['success' => true, 'status' => $user->online_status]);
     }
-
-
-
-
 }

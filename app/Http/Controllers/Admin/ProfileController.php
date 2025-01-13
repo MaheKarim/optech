@@ -12,12 +12,10 @@ use App\Http\Requests\PasswordChangeRequest;
 
 class ProfileController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth:admin');
     }
-
 
     public function edit_profile(){
 
@@ -25,7 +23,6 @@ class ProfileController extends Controller
 
         return view('admin.edit_profile', ['admin' => $admin]);
     }
-
 
     public function profile_update(EditProfileRequest $request){
 
@@ -83,9 +80,4 @@ class ProfileController extends Controller
 
 
     }
-
-
-
-
-
 }
