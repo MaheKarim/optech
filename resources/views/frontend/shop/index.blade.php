@@ -115,7 +115,7 @@
                                         </button>
                                         <a class="optech-shop-badge" href="#">{{ __('Sale') }}</a>
                                         <a href="javascript:void(0)"
-                                           class="wishlist_icon {{ auth()->check() && in_array($product->id, auth()->user()->wishlists->pluck('product_id')->toArray()) ? 'active' : '' }}"
+                                           class="wishlist_icon cart-add-btn {{ auth()->check() && in_array($product->id, auth()->user()->wishlists->pluck('product_id')->toArray()) ? 'active' : '' }}"
                                            onclick="addToWishlist({{ $product->id }}, this)">
 
                                                 <span>

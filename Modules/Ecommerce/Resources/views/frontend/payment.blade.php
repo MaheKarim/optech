@@ -1,36 +1,540 @@
-@extends('layout')
+@extends('master_layout')
+
 @section('title')
-<title>{{ $seo_setting->seo_title }}</title>
-<meta name="title" content="{{ $seo_setting->seo_title }}">
-<meta name="description" content="{!! strip_tags(clean($seo_setting->seo_description)) !!}">
+    <title>{{ $seo_setting->seo_title }}</title>
+    <meta name="title" content="{{ $seo_setting->seo_title }}">
+    <meta name="description" content="{!! strip_tags(clean($seo_setting->seo_description)) !!}">
 @endsection
 
-@section('body-content')
+@section('new-layout')
 <main>
-    <div class="inner-bg" style="background-image:  url({{ asset($breadcrumb) }});">
+    <div class="optech-breadcrumb" style="background-image: url({{ asset('frontend/assets/img/breadcrumb/breadcrumb.png') }})">
+        <div class="container">
+            <h1 class="post__title">{{ __('Payment') }}</h1>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
+                    <li aria-current="page">{{ __('Payment') }}</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- Breadcrumb Part End  -->
+    <!-- End breadcrumb -->
+
+    <div class="section optech-section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="inner-bg-txt">
-                        <h1>{{ __('translate.Payment') }}</h1>
-                        <ul>
-                            <li><a href="{{ route('home') }}">{{ __('translate.Home') }}</a></li>
-                            <li><span>
-                                    <svg width="6" height="12" viewBox="0 0 6 12" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M0.633816 2.7705e-08C0.446997 0.0532405 0.28353 0.143084 0.158011 0.319443C-0.0492418 0.618921 -0.0550799 1.0515 0.155092 1.35098C0.195958 1.40755 0.239744 1.46411 0.286449 1.51735C1.56499 2.97481 2.84645 4.4356 4.125 5.89306C4.15419 5.92633 4.18922 5.95295 4.24176 6.03281C4.20673 6.0561 4.16295 6.06941 4.13375 6.10269C2.84062 7.57346 1.5504 9.04755 0.257258 10.5183C0.0295721 10.7779 -0.0579994 11.0773 0.0412483 11.4367C0.187201 11.9591 0.776848 12.1721 1.16216 11.8427C1.20595 11.8061 1.24682 11.7628 1.28768 11.7196C2.7764 10.0225 4.26511 8.32881 5.75091 6.63177C6.02238 6.32231 6.07492 5.92966 5.89394 5.57361C5.85015 5.4871 5.78594 5.41056 5.72464 5.34069C4.27971 3.69356 2.83478 2.04976 1.39277 0.399304C1.23222 0.216289 1.06875 0.0532405 0.838149 3.66367e-08C0.771011 3.3702e-08 0.703873 3.07673e-08 0.633816 2.7705e-08Z" />
-                                    </svg>
+                <div class="col-lg-6">
+                    <div class="payment_box">
 
-                                </span></li>
-                            <li><a href="#">{{ __('translate.Payment') }}</a></li>
-                        </ul>
+                        <div class="payment_box_head">
+                            <h5>{{ __('Select Payment Method') }}</h5>
+                        </div>
+
+                        <div class="payment_select_item_main">
+                            <div class="payment_select_item_box">
+                                <a href="#" class="payment_select_item">
+                                    <div class="payment_select_item_thumb">
+                                        <img src="{{ asset('frontend/assets/img/logo/paypal.svg') }}" class="w-100" alt="">
+                                    </div>
+                                </a>
+
+                                <div class="payment_select_modal">
+                                    <div class="payment_select_modal_head">
+                                        <h2>Payment From</h2>
+                                        <button type="button" class="close_modal_btn">
+                                            <span>
+                                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16 1L1.00081 16" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                    <path d="M16 16L1.00081 1.00001" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <form class="payment_select_modal_form">
+                                        <div class="payment_select_modal_form_item mt-0">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card Holder
+                                                    Name*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Name here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card
+                                                    Number*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Number here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Expiry*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="DD/MM/YY">
+                                            </div>
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">CVV*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="cvv here">
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="optech-default-btn" href="contact-us.html"
+                                                data-text="Payment Now">
+                                            <span class="btn-wraper">Payment Now</span>
+                                        </button>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="payment_select_item_box">
+                                <a href="#" class="payment_select_item">
+                                    <div class="payment_select_item_thumb">
+                                        <img src="{{ asset('frontend/assets/img/logo/stripe.svg') }}" class="w-100" alt="Image">
+                                    </div>
+                                </a>
+
+                                <div class="payment_select_modal">
+                                    <div class="payment_select_modal_head">
+                                        <h2>{{ __('Payment From') }}</h2>
+                                        <button type="button" class="close_modal_btn">
+                                            <span>
+                                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16 1L1.00081 16" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                    <path d="M16 16L1.00081 1.00001" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <form class="payment_select_modal_form">
+                                        <div class="payment_select_modal_form_item mt-0">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card Holder
+                                                    Name*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Name here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card
+                                                    Number*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Number here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Expiry*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="DD/MM/YY">
+                                            </div>
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">CVV*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="cvv here">
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="optech-default-btn" href="contact-us.html"
+                                                data-text="Payment Now">
+                                            <span class="btn-wraper">Payment Now</span>
+                                        </button>
+                                    </form>
+                                </div>
+
+                            </div>
+
+                            <div class="payment_select_item_box">
+                                <a href="#" class="payment_select_item">
+                                    <div class="payment_select_item_thumb">
+                                        <img src="{{ asset('frontend/assets/img/logo/mollie.svg') }}" class="w-100" alt="">
+                                    </div>
+                                </a>
+
+                                <div class="payment_select_modal">
+                                    <div class="payment_select_modal_head">
+                                        <h2>Payment From</h2>
+                                        <button type="button" class="close_modal_btn">
+                                            <span>
+                                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16 1L1.00081 16" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                    <path d="M16 16L1.00081 1.00001" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <form class="payment_select_modal_form">
+                                        <div class="payment_select_modal_form_item mt-0">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card Holder
+                                                    Name*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Name here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card
+                                                    Number*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Number here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Expiry*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="DD/MM/YY">
+                                            </div>
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">CVV*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="cvv here">
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="optech-default-btn" href="contact-us.html"
+                                                data-text="Payment Now">
+                                            <span class="btn-wraper">Payment Now</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="payment_select_item_box">
+                                <a href="#" class="payment_select_item">
+                                    <div class="payment_select_item_thumb">
+                                        <img src="{{ asset('frontend/assets/img/logo/insta.svg') }}" class="w-100" alt="">
+                                    </div>
+                                </a>
+
+                                <div class="payment_select_modal">
+                                    <div class="payment_select_modal_head">
+                                        <h2>Payment From</h2>
+                                        <button type="button" class="close_modal_btn">
+                                            <span>
+                                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16 1L1.00081 16" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                    <path d="M16 16L1.00081 1.00001" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <form class="payment_select_modal_form">
+                                        <div class="payment_select_modal_form_item mt-0">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card Holder
+                                                    Name*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Name here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card
+                                                    Number*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Number here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Expiry*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="DD/MM/YY">
+                                            </div>
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">CVV*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="cvv here">
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="optech-default-btn" href="contact-us.html"
+                                                data-text="Payment Now">
+                                            <span class="btn-wraper">Payment Now</span>
+                                        </button>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="payment_select_item_box">
+                                <a href="#" class="payment_select_item">
+                                    <div class="payment_select_item_thumb">
+                                        <img src="{{ asset('frontend/assets/img/logo/raza.svg') }}" class="w-100" alt="">
+                                    </div>
+                                </a>
+
+                                <div class="payment_select_modal">
+                                    <div class="payment_select_modal_head">
+                                        <h2>Payment From</h2>
+                                        <button type="button" class="close_modal_btn">
+                                            <span>
+                                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16 1L1.00081 16" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                    <path d="M16 16L1.00081 1.00001" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <form class="payment_select_modal_form">
+                                        <div class="payment_select_modal_form_item mt-0">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card Holder
+                                                    Name*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Name here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card
+                                                    Number*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Number here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Expiry*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="DD/MM/YY">
+                                            </div>
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">CVV*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="cvv here">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="optech-default-btn" href="contact-us.html"
+                                                data-text="Payment Now">
+                                            <span class="btn-wraper">Payment Now</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="payment_select_item_box">
+                                <a href="#" class="payment_select_item">
+                                    <div class="payment_select_item_thumb">
+                                        <img src="{{ asset('frontend/assets/img/logo/ssl.svg') }}" class="w-100" alt="">
+                                    </div>
+                                </a>
+
+                                <div class="payment_select_modal">
+                                    <div class="payment_select_modal_head">
+                                        <h2>Payment From</h2>
+                                        <button type="button" class="close_modal_btn">
+                                            <span>
+                                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16 1L1.00081 16" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                    <path d="M16 16L1.00081 1.00001" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <form class="payment_select_modal_form">
+                                        <div class="payment_select_modal_form_item mt-0">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card Holder
+                                                    Name*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Name here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card
+                                                    Number*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Number here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Expiry*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="DD/MM/YY">
+                                            </div>
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">CVV*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="cvv here">
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="optech-default-btn" href="contact-us.html"
+                                                data-text="Payment Now">
+                                            <span class="btn-wraper">Payment Now</span>
+                                        </button>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="payment_select_item_box">
+                                <a href="#" class="payment_select_item">
+                                    <div class="payment_select_item_thumb">
+                                        <img src="{{ asset('frontend/assets/img/logo/paystack.png') }}" alt="">
+                                    </div>
+                                </a>
+
+                                <div class="payment_select_modal">
+                                    <div class="payment_select_modal_head">
+                                        <h2>Payment From</h2>
+                                        <button type="button" class="close_modal_btn">
+                                            <span>
+                                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16 1L1.00081 16" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                    <path d="M16 16L1.00081 1.00001" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <form class="payment_select_modal_form">
+                                        <div class="payment_select_modal_form_item mt-0">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card Holder
+                                                    Name*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Name here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Card
+                                                    Number*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="Number here">
+                                            </div>
+                                        </div>
+                                        <div class="payment_select_modal_form_item">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Expiry*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="DD/MM/YY">
+                                            </div>
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">CVV*</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                       placeholder="cvv here">
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="optech-default-btn" href="contact-us.html"
+                                                data-text="Payment Now">
+                                            <span class="btn-wraper">Payment Now</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="payment_select_item_box">
+                                <a href="#" class="payment_select_item">
+                                    <div class="payment_select_item_thumb">
+                                        <img src="{{ asset('frontend/assets/img/logo/bank.svg') }}" alt="Image">
+                                    </div>
+                                </a>
+
+                                <div class="payment_select_modal">
+                                    <div class="payment_select_modal_head">
+                                        <h2>Bank Payment</h2>
+                                        <button type="button" class="close_modal_btn">
+                                            <span>
+                                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16 1L1.00081 16" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                    <path d="M16 16L1.00081 1.00001" stroke="#FE2C55" stroke-width="1.8"
+                                                          stroke-linecap="round" />
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+
+                                    <ul class="banck_text">
+                                        <li> Total <span>$50.00</span></li>
+                                        <li> Bank Name: <span> Islami bank</span></li>
+                                        <li> Account Number: <span> 2050603020006</span></li>
+                                        <li> Routing Number: <span>200103073</span></li>
+                                        <li> Branch: <span>Akhaura Branch</span></li>
+                                    </ul>
+
+                                    <form class="payment_select_modal_form mt-0">
+                                        <div class="payment_select_modal_form_item  mt-0">
+                                            <div class="payment_select_modal_form_inner">
+                                                <label for="exampleFormControlInput1" class="form-label">Transaction
+                                                    Information</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                          rows="3"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="alert alert-danger" role="alert">
+                                            Could not find Payment Information
+                                        </div>
+
+                                        <button type="submit" class="optech-default-btn" href="contact-us.html"
+                                                data-text="Payment Now">
+                                            <span class="btn-wraper">Payment Now</span>
+                                        </button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="optech-checkuot-sidebar-column">
+                        <div class="optech-checkuot-sidebar">
+                            <h5>{{ __('Your Order') }}</h5>
+                            <ul>
+                                <li>{{ __('Product') }}<span>{{ __('Subtotal') }}</span></li>
+
+                                @foreach($carts as $cart)
+                                    <li>{{ Str::limit($cart->product->translate?->name, 35)  }}<span>$69.00</span></li>
+                                @endforeach
+
+                                <li>Subtotal<span>$217.00</span></li>
+                                <li>Coupon<span>$40.00</span></li>
+                                <li>Delivery Fee<span>$20.00</span></li>
+                                <li>Total<span class="total-amount">$217.00</span></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Breadcrumb Part End  -->
+    <!-- End section -->
 
     <!-- Checkout Part Start  -->
     <section class="checkout ">
@@ -44,181 +548,179 @@
             @endif
             <div class="row">
                 @if(auth()->guard('web')->user())
+                    <div class="col-lg-8 col-md-7">
+                        <div class="payment_box">
+                            <div class="payment_box_main">
+                                @if ($stripe->status == 1)
+                                    <a href="javascript:;" class="payment_box_item" data-bs-toggle="modal" data-bs-target="#stripeModal">
+                                        <span>
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="18" height="18" rx="2" fill="#FD4917" />
+                                                <path
+                                                    d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span>
+                                        <img src="{{ asset($stripe->image) }}" alt="logo">
+                                    </a>
+                                @endif
 
-                <div class="col-lg-8 col-md-7">
-                    <div class="payment_box">
-                        <div class="payment_box_main">
-                            @if ($stripe->status == 1)
-                                <a href="javascript:;" class="payment_box_item" data-bs-toggle="modal" data-bs-target="#stripeModal">
-                                    <span>
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="18" height="18" rx="2" fill="#FD4917" />
-                                            <path
-                                                d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
-                                                fill="white" />
-                                        </svg>
-                                    </span>
-                                    <img src="{{ asset($stripe->image) }}" alt="logo">
-                                </a>
-                            @endif
+                                @if ($paypal->status == 1)
+                                    <a href="javascript:;" class="payment_box_item" id="paypal_btn">
+                                        <span>
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="18" height="18" rx="2" fill="#FD4917" />
+                                                <path
+                                                    d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span>
+                                        <img src="{{ asset($paypal->image) }}" alt="logo">
+                                    </a>
+                                @endif
 
-                            @if ($paypal->status == 1)
-                                <a href="javascript:;" class="payment_box_item" id="paypal_btn">
-                                    <span>
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="18" height="18" rx="2" fill="#FD4917" />
-                                            <path
-                                                d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
-                                                fill="white" />
-                                        </svg>
-                                    </span>
-                                    <img src="{{ asset($paypal->image) }}" alt="logo">
-                                </a>
-                            @endif
+                                @if ($razorpay->status == 1)
+                                    <a href="javascript:;" class="payment_box_item" id="razorpay_btn">
+                                        <span>
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="18" height="18" rx="2" fill="#FD4917" />
+                                                <path
+                                                    d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span>
+                                        <img src="{{ asset($razorpay->image) }}" alt="logo">
+                                    </a>
 
-                            @if ($razorpay->status == 1)
-                                <a href="javascript:;" class="payment_box_item" id="razorpay_btn">
-                                    <span>
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="18" height="18" rx="2" fill="#FD4917" />
-                                            <path
-                                                d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
-                                                fill="white" />
-                                        </svg>
-                                    </span>
-                                    <img src="{{ asset($razorpay->image) }}" alt="logo">
-                                </a>
+                                    <form action="{{ route('ecommerce.pay-razorpay') }}" method="POST" class="d-none">
+                                        @csrf
+                                        @php
+                                            $payable_amount = $total * $razorpay->currency->currency_rate;
+                                            $payable_amount = round($payable_amount, 2);
+                                        @endphp
+                                        <script src="https://checkout.razorpay.com/v1/checkout.js"
+                                                data-key="{{ $razorpay->key }}"
+                                                data-currency="{{ $razorpay->currency->currency_code }}"
+                                                data-amount= "{{ $payable_amount * 100 }}"
+                                                data-buttontext="{{ __('translate.Pay') }} {{ $payable_amount }} {{ $razorpay->currency->currency_code }}"
+                                                data-name="{{ $razorpay->name }}"
+                                                data-description="{{ $razorpay->description }}"
+                                                data-image="{{ asset($razorpay->image) }}"
+                                                data-prefill.name=""
+                                                data-prefill.email=""
+                                                data-theme.color="{{ $razorpay->color }}">
+                                        </script>
+                                    </form>
 
-                                <form action="{{ route('ecommerce.pay-razorpay') }}" method="POST" class="d-none">
-                                    @csrf
-                                    @php
-                                        $payable_amount = $total * $razorpay->currency->currency_rate;
-                                        $payable_amount = round($payable_amount, 2);
-                                    @endphp
-                                    <script src="https://checkout.razorpay.com/v1/checkout.js"
-                                            data-key="{{ $razorpay->key }}"
-                                            data-currency="{{ $razorpay->currency->currency_code }}"
-                                            data-amount= "{{ $payable_amount * 100 }}"
-                                            data-buttontext="{{ __('translate.Pay') }} {{ $payable_amount }} {{ $razorpay->currency->currency_code }}"
-                                            data-name="{{ $razorpay->name }}"
-                                            data-description="{{ $razorpay->description }}"
-                                            data-image="{{ asset($razorpay->image) }}"
-                                            data-prefill.name=""
-                                            data-prefill.email=""
-                                            data-theme.color="{{ $razorpay->color }}">
-                                    </script>
-                                </form>
+                                @endif
 
-                            @endif
+                                @if ($flutterwave->status == 1)
+                                    <a href="javascript:;" class="payment_box_item" id="flutterwavePayment">
+                                        <span>
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="18" height="18" rx="2" fill="#FD4917" />
+                                                <path
+                                                    d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span>
+                                        <img src="{{ asset($flutterwave->logo) }}" alt="logo">
+                                    </a>
+                                @endif
 
-                            @if ($flutterwave->status == 1)
-                                <a href="javascript:;" class="payment_box_item" id="flutterwavePayment">
-                                    <span>
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="18" height="18" rx="2" fill="#FD4917" />
-                                            <path
-                                                d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
-                                                fill="white" />
-                                        </svg>
-                                    </span>
-                                    <img src="{{ asset($flutterwave->logo) }}" alt="logo">
-                                </a>
-                            @endif
+                                @if ($paystack->paystack_status == 1)
+                                    <a href="javascript:;" class="payment_box_item" id="paystackPayment">
+                                        <span>
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="18" height="18" rx="2" fill="#FD4917" />
+                                                <path
+                                                    d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span>
+                                        <img src="{{ asset($paystack->paystack_image) }}" alt="logo">
+                                    </a>
+                                @endif
 
-                            @if ($paystack->paystack_status == 1)
-                                <a href="javascript:;" class="payment_box_item" id="paystackPayment">
-                                    <span>
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="18" height="18" rx="2" fill="#FD4917" />
-                                            <path
-                                                d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
-                                                fill="white" />
-                                        </svg>
-                                    </span>
-                                    <img src="{{ asset($paystack->paystack_image) }}" alt="logo">
-                                </a>
-                            @endif
+                                @if ($mollie->mollie_status == 1)
+                                    <a href="javascript:;" class="payment_box_item" id="mollie_payment_btn">
+                                        <span>
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="18" height="18" rx="2" fill="#FD4917" />
+                                                <path
+                                                    d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span>
+                                        <img src="{{ asset($mollie->mollie_image) }}" alt="logo">
+                                    </a>
+                                @endif
 
-                            @if ($mollie->mollie_status == 1)
-                                <a href="javascript:;" class="payment_box_item" id="mollie_payment_btn">
-                                    <span>
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="18" height="18" rx="2" fill="#FD4917" />
-                                            <path
-                                                d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
-                                                fill="white" />
-                                        </svg>
-                                    </span>
-                                    <img src="{{ asset($mollie->mollie_image) }}" alt="logo">
-                                </a>
-                            @endif
+                                @if ($instamojo->status == 1)
+                                    <a href="javascript:;" class="payment_box_item" id="instamojo_payment_btn">
+                                        <span>
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="18" height="18" rx="2" fill="#FD4917" />
+                                                <path
+                                                    d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span>
+                                        <img src="{{ asset($instamojo->image) }}" alt="logo">
+                                    </a>
+                                @endif
 
-                            @if ($instamojo->status == 1)
-                                <a href="javascript:;" class="payment_box_item" id="instamojo_payment_btn">
-                                    <span>
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="18" height="18" rx="2" fill="#FD4917" />
-                                            <path
-                                                d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
-                                                fill="white" />
-                                        </svg>
-                                    </span>
-                                    <img src="{{ asset($instamojo->image) }}" alt="logo">
-                                </a>
-                            @endif
+                                @if ($bank->status == 1)
+                                    <a href="javascript:;" class="payment_box_item" data-bs-toggle="modal"
+                                    data-bs-target="#bankModal">
+                                        <span>
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="18" height="18" rx="2" fill="#FD4917" />
+                                                <path
+                                                    d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </span>
+                                        <img src="{{ asset($bank->image) }}" alt="logo">
+                                    </a>
+                                @endif
 
-                            @if ($bank->status == 1)
-                                <a href="javascript:;" class="payment_box_item" data-bs-toggle="modal"
-                                data-bs-target="#bankModal">
-                                    <span>
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="18" height="18" rx="2" fill="#FD4917" />
-                                            <path
-                                                d="M7.82919 12.8459C7.73373 12.9448 7.6035 13 7.46821 13C7.33293 13 7.20269 12.9448 7.10724 12.8459L4.22438 9.87525C3.92521 9.56701 3.92521 9.06719 4.22438 8.75953L4.58536 8.38752C4.88463 8.07929 5.3692 8.07929 5.66838 8.38752L7.46821 10.242L12.3316 5.23118C12.6309 4.92294 13.1159 4.92294 13.4146 5.23118L13.7756 5.60318C14.0748 5.91142 14.0748 6.41115 13.7756 6.7189L7.82919 12.8459Z"
-                                                fill="white" />
-                                        </svg>
-                                    </span>
-                                    <img src="{{ asset($bank->image) }}" alt="logo">
-                                </a>
-                            @endif
-
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-5">
-                    <div class="checkout-subtotal mt-0">
-                        <h4 class="checkout-subtotal-txt">{{ __('translate.Your Order') }}</h4>
-                        <p class="checkout-subtotal-item">{{ __('translate.Product') }} <span>{{ __('translate.Subtotal') }}</span></p>
+                    <div class="col-lg-4 col-md-5">
+                        <div class="checkout-subtotal mt-0">
+                            <h4 class="checkout-subtotal-txt">{{ __('translate.Your Order') }}</h4>
+                            <p class="checkout-subtotal-item">{{ __('translate.Product') }} <span>{{ __('translate.Subtotal') }}</span></p>
 
-                        @foreach($carts as $cart)
-                            <ul class="checkout-subtotal-list">
-                                <li>{{ $cart->product->name }}
-                                    <span>{{ currency($cart->product->finalPrice * $cart->quantity) }}</span></li>
-                                <li class="li-db">{{ __('translate.Quantity') }} <span> X {{ $cart->quantity }}</span></li>
+                            @foreach($carts as $cart)
+                                <ul class="checkout-subtotal-list">
+                                    <li>{{ $cart->product->name }}
+                                        <span>{{ currency($cart->product->finalPrice * $cart->quantity) }}</span></li>
+                                    <li class="li-db">{{ __('translate.Quantity') }} <span> X {{ $cart->quantity }}</span></li>
+                                </ul>
+                            @endforeach
+
+                            <ul class="checkout-subtotal-list two">
+                                <li class="sub_total">{{ __('translate.Sub Total') }}
+                                    <span>{{ currency($sub_total) }}</span></li>
+                                <li class="shipping_cost">{{ __('translate.Shipping') }} <span>(+){{ currency($shipping_charge) }}</span>
+                                </li>
                             </ul>
-                        @endforeach
 
-                        <ul class="checkout-subtotal-list two">
-                            <li class="sub_total">{{ __('translate.Sub Total') }}
-                                <span>{{ currency($sub_total) }}</span></li>
-                            <li class="shipping_cost">{{ __('translate.Shipping') }} <span>(+){{ currency($shipping_charge) }}</span>
-                            </li>
-                        </ul>
-
-                        <ul class="checkout-subtotal-list three">
-                            <li class="total">{{ __('translate.Total') }} <span>{{ currency($total) }}</span></li>
-                        </ul>
+                            <ul class="checkout-subtotal-list three">
+                                <li class="total">{{ __('translate.Total') }} <span>{{ currency($total) }}</span></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
                 @endif
             </div>
         </div>

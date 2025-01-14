@@ -1,13 +1,13 @@
 @extends('seller.dashboard_layout')
 @section('title')
-    <title>{{ __('User Dashboard') }}</title>
+    <title>{{ __('User WishList Dashboard') }}</title>
 @endsection
 @section('breadcrumb')
-    <h1 class="post__title">{{ __('Dashboard') }}</h1>
+    <h1 class="post__title">{{ __('WishList') }}</h1>
     <nav class="breadcrumbs">
         <ul>
             <li><a href="{{ route('user.dashboard') }}">{{ __('Home') }}</a></li>
-            <li aria-current="page"> {{ __('Dashboard') }}</li>
+            <li aria-current="page"> {{ __('WishList') }}</li>
         </ul>
     </nav>
 @endsection
@@ -22,9 +22,9 @@
                             <a href="{{ route('product.view', $product->slug) }}">
                                 <img src="{{ asset($product->thumbnail_image) }}" alt="">
                             </a>
-                            <a class="optech-shop-btn" href="my-cart.html" data-text="Add to Cart">
+                            <button class="optech-shop-btn cart-add-btn"  data-product-id="{{ $product->id }}" data-text="Add to Cart">
                                 <span class="btn-wraper">{{ __('Add To Cart') }}</span>
-                            </a>
+                            </button>
                             <a class="optech-shop-badge" href="#">{{ __('Sale') }}</a>
                             <a href="#" class="wishlist_icon">
                                 <span>
@@ -38,7 +38,7 @@
                             </a>
                         </div>
                         <div class="optech-shop-data">
-                            <a href="{{ route('product.view', $produt->slug) }}">
+                            <a href="{{ route('product.view', $product->slug) }}">
                                 <h5>{{ __($product->translate?->name) }}</h5>
                             </a>
                             <h6

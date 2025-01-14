@@ -69,13 +69,13 @@
                         <p>{!! $product->translate?->description !!}</p>
                         <div class="optech-product-wrap">
                             <div class="optech-product-number">
-                                <span class="optech-product-minus"><i class="ri-subtract-line"></i></span>
-                                <input type="text" value="1" />
-                                <span class="optech-product-plus"><i class="ri-add-line"></i></span>
+                                <span class="optech-product-minus quantity__minus"><i class="ri-subtract-line"></i></span>
+                                    <input type="text" value="1" name="quantity" class="quantity__input"/>
+                                <span class="optech-product-plus quantity__plus"><i class="ri-add-line"></i></span>
                             </div>
-                            <button class="optech-product-btn cart-add-btn" data-product-id="{{ $product->id }}" data-text="{{ __('Add to Cart') }}">
+                            <a class="optech-product-btn cart-add-btn" href="javascript;" data-product-id="{{ $product->id }}" data-text="{{ __('Add to Cart') }}">
                                 <span class="btn-wraper">{{ __('Add to Cart') }}</span>
-                            </button>
+                            </a>
                         </div>
                         <div class="optech-product-info">
                             <h5>{{ __('Quick info') }}</h5>

@@ -14,21 +14,19 @@ class WishlistController extends Controller
     public function index()
     {
         $item_array = array();
-
         $user = Auth::guard('web')->user();
-
         $wishlists = Wishlist::where('user_id', $user->id)->get();
 
         foreach($wishlists as $wishlist){
             $item_array[] = $wishlist->product_id;
         }
 
-        $products = Product::where(['status' => 'enable'])
+        $products = Product::active()
             ->whereIn('id', $item_array)
             ->latest()
             ->get();
 
-        return view('wishlist::index', ['products' => $products]);
+        return view('wishlist::index', compact('products'));
     }
 
 

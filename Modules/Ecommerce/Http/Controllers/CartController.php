@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Modules\Ecommerce\Entities\Cart;
 use Modules\Ecommerce\Entities\Product;
-use Modules\GeneralSetting\Entities\SeoSetting;
+//use Modules\GeneralSetting\Entities\SeoSetting;
+use Modules\SeoSetting\App\Models\SeoSetting;
 
 class CartController extends Controller
 {

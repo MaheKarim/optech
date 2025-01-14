@@ -203,7 +203,6 @@ function getTranslatedValue($content, $key, $lang = 'en') {
     return $value;
 }
 
-
 function randomNumber($length = 10) {
     $random = '';
     $possible = '0123456789';
@@ -213,4 +212,16 @@ function randomNumber($length = 10) {
     }
 
     return $random;
+}
+
+
+if (!function_exists('getImageOrPlaceholder')) {
+    function getImageOrPlaceholder(?string $imagePath, string $size = '800x600'): string
+    {
+        if ($imagePath && file_exists(public_path($imagePath))) {
+            return asset($imagePath);
+        }
+
+        return "https://placehold.co/{$size}?text={$size}";
+    }
 }
