@@ -4,19 +4,32 @@ namespace Modules\Ecommerce\Http\Controllers;
 
 use App\Constants\Status;
 use App\Http\Controllers\Controller;
-use App\Models\PaypalPayment;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Modules\Currency\App\Models\Currency;
 use Modules\Ecommerce\Entities\Cart;
 use Modules\Ecommerce\Entities\Order;
 use Modules\Ecommerce\Entities\OrderDetail;
-use Modules\Ecommerce\Entities\ShippingMethod;
+use Modules\PaymentGateway\App\Models\PaymentGateway;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class UserPaypalController extends Controller
 {
+    public $payment_setting;
+
+    public function __construct()
+    {
+        $payment_data = PaymentGateway::all();
+
+
+        $this->payment_setting = array();
+
+        foreach($payment_data as $data_item){
+            $payment_setting[$data_item->key] = $data_item->value;
+        }
+
+        $this->payment_setting  = (object) $payment_setting;
+    }
 
     public function paypal(Request $request)
     {
@@ -26,7 +39,7 @@ class UserPaypalController extends Controller
         }
 
         $user = Auth::guard('web')->user();
-        $paypal_setting = PaypalPayment::first();
+        $paypal_setting = PaymentGateway::where(['key' => 'paypal_currency_id'])->first();
 
         // Get cart details
         $cart = Cart::where('user_id', $user->id)->with('product')->get();
@@ -43,23 +56,28 @@ class UserPaypalController extends Controller
 
         $total = $orderData['total'];
 
-        $payable_amount = round($total * $paypal_setting->currency->currency_rate, 2);
+
+        $paypal_currency = Currency::findOrFail($this->payment_setting->paypal_currency_id);
 
 
-        config(['paypal.mode' => $paypal_setting->account_mode]);
+        $payable_amount = round($total * $paypal_currency->currency_rate,2);
 
-        if($paypal_setting->account_mode == 'sandbox'){
-            config(['paypal.sandbox.client_id' => $paypal_setting->client_id]);
-            config(['paypal.sandbox.client_secret' => $paypal_setting->secret_id]);
+       // $payable_amount = round($total * $paypal_setting->currency->currency_rate, 2);
+
+
+        config(['paypal.mode' => $this->payment_setting->paypal_account_mode]);
+
+        if($this->payment_setting->paypal_account_mode == 'sandbox'){
+            config(['paypal.sandbox.client_id' => $this->payment_setting->paypal_client_id]);
+            config(['paypal.sandbox.client_secret' => $this->payment_setting->paypal_secret_key]);
         }else{
-            config(['paypal.live.client_id' => $paypal_setting->client_id]);
-            config(['paypal.live.client_secret' => $paypal_setting->secret_id]);
+            config(['paypal.live.client_id' =>  $this->payment_setting->paypal_client_id]);
+            config(['paypal.live.client_secret' => $this->payment_setting->paypal_secret_key]);
         }
 
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
-
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
             "application_context" => [
@@ -69,7 +87,7 @@ class UserPaypalController extends Controller
             "purchase_units" => [
                 0 => [
                     "amount" => [
-                        "currency_code" => $paypal_setting->currency->currency_code,
+                        "currency_code" => $paypal_currency->currency_code,
                         "value" => $payable_amount
                     ]
                 ]
@@ -102,16 +120,17 @@ class UserPaypalController extends Controller
             ]);
         }
 
-        $paypal_setting = PaypalPayment::first();
+        $paypal_currency = Currency::findOrFail($this->payment_setting->paypal_currency_id);
 
-        config(['paypal.mode' => $paypal_setting->account_mode]);
+        config(['paypal.mode' => $this->payment_setting->paypal_account_mode]);
 
-        if($paypal_setting->account_mode == 'sandbox'){
-            config(['paypal.sandbox.client_id' => $paypal_setting->client_id]);
-            config(['paypal.sandbox.client_secret' => $paypal_setting->secret_id]);
+        if($this->payment_setting->paypal_account_mode == 'sandbox'){
+            config(['paypal.sandbox.client_id' => $this->payment_setting->paypal_client_id]);
+            config(['paypal.sandbox.client_secret' => $this->payment_setting->paypal_secret_key]);
         }else{
-            config(['paypal.live.client_id' => $paypal_setting->client_id]);
-            config(['paypal.live.client_secret' => $paypal_setting->secret_id]);
+            config(['paypal.live.client_id' => $this->payment_setting->paypal_client_id]);
+            config(['paypal.live.client_secret' => $this->payment_setting->paypal_secret_key]);
+            config(['paypal.live.app_id' => 'APP-80W284485P519543T']);
         }
 
         $provider = new PayPalClient;

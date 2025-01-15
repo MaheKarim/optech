@@ -33,66 +33,15 @@
                         </div>
 
                         <div class="payment_select_item_main">
-                            <div class="payment_select_item_box">
-                                <a href="#" class="payment_select_item">
-                                    <div class="payment_select_item_thumb">
-                                        <img src="{{ asset('frontend/assets/img/logo/paypal.svg') }}" class="w-100" alt="">
-                                    </div>
-                                </a>
-
-                                <div class="payment_select_modal">
-                                    <div class="payment_select_modal_head">
-                                        <h2>Payment From</h2>
-                                        <button type="button" class="close_modal_btn">
-                                            <span>
-                                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M16 1L1.00081 16" stroke="#FE2C55" stroke-width="1.8"
-                                                          stroke-linecap="round" />
-                                                    <path d="M16 16L1.00081 1.00001" stroke="#FE2C55" stroke-width="1.8"
-                                                          stroke-linecap="round" />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <form class="payment_select_modal_form">
-                                        <div class="payment_select_modal_form_item mt-0">
-                                            <div class="payment_select_modal_form_inner">
-                                                <label for="exampleFormControlInput1" class="form-label">Card Holder
-                                                    Name*</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                                       placeholder="Name here">
-                                            </div>
+{{--                            @if ($paypal->paypal_status == 1)--}}
+                                <div class="payment_select_item_box">
+                                    <a href="javascript:;" class="payment_box_item" id="paypal_btn">
+                                        <div class="payment_select_item_thumb">
+                                            <img src="{{ asset('frontend/assets/img/logo/paypal.svg') }}" class="w-100" alt="">
                                         </div>
-                                        <div class="payment_select_modal_form_item">
-                                            <div class="payment_select_modal_form_inner">
-                                                <label for="exampleFormControlInput1" class="form-label">Card
-                                                    Number*</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                                       placeholder="Number here">
-                                            </div>
-                                        </div>
-                                        <div class="payment_select_modal_form_item">
-                                            <div class="payment_select_modal_form_inner">
-                                                <label for="exampleFormControlInput1" class="form-label">Expiry*</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                                       placeholder="DD/MM/YY">
-                                            </div>
-                                            <div class="payment_select_modal_form_inner">
-                                                <label for="exampleFormControlInput1" class="form-label">CVV*</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                                       placeholder="cvv here">
-                                            </div>
-                                        </div>
-
-                                        <button type="submit" class="optech-default-btn" href="contact-us.html"
-                                                data-text="Payment Now">
-                                            <span class="btn-wraper">Payment Now</span>
-                                        </button>
-
-                                    </form>
+                                    </a>
                                 </div>
-                            </div>
+{{--                            @endif--}}
 
                             <div class="payment_select_item_box">
                                 <a href="#" class="payment_select_item">
@@ -520,13 +469,12 @@
                                 <li>{{ __('Product') }}<span>{{ __('Subtotal') }}</span></li>
 
                                 @foreach($carts as $cart)
-                                    <li>{{ Str::limit($cart->product->translate?->name, 35)  }}<span>$69.00</span></li>
+                                    <li>{{ Str::limit($cart->product->translate?->name, 25) }} - x {{ $cart->quantity }}  <span>{{ currency($cart->product->finalPrice * $cart->quantity) }}</span></li>
                                 @endforeach
 
-                                <li>Subtotal<span>$217.00</span></li>
-                                <li>Coupon<span>$40.00</span></li>
-                                <li>Delivery Fee<span>$20.00</span></li>
-                                <li>Total<span class="total-amount">$217.00</span></li>
+                                <li>{{ __('Subtotal') }}<span>{{ currency($sub_total) }}</span></li>
+                                <li>{{ __('Delivery Fee') }}<span>(+){{ currency($shipping_charge) }}</span></li>
+                                <li>{{ __('Total') }}<span class="total-amount">{{ currency($total) }}</span></li>
                             </ul>
                         </div>
                     </div>

@@ -93,6 +93,7 @@ Route::group(['middleware' => ['HtmlSpecialchars', 'MaintenanceMode']], function
         Route::controller(UserOrderController::class)->name('user-order.')->prefix('user/order')->group(function (){
             // Order
             Route::get('/', 'index')->name('index');
+            Route::get('/single-order/{orderId}', 'singleOrder')->name('singleOrder');
         });
 
     });

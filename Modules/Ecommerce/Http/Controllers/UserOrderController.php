@@ -10,12 +10,20 @@ use Modules\Ecommerce\Entities\Order;
 
 class UserOrderController extends Controller
 {
-
     public function index()
     {
         $user = auth()->guard('web')->user();
         $orders = Order::where('user_id', $user->id)->with(['order_detail', 'order_detail.singleProduct'])->latest()->paginate(20);
 
         return view('ecommerce::user.order.index', compact('orders', 'user'));
+    }
+
+    public function singleOrder($orderId)
+    {
+        $user = auth()->guard('web')->user();
+        $order = Order::where('user_id', $user->id)
+            ->where('order_id', $orderId)
+            ->with(['order_detail', 'order_detail.singleProduct'])->firstOrFail();
+        return view('ecommerce::user.order.single_order', compact('order'));
     }
 }

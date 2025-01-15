@@ -6,6 +6,7 @@ use App\Constants\Status;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Brand\Entities\Brand;
 use Modules\Category\Entities\Category;
+use Modules\Wishlist\App\Models\Wishlist;
 
 class Product extends Model
 {
@@ -107,6 +108,11 @@ class Product extends Model
         } else {
             $this->attributes['tags'] = '[]';
         }
+    }
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
     }
 
 

@@ -5,21 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/user/order/no_order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/user/order/single_order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/user/order/with_order.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Wishlist/resources/views/not_found.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/CheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Currency/App/Models/Currency.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Currency/App/Models/Currency.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Entities/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Entities/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/UserOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/UserOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/UserPaypalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/UserPaypalController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/payment.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/single_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/single_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/user/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/user/order/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Wishlist/App/Http/Controllers/WishlistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Wishlist/App/Http/Controllers/WishlistController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Wishlist/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Wishlist/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helper/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helper/helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/en/translate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/translate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/shop/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/shop/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/white_navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/white_navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seller/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/sidebar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +310,8 @@
       <workItem from="1736655592748" duration="3648000" />
       <workItem from="1736660823824" duration="23997000" />
       <workItem from="1736741386036" duration="23873000" />
-      <workItem from="1736831975809" duration="23393000" />
+      <workItem from="1736831975809" duration="24040000" />
+      <workItem from="1736915454600" duration="18781000" />
     </task>
     <servers />
   </component>

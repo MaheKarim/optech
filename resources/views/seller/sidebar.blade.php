@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li>
-                <a href="./dashbord-orderlist.html">
+                <a href="{{ route('user-order.index') }}" class="{{ request()->routeIs('user-order.*') ? 'active' : '' }}">
                     <span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -71,7 +71,7 @@
                                 fill="currentColor"/>
                         </svg>
                     </span>
-                    Order List
+                   {{ __('Order List') }}
                 </a>
             </li>
             <li>

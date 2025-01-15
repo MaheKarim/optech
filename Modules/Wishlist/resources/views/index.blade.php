@@ -13,9 +13,9 @@
 @endsection
 
 @section('dashboard-content')
-    <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-7">
+        @if($wishlists->isNotEmpty())
         <div class="row">
-            @foreach($products as $product)
+            @foreach($wishlists as $product)
                 <div class="col-xl-4 col-lg-6 col-md-6 mt-5 mt-md-0" data-aos="fade-up" data-aos-duration="400">
                     <div class="optech-shop-wrap">
                         <div class="optech-shop-thumb">
@@ -49,7 +49,10 @@
                 </div>
             @endforeach
         </div>
-    </div>
+        @else
+            @include('wishlist::not_found')
+        @endif
+
 @endsection
 @push('style_section')
     <link href="{{ asset('frontend/assets/css/nouislider.min.css') }}" rel="stylesheet"/>
