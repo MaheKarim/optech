@@ -162,6 +162,25 @@
         </div>
     </div>
     <!-- End section -->
+    <div class="row justify-content-center">
+        <div class="col-xxl-6  col-xl-8 col-lg-10">
+            <div class="shop_not_found">
+                <div class="shop_not_found_thumb">
+                    <img src="frontend/assets/img/shop/not-found.svg" alt="thumb">
+                </div>
+                <div class="shop_not_found_text">
+                    <h2>Search Not Found</h2>
+                    <p>
+                        Not Found typically means that the search of car you had previously added has
+                        been cleared. <span>Thank you</span>
+                    </p>
+                </div>
+                <a class="optech-default-btn" href="#" data-text="Search Again">
+                    <span class="btn-wraper">Search Again</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
 @endsection
 @push('style_section')
