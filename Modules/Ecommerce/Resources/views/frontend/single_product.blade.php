@@ -128,7 +128,7 @@
                                     <div class="review_box_item">
                                         <div class="review_box_thumb">
                                             @if($review->user && $review->user->image)
-                                                <img src="{{ $review->user->image }}" alt="thumb">
+                                                <img src="{{ asset($review->user->image) }}" alt="thumb">
                                             @else
                                                 <img src="{{ asset('default-user-image.jpg') }}" alt="thumb">
                                             @endif
@@ -171,49 +171,40 @@
                         <!-- Write Your Review  -->
                         @if(auth()->user())
                             <div class="write_review_box">
-                            <div class="write_review_box_heading">
-                                <h4>{{ __('Write Your Review') }}</h4>
-                                <ul class="write_review_box_icon">
-                                    <li>
-                                        <i class="fa-solid fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa-regular fa-star-half-stroke"></i>
-                                    </li>
-                                    <li>
-                                        <i class="fa-regular fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <span>(0.0)</span>
-                                    </li>
-                                </ul>
-                            </div>
+                                <div class="write_review_box_heading">
+                                    <h4>{{ __('Write Your Review') }}</h4>
+                                    <form class="write_review_box_form" method="POST" action="{{ route('user-order.reviewSubmit') }}" id="review-form">
+                                        @csrf
+                                        <input type="hidden" name="rating" id="product_rating" value="0">
+                                        <input type="hidden" name="product_id" id="product_rating" value="{{ $product->id }}">
+                                        <ul class="write_review_box_icon">
+                                            @for($i = 1; $i <= 5; $i++)
+                                                <li>
+                                                    <i class="fa-regular fa-star listing_rat" data-rating="{{ $i }}" onclick="listingReview({{ $i }})"></i>
+                                                </li>
+                                            @endfor
+                                            <li>
+                                                <span id="rating_visible">(0.0)</span>
+                                            </li>
+                                        </ul>
 
 
-                            <form class="write_review_box_form">
                                 <div class="write_review_box_form_item">
                                     <div class="write_review_box_form_inner">
                                         <div class="optech-checkout-field mb-0">
                                             <label>{{ __('Write your message') }}</label>
-                                            <textarea name="textarea"></textarea>
+                                            <textarea name="reviews" id="reviews" required></textarea>
                                         </div>
                                     </div>
                                 </div>
-
-                                <button type="submit" class="optech-default-btn" href="#" data-text="Submit Reviews">
-                                  <span class="btn-wraper">
-                                    Submit Reviews
-                                  </span>
+                                <button type="button" class="optech-default-btn" id="submit-review"
+                                        data-text="{{ __('Submit Review') }}">
+                                        <span class="btn-wraper">
+                                            {{ __('Submit Review') }}
+                                        </span>
                                 </button>
-                            </form>
-
-                        </div>
+                                </form>
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -280,5 +271,63 @@
         $("#product_rating").val(rating);
         $("#rating_visible").html(`(${rating}.0)`);
     }
+  </script>
+
+  <script>
+      function listingReview(rating) {
+          $(".listing_rat").each(function(){
+              var listing_rat = $(this).data('rating');
+              if(listing_rat <= rating){
+                  $(this).removeClass('fa-regular fa-star').addClass('fa-solid fa-star');
+              } else {
+                  $(this).removeClass('fa-solid fa-star').addClass('fa-regular fa-star');
+              }
+          });
+
+          $("#product_rating").val(rating);
+          $("#rating_visible").html(`(${rating}.0)`);
+      }
+
+      document.getElementById('submit-review').addEventListener('click', function () {
+          const reviewForm = document.getElementById('review-form');
+          const reviews = document.getElementById('reviews').value;
+          const rating = document.getElementById('product_rating').value;
+
+          if (!reviews.trim()) {
+              alert('{{ __("Please write your review before submitting.") }}');
+              return;
+          }
+
+          if (rating === '0') {
+              alert('{{ __("Please select a rating before submitting.") }}');
+              return;
+          }
+
+          // Create FormData object
+          const formData = new FormData(reviewForm);
+
+          // Send form data using fetch
+          fetch(reviewForm.action, {
+              method: 'POST',
+              headers: {
+                  'X-Requested-With': 'XMLHttpRequest'  // Add this to indicate AJAX request
+              },
+              body: formData
+          })
+              .then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                      alert('{{ __("Your review has been submitted successfully.") }}');
+                      reviewForm.reset();
+                      listingReview(0); // Reset stars
+                  } else {
+                      alert(data.message || '{{ __("An error occurred. Please try again.") }}');
+                  }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  alert('{{ __("An error occurred. Please try again later.") }}');
+              });
+      });
   </script>
 @endpush

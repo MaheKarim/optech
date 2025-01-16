@@ -22,25 +22,22 @@ class ProfileController extends Controller
 
         $user = Auth::guard('web')->user();
 
-        $orders = Order::with('listing', 'seller')->where('user_id', $user->id)->latest()->take(10)->get();
+        $orders = Order::where('user_id', $user->id)->latest()->take(5)->get();
 
-        $active_orders = Order::with('listing', 'seller')->where('user_id', $user->id)->where(['order_status' => 1])->latest()->count();
+        $pending_orders = Order::where('user_id', $user->id)->where(['order_status' => 0])->latest()->count();
 
         $complete_orders = Order::where('user_id', $user->id)->where(function ($query) {
             $query->where('order_status', 1);
         })->latest()->count();
 
-        $cancel_orders = Order::where('user_id', $user->id)->where(function ($query) {
-            $query->where('order_status', 1);
-        })->latest()->count();
-
-        $rejected_orders = Order::where('user_id', $user->id)->where(['order_status' => 2])->where('order_status' , '!=', 3)->latest()->count();
+        $total = Order::where('user_id', $user->id)
+            ->latest()
+            ->sum('total');
 
         return view('seller.dashboard', [
-            'active_orders' => $active_orders,
+            'pending_orders' => $pending_orders,
             'complete_orders' => $complete_orders,
-            'cancel_orders' => $cancel_orders,
-            'rejected_orders' => $rejected_orders,
+            'total' => $total,
             'orders' => $orders,
         ]);
 
@@ -150,17 +147,18 @@ class ProfileController extends Controller
     }
 
     public function order_show($order_id){
+
         $user = Auth::guard('web')->user();
 
         $order = Order::with('listing')->where('user_id', $user->id)->where('order_id', $order_id)->first();
 
-        $buyer = User::findOrFail($order->buyer_id);
+        $buyer = User::findOrFail($order->user_id);
 
         $buyer_total_rating = 1;
 
         $total_job = JobRequest::where('user_id', $buyer->id)->where('status', 'approved')->count();
 
-        $total_orders = Order::where('buyer_id', $buyer->id)->latest()->count();
+        $total_orders = Order::where('user_id', $buyer->id)->latest()->count();
 
         return view('seller.order_show', [
             'order' => $order,

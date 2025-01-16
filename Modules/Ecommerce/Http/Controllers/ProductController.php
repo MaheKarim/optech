@@ -29,7 +29,7 @@ class ProductController extends Controller
     {
         $seo_setting = SeoSetting::first();
 
-        $product = Product::where('slug', $slug)->with(['translate','galleries'])->firstOrFail();
+        $product = Product::where('slug', $slug)->with(['translate','galleries','reviews'])->firstOrFail();
         $pageTitle = $product->translate?->name;
 
         $relatedProducts = Product::where('category_id', $product->category_id)

@@ -2,6 +2,7 @@
 
 namespace Modules\Ecommerce\Entities;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductReview extends Model
@@ -18,6 +19,11 @@ class ProductReview extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function translate()
+    {
+        return $this->belongsTo(ProductTranslation::class);
     }
 
     // Define the relationship with User

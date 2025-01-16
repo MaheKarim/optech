@@ -1,13 +1,13 @@
 @extends('seller.dashboard_layout')
 @section('title')
-    <title>{{ __('Orders List') }}</title>
+    <title>{{ __('Transactions List') }}</title>
 @endsection
 @section('breadcrumb')
-    <h1 class="post__title">{{ __('Orders') }}</h1>
+    <h1 class="post__title">{{ __('Transactions') }}</h1>
     <nav class="breadcrumbs">
         <ul>
             <li><a href="{{ route('user.dashboard') }}">{{ __('Home') }}</a></li>
-            <li> {{ __('Orders ') }} </li>
+            <li> {{ __('Transactions ') }} </li>
         </ul>
     </nav>
 @endsection
@@ -30,7 +30,6 @@
                 <p>{{ __('entries') }}</p>
             </div>
         </div>
-
 
         <form class="dashbord_table_top_right">
             <div class="optech-checkout-field">
@@ -57,6 +56,8 @@
         @include('ecommerce::user.order.no_order')
     @else
         @include('ecommerce::user.order.with_order')
+    @endif
+
 
         @if ($orders->hasPages())
             <div class="optech-navigation">
@@ -84,7 +85,7 @@
                 </nav>
             </div>
         @endif
-    @endif
+
     <!-- End section -->
 @endsection
 @push('js_section')

@@ -5,9 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/user/order/transactions.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/seller/reviews.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Entities/ProductReview.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Entities/ProductReview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/Admin/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/UserOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/UserOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/admin/products/reviews.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/admin/products/reviews.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/single_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/single_product.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/user/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/user/order/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/user/order/with_order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/user/order/with_order.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Listing/Http/Controllers/ListingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Listing/Http/Controllers/ListingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Seller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Seller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/errors/404.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seller/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seller/order_show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/order_show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/seller/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/seller/sidebar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +315,8 @@
       <workItem from="1736660823824" duration="23997000" />
       <workItem from="1736741386036" duration="23873000" />
       <workItem from="1736831975809" duration="24040000" />
-      <workItem from="1736915454600" duration="19644000" />
+      <workItem from="1736915454600" duration="20122000" />
+      <workItem from="1737001377555" duration="15406000" />
     </task>
     <servers />
   </component>
@@ -323,11 +340,6 @@
           <url>file://$PROJECT_DIR$/Modules/Ecommerce/Database/Migrations/2024_11_02_102556_create_product_translations_table.php</url>
           <line>21</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/cart.blade.php</url>
-          <line>23</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

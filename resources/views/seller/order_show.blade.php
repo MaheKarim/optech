@@ -2,6 +2,7 @@
 @section('title')
     <title>{{ __('translate.Seller || Order Details') }}</title>
 @endsection
+
 @section('front-content')
 <main class="dashboard-main min-vh-100">
     <div class="d-flex flex-column gap-4">
@@ -156,10 +157,7 @@
 
                       </p>
                     </li>
-
                   </ul>
-
-
 
                 @if ($order->approved_by_seller == 'pending')
 
@@ -313,7 +311,7 @@
                 <form action="{{ route('seller.order-submission', $order->id) }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <div class="form-container">
-                    
+
                     <input
                       type="file"
                       class="form-control shadow-none"
@@ -329,7 +327,7 @@
                       >{{ __('translate.Download File') }}</a
                     >
                   @endif
-                  
+
 
                   <button type="submit" class="w-btn-secondary-lg mt-3">
                     {{ __('translate.Submit Order') }}
@@ -350,10 +348,10 @@
                     </svg>
                   </button>
 
-                  
 
-                  
-                  
+
+
+
                 </form>
               </div>
             </div>
@@ -542,16 +540,10 @@
       </div>
     </div>
   </main>
-
-
-
 @endsection
-
 
 @push('js_section')
 <script src="{{ asset('global/sweetalert/sweetalert2@11.js') }}"></script>
-
-
 <script>
     (function($) {
         "use strict"
@@ -618,6 +610,5 @@
 
 
 </script>
-
 @endpush
 

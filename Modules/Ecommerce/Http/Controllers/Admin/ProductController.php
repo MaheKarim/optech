@@ -319,9 +319,9 @@ class ProductController extends Controller
         }
     }
 
-    public function review_list(){
-
-        $reviews = Review::with('user','listing')->where('reviewType','product')->latest()->get();
+    public function review_list()
+    {
+        $reviews = ProductReview::latest()->get();
 
         return view('ecommerce::admin.products.reviews', ['reviews' => $reviews]);
     }

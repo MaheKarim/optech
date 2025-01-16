@@ -2,10 +2,20 @@
     <table class="table">
         <thead>
         <tr>
-            <th>{{ __('Order ID') }}</th>
+            @if(Route::is('user-order.myTransactions'))
+                <th>{{ __('Transactions ID') }}</th>
+            @endif
+            @if(Route::is('user-order.index'))
+                <th>{{ __('Order ID') }}</th>
+            @endif
             <th>{{ __('Amount') }}</th>
             <th>{{ __('Date') }}</th>
-            <th>{{ __('Payment') }}</th>
+            @if(Route::is('user-order.myTransactions'))
+                 <th>{{ __('Payment Gateway') }}</th>
+            @endif
+            @if(Route::is('user-order.index'))
+                <th>{{ __('Payment') }}</th>
+            @endif
             <th>{{ __('Status') }}</th>
             <th>{{ __('Action') }}</th>
         </tr>
@@ -14,24 +24,40 @@
 
         @foreach($orders as $order)
             <tr>
-                <td>
-                    <a href="#">
-                        {{ $order->order_id }}
-                    </a>
-                </td>
+                @if(Route::is('user-order.myTransactions'))
+                    <td>
+                        <a href="#">
+                            {{ $order->transaction_id }}
+                        </a>
+                    </td>
+                @endif
+                    @if(Route::is('user-order.index'))
+                    <td>
+                        <a href="#">
+                            {{ $order->order_id }}
+                        </a>
+                    </td>
+                    @endif
                 <td>{{ currency($order->total) }}</td>
                 <td>{{ $order->created_at->diffForHumans() }}</td>
+                @if(Route::is('user-order.myTransactions'))
+                        <td>{{ $order->payment_method }}</td>
+                @endif
+
+                @if(Route::is('user-order.index'))
                 <td>
-                    @if($order->payment_status == 1)
-                        <span class="paid_btn">
-                            {{ __('PAID') }}
-                        </span>
-                    @else
-                        <span class="paid_btn unpaid_btn">
-                            {{ __('UNPAID') }}
-                        </span>
-                    @endif
+                @if($order->payment_status == 1)
+                    <span class="paid_btn">
+                        {{ __('PAID') }}
+                    </span>
+                @else
+                    <span class="paid_btn unpaid_btn">
+                        {{ __('UNPAID') }}
+                    </span>
+                @endif
+
                 </td>
+                    @endif
                 <td>
                     @if($order->order_status == 0)
                         <span class="pending_status">

@@ -263,11 +263,19 @@
                                                     </td>
 
                                                     <td class="crancy-table__column-2 crancy-table__data-2">
-                                                        <h4 class="crancy-table__product-title"><a href="{{ route('admin.user-show', $order->buyer_id) }}">{{ html_decode($order?->buyer?->name) }}</a></h4>
+                                                        <h4 class="crancy-table__product-title">
+{{--                                                            <a href="{{ route('admin.user-show', $order->user_id) }}">--}}
+{{--                                                                {{ html_decode($order?->buyer?->name) }}--}}
+{{--                                                            </a>--}}
+                                                        </h4>
                                                     </td>
 
                                                     <td class="crancy-table__column-2 crancy-table__data-2">
-                                                        <h4 class="crancy-table__product-title"><a href="{{ route('admin.user-show', $order->seller) }}">{{ html_decode($order?->seller?->name) }}</a></h4>
+                                                        <h4 class="crancy-table__product-title">
+{{--                                                            <a href="{{ route('admin.user-show', $order->seller) }}">--}}
+{{--                                                                {{ html_decode($order?->seller?->name) }}--}}
+{{--                                                            </a>--}}
+                                                        </h4>
                                                     </td>
 
                                                     <td class="crancy-table__column-2 crancy-table__data-2">

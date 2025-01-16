@@ -21,10 +21,7 @@ use Modules\Project\App\Models\ProjectTranslation;
 
 class ListingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
+
     public function index()
     {
         $listings = Listing::with('translate','category')->latest()->get();
@@ -46,17 +43,12 @@ class ListingController extends Controller
         return view('listing::featured_listing', compact('listings'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
     public function create(Request $request)
     {
         $categories = Category::with('translate')->where('status', 'enable')->get();
 
         return view('listing::create', compact('categories', ));
     }
-
 
     public function store(ListingRequest $request)
     {
@@ -96,8 +88,6 @@ class ListingController extends Controller
         return redirect()->route('admin.listings.edit', ['listing' => $listing->id, 'lang_code' => admin_lang()] )->with($notify_message);
     }
 
-
-
     public function edit(Request $request, $id)
     {
 
@@ -112,7 +102,6 @@ class ListingController extends Controller
 
         return view('listing::edit', compact('categories', 'listing', 'listing_translate', 'subcategories'));
     }
-
 
     public function update(ListingRequest $request, $id)
     {
@@ -154,7 +143,6 @@ class ListingController extends Controller
         $notify_message = array('message' => $notify_message, 'alert-type' => 'success');
         return redirect()->back()->with($notify_message);
     }
-
 
     public function destroy($id)
     {

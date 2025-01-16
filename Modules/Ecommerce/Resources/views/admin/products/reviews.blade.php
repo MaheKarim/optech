@@ -5,7 +5,7 @@
 
 @section('body-header')
     <h3 class="crancy-header__title m-0">{{ __('translate.Review List') }}</h3>
-    <p class="crancy-header__text">{{ __('translate.Manage Listings') }} >> {{ __('translate.Review List') }}</p>
+    <p class="crancy-header__text">{{ __('Manage Reviews') }} >> {{ __('translate.Review List') }}</p>
 @endsection
 
 @section('body-content')
@@ -45,22 +45,16 @@
                                                 </th>
 
                                                 <th class="crancy-table__column-2 crancy-table__h2 sorting" >
-                                                    {{ __('translate.Listing') }}
+                                                    {{ __('Product') }}
                                                 </th>
-
 
                                                 <th class="crancy-table__column-2 crancy-table__h2 sorting" >
                                                     {{ __('translate.Created at') }}
                                                 </th>
 
-                                                <th class="crancy-table__column-2 crancy-table__h2 sorting" >
-                                                    {{ __('translate.Status') }}
-                                                </th>
-
                                                 <th class="crancy-table__column-3 crancy-table__h3 sorting">
                                                     {{ __('translate.Action') }}
                                                 </th>
-
                                             </tr>
                                         </thead>
                                         <!-- crancy Table Body -->
@@ -68,17 +62,16 @@
                                             @foreach ($reviews as $index => $review)
                                                 <tr class="odd">
 
-
                                                     <td class="crancy-table__column-2 crancy-table__data-2">
                                                         <h4 class="crancy-table__product-title">{{ ++$index }}</a></h4>
                                                     </td>
 
                                                     <td class="crancy-table__column-2 crancy-table__data-2">
-                                                        <h4 class="crancy-table__product-title"><a href="{{ route('admin.user-show', $review->user_id) }}">{{ html_decode($review->user?->name) }}</a></h4>
+                                                        <h4 class="crancy-table__product-title"><a href="#">{{ html_decode($review->user?->name) }}</a></h4>
                                                     </td>
 
                                                     <td class="crancy-table__column-2 crancy-table__data-2">
-                                                        <h4 class="crancy-table__product-title"><a href="{{ route('admin.listings.edit', ['listing' => $review->listing_id, 'lang_code' => admin_lang()]) }}">{{ html_decode($review?->listing?->title) }}</a></h4>
+                                                        <h4 class="crancy-table__product-title"><a href="#">{{ Str::limit($review?->product?->translate->name, 25) }}</a></h4>
                                                     </td>
 
                                                     <td class="crancy-table__column-2 crancy-table__data-2">
@@ -87,13 +80,7 @@
                                                         </h4>
                                                     </td>
 
-                                                    <td class="crancy-table__column-2 crancy-table__data-2">
-                                                        @if ($review->status == 'enable')
-                                                        <div class="badge bg-success">{{ __('translate.Visible') }}</div>
-                                                        @else
-                                                        <div class="badge bg-danger">{{ __('translate.Disable') }}</div>
-                                                        @endif
-                                                    </td>
+
 
                                                     <td class="crancy-table__column-2 crancy-table__data-2">
                                                         <a href="{{ route('admin.review-detail', $review->id) }}" class="crancy-btn"><i class="fas fa-eye"></i> {{ __('translate.Details') }}</a>

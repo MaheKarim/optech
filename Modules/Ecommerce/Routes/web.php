@@ -94,6 +94,9 @@ Route::group(['middleware' => ['HtmlSpecialchars', 'MaintenanceMode']], function
             // Order
             Route::get('/', 'index')->name('index');
             Route::get('/single-order/{orderId}', 'singleOrder')->name('singleOrder');
+            Route::get('all/transactions/history', 'myTransactions')->name('myTransactions');
+            Route::post('review-submit', 'reviewSubmit')->name('reviewSubmit');
+            Route::get('my/reviews', 'reviews')->name('reviews');
         });
 
     });
