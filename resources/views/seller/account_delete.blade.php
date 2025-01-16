@@ -72,7 +72,7 @@
                 {{ __('translate.Cancel') }}
               </button>
 
-              <form id="delete_account" action="{{ route('seller.confirm-account-delete') }}" method="POST">
+              <form id="delete_account" action="{{ route('user.confirm-account-delete') }}" method="POST">
                 @csrf
                 @method('DELETE')
 

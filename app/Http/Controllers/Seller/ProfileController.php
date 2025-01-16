@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers\Seller;
 
-use App\Models\User;
-use App\Models\Order;
-use App\Models\Review;
-use Illuminate\Http\Request;
-use Auth, File, Image, Str, Hash;
 use App\Http\Controllers\Controller;
-use Modules\Listing\Entities\Listing;
-use Modules\JobPost\Entities\JobRequest;
-use Modules\LiveChat\App\Models\Message;
-use App\Http\Requests\PasswordChangeRequest;
-use Modules\Listing\Entities\ListingGallery;
 use App\Http\Requests\EditBuyerProfileRequest;
-use Modules\Listing\Entities\ListingTranslation;
+use App\Http\Requests\PasswordChangeRequest;
+use App\Models\Order;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
+use Image;
+use Modules\JobPost\Entities\JobRequest;
+use Str;
 
 class ProfileController extends Controller
 {
@@ -55,19 +57,7 @@ class ProfileController extends Controller
         $user = Auth::guard('web')->user();
         $user->name = $request->name;
         $user->phone = $request->phone;
-        $user->designation = $request->designation;
         $user->address = $request->address;
-        $user->gender = $request->gender;
-        $user->language = $request->language;
-        $user->university_name = $request->university_name;
-        $user->university_location = $request->university_location;
-        $user->university_time_period = $request->university_time_period;
-        $user->school_name = $request->school_name;
-        $user->school_location = $request->school_location;
-        $user->school_time_period = $request->school_time_period;
-        $user->about_me = $request->about_me;
-        $user->skills = $request->skills;
-        $user->hourly_payment = $request->hourly_payment ? $request->hourly_payment : 0.00;
         $user->save();
 
         if($request->file('image')){
@@ -217,71 +207,95 @@ class ProfileController extends Controller
         return view('seller.account_delete');
     }
 
-    public function confirm_account_delete(){
+    public function confirm_account_delete(Request $request)
+    {
+        try {
+            $user = Auth::guard('web')->user();
 
-        $user = Auth::guard('web')->user();
-
-        $user_image = $user->image;
-
-        if($user_image){
-            if(File::exists(public_path().'/'.$user_image))unlink(public_path().'/'.$user_image);
-        }
-
-        $listings = Listing::where('user_id', $user->id)->latest()->get();
-
-        foreach($listings as $listing){
-            $old_image = $listing->thumb_image;
-
-            if($old_image){
-                if(File::exists(public_path().'/'.$old_image))unlink(public_path().'/'.$old_image);
+            if (!$user) {
+                Log::warning('Account deletion attempt failed: User not found');
+                return redirect()
+                    ->back()
+                    ->with([
+                        'message' => 'User not found',
+                        'alert-type' => 'error'
+                    ]);
             }
 
-            ListingTranslation::where('listing_id',$listing->id)->delete();
-            Review::where('listing_id',$listing->id)->delete();
-            ListingPackage::where('listing_id',$listing->id)->delete();
+            if (!Hash::check($request->password, $user->password)) {
+                Log::warning('Account deletion failed: Password mismatch for user ' . $user->id);
+                return redirect()
+                    ->back()
+                    ->with([
+                        'message' => trans('translate.Password does not match. Please try again.'),
+                        'alert-type' => 'error'
+                    ]);
+            }
 
-            $galleries = ListingGallery::where('listing_id', $listing->id)->get();
-            foreach($galleries as $gallery){
-                $old_image = $gallery->image;
+            DB::beginTransaction();
 
-                if($old_image){
-                    if(File::exists(public_path().'/'.$old_image))unlink(public_path().'/'.$old_image);
+            try {
+                // Handle image deletion
+                if ($user->image) {
+                    $imagePath = public_path($user->image);
+                    if (File::exists($imagePath)) {
+                        File::delete($imagePath);
+                        Log::info('Deleted image for user: ' . $user->id);
+                    } else {
+                        Log::warning('Image not found or already null for user: ' . $user->id);
+                    }
                 }
 
-                $gallery->delete();
+                // Delete related records
+                DB::table('product_reviews')->where('user_id', $user->id)->delete();
+                DB::table('orders')->where('user_id', $user->id)->delete();
+                DB::table('wishlists')->where('user_id', $user->id)->delete();
+                DB::table('carts')->where('user_id', $user->id)->delete();
+
+                // Force delete the user
+                DB::enableQueryLog(); // Start query logging
+                $user->forceDelete();
+                Log::info('Query log after force delete: ', DB::getQueryLog());
+
+                // Confirm user deletion
+                $userExists = DB::table('users')->where('id', $user->id)->exists();
+                if ($userExists) {
+                    throw new \Exception('User still exists in the database after forceDelete.');
+                }
+
+                DB::commit();
+
+                Auth::guard('web')->logout();
+                Session::flush();
+
+                Log::info('Successfully deleted account for user: ' . $user->id);
+
+                return redirect()
+                    ->route('buyer.login')
+                    ->with([
+                        'message' => trans('translate.Your account deleted successful'),
+                        'alert-type' => 'success'
+                    ]);
+            } catch (\Exception $e) {
+                DB::rollBack();
+                Log::error('Account deletion transaction failed for user ' . $user->id . ': ' . $e->getMessage());
+                return redirect()
+                    ->back()
+                    ->with([
+                        'message' => 'Failed to delete account: ' . $e->getMessage(),
+                        'alert-type' => 'error'
+                    ]);
             }
-
-            $listing->delete();
+        } catch (\Exception $e) {
+            Log::error('Account deletion pre-check failed: ' . $e->getMessage());
+            return redirect()
+                ->back()
+                ->with([
+                    'message' => trans('translate.Something went wrong. Please try again.'),
+                    'alert-type' => 'error'
+                ]);
         }
-
-        Review::where('buyer_id',$user->id)->delete();
-        Review::where('user_id',$user->id)->delete();
-
-        JobRequest::where('user_id',$user->id)->delete();
-        JobRequest::where('user_id',$user->id)->delete();
-
-        Order::where('user_id',$user->id)->delete();
-        Order::where('buyer_id',$user->id)->delete();
-
-        $json_module_data = file_get_contents(base_path('modules_statuses.json'));
-        $module_status = json_decode($json_module_data);
-
-        if(isset($module_status->LiveChat) && $module_status->LiveChat){
-            Message::where('user_id',$user->id)->delete();
-            Message::where('buyer_id',$user->id)->delete();
-        }
-
-
-        $user->delete();
-
-        Auth::guard('web')->logout();
-
-        $notify_message = trans('translate.Your account deleted successful');
-        $notify_message = array('message' => $notify_message, 'alert-type' => 'success');
-        return redirect()->route('buyer.login')->with($notify_message);
-
     }
-
     public function order_submission(Request $request, $id){
         $user = Auth::guard('web')->user();
 

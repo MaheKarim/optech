@@ -10,21 +10,6 @@
                     <img src="{{ asset($user->image) }}" alt="thumb">
                 </div>
 
-                <span class="change_prof_thumb">
-                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M3.40447 9.75234C2.67133 9.01664 1.93043 8.2727 1.18823 7.5279C3.0713 5.63883 4.95696 3.74672 6.83874 1.85938C7.57361 2.59854 8.31365 3.34291 9.04809 4.08164C7.17148 5.96725 5.28625 7.86153 3.40447 9.75234Z"
-                            fill="white"/>
-                        <path
-                            d="M9.65426 3.49537C9.6228 3.45985 9.59478 3.42475 9.56332 3.39312C8.87715 2.70291 8.19056 2.01271 7.50396 1.3225C7.43026 1.24841 7.43112 1.24885 7.50568 1.17346C7.78325 0.89486 8.06212 0.617564 8.3371 0.335936C8.50519 0.163493 8.69915 0.0421759 8.94008 0.0105468C9.23963 -0.0288812 9.51418 0.0404428 9.73615 0.248848C9.99001 0.487149 10.2314 0.738881 10.4771 0.985848C10.5783 1.08767 10.6788 1.19035 10.7766 1.29521C11.0749 1.6154 11.077 2.0595 10.7723 2.37276C10.4133 2.74234 10.046 3.10413 9.68227 3.46938C9.6771 3.47458 9.6715 3.47891 9.65426 3.49451V3.49537Z"
-                            fill="white"/>
-                        <path
-                            d="M2.80052 10.3859C2.68329 10.4145 2.58157 10.4396 2.47985 10.4643C1.75878 10.6398 1.03813 10.8157 0.317057 10.9903C0.126551 11.0362 -0.0286115 10.898 0.00414505 10.7035C0.0364706 10.5124 0.0843125 10.3239 0.12612 10.1346C0.266629 9.49983 0.407568 8.86509 0.548077 8.22991C0.553249 8.20738 0.556266 8.18485 0.568765 8.15625C1.31656 8.89022 2.05186 9.63458 2.80052 10.3859Z"
-                            fill="white"/>
-                    </svg>
-                    <input type="file" class="my_file">
-                </span>
 
             </div>
             <div class="dashbord_prof_thumb_text">
@@ -107,7 +92,7 @@
                 </a>
             </li>
             <li>
-                <a href="./dashbord-profile-setting.html">
+                <a href="{{ route('user.edit-profile') }}" class="{{ request()->routeIs('user.edit-profile') ? 'active' : '' }}">
                     <span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -117,11 +102,11 @@
                                     stroke-linejoin="round"/>
                         </svg>
                     </span>
-                    Profile Settings
+                   {{ __('Profile Settings') }}
                 </a>
             </li>
             <li>
-                <a href="./dashbord-change-password.html">
+                <a href="{{ route('user.change-password') }}" class="{{ request()->routeIs('user.change-password') ? 'active' : '' }}">
                     <span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -133,7 +118,7 @@
                                   stroke="currentColor" stroke-width="1.5"/>
                         </svg>
                     </span>
-                    Change Password
+                    {{ __('Change Password') }}
                 </a>
             </li>
             <li>
@@ -147,7 +132,7 @@
                                 stroke-linejoin="round"/>
                         </svg>
                     </span>
-                    Delete Account
+                    {{ __('Delete Account') }}
                 </a>
             </li>
             <li>
@@ -164,7 +149,7 @@
                                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
                     </span>
-                    Logout
+                    {{ __('Logout') }}
                 </a>
             </li>
         </ul>

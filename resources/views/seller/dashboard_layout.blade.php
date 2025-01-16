@@ -32,19 +32,21 @@
                     <!-- modal body text  -->
                     <div class="modal_body_text">
                         <h4>
-                            Deleting Account
+                            {{ __('Deleting Account') }}
                         </h4>
 
                         <p>
-                            Confirm your want to delete your account forever.
+                            {{ __('Confirm your want to delete your account forever.') }}
                         </p>
                     </div>
                     <!-- modal form  -->
-                    <form class="d_change_password_box_form">
+                    <form class="d_change_password_box_form" action="{{ route('user.confirm-account-delete') }}" method="POST">
+                        @csrf
+                        @method('DELETE')
                         <div class="d_profile_setting_from_item">
                             <div class="optech-checkout-field">
-                                <label>Current Password*</label>
-                                <input type="text" placeholder="Current Password">
+                                <label>{{ __('Current Password*') }}</label>
+                                <input type="password" placeholder="Current Password" name="password">
                                 <button type="button" class="eye_btn">
                                     <span>
                                         <i class="fa-regular fa-eye-slash"></i>
@@ -53,12 +55,12 @@
                             </div>
                         </div>
                         <div class="d_profile_setting_from_btn">
-                            <button class="optech-default-btn red" data-text="Delete Account">
-                                <span class="btn-wraper">Delete Account</span>
+                            <button class="optech-default-btn red" data-text="{{ __('Delete Account') }}">
+                                <span class="btn-wraper">{{ __('Delete Account') }}</span>
                             </button>
 
-                            <button class="optech-default-btn two" data-text="Cancel" data-bs-dismiss="modal">
-                                <span class="btn-wraper">Cancel</span>
+                            <button class="optech-default-btn two" data-text="{{ __('Cancel') }}" data-bs-dismiss="modal">
+                                <span class="btn-wraper">{{ __('Cancel') }}</span>
                             </button>
 
                         </div>

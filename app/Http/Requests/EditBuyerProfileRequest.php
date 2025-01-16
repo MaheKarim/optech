@@ -24,10 +24,8 @@ class EditBuyerProfileRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'designation' => 'sometimes|max:255',
             'address' => 'sometimes|max:255',
             'phone' => 'sometimes|max:255',
-            'hourly_payment' => $this->request->get('hourly_payment') ? 'sometimes|numeric' : '',
         ];
     }
 
@@ -36,7 +34,6 @@ class EditBuyerProfileRequest extends FormRequest
     {
         return [
             'name.required' => trans('translate.Name is required'),
-            'hourly_payment.numeric' => trans('translate.Hourly rate should be numeric'),
         ];
     }
 }
