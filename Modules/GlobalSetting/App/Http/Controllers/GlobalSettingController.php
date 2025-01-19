@@ -67,20 +67,12 @@ class GlobalSettingController extends Controller
     public function update_general_setting(GeneralSettingRequest $request)
     {
 
-        if($request->commission_type == 'subscription'){
-            if(!checkModule('Subscription')){
-                $notify_message = trans('translate.Please enable subscription module first');
-                $notify_message = array('message' => $notify_message, 'alert-type' => 'error');
-                return redirect()->back()->with($notify_message);
-            }
-        }
-
         GlobalSetting::where('key', 'selected_theme')->update(['value' => $request->selected_theme]);
         GlobalSetting::where('key', 'app_name')->update(['value' => $request->app_name]);
         GlobalSetting::where('key', 'contact_message_mail')->update(['value' => $request->contact_message_mail]);
         GlobalSetting::where('key', 'timezone')->update(['value' => $request->timezone]);
-        GlobalSetting::where('key', 'commission_type')->update(['value' => $request->commission_type]);
-        GlobalSetting::where('key', 'commission_per_sale')->update(['value' => $request->commission_per_sale]);
+        GlobalSetting::where('key', 'blog_type')->update(['value' => $request->blog_type]);
+        GlobalSetting::where('key', 'portfolio_type')->update(['value' => $request->portfolio_type]);
 
         $this->set_cache_setting();
 

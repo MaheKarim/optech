@@ -21,8 +21,7 @@
                     </li>
                     <li class="sub-menu--item">
                         <a href="{{ route('home', ['theme' => 'it_solutions']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.IT Solutions') }}</span>
+                           <span class="menu-item-text">{{ __('translate.IT Solutions') }}</span>
                         </a>
                     </li>
                     <li class="sub-menu--item">
@@ -32,32 +31,27 @@
                     </li>
                     <li class="sub-menu--item">
                         <a href="{{ route('home', ['theme' => 'startup_home']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.Startup Home') }}</span>
+                        <span  class="menu-item-text">{{ __('translate.Startup Home') }}</span>
                         </a>
                     </li>
                     <li class="sub-menu--item">
                         <a href="{{ route('home', ['theme' => 'it_consulting']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.IT Consulting') }}</span>
+                           <span class="menu-item-text">{{ __('translate.IT Consulting') }}</span>
                         </a>
                     </li>
                     <li class="sub-menu--item">
                         <a href="{{ route('home', ['theme' => 'soft_company']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.Software Company') }}</span>
+                           <span class="menu-item-text">{{ __('translate.Software Company') }}</span>
                         </a>
                     </li>
                     <li class="sub-menu--item">
                         <a href="{{ route('home', ['theme' => 'digital_agency']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.Digital Agency') }}</span>
+                           <span class="menu-item-text">{{ __('translate.Digital Agency') }}</span>
                         </a>
                     </li>
                     <li class="sub-menu--item">
                         <a href="{{ route('home', ['theme' => 'tech_company']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.Tech Company') }}</span>
+                            <span class="menu-item-text">{{ __('translate.Tech Company') }}</span>
                         </a>
                     </li>
                 </ul>
@@ -85,7 +79,6 @@
                     <li class="sub-menu--item ">
                         <a href="{{ route('teams') }}" class="drop-trigger">{{ __('Our Teams') }}
                         </a>
-
                     </li>
                     <li class="sub-menu--item nav-item-has-children">
                         <a href="#" data-menu-get="h3" class="drop-trigger">{{ __('Utility') }}<i
@@ -94,8 +87,8 @@
                         <ul class="sub-menu shape-none" id="submenu-7">
                             <li class="sub-menu--item">
                                 <a href="{{ route('faq') }}">
-                                                            <span
-                                                                class="menu-item-text">{{ __('FAQ') }}</span>
+                                    <span
+                                        class="menu-item-text">{{ __('FAQ') }}</span>
                                 </a>
                             </li>
 
@@ -123,8 +116,8 @@
                                 </a>
                             </li>
                             <li class="sub-menu--item">
-                                <a href="checkout.html">
-                                    <span class="menu-item-text">Checkout</span>
+                                <a href="{{ route('checkout.index') }}">
+                                    <span class="menu-item-text">{{ __('Checkout') }}</span>
                                 </a>
                             </li>
                         </ul>
@@ -133,9 +126,12 @@
             </li>
 
             @php
-                $isGrid = request()->query('type') === 'grid';
+                $portfolioType = Modules\GlobalSetting\App\Models\GlobalSetting::where('key', 'portfolio_type')->first()?->value ?? 'default';
+                $isGrid = $portfolioType === 'grid';
             @endphp
-            <li class="nav-item nav-item-has-children">
+
+            @if(config('app.env') === 'DEMO')
+                <li class="nav-item nav-item-has-children">
                 <a href="#" class="nav-link-item drop-trigger">{{ __('Portfolio') }} <i
                         class="ri-arrow-down-s-fill"></i></a>
                 <ul class="sub-menu shape-none" id="submenu-6">
@@ -152,30 +148,48 @@
 
                 </ul>
             </li>
+            @else
+                <li class="nav-item">
+                    <a href="{{ route('portfolio', $isGrid ? ['type' => 'grid'] : []) }}" class="nav-link-item">
+                        <span class="menu-item-text active">{{ __('translate.Portfolio') }}</span>
+                    </a>
+                </li>
+            @endif
 
-            <li class="nav-item nav-item-has-children">
-                <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Blog') }} <i
-                        class="ri-arrow-down-s-fill"></i></a>
-                <ul class="sub-menu" id="submenu-9">
-                    <li class="sub-menu--item">
-                        <a href="{{ route('blogs') }}">
-                            <span class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('translate.Blog') }}</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu--item">
-                        <a href="{{ route('blogs', ['type' => 'grid']) }}">
-                            <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Blog Grid') }}</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+            @php
+                $blogType = Modules\GlobalSetting\App\Models\GlobalSetting::where('key', 'blog_type')->first()?->value ?? 'default';
+                $isGrid = $blogType === 'grid';
+            @endphp
 
+            @if(config('app.env') === 'DEMO')
+                <li class="nav-item nav-item-has-children">
+                    <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Blog') }} <i
+                            class="ri-arrow-down-s-fill"></i></a>
+                    <ul class="sub-menu" id="submenu-9">
+                        <li class="sub-menu--item">
+                            <a href="{{ route('blogs') }}">
+                                <span class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('translate.Blog') }}</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu--item">
+                            <a href="{{ route('blogs', ['type' => 'grid']) }}">
+                                <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Blog Grid') }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a href="{{ route('blogs', $isGrid ? ['type' => 'grid'] : []) }}" class="nav-link-item">
+                        <span class="menu-item-text active">{{ __('translate.Blog') }}</span>
+                    </a>
+                </li>
+            @endif
 
             <li class="nav-item">
                 <a class="nav-link-item"
                    href="{{ route('contact-us') }}">{{ __('translate.Contact') }}</a>
             </li>
         </ul>
-
     </nav>
 </div>

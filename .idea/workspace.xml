@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/_cart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/frontend/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/GlobalSetting/App/Http/Controllers/GlobalSettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/GlobalSetting/App/Http/Controllers/GlobalSettingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/GlobalSetting/App/Http/Requests/GeneralSettingRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/GlobalSetting/App/Http/Requests/GeneralSettingRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/GlobalSetting/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/GlobalSetting/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/en/translate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/translate.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/digital_agency.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/digital_agency.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/it_solutions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/it_solutions.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/soft_company.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/soft_company.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/startup_home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/startup_home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/tech_agency.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/tech_agency.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/tech_company.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/tech_company.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/_menu_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/_menu_nav.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +308,7 @@
       <workItem from="1736831975809" duration="24040000" />
       <workItem from="1736915454600" duration="20122000" />
       <workItem from="1737001377555" duration="21951000" />
-      <workItem from="1737259924384" duration="19596000" />
+      <workItem from="1737259924384" duration="22345000" />
     </task>
     <servers />
   </component>

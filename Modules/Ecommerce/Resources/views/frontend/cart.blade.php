@@ -87,8 +87,11 @@
                     <p>{{ __('Subtotal') }}:</p>
                     <p><span>{{ currency($subtotal) }}</span></p>
                 </div>
+
+                @if($carts->isNotEmpty())
                 <a class="optech-default-btn rt-mt-40" data-aos="fade-up" data-aos-duration="800" href="{{ route('checkout.index') }}"
                    data-text="{{ __('Proceed to Checkout') }}"><span class="btn-wraper">{{ __('Proceed to Checkout') }}</span></a>
+                @endif
             </div>
         </div>
     </div>

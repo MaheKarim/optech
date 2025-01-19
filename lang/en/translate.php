@@ -6,7 +6,7 @@
   'Our Latest Features' => 'Our Latest Features',
   'Contact Us' => 'Contact Us',
   'Get Services' => 'Get Services',
-  'M' => 'M',
+  'Portfolio' => 'Portfolio',
   'Total Freelancers' => 'Total Freelancers',
   'Total Services' => 'Total Services',
   'Total Job' => 'Total Job',

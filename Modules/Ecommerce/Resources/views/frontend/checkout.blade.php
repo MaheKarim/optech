@@ -93,9 +93,11 @@
                                     </li>
                                 </ul>
                             </div>
-                            <button class="optech-default-btn shop-order-btn" type="submit" data-text="{{ __('Place Order') }}">
-                                <span class="btn-wraper">{{ __('Place Order') }}</span>
-                            </button>
+                                @if($carts->isNotEmpty())
+                                    <button class="optech-default-btn shop-order-btn" type="submit" data-text="{{ __('Place Order') }}">
+                                        <span class="btn-wraper">{{ __('Place Order') }}</span>
+                                    </button>
+                                @endif
                         </div>
                     </div>
                     </div>

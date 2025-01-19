@@ -26,25 +26,24 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h5>Reset your password</h5>
+                <h5>{{ __('Reset your password') }}</h5>
                 <p>
-                    Enter the email address associated account and we'll send you a
-                    link to reset your password.
+                    {{ __('Forgot password? Enter your email for reset link.') }}
                 </p>
 
                 <form class="d_change_password_box_form">
                     <div class="d_profile_setting_from_item">
                         <div class="optech-checkout-field">
-                            <label>Email Address*</label>
-                            <input type="text" placeholder="Email Address" />
+                            <label>{{ __('Email Address*') }}</label>
+                            <input type="text" placeholder="Email Address" name="email"/>
                         </div>
                     </div>
                     <a href="{{ route('login') }}" data-bs-dismiss="modal">
-                        Return to login
+                        {{ __('Back to login') }}
                     </a>
                     <div class="d_profile_setting_from_btn">
-                        <button class="optech-default-btn" data-text="Continue">
-                            <span class="btn-wraper">Continue</span>
+                        <button class="optech-default-btn" data-text="{{ __('Continue') }}">
+                            <span class="btn-wraper">{{ __('Continue') }}</span>
                         </button>
                     </div>
                 </form>
@@ -218,8 +217,7 @@
                         </label>
                     </div>
 
-                    <a href="#" class="forgot_pass" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        {{ __('Forgot Password?') }}
+                    <a href="#" class="forgot_pass" data-bs-toggle="modal" data-bs-target="#exampleModal">Forgot Pass ?
                     </a>
                 </div>
                 @if($general_setting->recaptcha_status==1)
@@ -309,10 +307,6 @@
                 $("#email").val('seller@gmail.com')
                 $("#password").val(1234)
             })
-
-
-
-
         });
     })(jQuery);
 </script>

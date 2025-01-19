@@ -133,22 +133,23 @@
 
                                                                                     <div class="col-12">
                                                                                         <div class="crancy__item-form--group  mg-top-form-20">
-                                                                                            <label class="crancy__item-label">{{ __('translate.Commission Type') }}</label>
-                                                                                            <select class="form-select crancy__item-input" name="commission_type" id="commission_type">
-                                                                                                <option {{ $general_setting->commission_type == 'commission' ? 'selected' : '' }} value="commission">{{ __('translate.Commission') }}</option>
-                                                                                                <option {{ $general_setting->commission_type == 'subscription' ? 'selected' : '' }} value="subscription">{{ __('translate.Subscription') }}</option>
-
+                                                                                            <label class="crancy__item-label">{{ __('Blog Type') }}</label>
+                                                                                            <select class="form-select crancy__item-input" name="blog_type" id="blog_type">
+                                                                                                <option {{ $general_setting->blog_type == 'default' ? 'selected' : '' }} value="default">{{ __('Default') }}</option>
+                                                                                                <option {{ $general_setting->blog_type == 'grid' ? 'selected' : '' }} value="grid">{{ __('Grid') }}</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="col-12 {{ $general_setting->commission_type == 'subscription' ? 'd-none' : '' }}" id="commission_per_sale">
-                                                                                        <div class="crancy__item-form--group mg-top-form-20">
-                                                                                            <label class="crancy__item-label">{{ __('translate.Commission per sale (%)') }} </label>
-                                                                                            <input class="crancy__item-input" type="text" value="{{ $general_setting->commission_per_sale }}" name="commission_per_sale">
+                                                                                    <div class="col-12">
+                                                                                        <div class="crancy__item-form--group  mg-top-form-20">
+                                                                                            <label class="crancy__item-label">{{ __('Portfolio Type') }}</label>
+                                                                                            <select class="form-select crancy__item-input" name="portfolio_type" id="portfolio_type">
+                                                                                                <option {{ $general_setting->portfolio_type == 'default' ? 'selected' : '' }} value="default">{{ __('Default') }}</option>
+                                                                                                <option {{ $general_setting->portfolio_type == 'grid' ? 'selected' : '' }} value="grid">{{ __('Grid') }}</option>
+                                                                                            </select>
                                                                                         </div>
                                                                                     </div>
-
 
 
                                                                                     <div class="col-12">
@@ -986,21 +987,6 @@
 @push('js_section')
     <script>
         "use strict";
-
-        (function($) {
-            "use strict"
-            $(document).ready(function () {
-                $("#commission_type").on("change",function(e){
-
-                    let commission_type = $(this).val();
-                    if(commission_type == 'commission'){
-                        $("#commission_per_sale").removeClass('d-none');
-                    }else{
-                        $("#commission_per_sale").addClass('d-none');
-                    }
-                })
-            });
-        })(jQuery);
 
         function reviewImage(event) {
             var reader = new FileReader();

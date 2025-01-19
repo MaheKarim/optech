@@ -15,7 +15,6 @@ class GeneralSettingRequest extends FormRequest
         $rules = [
             'app_name' => 'required',
             'contact_message_mail' => 'required',
-            'commission_per_sale' => 'required|numeric',
         ];
 
         return $rules;
@@ -36,7 +35,6 @@ class GeneralSettingRequest extends FormRequest
         return [
             'app_name.required' => trans('translate.App name is required'),
             'contact_message_mail.required' => trans('translate.Email is required'),
-            'commission_per_sale.numeric' => trans('translate.Commission vale must be numeric'),
         ];
     }
 
