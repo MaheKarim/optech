@@ -25,13 +25,13 @@
 
                     <div class="optech-header-info-right">
                         <div class="cur_lun_login_item">
-              <span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12 11.25C11.3096 11.25 10.75 10.6904 10.75 10C10.75 9.30964 11.3096 8.75 12 8.75C12.6904 8.75 13.25 9.30964 13.25 10C13.25 10.4142 13.5858 10.75 14 10.75C14.4142 10.75 14.75 10.4142 14.75 10C14.75 8.74122 13.9043 7.67998 12.75 7.35352V6.5C12.75 6.08579 12.4142 5.75 12 5.75C11.5858 5.75 11.25 6.08579 11.25 6.5V7.35352C10.0957 7.67998 9.25 8.74122 9.25 10C9.25 11.5188 10.4812 12.75 12 12.75C12.6904 12.75 13.25 13.3096 13.25 14C13.25 14.6904 12.6904 15.25 12 15.25C11.3096 15.25 10.75 14.6904 10.75 14C10.75 13.5858 10.4142 13.25 10 13.25C9.58579 13.25 9.25 13.5858 9.25 14C9.25 15.2588 10.0957 16.32 11.25 16.6465V17.5C11.25 17.9142 11.5858 18.25 12 18.25C12.4142 18.25 12.75 17.9142 12.75 17.5V16.6465C13.9043 16.32 14.75 15.2588 14.75 14C14.75 12.4812 13.5188 11.25 12 11.25Z"
-                        fill="white" />
-                </svg>
-              </span>
+                          <span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12 11.25C11.3096 11.25 10.75 10.6904 10.75 10C10.75 9.30964 11.3096 8.75 12 8.75C12.6904 8.75 13.25 9.30964 13.25 10C13.25 10.4142 13.5858 10.75 14 10.75C14.4142 10.75 14.75 10.4142 14.75 10C14.75 8.74122 13.9043 7.67998 12.75 7.35352V6.5C12.75 6.08579 12.4142 5.75 12 5.75C11.5858 5.75 11.25 6.08579 11.25 6.5V7.35352C10.0957 7.67998 9.25 8.74122 9.25 10C9.25 11.5188 10.4812 12.75 12 12.75C12.6904 12.75 13.25 13.3096 13.25 14C13.25 14.6904 12.6904 15.25 12 15.25C11.3096 15.25 10.75 14.6904 10.75 14C10.75 13.5858 10.4142 13.25 10 13.25C9.58579 13.25 9.25 13.5858 9.25 14C9.25 15.2588 10.0957 16.32 11.25 16.6465V17.5C11.25 17.9142 11.5858 18.25 12 18.25C12.4142 18.25 12.75 17.9142 12.75 17.5V16.6465C13.9043 16.32 14.75 15.2588 14.75 14C14.75 12.4812 13.5188 11.25 12 11.25Z"
+                                    fill="white" />
+                            </svg>
+                          </span>
                             <select class="js-example-basic-single" name="currency_code">
                                 @foreach ($currency_list as $currency_item)
                                     <option
@@ -58,13 +58,13 @@
                         </div>
 
                         <div class="cur_lun_login_item">
-              <span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11ZM12 21C15.866 21 19 19.2091 19 17C19 14.7909 15.866 13 12 13C8.13401 13 5 14.7909 5 17C5 19.2091 8.13401 21 12 21Z"
-                        fill="white" />
-                </svg>
-              </span>
+                          <span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11ZM12 21C15.866 21 19 19.2091 19 17C19 14.7909 15.866 13 12 13C8.13401 13 5 14.7909 5 17C5 19.2091 8.13401 21 12 21Z"
+                                    fill="white" />
+                            </svg>
+                          </span>
                             <a href="{{ route('login') }}" class="login-btn">{{ __('translate.Login') }}</a>
                         </div>
                     </div>
@@ -80,190 +80,24 @@
                             <img src="{{ asset($general_setting->white_logo) }}" alt="logo" class="light-version-logo">
                         </a>
                     </div>
-                    <div class="menu-block-wrapper">
-                        <div class="menu-overlay"></div>
-                        <nav class="menu-block" id="append-menu-header">
-                            <div class="mobile-menu-head">
-                                <div class="go-back">
-                                    <i class="fa fa-angle-left"></i>
-                                </div>
-                                <div class="current-menu-title"></div>
-                                <div class="mobile-menu-close">&times;</div>
-                            </div>
-                            <ul class="site-menu-main light-color">
-                                <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">Home <i class="ri-arrow-down-s-fill"></i></a>
-                                    <ul class="sub-menu" id="submenu-1">
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('home', ['theme' => 'main_demo']) }}">
-                                                <span class="menu-item-text">{{ __('translate.Main Demo') }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('home', ['theme' => 'it_solutions']) }}">
-                                                <span class="menu-item-text">{{ __('translate.IT Solutions') }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('home', ['theme' => 'tech_agency']) }}">
-                                                <span class="menu-item-text">{{ __('translate.Tech Agency')}}</span>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('home', ['theme' => 'startup_home']) }}">
-                                                <span class="menu-item-text">{{ __('translate.Startup Home') }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('home', ['theme' => 'it_consulting']) }}">
-                                                <span class="menu-item-text">{{ __('translate.IT Consulting') }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('home', ['theme' => 'soft_company']) }}">
-                                                <span class="menu-item-text">{{ __('translate.Software Company') }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('home', ['theme' => 'digital_agency']) }}">
-                                                <span class="menu-item-text">{{ __('translate.Digital Agency') }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('home', ['theme' => 'tech_company']) }}">
-                                                <span class="menu-item-text">{{ __('translate.Tech Company') }}</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Pages') }}  <i class="ri-arrow-down-s-fill"></i></a>
-                                    <ul class="sub-menu" id="submenu-2">
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('about-us') }}">
-                                                <span class="menu-item-text">{{ __('translate.About Us') }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('pricing') }}">
-                                                <span class="menu-item-text">{{ __('Pricing Plan') }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('services') }}" class="drop-trigger">{{ __('Service') }}
-                                            </a>
-                                        </li>
-
-                                        <li class="sub-menu--item ">
-                                            <a href="{{ route('teams') }}" class="drop-trigger">{{ __('Our Teams') }}</a>
-                                        </li>
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">{{ __('Utility') }}<i class="ri-arrow-down-s-fill"></i>
-                                            </a>
-                                            <ul class="sub-menu shape-none" id="submenu-7">
-                                                <li class="sub-menu--item">
-                                                    <a href="{{ route('faq') }}">
-                                                        <span class="menu-item-text">{{ __('FAQ') }}</span>
-                                                    </a>
-                                                </li>
-
-                                                <li class="sub-menu--item">
-                                                    <a href="{{ route('testimonials') }}">
-                                                        <span class="menu-item-text">{{ __('Testimonials') }}</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="sub-menu--item nav-item-has-children">
-                                            <a href="#" data-menu-get="h3" class="drop-trigger">Shop<i class="ri-arrow-down-s-fill"></i>
-                                            </a>
-                                            <ul class="sub-menu shape-none" id="submenu-8">
-                                                <li class="sub-menu--item">
-                                                    <a href="shop.html">
-                                                        <span class="menu-item-text">shop</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sub-menu--item">
-                                                    <a href="single-shop.html">
-                                                        <span class="menu-item-text">Shop Details</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sub-menu--item">
-                                                    <a href="my-cart.html">
-                                                        <span class="menu-item-text">My Cart</span>
-                                                    </a>
-                                                </li>
-                                                <li class="sub-menu--item">
-                                                    <a href="checkout.html">
-                                                        <span class="menu-item-text">Checkout</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                @php
-                                    $isGrid = request()->query('type') === 'grid';
-                                @endphp
-                                <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">{{ __('Portfolio') }} <i
-                                            class="ri-arrow-down-s-fill"></i></a>
-                                    <ul class="sub-menu shape-none" id="submenu-6">
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('portfolio', ['type' => 'grid']) }}">
-                                                <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Portfolio Grid') }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('portfolio') }}">
-                                                <span class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('Portfolio Masonry') }}</span>
-                                            </a>
-                                        </li>
-
-                                    </ul>
-                                </li>
-
-                                <li class="nav-item nav-item-has-children">
-                                    <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Blog') }} <i
-                                            class="ri-arrow-down-s-fill"></i></a>
-                                    <ul class="sub-menu" id="submenu-9">
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('blogs') }}">
-                                                <span class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('translate.Blog') }}</span>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu--item">
-                                            <a href="{{ route('blogs', ['type' => 'grid']) }}">
-                                                <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Blog Grid') }}</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link-item"
-                                       href="{{ route('contact-us') }}">{{ __('translate.Contact') }}</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                    @include('frontend.templates.layouts._menu_nav',['menuTheme' => 'light-color'])
                     <div class="header-btn header-btn-l1 ms-auto d-none d-xs-inline-flex">
                         <div class="optech-header-icon">
 
                             <div class="optech-header-cart">
-                <span>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M18.1906 6.00295L15.6009 2.55004C15.3524 2.21867 14.8823 2.15152 14.5509 2.40004C14.2196 2.64857 14.1524 3.11867 14.4009 3.45004L16.3134 6H7.68847L9.60093 3.45004C9.84946 3.11867 9.7823 2.64857 9.45093 2.40004C9.11956 2.15152 8.64946 2.21867 8.40093 2.55004L5.81125 6.00295C3.91268 6.07556 2.40486 7.481 2.07031 9.25H21.9315C21.5969 7.48103 20.0891 6.07561 18.1906 6.00295ZM20.2829 18.808C19.903 20.6666 18.2815 22 16.4011 22H7.60066C5.7203 22 4.09876 20.6666 3.71893 18.808L2.08401 10.808C2.08006 10.7887 2.07625 10.7693 2.07258 10.75H21.9292C21.9255 10.7693 21.9217 10.7887 21.9178 10.808L20.2829 18.808ZM9.00073 13.25C9.41495 13.25 9.75073 13.5858 9.75073 14L9.75073 18C9.75073 18.4142 9.41495 18.75 9.00073 18.75C8.58652 18.75 8.25073 18.4142 8.25073 18L8.25073 14C8.25073 13.5858 8.58652 13.25 9.00073 13.25ZM15.7507 14C15.7507 13.5858 15.4149 13.25 15.0007 13.25C14.5865 13.25 14.2507 13.5858 14.2507 14V18C14.2507 18.4142 14.5865 18.75 15.0007 18.75C15.4149 18.75 15.7507 18.4142 15.7507 18V14Z"
-                          fill="#fff" />
-                  </svg>
-                </span>
+                                <span>
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M18.1906 6.00295L15.6009 2.55004C15.3524 2.21867 14.8823 2.15152 14.5509 2.40004C14.2196 2.64857 14.1524 3.11867 14.4009 3.45004L16.3134 6H7.68847L9.60093 3.45004C9.84946 3.11867 9.7823 2.64857 9.45093 2.40004C9.11956 2.15152 8.64946 2.21867 8.40093 2.55004L5.81125 6.00295C3.91268 6.07556 2.40486 7.481 2.07031 9.25H21.9315C21.5969 7.48103 20.0891 6.07561 18.1906 6.00295ZM20.2829 18.808C19.903 20.6666 18.2815 22 16.4011 22H7.60066C5.7203 22 4.09876 20.6666 3.71893 18.808L2.08401 10.808C2.08006 10.7887 2.07625 10.7693 2.07258 10.75H21.9292C21.9255 10.7693 21.9217 10.7887 21.9178 10.808L20.2829 18.808ZM9.00073 13.25C9.41495 13.25 9.75073 13.5858 9.75073 14L9.75073 18C9.75073 18.4142 9.41495 18.75 9.00073 18.75C8.58652 18.75 8.25073 18.4142 8.25073 18L8.25073 14C8.25073 13.5858 8.58652 13.25 9.00073 13.25ZM15.7507 14C15.7507 13.5858 15.4149 13.25 15.0007 13.25C14.5865 13.25 14.2507 13.5858 14.2507 14V18C14.2507 18.4142 14.5865 18.75 15.0007 18.75C15.4149 18.75 15.7507 18.4142 15.7507 18V14Z"
+                                          fill="#fff" />
+                                  </svg>
+                                </span>
                                 <span class="cart_number">3</span>
                             </div>
 
                             <a class="optech-default-btn optech-header-btn" href="{{ route('contact-us') }}" data-text="Get in Touch"><span
-                                    class="btn-wraper">{{ __('Get in Touch') }}</span></a>
+                                    class="btn-wraper">{{ __('Get in Touch') }}</span>
+                            </a>
                         </div>
 
                     </div>

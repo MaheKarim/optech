@@ -76,210 +76,28 @@
                                 <img src="{{ asset($general_setting->logo) }}" alt="" class="light-version-logo">
                             </a>
                         </div>
-                        <div class="menu-block-wrapper">
-                            <div class="menu-overlay"></div>
-                            <nav class="menu-block" id="append-menu-header">
-                                <div class="mobile-menu-head">
-                                    <div class="go-back">
-                                        <i class="fa fa-angle-left"></i>
-                                    </div>
-                                    <div class="current-menu-title"></div>
-                                    <div class="mobile-menu-close">&times;</div>
-                                </div>
-                                <ul class="site-menu-main">
-                                    <li class="nav-item nav-item-has-children">
-                                        <a href="#" class="nav-link-item drop-trigger">{{ __('Home') }} <i
-                                                class="ri-arrow-down-s-fill"></i></a>
-                                        <ul class="sub-menu" id="submenu-1">
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('home', ['theme' => 'main_demo']) }}">
-                                                    <span class="menu-item-text">{{ __('translate.Main Demo') }}</span>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('home', ['theme' => 'it_solutions']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.IT Solutions') }}</span>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('home', ['theme' => 'tech_agency']) }}">
-                                                    <span class="menu-item-text">{{ __('translate.Tech Agency')}}</span>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('home', ['theme' => 'startup_home']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.Startup Home') }}</span>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('home', ['theme' => 'it_consulting']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.IT Consulting') }}</span>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('home', ['theme' => 'soft_company']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.Software Company') }}</span>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('home', ['theme' => 'digital_agency']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.Digital Agency') }}</span>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('home', ['theme' => 'tech_company']) }}">
-                                                    <span
-                                                        class="menu-item-text">{{ __('translate.Tech Company') }}</span>
-                                                </a>
-                                            </li>
-                                        </ul>
 
-                                    </li>
-
-                                    <li class="nav-item nav-item-has-children">
-                                        <a href="#" class="nav-link-item drop-trigger">Pages <i
-                                                class="ri-arrow-down-s-fill"></i></a>
-                                        <ul class="sub-menu" id="submenu-2">
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('about-us') }}">
-                                                    <span class="menu-item-text">{{ __('translate.About Us') }}</span>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('pricing') }}">
-                                                    <span class="menu-item-text">{{ __('Pricing') }}</span>
-                                                </a>
-                                            </li>
-
-                                            <li class="sub-menu--item ">
-                                                <a href="{{ route('services') }}" class="drop-trigger">{{ __('Services') }}
-                                                </a>
-
-                                            </li>
-                                            <li class="sub-menu--item ">
-                                                <a href="{{ route('teams') }}" class="drop-trigger">{{ __('Our Teams') }}
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item nav-item-has-children">
-                                                <a href="#" data-menu-get="h3" class="drop-trigger">Utility<i
-                                                        class="ri-arrow-down-s-fill"></i>
-                                                </a>
-                                                <ul class="sub-menu shape-none" id="submenu-7">
-                                                    <li class="sub-menu--item">
-                                                        <a href="{{ route('faq') }}">
-                                                            <span class="menu-item-text">{{ __('Faq') }}</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="errors-404.html">
-                                                            <span class="menu-item-text">Error 404</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="testimonial.html">
-                                                            <span class="menu-item-text">Testimonial</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="sub-menu--item nav-item-has-children">
-                                                <a href="#" data-menu-get="h3" class="drop-trigger">Shop<i
-                                                        class="ri-arrow-down-s-fill"></i>
-                                                </a>
-                                                <ul class="sub-menu shape-none" id="submenu-8">
-                                                    <li class="sub-menu--item">
-                                                        <a href="shop.html">
-                                                            <span class="menu-item-text">shop</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="single-shop.html">
-                                                            <span class="menu-item-text">Shop Details</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="my-cart.html">
-                                                            <span class="menu-item-text">My Cart</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sub-menu--item">
-                                                        <a href="checkout.html">
-                                                            <span class="menu-item-text">Checkout</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    @php
-                                        $isGrid = request()->query('type') === 'grid';
-                                    @endphp
-                                    <li class="nav-item nav-item-has-children">
-                                        <a href="#" class="nav-link-item drop-trigger">{{ __('Portfolio') }} <i
-                                                class="ri-arrow-down-s-fill"></i></a>
-                                        <ul class="sub-menu shape-none" id="submenu-6">
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('portfolio', ['type' => 'grid']) }}">
-                                                    <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Portfolio Grid') }}</span>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('portfolio') }}">
-                                                    <span class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('Portfolio Masonry') }}</span>
-                                                </a>
-                                            </li>
-
-                                        </ul>
-                                    </li>
-
-                                    <li class="nav-item nav-item-has-children">
-                                        <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Blog') }} <i
-                                                class="ri-arrow-down-s-fill"></i></a>
-                                        <ul class="sub-menu" id="submenu-9">
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('blogs') }}">
-                                                    <span class="menu-item-text {{ !$isGrid ? 'active' : '' }}">{{ __('translate.Blog') }}</span>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu--item">
-                                                <a href="{{ route('blogs', ['type' => 'grid']) }}">
-                                                    <span class="menu-item-text {{ $isGrid ? 'active' : '' }}">{{ __('Blog Grid') }}</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="{{ route('contact-us') }}" class="nav-link-item">{{ __('Contact') }}</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                        @include('frontend.templates.layouts._menu_nav')
+                        <!-- Cart Code -->
                         <div class="header-btn header-btn-l1 ms-auto d-none d-xs-inline-flex">
                             <div class="optech-header-icon">
                                 <div class="optech-header-search">
                                     <i class="ri-search-line"></i>
                                 </div>
                                 <div class="optech-header-cart">
-                  <span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M18.1906 6.00295L15.6009 2.55004C15.3524 2.21867 14.8823 2.15152 14.5509 2.40004C14.2196 2.64857 14.1524 3.11867 14.4009 3.45004L16.3134 6H7.68847L9.60093 3.45004C9.84946 3.11867 9.7823 2.64857 9.45093 2.40004C9.11956 2.15152 8.64946 2.21867 8.40093 2.55004L5.81125 6.00295C3.91268 6.07556 2.40486 7.481 2.07031 9.25H21.9315C21.5969 7.48103 20.0891 6.07561 18.1906 6.00295ZM20.2829 18.808C19.903 20.6666 18.2815 22 16.4011 22H7.60066C5.7203 22 4.09876 20.6666 3.71893 18.808L2.08401 10.808C2.08006 10.7887 2.07625 10.7693 2.07258 10.75H21.9292C21.9255 10.7693 21.9217 10.7887 21.9178 10.808L20.2829 18.808ZM9.00073 13.25C9.41495 13.25 9.75073 13.5858 9.75073 14L9.75073 18C9.75073 18.4142 9.41495 18.75 9.00073 18.75C8.58652 18.75 8.25073 18.4142 8.25073 18L8.25073 14C8.25073 13.5858 8.58652 13.25 9.00073 13.25ZM15.7507 14C15.7507 13.5858 15.4149 13.25 15.0007 13.25C14.5865 13.25 14.2507 13.5858 14.2507 14V18C14.2507 18.4142 14.5865 18.75 15.0007 18.75C15.4149 18.75 15.7507 18.4142 15.7507 18V14Z"
-                            fill="#0A165E"/>
-                    </svg>
-
-                  </span>
+                                      <span>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M18.1906 6.00295L15.6009 2.55004C15.3524 2.21867 14.8823 2.15152 14.5509 2.40004C14.2196 2.64857 14.1524 3.11867 14.4009 3.45004L16.3134 6H7.68847L9.60093 3.45004C9.84946 3.11867 9.7823 2.64857 9.45093 2.40004C9.11956 2.15152 8.64946 2.21867 8.40093 2.55004L5.81125 6.00295C3.91268 6.07556 2.40486 7.481 2.07031 9.25H21.9315C21.5969 7.48103 20.0891 6.07561 18.1906 6.00295ZM20.2829 18.808C19.903 20.6666 18.2815 22 16.4011 22H7.60066C5.7203 22 4.09876 20.6666 3.71893 18.808L2.08401 10.808C2.08006 10.7887 2.07625 10.7693 2.07258 10.75H21.9292C21.9255 10.7693 21.9217 10.7887 21.9178 10.808L20.2829 18.808ZM9.00073 13.25C9.41495 13.25 9.75073 13.5858 9.75073 14L9.75073 18C9.75073 18.4142 9.41495 18.75 9.00073 18.75C8.58652 18.75 8.25073 18.4142 8.25073 18L8.25073 14C8.25073 13.5858 8.58652 13.25 9.00073 13.25ZM15.7507 14C15.7507 13.5858 15.4149 13.25 15.0007 13.25C14.5865 13.25 14.2507 13.5858 14.2507 14V18C14.2507 18.4142 14.5865 18.75 15.0007 18.75C15.4149 18.75 15.7507 18.4142 15.7507 18V14Z"
+                                                fill="#0A165E"/>
+                                        </svg>
+                                      </span>
                                     <span class="cart_number">3</span>
                                 </div>
                                 <a class="optech-default-btn optech-header-btn" href="{{ route('contact-us') }}"
-                                   data-text="{{ __('Get in Touch') }}"><span
-                                        class="btn-wraper">{{ __('Get in Touch') }}</span></a>
+                                   data-text="{{ __('Get in Touch') }}">
+                                    <span class="btn-wraper">{{ __('Get in Touch') }}</span>
+                                </a>
                             </div>
                         </div>
                         <!-- mobile menu trigger -->
@@ -293,18 +111,8 @@
             </div>
         </div>
 
-        <div class="optech-header-search-section">
-            <div class="container">
-                <div class="optech-header-search-box">
-                    <input type="search" placeholder="Search here...">
-                    <button id="header-search" type="button"><i class="ri-search-line"></i></button>
-                    <p>{{ __('Type above and press Enter to search. Press Close to cancel.') }}</p>
-                </div>
-            </div>
-            <div class="optech-header-search-close">
-                <i class="ri-close-line"></i>
-            </div>
-        </div>
+        @include('frontend.templates.layouts.search_bar')
+
     </header>
     <div class="search-overlay"></div>
     <!--End Index-header-section -->
@@ -319,8 +127,6 @@
             $agencyFeatureSection = getContent('digital_agency_feature_section.content', true);
             $blogSection = getContent('main_demo_blog_section.content', true);
             $ctaContent = getContent('main_demo_cta_section.content', true);
-
-
             $pricingContent = getContent('it_solutions_pricing_section.content', true);
              $packageInformation = $currentLang === 'en'
             ? ($pricingContent->data_values['package_information'] ?? [])

@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9cea5a0-5ea3-4553-ae00-731dff0d9c33" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/shop/not_found.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/shop/paginate.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/shop/sidebar_search.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/_menu_nav.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/search_bar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Resources/views/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Ecommerce/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Ecommerce/Routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/buyer_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/buyer_detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pricing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pricing.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/script.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/script.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/shop/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/shop/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/digital_agency.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/digital_agency.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/it_solutions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/it_solutions.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/white_navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/layouts/white_navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/main_demo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/soft_company.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/soft_company.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/startup_home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/startup_home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/tech_agency.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/tech_agency.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/templates/tech_company.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/templates/tech_company.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master_layout.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +312,7 @@
       <workItem from="1736831975809" duration="24040000" />
       <workItem from="1736915454600" duration="20122000" />
       <workItem from="1737001377555" duration="21951000" />
-      <workItem from="1737259924384" duration="13091000" />
+      <workItem from="1737259924384" duration="17738000" />
     </task>
     <servers />
   </component>
@@ -338,11 +337,6 @@
           <url>file://$PROJECT_DIR$/Modules/Project/resources/views/edit.blade.php</url>
           <line>218</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/frontend/templates/it_consulting.blade.php</url>
-          <line>282</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Modules/Ecommerce/Database/Migrations/2024_11_02_102556_create_product_translations_table.php</url>
