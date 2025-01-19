@@ -51,6 +51,7 @@ Route::group(['middleware' => ['HtmlSpecialchars', 'MaintenanceMode']], function
         // Product Controller
         Route::controller(PublicProductController::class)->name('product.')->group(function (){
            Route::get('/shop', 'shop')->name('shop');
+           Route::get('/search', 'search')->name('search');
            Route::get('/product/{slug}', 'product')->name('view');
         });
 

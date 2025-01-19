@@ -31,7 +31,7 @@
                                     <p>{{ $package['description'] ?? '' }}</p>
                                 </div>
                                 <div class="optech-pricing-price">
-                                    <h2>${{ $package['price'] ?? '0' }}<span>/{{ __('month') }}</span></h2>
+                                    <h2>{{ currency($package['price']) ?? '0' }}<span>/{{ __('month') }}</span></h2>
                                 </div>
                                 <div class="optech-pricing-feature">
                                     <ul>
@@ -53,6 +53,7 @@
                 @endif
             </div>
         </div>
-    </div>    @include('frontend.templates.layouts.faq')
-
+    </div>
+    @include('frontend.templates.layouts.faq')
+    <!-- End -->
 @endsection
