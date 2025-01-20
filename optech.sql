@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 13, 2025 at 12:58 PM
+-- Generation Time: Jan 20, 2025 at 04:53 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -336,9 +336,8 @@ CREATE TABLE `carts` (
 --
 
 INSERT INTO `carts` (`id`, `user_id`, `session_id`, `product_id`, `quantity`, `created_at`, `updated_at`) VALUES
-(1, 3, 'h2LJCbaGzLnzn9UnalwIqtrmwmKV3WwHkKtW4AZC', 1, 2, '2025-01-13 12:50:49', '2025-01-13 12:56:25'),
-(2, NULL, 'h2LJCbaGzLnzn9UnalwIqtrmwmKV3WwHkKtW4AZC', 1, 2, '2025-01-13 12:54:30', '2025-01-13 12:55:31'),
-(3, 3, 'HRwJ8d3QjVveNwDjs7YdDmCpkQDwxt073wHz3cWW', 1, 1, '2025-01-13 12:56:45', '2025-01-13 12:56:45');
+(8, NULL, 'CbLzVQxcjmbO8PotaMWGnYdMdpXVwVT5YAFZjA6u', 2, 1, '2025-01-15 05:01:55', '2025-01-15 05:01:55'),
+(9, NULL, 'CbLzVQxcjmbO8PotaMWGnYdMdpXVwVT5YAFZjA6u', 1, 1, '2025-01-15 05:01:56', '2025-01-15 05:01:56');
 
 -- --------------------------------------------------------
 
@@ -874,10 +873,10 @@ CREATE TABLE `global_settings` (
 INSERT INTO `global_settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
 (1, 'logo', 'uploads/website-images/logo-2025-01-02-11-48-55-5041.png', NULL, '2025-01-02 05:48:55'),
 (2, 'favicon', 'uploads/website-images/favicon-2024-12-18-03-53-38-7740.png', NULL, '2024-12-18 09:53:38'),
-(3, 'app_name', 'Optech', NULL, '2025-01-08 12:40:13'),
-(4, 'contact_message_mail', 'workzone.contact@gmail.com', NULL, '2025-01-08 12:40:13'),
-(5, 'timezone', 'Asia/Dhaka', NULL, '2025-01-08 12:40:13'),
-(6, 'selected_theme', 'it_solutions', NULL, '2025-01-08 12:40:13'),
+(3, 'app_name', 'Optech', NULL, '2025-01-20 04:47:24'),
+(4, 'contact_message_mail', 'workzone.contact@gmail.com', NULL, '2025-01-20 04:47:24'),
+(5, 'timezone', 'Asia/Dhaka', NULL, '2025-01-20 04:47:24'),
+(6, 'selected_theme', 'digital_agency', NULL, '2025-01-20 04:47:24'),
 (7, 'recaptcha_status', '0', NULL, '2024-07-10 05:25:54'),
 (8, 'recaptcha_site_key', '6LdnfvkpAAAAAOoDqEeVqqOA-BIdVmYd4bBPejuq', NULL, '2024-07-10 05:25:54'),
 (9, 'recaptcha_secret_key', '6LdnfvkpAAAAAC0GBj1_ERX2y581bVRUdSpNDgJm', NULL, '2024-07-10 05:25:54'),
@@ -915,11 +914,9 @@ INSERT INTO `global_settings` (`id`, `key`, `value`, `created_at`, `updated_at`)
 (41, 'footer_logo', 'uploads/website-images/footer-logo-2025-01-02-11-37-45-6803.png', '2024-07-02 11:51:07', '2025-01-02 05:37:45'),
 (42, 'empty_image', 'uploads/website-images/empty-2024-05-17-11-50-01-3653.png', '2024-07-03 14:39:42', NULL),
 (43, 'not_found', 'uploads/website-images/not-found-2024-05-17-11-50-01-3653.png', '2024-07-08 10:07:05', NULL),
-(44, 'commission_type', 'commission', '2024-09-15 03:54:23', '2025-01-08 12:40:13'),
-(45, 'commission_per_sale', '1', '2024-09-15 03:54:23', '2025-01-08 12:40:13'),
-(46, 'commission_type', 'commission', '2024-09-15 04:46:44', '2025-01-08 12:40:13'),
-(47, 'commission_per_sale', '1', '2024-09-15 04:46:44', '2025-01-08 12:40:13'),
-(48, 'white_logo', 'uploads/website-images/white_logo-2025-01-02-11-54-26-4338.png', '2024-12-18 08:49:33', '2025-01-02 05:54:26');
+(44, 'blog_type', 'default', '2024-09-15 03:54:23', '2025-01-20 04:47:24'),
+(48, 'white_logo', 'uploads/website-images/white_logo-2025-01-02-11-54-26-4338.png', '2024-12-18 08:49:33', '2025-01-02 05:54:26'),
+(49, 'portfolio_type', 'default', '2024-09-15 03:54:23', '2025-01-20 04:47:24');
 
 -- --------------------------------------------------------
 
@@ -1507,6 +1504,13 @@ CREATE TABLE `order_details` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `quantity`, `price`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, 1, '17.10000000', '2025-01-16 04:34:14', '2025-01-16 04:34:14');
+
 -- --------------------------------------------------------
 
 --
@@ -1660,7 +1664,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `brand_id`, `slug`, `price`, `offer_price`, `thumbnail_image`, `tags`, `status`, `created_at`, `updated_at`) VALUES
-(1, 13, 3, 'realme-air-buds-5-pro', '100.00', NULL, 'uploads/custom-images/listing-2025-01-13-11-54-22-7729.webp', '[\"[{\\\"value\\\":\\\"realme\\\"}\",\"{\\\"value\\\":\\\"air buds\\\"}\",\"{\\\"value\\\":\\\"headphone\\\"}\",\"{\\\"value\\\":\\\"anc earbuds\\\"}]\"]', 1, '2025-01-13 05:54:22', '2025-01-13 05:54:22');
+(1, 13, 3, 'realme-air-buds-5-pro', '100.00', NULL, 'uploads/custom-images/listing-2025-01-13-11-54-22-7729.webp', '[\"[{\\\"value\\\":\\\"realme\\\"}\",\"{\\\"value\\\":\\\"air buds\\\"}\",\"{\\\"value\\\":\\\"headphone\\\"}\",\"{\\\"value\\\":\\\"anc earbuds\\\"}]\"]', 1, '2025-01-13 05:54:22', '2025-01-13 05:54:22'),
+(2, 5, 3, 'hikvision-ds2ce76d0titpf-2-mp-indoor-fixed-turret-camera', '19.00', '10.00', 'uploads/custom-images/listing-2025-01-14-03-53-24-5413.webp', '[\"[{\\\"value\\\":\\\"hikvision\\\"}\",\"{\\\"value\\\":\\\"realme\\\"}\",\"{\\\"value\\\":\\\"cc camera\\\"}\",\"{\\\"value\\\":\\\"original camera cc\\\"}\",\"{\\\"value\\\":\\\"cc camera setup in bangladesh\\\"}]\"]', 1, '2025-01-14 09:53:24', '2025-01-14 09:53:24');
 
 -- --------------------------------------------------------
 
@@ -1724,7 +1729,9 @@ CREATE TABLE `product_translations` (
 
 INSERT INTO `product_translations` (`id`, `product_id`, `lang_code`, `name`, `description`, `seo_title`, `seo_description`, `created_at`, `updated_at`) VALUES
 (1, 1, 'en', 'Realme Air Buds 5 pro', '<p>Feature&nbsp; :</p>\r\n<ul>\r\n<li>10mm Dynamic Bass: Indulge into rich sound tones, clear vocals and enhanced bass with realme TechLife Buds T100 as they come with a 10mm dynamic bass driver.</li>\r\n<li>AI ENC for Calls: The realme TechLife Buds T100 features AI ENC technology to eliminate background noise, so you can listen to music without being distracted by the surroundings.</li>\r\n<li>28 Hours Total Playback: Whether you&rsquo;re watching your favourite shows, blazing through your playlist, or enjoying the outdoors, realme TechLife Buds T100 keeps you connected and comfortable all day long.</li>\r\n<li>88ms Super Low Latency: With the realme TechLife Buds T100 precise audio and visual synchronization, you can play games in a fun way and switch on the gaming mode that allows you to play games with super low latency.</li>\r\n<li>Real HD Sound: The realme TechLife Buds T100 provides &ldquo;Studio-Level&rdquo; sound. Experience Real HD sound on the realme Link App.</li>\r\n<li>realme Link App: With realme Link, you&rsquo;ll be able to customize EQ settings, assign customized touch commands, and perform more tailored functions.</li>\r\n</ul>', 'Realme TechLife Buds T100 True Wireless Earbuds', 'Realme TechLife Buds T100 True Wireless Earbuds', '2025-01-12 06:23:48', '2025-01-13 05:58:29'),
-(2, 1, 'hd', 'Realme Air Buds 5 pro', '<p>Feature&nbsp; :</p>\r\n<ul>\r\n<li>\r\n10mm Dynamic Bass: Indulge into rich sound tones, clear vocals and enhanced bass with realme TechLife Buds T100 as they come with a 10mm dynamic bass driver.\r\n</li>\r\n<li>\r\nAI ENC for Calls: The realme TechLife Buds T100 features AI ENC technology to eliminate background noise, so you can listen to music without being distracted by the surroundings.\r\n</li>\r\n<li>\r\n28 Hours Total Playback: Whether you&rsquo;re watching your favourite shows, blazing through your playlist, or enjoying the outdoors, realme TechLife Buds T100 keeps you connected and comfortable all day long.\r\n</li>\r\n<li>\r\n88ms Super Low Latency: With the realme TechLife Buds T100 precise audio and visual synchronization, you can play games in a fun way and switch on the gaming mode that allows you to play games with super low latency.\r\n</li>\r\n<li>\r\nReal HD Sound: The realme TechLife Buds T100 provides &ldquo;Studio-Level&rdquo; sound. Experience Real HD sound on the realme Link App.\r\n</li>\r\n<li>\r\nrealme Link App: With realme Link, you&rsquo;ll be able to customize EQ settings, assign customized touch commands, and perform more tailored functions.\r\n</li>\r\n</ul>', 'Realme TechLife Buds T100 True Wireless Earbuds', 'Realme TechLife Buds T100 True Wireless Earbuds\r\nFeature  :', '2025-01-12 06:23:48', '2025-01-13 05:54:22');
+(2, 1, 'hd', 'Realme Air Buds 5 pro', '<p>Feature&nbsp; :</p>\r\n<ul>\r\n<li>\r\n10mm Dynamic Bass: Indulge into rich sound tones, clear vocals and enhanced bass with realme TechLife Buds T100 as they come with a 10mm dynamic bass driver.\r\n</li>\r\n<li>\r\nAI ENC for Calls: The realme TechLife Buds T100 features AI ENC technology to eliminate background noise, so you can listen to music without being distracted by the surroundings.\r\n</li>\r\n<li>\r\n28 Hours Total Playback: Whether you&rsquo;re watching your favourite shows, blazing through your playlist, or enjoying the outdoors, realme TechLife Buds T100 keeps you connected and comfortable all day long.\r\n</li>\r\n<li>\r\n88ms Super Low Latency: With the realme TechLife Buds T100 precise audio and visual synchronization, you can play games in a fun way and switch on the gaming mode that allows you to play games with super low latency.\r\n</li>\r\n<li>\r\nReal HD Sound: The realme TechLife Buds T100 provides &ldquo;Studio-Level&rdquo; sound. Experience Real HD sound on the realme Link App.\r\n</li>\r\n<li>\r\nrealme Link App: With realme Link, you&rsquo;ll be able to customize EQ settings, assign customized touch commands, and perform more tailored functions.\r\n</li>\r\n</ul>', 'Realme TechLife Buds T100 True Wireless Earbuds', 'Realme TechLife Buds T100 True Wireless Earbuds\r\nFeature  :', '2025-01-12 06:23:48', '2025-01-13 05:54:22'),
+(3, 2, 'en', 'Hikvision DS-2CE76D0T-ITPF 2 MP Indoor Fixed Turret Camera', '<table class=\"data-table flex-table\" cellspacing=\"0\" cellpadding=\"0\">\r\n\r\n<tr>\r\n<td class=\"heading-row\" colspan=\"3\">General</td>\r\n</tr>\r\n\r\n\r\n<tr>\r\n<td class=\"name\">Dimensions</td>\r\n<td class=\"value\">&Phi; 84.6 mm &times; 78.9 mm (&Phi; 3.33&Prime; &times; 3.11&Prime;)</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Weight</td>\r\n<td class=\"value\">Approx. 140.5 g (0.31 lb.)</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Pan/Tilt/Rotation</td>\r\n<td class=\"value\">Pan: 0 to 360&deg;,<br>Tilt: 0 to 75&deg;,<br>Rotation: 0 to 360&deg;</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Operating Conditions</td>\r\n<td class=\"value\">-40 &deg;C to 60 &deg;C (-40 &deg;F to 140 &deg;F), humidity 90% or less (non-condensing)</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Power Supply</td>\r\n<td class=\"value\">12 VDC &plusmn; 25%</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Power Consumption</td>\r\n<td class=\"value\">Max. 2.7 W</td>\r\n</tr>\r\n\r\n</table>\r\n<table class=\"data-table flex-table\" cellspacing=\"0\" cellpadding=\"0\">\r\n\r\n<tr>\r\n<td class=\"heading-row\" colspan=\"3\">Camera</td>\r\n</tr>\r\n\r\n\r\n<tr>\r\n<td class=\"name\">Image Sensor</td>\r\n<td class=\"value\">2 MP CMOS</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Electronic Shutter Speed</td>\r\n<td class=\"value\">PAL: 1/25 s to 1/50, 000 s NTSC: 1/30 s to 1/50, 000 s</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Minimum Illumination</td>\r\n<td class=\"value\">0.01 Lux @ (F1.2, AGC ON), 0 Lux with IR</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">IR Distance</td>\r\n<td class=\"value\">20 M</td>\r\n</tr>\r\n\r\n\r\n<tr>\r\n<td class=\"heading-row\" colspan=\"3\">Lens</td>\r\n</tr>\r\n\r\n\r\n<tr>\r\n<td class=\"name\">Lens Type</td>\r\n<td class=\"value\">Fixed Camera Focal Lens</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Focal Length</td>\r\n<td class=\"value\">2.8 mm fixed focal lens</td>\r\n</tr>\r\n\r\n</table>', 'Hikvision DS-2CE76D0T-ITPF 2 MP Indoor Fixed Turret Camera', 'Key Features\r\nModel: DS-2CE76D0T-ITPF\r\n2 MP, 1920 Ã— 1080 Resolution\r\n2.8 mm Fixed Focal lens\r\n4 in 1 video output (switchable TVI/AHD/CVI/CVBS)\r\nEXIR 2.0 Smart IR, up to 20 m IR distance', '2025-01-14 09:53:24', '2025-01-14 09:53:24'),
+(4, 2, 'hd', 'Hikvision DS-2CE76D0T-ITPF 2 MP Indoor Fixed Turret Camera', '<table class=\"data-table flex-table\" cellspacing=\"0\" cellpadding=\"0\">\r\n\r\n<tr>\r\n<td class=\"heading-row\" colspan=\"3\">General</td>\r\n</tr>\r\n\r\n\r\n<tr>\r\n<td class=\"name\">Dimensions</td>\r\n<td class=\"value\">&Phi; 84.6 mm &times; 78.9 mm (&Phi; 3.33&Prime; &times; 3.11&Prime;)</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Weight</td>\r\n<td class=\"value\">Approx. 140.5 g (0.31 lb.)</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Pan/Tilt/Rotation</td>\r\n<td class=\"value\">Pan: 0 to 360&deg;,<br>Tilt: 0 to 75&deg;,<br>Rotation: 0 to 360&deg;</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Operating Conditions</td>\r\n<td class=\"value\">-40 &deg;C to 60 &deg;C (-40 &deg;F to 140 &deg;F), humidity 90% or less (non-condensing)</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Power Supply</td>\r\n<td class=\"value\">12 VDC &plusmn; 25%</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Power Consumption</td>\r\n<td class=\"value\">Max. 2.7 W</td>\r\n</tr>\r\n\r\n</table>\r\n<table class=\"data-table flex-table\" cellspacing=\"0\" cellpadding=\"0\">\r\n\r\n<tr>\r\n<td class=\"heading-row\" colspan=\"3\">Camera</td>\r\n</tr>\r\n\r\n\r\n<tr>\r\n<td class=\"name\">Image Sensor</td>\r\n<td class=\"value\">2 MP CMOS</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Electronic Shutter Speed</td>\r\n<td class=\"value\">PAL: 1/25 s to 1/50, 000 s NTSC: 1/30 s to 1/50, 000 s</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Minimum Illumination</td>\r\n<td class=\"value\">0.01 Lux @ (F1.2, AGC ON), 0 Lux with IR</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">IR Distance</td>\r\n<td class=\"value\">20 M</td>\r\n</tr>\r\n\r\n\r\n<tr>\r\n<td class=\"heading-row\" colspan=\"3\">Lens</td>\r\n</tr>\r\n\r\n\r\n<tr>\r\n<td class=\"name\">Lens Type</td>\r\n<td class=\"value\">Fixed Camera Focal Lens</td>\r\n</tr>\r\n<tr>\r\n<td class=\"name\">Focal Length</td>\r\n<td class=\"value\">2.8 mm fixed focal lens</td>\r\n</tr>\r\n\r\n</table>', 'Hikvision DS-2CE76D0T-ITPF 2 MP Indoor Fixed Turret Camera', 'Key Features\r\nModel: DS-2CE76D0T-ITPF\r\n2 MP, 1920 Ã— 1080 Resolution\r\n2.8 mm Fixed Focal lens\r\n4 in 1 video output (switchable TVI/AHD/CVI/CVBS)\r\nEXIR 2.0 Smart IR, up to 20 m IR distance', '2025-01-14 09:53:24', '2025-01-14 09:53:24');
 
 -- --------------------------------------------------------
 
@@ -1955,7 +1962,7 @@ CREATE TABLE `shipping_methods` (
 --
 
 INSERT INTO `shipping_methods` (`id`, `name`, `price`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Free', '0.00000000', 1, '2025-01-12 07:28:05', '2025-01-12 07:28:05');
+(1, 'Free', '50.00000000', 1, '2025-01-12 07:28:05', '2025-01-12 07:28:05');
 
 -- --------------------------------------------------------
 
@@ -2389,11 +2396,8 @@ CREATE TABLE `users` (
   `kyc_status` int DEFAULT '0',
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gender` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `zip` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `hourly_payment` decimal(8,2) NOT NULL DEFAULT '0.00',
-  `designation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_top_seller` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'disable',
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2401,36 +2405,25 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'disable',
   `is_banned` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
-  `is_seller` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `about_me` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `language` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `university_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `university_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `university_time_period` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `school_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `school_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `school_time_period` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `skills` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `verification_token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `provider` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `provider_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `forget_password_token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `feez_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `online_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `online` tinyint(1) NOT NULL DEFAULT '0'
+  `online` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `username`, `email`, `kyc_status`, `phone`, `address`, `gender`, `image`, `hourly_payment`, `designation`, `is_top_seller`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `status`, `is_banned`, `is_seller`, `about_me`, `language`, `university_name`, `university_location`, `university_time_period`, `school_name`, `school_location`, `school_time_period`, `skills`, `verification_token`, `provider`, `provider_id`, `forget_password_token`, `feez_status`, `online_status`, `online`) VALUES
-(1, 'John Doe', 'john-doe-20240710113541', 'buyer@gmail.com', 0, '125-985-4587', 'Los Angeles, CA, USA', 'Male', 'uploads/custom-images/john-doe-2024-07-10-04-01-57-4496.png', '0.00', 'Web Developer', 'disable', '2024-07-10 05:35:57', '$2y$10$hPSxen6nSk7nTL6s8hxoFe3rZXYjLmU/UfjjJWLxVo1Jig30oi0Hu', NULL, '2024-07-10 05:35:41', '2024-07-10 10:04:36', 'enable', 'no', '0', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', 0),
-(3, 'David Richard', 'david-richard-20240710113753', 'seller@gmail.com', 1, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/david-richard-2024-07-10-11-40-49-2937.png', '10.00', 'Laravel Developer', 'enable', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', '7fvnVrohEJtS5a2caeXYwUX7VAp21jrkop1Istplc186ft8PdxTEFMZBV5Rl', '2024-07-10 05:37:53', '2025-01-13 12:55:48', 'enable', 'no', '1', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;}]', 'North South University', 'Aperiam deserunt dol, Burundi', '2015 - 2020', 'Independent University BD', 'Aperiam deserunt dol, Burundi', '2020-2024', '[{&quot;value&quot;:&quot;Php&quot;},{&quot;value&quot;:&quot;Laravel&quot;},{&quot;value&quot;:&quot;Html&quot;},{&quot;value&quot;:&quot;Css&quot;},{&quot;value&quot;:&quot;Javascript&quot;}]', NULL, NULL, NULL, NULL, '0', '1', 1),
-(4, 'David Simmonsss', 'david-simmons-20240710113753', 'seller2@gmail.com', 1, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/david-simmonsss-2024-07-10-11-42-35-3948.png', '10.00', 'Laravel Developer', 'enable', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', NULL, '2024-07-10 05:37:53', '2024-08-29 08:09:42', 'enable', 'no', '1', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Arabic&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', 'North South University', 'Aperiam deserunt dol, Burundi', '2015 - 2020', 'Independent University BD', 'Aperiam deserunt dol, Burundi', '2020-2024', '[{&quot;value&quot;:&quot;Php&quot;},{&quot;value&quot;:&quot;Laravel&quot;},{&quot;value&quot;:&quot;Html&quot;},{&quot;value&quot;:&quot;Css&quot;},{&quot;value&quot;:&quot;Javascript&quot;}]', NULL, NULL, NULL, NULL, '0', '1', 0),
-(5, 'Naymr Jhon', 'naymr-jhon-20240710113753', 'seller3@gmail.com', 0, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/naymr-jhon-2024-07-10-11-43-55-9474.png', '15.00', 'Graphic Designer', 'enable', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', NULL, '2024-07-10 05:37:53', '2024-07-10 05:43:55', 'enable', 'no', '1', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Arabic&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', 'North South University', 'Aperiam deserunt dol, Burundi', '2015 - 2020', 'Independent University BD', 'Aperiam deserunt dol, Burundi', '2020-2024', '[{&quot;value&quot;:&quot;Php&quot;},{&quot;value&quot;:&quot;Laravel&quot;},{&quot;value&quot;:&quot;Html&quot;},{&quot;value&quot;:&quot;Css&quot;},{&quot;value&quot;:&quot;Javascript&quot;}]', NULL, NULL, NULL, NULL, '0', '0', 0),
-(6, 'Madge Jordan', 'madge-jordan-20240710113753', 'seller4@gmail.com', 0, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/madge-jordan-2024-07-10-11-45-29-6149.png', '20.00', 'Graphic Designer', 'enable', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', NULL, '2024-07-10 05:37:53', '2024-07-10 05:45:29', 'enable', 'no', '1', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Arabic&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', 'North South University', 'Aperiam deserunt dol, Burundi', '2015 - 2020', 'Independent University BD', 'Aperiam deserunt dol, Burundi', '2020-2024', '[{&quot;value&quot;:&quot;Php&quot;},{&quot;value&quot;:&quot;Laravel&quot;},{&quot;value&quot;:&quot;Html&quot;},{&quot;value&quot;:&quot;Css&quot;},{&quot;value&quot;:&quot;Javascript&quot;}]', NULL, NULL, NULL, NULL, '0', '0', 0),
-(7, 'David Miller', 'david-miller-20240710113753', 'seller5@gmail.com', 0, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/david-miller-2024-07-10-11-47-42-9536.png', '25.00', 'Web Designer', 'enable', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', NULL, '2024-07-10 05:37:53', '2024-07-10 05:47:42', 'enable', 'no', '1', 'There are many variations of passages of Lorem Ipsum our a available, but the majority have oneks suffered alteration in some form, ki by injected humour, or randomised tomar a words which don&#039;t look even slightly believable. If you are going to use a valas passage of Lorem Ipsum, you need.Fusce eget pulvinar tor tor. Quisque suscipit ante ac nisi a rutrumnec mollis nulla.', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Arabic&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', 'North South University', 'Aperiam deserunt dol, Burundi', '2015 - 2020', 'Independent University BD', 'Aperiam deserunt dol, Burundi', '2020-2024', '[{&quot;value&quot;:&quot;Php&quot;},{&quot;value&quot;:&quot;Laravel&quot;},{&quot;value&quot;:&quot;Html&quot;},{&quot;value&quot;:&quot;Css&quot;},{&quot;value&quot;:&quot;Javascript&quot;}]', NULL, NULL, NULL, NULL, '0', '0', 0);
+INSERT INTO `users` (`id`, `name`, `username`, `email`, `kyc_status`, `phone`, `address`, `zip`, `image`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `status`, `is_banned`, `language`, `verification_token`, `provider`, `provider_id`, `forget_password_token`, `online`) VALUES
+(1, 'John Doe', 'john-doe-20240710113541', 'buyer@gmail.com', 0, '125-985-4587', 'Los Angeles, CA, USA', 'Male', 'uploads/custom-images/john-doe-2024-07-10-04-01-57-4496.png', '2024-07-10 05:35:57', '$2y$10$hPSxen6nSk7nTL6s8hxoFe3rZXYjLmU/UfjjJWLxVo1Jig30oi0Hu', NULL, '2024-07-10 05:35:41', '2024-07-10 10:04:36', 'enable', 'no', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', NULL, NULL, NULL, NULL, NULL),
+(3, 'David Richard', 'david-richard-20240710113753', 'seller@gmail.com', 1, '013030627217', 'Dhaka, Bangladesh', '2020', 'uploads/custom-images/david-richard-2025-01-16-05-22-53-9368.jpg', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', 'oYrbDDsP8smgUwPncY4NpK6LUWmneXsMpY1S4ZunfoYxIok65cwgVx1Fee4c', '2024-07-10 05:37:53', '2025-01-16 11:22:54', 'enable', 'no', '[{&quot;value&quot;:&quot;English&quot;}]', NULL, NULL, NULL, NULL, '0'),
+(4, 'David Simmonsss', 'david-simmons-20240710113753', 'seller2@gmail.com', 1, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/david-simmonsss-2024-07-10-11-42-35-3948.png', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', NULL, '2024-07-10 05:37:53', '2024-08-29 08:09:42', 'enable', 'no', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Arabic&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', NULL, NULL, NULL, NULL, NULL),
+(5, 'Naymr Jhon', 'naymr-jhon-20240710113753', 'seller3@gmail.com', 0, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/naymr-jhon-2024-07-10-11-43-55-9474.png', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', NULL, '2024-07-10 05:37:53', '2024-07-10 05:43:55', 'enable', 'no', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Arabic&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', NULL, NULL, NULL, NULL, NULL),
+(6, 'Madge Jordan', 'madge-jordan-20240710113753', 'seller4@gmail.com', 0, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/madge-jordan-2024-07-10-11-45-29-6149.png', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', NULL, '2024-07-10 05:37:53', '2024-07-10 05:45:29', 'enable', 'no', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Arabic&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', NULL, NULL, NULL, NULL, NULL),
+(7, 'David Miller', 'david-miller-20240710113753', 'seller5@gmail.com', 0, '125-985-4587', 'Dhaka, Bangladesh', 'Male', 'uploads/custom-images/david-miller-2024-07-10-11-47-42-9536.png', '2024-07-10 05:38:03', '$2y$10$6d8wpHW7Yg9jl/3q65kzxuv5SbQz2aZ/VOZLUFyIFda6/oTrR5jWu', NULL, '2024-07-10 05:37:53', '2024-07-10 05:47:42', 'enable', 'no', '[{&quot;value&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;Arabic&quot;},{&quot;value&quot;:&quot;Hindi&quot;},{&quot;value&quot;:&quot;Bangla&quot;},{&quot;value&quot;:&quot;Spanish&quot;}]', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2501,13 +2494,6 @@ CREATE TABLE `wishlists` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `wishlists`
---
-
-INSERT INTO `wishlists` (`id`, `user_id`, `product_id`, `created_at`, `updated_at`) VALUES
-(1, 3, 1, '2025-01-13 10:07:46', '2025-01-13 10:07:46');
 
 -- --------------------------------------------------------
 
@@ -3087,7 +3073,7 @@ ALTER TABLE `brand_translations`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -3201,7 +3187,7 @@ ALTER TABLE `frontends`
 -- AUTO_INCREMENT for table `global_settings`
 --
 ALTER TABLE `global_settings`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `homepages`
@@ -3291,13 +3277,13 @@ ALTER TABLE `newsletters`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `payment_gateways`
@@ -3321,7 +3307,7 @@ ALTER TABLE `privacy_policies`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product_galleries`
@@ -3333,13 +3319,13 @@ ALTER TABLE `product_galleries`
 -- AUTO_INCREMENT for table `product_reviews`
 --
 ALTER TABLE `product_reviews`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `product_translations`
 --
 ALTER TABLE `product_translations`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `projects`
