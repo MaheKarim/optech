@@ -10,52 +10,65 @@
         </div>
 
         <ul class="site-menu-main {{ $menuTheme ?? '' }}">
-            <li class="nav-item nav-item-has-children">
-                <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Home') }} <i
-                        class="ri-arrow-down-s-fill"></i></a>
-                <ul class="sub-menu" id="submenu-1">
-                    <li class="sub-menu--item">
-                        <a href="{{ route('home', ['theme' => 'main_demo']) }}">
-                            <span class="menu-item-text">{{ __('translate.Main Demo') }}</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu--item">
-                        <a href="{{ route('home', ['theme' => 'it_solutions']) }}">
-                           <span class="menu-item-text">{{ __('translate.IT Solutions') }}</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu--item">
-                        <a href="{{ route('home', ['theme' => 'tech_agency']) }}">
-                            <span class="menu-item-text">{{ __('translate.Tech Agency')}}</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu--item">
-                        <a href="{{ route('home', ['theme' => 'startup_home']) }}">
-                        <span  class="menu-item-text">{{ __('translate.Startup Home') }}</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu--item">
-                        <a href="{{ route('home', ['theme' => 'it_consulting']) }}">
-                           <span class="menu-item-text">{{ __('translate.IT Consulting') }}</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu--item">
-                        <a href="{{ route('home', ['theme' => 'soft_company']) }}">
-                           <span class="menu-item-text">{{ __('translate.Software Company') }}</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu--item">
-                        <a href="{{ route('home', ['theme' => 'digital_agency']) }}">
-                           <span class="menu-item-text">{{ __('translate.Digital Agency') }}</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu--item">
-                        <a href="{{ route('home', ['theme' => 'tech_company']) }}">
-                            <span class="menu-item-text">{{ __('translate.Tech Company') }}</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+
+            @php
+                $currentTheme = Modules\GlobalSetting\App\Models\GlobalSetting::where('key', 'selected_theme')->first()?->value ?? 'main_demo';
+            @endphp
+
+            @if(config('app.env') === 'DEMO')
+                <li class="nav-item nav-item-has-children">
+                    <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Home') }} <i
+                            class="ri-arrow-down-s-fill"></i></a>
+                    <ul class="sub-menu" id="submenu-1">
+                        <li class="sub-menu--item">
+                            <a href="{{ route('home', ['theme' => 'main_demo']) }}">
+                                <span class="menu-item-text {{ $currentTheme === 'main_demo' ? 'active' : '' }}">{{ __('translate.Main Demo') }}</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu--item">
+                            <a href="{{ route('home', ['theme' => 'it_solutions']) }}">
+                                <span class="menu-item-text {{ $currentTheme === 'it_solutions' ? 'active' : '' }}">{{ __('translate.IT Solutions') }}</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu--item">
+                            <a href="{{ route('home', ['theme' => 'tech_agency']) }}">
+                                <span class="menu-item-text {{ $currentTheme === 'tech_agency' ? 'active' : '' }}">{{ __('translate.Tech Agency')}}</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu--item">
+                            <a href="{{ route('home', ['theme' => 'startup_home']) }}">
+                                <span class="menu-item-text {{ $currentTheme === 'startup_home' ? 'active' : '' }}">{{ __('translate.Startup Home') }}</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu--item">
+                            <a href="{{ route('home', ['theme' => 'it_consulting']) }}">
+                                <span class="menu-item-text {{ $currentTheme === 'it_consulting' ? 'active' : '' }}">{{ __('translate.IT Consulting') }}</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu--item">
+                            <a href="{{ route('home', ['theme' => 'soft_company']) }}">
+                                <span class="menu-item-text {{ $currentTheme === 'soft_company' ? 'active' : '' }}">{{ __('translate.Software Company') }}</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu--item">
+                            <a href="{{ route('home', ['theme' => 'digital_agency']) }}">
+                                <span class="menu-item-text {{ $currentTheme === 'digital_agency' ? 'active' : '' }}">{{ __('translate.Digital Agency') }}</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu--item">
+                            <a href="{{ route('home', ['theme' => 'tech_company']) }}">
+                                <span class="menu-item-text {{ $currentTheme === 'tech_company' ? 'active' : '' }}">{{ __('translate.Tech Company') }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a href="{{ route('home') }}" class="nav-link-item">
+                        <span class="menu-item-text active">{{ __('translate.Home') }}</span>
+                    </a>
+                </li>
+            @endif
             <li class="nav-item nav-item-has-children">
                 <a href="#" class="nav-link-item drop-trigger">{{ __('translate.Pages') }} <i
                         class="ri-arrow-down-s-fill"></i></a>
